@@ -10,30 +10,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
 
-  // closeNavbar(): void {
-  //   const navbarCollapse = document.getElementById('navbarNav');
-  //   if (navbarCollapse) {
-  //     navbarCollapse.classList.remove('show');  
-  //   }
-  // }
+   closeNavbar(): void {
+     const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse) {
+       navbarCollapse.classList.remove('show');  
+     }
+   }
  
 
-//   $(document).ready(function () {
 
-//     $('.menu').click(function() {
-//         $('.overlay').toggleClass('anim');
-//         $(this).addClass('open')
-//     });
 
-//     $('.open').click(function(){
-//         $('.overlay').toggleClass('reverse-animation');
-//     })
-// });
 
-isOverlayOpen = false;
-
-  toggleOverlay(): void {
-    this.isOverlayOpen = !this.isOverlayOpen;
-  }
 
 }

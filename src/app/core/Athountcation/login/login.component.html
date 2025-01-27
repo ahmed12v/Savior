@@ -1,1 +1,52 @@
-<p>login works!</p>
+<section class="p-5  d-flex justify-content-center align-content-center">
+    
+    <div class=" w-75 justify-content-center align-content-center">
+               
+        <div class="container backgroun-c w-50 text-white justify-content-center align-content-center rounded-4 shadow-lg p-3 pb-3">
+                 
+            <!-- <i class="fa-solid fa-hand-holding-heart icon-sign rounded-circle"></i> -->
+    
+            <div class="p-3 text-center">
+                <h1> Log In </h1>
+    
+                <hr>
+            </div>
+            
+    
+             <form >
+                      
+                
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control bg-white" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput" class="text-black">Email address</label>
+                  </div>
+                
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control bg-white" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput" class="text-black">Password </label>
+                  </div>
+                 
+                  <p class="forget m-3 ms-auto text-end fs-6"
+                    routerLink="/Forget">
+                    Forgot your password?
+                  </p>
+
+                  <button  class="btn btn-primary w-100 ">
+                    Log in
+                  </button>
+                  <hr>
+                  <p class="text-center">
+                    Don't have an account? <span class="span-log"
+                    routerLink="/SignIn"
+                    >Sign up</span>
+                  </p>
+                  
+                  
+             </form>
+        </div>
+
+    </div>
+
+
+
+</section>

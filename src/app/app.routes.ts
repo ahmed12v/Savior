@@ -121,12 +121,13 @@ export const routes: Routes = [
   },
 
   {
-    path:'codeVirefy',
+    path:'code',
      loadComponent:()=>
         import('./core/Athountcation/verify-code/verify-code.component').then(
             (C)=>C.VerifyCodeComponent
         )
   },
+
 
   {
     path:'newPass',

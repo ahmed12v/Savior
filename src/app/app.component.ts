@@ -12,4 +12,17 @@ import { FooterComponent } from './core/importantCompnent/footer/footer.componen
 })
 export class AppComponent {
   title = 'Savior';
+
+
+  isDarkMode = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  } 
 }
