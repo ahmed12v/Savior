@@ -1,0 +1,51 @@
+.backgroun-c{
+    background-color: oklch(.373 .034 259.733);
+   
+}
+.icon-sign{
+    color:oklch(.373 .034 259.733) ;
+    background-color: aliceblue;
+    padding:16px;
+    font-size: 35px;
+}
+.btn-primary{
+
+    background-image: linear-gradient(150.81deg, #007864 -29.74%, #0d4f9b 62.28%) !important;
+}
+.span-log{
+
+    color: #4386d3;
+    cursor: pointer;
+}
+.forget{
+    color: #07f;
+    cursor: pointer;
+}
+.w-50{
+    width:40% !important;
+}
+
+
+
+  /*      media        */
+
+
+/* شاشات متوسطة (تابلت) */
+@media (max-width: 876px) {
+    .container {
+        width: 92% !important;
+    }
+}
+
+/* شاشات صغيرة (موبايل) */
+@media (max-width: 576px) {
+    .container {
+        width: 100% !important;
+        padding: 20px !important;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
