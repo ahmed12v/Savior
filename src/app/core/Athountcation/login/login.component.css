@@ -22,15 +22,17 @@
     cursor: pointer;
 }
 
-
+.w-50{
+    width:40% !important;
+}
 
   /*      media        */
 
 
 /* شاشات متوسطة (تابلت) */
-@media (max-width: 768px) {
+@media (max-width: 876px) {
     .container {
-        width: 80% !important;
+        width: 92% !important;
     }
 }
 
