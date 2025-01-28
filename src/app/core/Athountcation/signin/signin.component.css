@@ -1,5 +1,7 @@
 .backgroun-c{
-    background-color: oklch(.373 .034 259.733);
+    background-color: white;
+
+    color: black;
    
 }
 .icon-sign{
@@ -18,9 +20,33 @@
     cursor: pointer;
 }
 
-.w-50{
-    width:40% !important;
+.w-75{
+    width: 85% !important;
 }
+
+
+
+ .signUp-Btn{
+    padding: 10px;
+    font-size: 40px;
+    border: 0;
+    background-image: linear-gradient(150.81deg, #007864 -29.74%, #0d4f9b 62.28%) !important;
+    color: white;
+ }
+  
+
+/* .bg-photSign{
+    background-image: url(../../../../assets/imege/aa1a819d-327b-4436-bed7-4675d7c65ef8.jfif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    
+} */
+
+/* .w-50{
+    width:40% !important;
+} */
 
   /*      media        */
 
@@ -30,6 +56,9 @@
     .container {
         width: 92% !important;
     }
+    .w-75{
+        width: 92% !important;
+    }
 }
 
 /* شاشات صغيرة (موبايل) */
@@ -37,6 +66,24 @@
     .container {
         width: 100% !important;
         padding: 20px !important;
+    }
+    .w-75{
+        width: 100% !important;
+        padding: 0;
+        margin: 0;
+    }
+    .d-flex {
+        display: block !important;
+        
+    }
+    .bg-photSign{
+        padding: 0%;
+        margin: 0%;
+    }
+    .signimg{
+        width: 100%;
+        height: 100%;
+        margin: 0%;
     }
 
     h1 {
