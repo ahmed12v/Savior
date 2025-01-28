@@ -50,5 +50,7 @@ body{
   }
   
   
-  
+  .cuesor-pointer{
+    cursor: pointer;
+  }
 

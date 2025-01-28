@@ -27,11 +27,7 @@
 
 
  .signUp-Btn{
-    padding: 10px;
-    font-size: 40px;
-    border: 0;
-    background-image: linear-gradient(150.81deg, #007864 -29.74%, #0d4f9b 62.28%) !important;
-    color: white;
+    color: #0d4f9b!important;
  }
   
 
@@ -84,6 +80,7 @@
         width: 100%;
         height: 100%;
         margin: 0%;
+        
     }
 
     h1 {
