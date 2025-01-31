@@ -1,0 +1,120 @@
+/* Start Background */
+#about {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.image-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    animation: fadeBackground 12s infinite;
+}
+
+.image1 {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ,url('../../../assets/imege/full-shot-doctors-discussing-hallway.jpg');
+    animation-delay: 0s;
+}
+
+.image2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../../../assets/imege/inventory-two-druggists-lab-coats-process-inventory-drugstore.jpg');
+    animation-delay: 4s;
+}
+
+.image3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../../../assets/imege/cpr-first-aid-training-concept\ \(1\).jpg');
+    animation-delay: 8s;
+}
+
+@keyframes fadeBackground {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+.container{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+#about h5 {
+    font-size: 80px;
+    font-weight: 600;
+   color: white;
+}
+
+#about h1 {
+    font-size: 40px;
+    font-weight: 300;
+    color: white;
+}
+
+/* Effects on Savior*/
+#about h5 {
+    font-size: 80px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(45deg, #ffffff, #ffffff); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.979);
+    animation: heartbeat 5s infinite ease-in-out;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    
+}
+/* Animation for Your savior at all times */
+.slide {
+    position: relative;
+    animation: slideAnimation 2s ease-in-out infinite alternate;
+}
+
+@keyframes slideAnimation {
+    from {
+        transform: translateX(-10px);
+    }
+    to {
+        transform: translateX(10px);
+    }
+}
+#about h1 {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(45deg, #ffffff, #ffffff); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.979);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+/* End Backround */
+
+/*=============================================================================*/
+/* start about */
+#title h3 {
+    font-size: 80px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(45deg, #000000, #000000); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.979);
+    animation: heartbeat 5s infinite ease-in-out;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    
+}
+
+/* end about */
