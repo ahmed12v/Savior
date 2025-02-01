@@ -15,7 +15,7 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scrollgit;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     animation: fadeBackground 12s infinite;
