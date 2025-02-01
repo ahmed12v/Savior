@@ -32,7 +32,7 @@
 }
 
 .image3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('/assets/imege/cpr-first-aid-training-concept\ \(1\).jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url('/assets/imege/cpr-first-aid-training-concept\ \(1\).jpg');
     animation-delay: 8s;
 }
 
@@ -118,3 +118,5 @@
 }
 
 /* end about */
+
+
