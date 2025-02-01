@@ -15,24 +15,24 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: scrollgit;
+    background-attachment: scroll;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     animation: fadeBackground 12s infinite;
 }
 
 .image1 {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ,url('../../../assets/imege/full-shot-doctors-discussing-hallway.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ,url('/assets/imege/full-shot-doctors-discussing-hallway.jpg');
     animation-delay: 0s;
 }
 
 .image2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../../../assets/imege/inventory-two-druggists-lab-coats-process-inventory-drugstore.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('/assets/imege/inventory-two-druggists-lab-coats-process-inventory-drugstore.jpg');
     animation-delay: 4s;
 }
 
 .image3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../../../assets/imege/cpr-first-aid-training-concept\ \(1\).jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url('/assets/imege/cpr-first-aid-training-concept\ \(1\).jpg');
     animation-delay: 8s;
 }
 
@@ -66,7 +66,7 @@
     font-weight: 700;
     font-family: 'Poppins', sans-serif; 
     background: linear-gradient(45deg, #ffffff, #ffffff); 
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.979);
     animation: heartbeat 5s infinite ease-in-out;
@@ -93,7 +93,7 @@
     font-weight: 400;
     font-family: 'Poppins', sans-serif; 
     background: linear-gradient(45deg, #ffffff, #ffffff); 
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.979);
     letter-spacing: 5px;
@@ -108,7 +108,7 @@
     font-weight: 700;
     font-family: 'Poppins', sans-serif; 
     background: linear-gradient(45deg, #000000, #000000); 
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.979);
     animation: heartbeat 5s infinite ease-in-out;
@@ -118,3 +118,5 @@
 }
 
 /* end about */
+
+
