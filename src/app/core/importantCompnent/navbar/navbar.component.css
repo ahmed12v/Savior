@@ -1,6 +1,125 @@
-.textbg{
-    color: rgb(255, 245, 245) !important;
-}
-.bg-black{
-    background-image: linear-gradient(150.81deg, #007864 -29.74%, #0d4f9b 62.28%) !important;
-}
+/* ✅ Navbar مع تأثيرات زجاج */
+.custom-navbar {
+    background: rgba(13, 79, 155, 0.6); /* شفافية مع خلفية داكنة */
+    backdrop-filter: blur(15px); /* تأثير الزجاج */
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    padding: 15px 0;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  /* ✅ Logo مع تأثيرات Glow */
+  .brand-glow {
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #00bcd4, 0 0 25px #00bcd4; /* التغيير هنا */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .brand-glow:hover {
+    color: #00bcd4; /* التغيير هنا */
+    text-shadow: 0 0 30px #00bcd4, 0 0 50px #00bcd4; /* التغيير هنا */
+  }
+  
+  /* ✅ زر الـ Toggle */
+  .custom-toggler {
+    border: none !important;
+    outline: none !important;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .custom-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* ✅ تحسين اللينكات مع تأثيرات Hover */
+  .nav-glow {
+    color: white;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    font-size: 1.1rem;
+  }
+  
+  .nav-glow::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00bcd4, #0d4f9b); /* التغيير هنا */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+  
+  .nav-glow:hover {
+    color: #00bcd4; /* التغيير هنا */
+    text-shadow: 0 0 15px #00bcd4; /* التغيير هنا */
+  }
+  
+  .nav-glow:hover::after {
+    width: 100%;
+  }
+  
+  /* ✅ تصميم أفضل للقائمة في الهاتف */
+  @media (max-width: 992px) {
+    .navbar-nav {
+      background: rgba(13, 79, 155, 0.9);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+  
+    .navbar-nav .nav-item {
+      margin: 8px 0;
+    }
+  
+    .navbar-nav .nav-link {
+      font-size: 1.2rem;
+    }
+  
+    /* 🔥 تأثير حرق أنيميشن عند النقر */
+    .navbar-nav .nav-link:active {
+      transform: scale(0.95);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+  
+  /* ✅ أنيميشن تأثير حرق خاص على الموبايل */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ✅ أنيميشن دخول اللينكات عند التفاعل */
+  .navbar-nav .nav-item {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInNav 1s ease-out forwards;
+  }
+  
+  @keyframes fadeInNav {
+    0% {
+      opacity: 0;
+      transform: translateY(-1000px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
