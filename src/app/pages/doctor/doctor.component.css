@@ -17,7 +17,7 @@
 }
 .contain{
     position: absolute;
-    bottom: 15%;
+    bottom: 8%;
 }
 
 .btn-savior{
@@ -38,6 +38,13 @@
     color: #ffffff !important;
 
 
+}
+@media (max-width: 768px) {
+    #home {
+        /* background-size: contain; يضمن عرض الخلفية بالكامل بدون قص */
+        background-position: center center; /* يحافظ على تموضع الخلفية */
+        background-size: cover;
+    }
 }
 
 
