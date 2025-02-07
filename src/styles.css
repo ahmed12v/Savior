@@ -1,4 +1,4 @@
-body{
+ body{
     --tw-bg-opacity: 1;
     background-color: rgb(2 5 20 / var(--tw-bg-opacity));
     margin: 0;
@@ -24,7 +24,7 @@ body{
     background-color: var(--bg-color);
     
     transition: background-color 1s;
-  }
+  } 
 
   .floating-icon {
     position: fixed;

@@ -134,10 +134,11 @@
     50% { transform: translateX(8px); }
     75% { transform: translateX(-8px); }
     100% { transform: translateX(0); }
+    
 }
 
 .fade-in-up:hover {
-    animation: shake 0.8s ease-in-out;
+    animation: shake 1s ease-in-out;
 }
 
 /* End about */
