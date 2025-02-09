@@ -47,6 +47,46 @@
     }
 }
 
+/* ----------------- */
+
+.card{
+    border: 0 !important;
+   
+}
+.card-title{
+    color: #0d4f9b;
+}
+.btn-savior-card
+{
+    border: #0d4f9b solid 1px;
+    transition: all 1s;
+    color: #ffffff !important;
+    background-color: #0d4f9b !important;
+    transform: translateY(100%);
+    opacity: 0;
+}
+.fa-star{
+    color: rgb(229, 229, 4);
+}
+.p-rate{
+    font-size: 20px;
+}
+.btn-savior-card:hover{
+    border: #0d4f9b solid 1px !important;
+    color: #0d4f9b !important;
+    background-color: #ffffff !important;
+}
+.card:hover .btn-savior-card {
+    transform: translateY(0%);
+    opacity: 1;
+}
+.card:hover{
+    border: #0d4f9b solid 2px !important;
+}
+.card-img-top{
+    height: 400px !important;
+}
+
 
 
 
