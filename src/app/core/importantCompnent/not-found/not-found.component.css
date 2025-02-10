@@ -1,0 +1,27 @@
+.container-fluid{
+   
+    background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)),
+    url(../../../../assets/imege/Oops!\ 404\ Error\ with\ a\ broken\ robot\ illustration\ _\ Rafiki\ style.gif);
+background-size: contain;
+background-position: center center;
+background-repeat: no-repeat;
+min-height: 100vh; /* يضمن تغطية الصفحة دون مشاكل */
+width: 100%;
+position: relative;
+}
+.bottom-50{
+    bottom: 20% !important;
+}
+.btn-notFound{
+
+    border: solid 2px rgb(63, 140, 213);
+    color: rgb(63, 140, 203);
+    font-size: 18px;
+}
+.btn-notFound:hover{
+  
+    color: black;
+    
+    font-size: 20px;
+   
+}

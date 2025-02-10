@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-
+import { AfterViewInit, Component } from '@angular/core';
 
 
 @Component({
@@ -9,6 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent  {
 
+  
 }
