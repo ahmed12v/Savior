@@ -107,10 +107,10 @@
     font-size: 80px;
     font-weight: 700;
     font-family: 'Poppins', sans-serif; 
-    background: linear-gradient(45deg, #000000, #000000); 
+    background:  #0D4F9B;
+    color: #050505;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.979);
     animation: heartbeat 5s infinite ease-in-out;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -142,8 +142,205 @@
 }
 
 /* End about */
+/* ==================================================================== */
+
+/* Start Services */
+.services-txt{
+    
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        color: #050505;
+        background: #0D4F9B;  
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+      padding-top: 20px;
+    }
+    
+    .services-txt::after {
+        content: "";
+        width: 80px;
+        height: 4px;
+        background: #0D4F9B;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        border-radius: 2px;
+        animation: underline-animation 2s infinite alternate;
+    }
+
+.servises-div{
+    transition: tranform 0.3s ease , box-shadow 0.3s ease;
+
+}
+.servises-div:hover{
+    transform: translateY(-20px);
+    
+}
+.servises-div p{
+   color: #777;
+   font-size: medium;
+
+} 
+.servises-div h5{
+    color: #0D4F9B;
+  
+ 
+ } 
+#services .fa-solid{
+    width: 100px;
+    height: 100px;
+    color: #0D4F9B;
+    padding-top: 25px;
+    font-size: 40px;
+    border-radius: 50%;
+    border: 7px solid #0D4F9B;
+    text-align:center;
+    margin-left:5px;
+    transition:0.5s;
+}
+#services .fa-solid:hover{
+ background-color: #0D4F9B;
+ color:white;
+}
+
+/* End Services */
+
+/* ================================================================== */
+
+/* Start Customers Opinion */
+.Feedback-bg{
+  
+        background-image:linear-gradient(rgba(255, 255, 255, 0.942),rgb(13, 79, 155)), url(../../../assets/imege/feedback.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: white;
+    }
+
+.section-title {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    color: #050505;
+    background: #0D4F9B;  
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  padding-top: 20px;
+}
+
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: #0D4F9B;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: underline-animation 2s infinite alternate;
+}
 
 
-/* end about */
+@keyframes underline-animation {
+    from {
+        width: 100px;
+    }
+    to {
+        width: 150px;
+    }
+}
+.feedback-box {
+    background:#ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: auto;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.feedback-box:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0,15);
+}
 
+.carousel-inner {
+    display: flex;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 250px;
+}
+
+.quote-icon {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 24px;
+    color:#0D4F9B; 
+    
+}
+.stars{
+ 
+    font-size: 20px;
+    color: gold;
+    
+}
+.feedback-text {
+    font-size: 16px;
+    color: #333;
+    margin-top: 40px;
+    padding-left: 10px;
+    text-align: center;
+    position: relative;
+}
+.feedback-text::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #777; 
+   margin-bottom: 1px;
+    margin-top: 30px;
+}
+
+.customer-name {
+    font-weight: bold;
+    color: #010101;
+    font-size: 18px;
+}
+
+.feedback-date {
+    font-size: 14px;
+    color: #777;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #0D4F9B;
+   
+    border-radius: 50%;
+    padding: 15px;
+    width: 15%;
+}
+
+
+
+/* End Customers Opinion */
 
