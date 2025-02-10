@@ -204,9 +204,9 @@
     margin-left:5px;
     transition:0.5s;
 }
-#services .fa-solid:hover{
+.servises-div:hover .fa-solid{
  background-color: #0D4F9B;
- color:white;
+ color:white !important;
 }
 
 /* End Services */
@@ -331,8 +331,7 @@
     color: #777;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.carousel-control-prev-icon,.carousel-control-next-icon {
     background-color: #0D4F9B;
    
     border-radius: 50%;
