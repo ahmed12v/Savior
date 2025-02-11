@@ -22,17 +22,17 @@
 }
 
 .image1 {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) ,url('/assets/imege/full-shot-doctors-discussing-hallway.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)) ,url('/assets/imege/full-shot-doctors-discussing-hallway.jpg');
     animation-delay: 0s;
 }
 
 .image2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('/assets/imege/inventory-two-druggists-lab-coats-process-inventory-drugstore.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('/assets/imege/inventory-two-druggists-lab-coats-process-inventory-drugstore.jpg');
     animation-delay: 4s;
 }
 
 .image3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),url('/assets/imege/cpr-first-aid-training-concept\ \(1\).jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('/assets/imege/cpr-first-aid-training-concept\ \(1\).jpg');
     animation-delay: 8s;
 }
 
@@ -101,20 +101,56 @@
 }
 /* End Backround */
 
-/*=============================================================================*/
+
 /* start about */
-#title h3 {
-    font-size: 80px;
+ 
+.about-container {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.about-img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-title {
+    font-size: 26px;
     font-weight: 700;
-    font-family: 'Poppins', sans-serif; 
-    background:  #0D4F9B;
-    color: #050505;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: heartbeat 5s infinite ease-in-out;
-    letter-spacing: 5px;
+    color: #333;
+    margin-bottom: 15px;
     text-transform: uppercase;
+}
+
+.highlight {
+    color: #0D4F9B;
+    font-weight: bold;
+}
+
+.about-text {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        text-align: center;
+    }
+
+    .about-title {
+        font-size: 22px;
+        margin-top: 15px;
+    }
     
+    .about-text {
+        font-size: 16px;
+    }
+}
+
+/* .about-container {
+    animation: fadeInUp 1s ease-in-out;
 }
 
 @keyframes fadeInUp {
@@ -126,28 +162,16 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-8px); }
-    50% { transform: translateX(8px); }
-    75% { transform: translateX(-8px); }
-    100% { transform: translateX(0); }
-    
-}
-
-.fade-in-up:hover {
-    animation: shake 1s ease-in-out;
-}
+} */
 
 /* End about */
+
 /* ==================================================================== */
 
 /* Start Services */
-.services-txt{
+.services-txt h3{
     
-        font-size: 25px;
+        font-size: 35px;
         font-weight: bold;
         text-align: center;
         color: #050505;
@@ -161,7 +185,7 @@
       padding-top: 20px;
     }
     
-    .services-txt::after {
+    .services-txt h3::after {
         content: "";
         width: 80px;
         height: 4px;
@@ -176,37 +200,86 @@
 
 .servises-div{
     transition: tranform 0.3s ease , box-shadow 0.3s ease;
+    background-color: #0D4F9B;
+    
 
 }
 .servises-div:hover{
-    transform: translateY(-20px);
-    
+    transform: translateY(-5px);
+   
 }
+
 .servises-div p{
-   color: #777;
+   color: #ffffff;
    font-size: medium;
 
 } 
+
+
 .servises-div h5{
-    color: #0D4F9B;
-  
- 
+    color: #ffffff;
+    background: linear-gradient(45deg, #ffffff, #ffffff); 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.979);
+    animation: heartbeat 5s infinite ease-in-out;
+    letter-spacing: 5px;
+   
+    
  } 
+.service-list{
+    color: #ffffff;
+}
+ .heartbeat {
+   
+    animation: heartbeat 3s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 #services .fa-solid{
     width: 100px;
     height: 100px;
     color: #0D4F9B;
+    background-color: #ffffff;
     padding-top: 25px;
     font-size: 40px;
     border-radius: 50%;
-    border: 7px solid #0D4F9B;
+    /* border: 7px solid #0D4F9B; */
     text-align:center;
     margin-left:5px;
     transition:0.5s;
 }
-.servises-div:hover .fa-solid{
+/* #services .fa-solid:hover{
  background-color: #0D4F9B;
- color:white !important;
+ color:white;
+} */
+
+.button-savior{
+    border: #fdfeff solid 1px;
+    transition: all 1s;
+    
+}
+.button-savior:hover{
+    background-color: #ffffff !important;
+    border: #ffffff solid 1px;
+    color: #0d4f9b !important;
+
 }
 
 /* End Services */
@@ -331,7 +404,8 @@
     color: #777;
 }
 
-.carousel-control-prev-icon,.carousel-control-next-icon {
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
     background-color: #0D4F9B;
    
     border-radius: 50%;
@@ -342,4 +416,3 @@
 
 
 /* End Customers Opinion */
-
