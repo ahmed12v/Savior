@@ -3,7 +3,7 @@
     background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
                       url(../../../assets/imege/Free\ Photo\ _\ Front\ view\ doctor\ putting\ on\ glove.jfif);
     background-size:  cover ;
-    background-attachment: fixed;
+  
     background-position: center center;
     background-repeat: no-repeat;
     height: 100vh;
