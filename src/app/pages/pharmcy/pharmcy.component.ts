@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-pharmcy',
@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './pharmcy.component.html',
   styleUrl: './pharmcy.component.css'
 })
-export class PharmcyComponent {
+export class PharmcyComponent   {
 
+  
 }
+
+

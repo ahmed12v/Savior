@@ -17,7 +17,7 @@
   .dark-mode {
     --tw-bg-opacity: 1;
     --bg-color: rgb(2 5 20 / var(--tw-bg-opacity));
-     
+     color: #fff;
   }
   
   body {

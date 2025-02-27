@@ -1,0 +1,39 @@
+#home{
+    
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                      url(../../../assets/imege/Free\ Photo\ _\ Front\ view\ doctor\ putting\ on\ glove.jfif);
+    background-size:  cover ;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+   width: 100% !important;
+    position: relative;
+}
+
+.savior-doctor{
+
+color: #0d4f9b;
+}
+.contain{
+position: absolute;
+bottom: 30%;
+right: 10%;
+}
+.btn-savior{
+    border: white 2px solid;
+    transition: all .7s;
+}
+.btn-savior:hover{
+    border: #0d4f9b solid 2px ;
+    color: #0d4f9b !important;
+}
+
+
+@media (max-width: 768px) {
+#home {
+    /* background-size: contain; يضمن عرض الخلفية بالكامل بدون قص */
+    background-position: center center; /* يحافظ على تموضع الخلفية */
+    background-size: cover;
+}
+}

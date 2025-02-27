@@ -201,9 +201,8 @@
 .servises-div{
     transition: tranform 0.3s ease , box-shadow 0.3s ease;
     background-color: #0D4F9B;
-    
-
 }
+
 .servises-div:hover{
     transform: translateY(-5px);
    
