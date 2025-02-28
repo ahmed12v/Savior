@@ -1,6 +1,6 @@
 #home{
     
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
                       url(../../../assets/imege/What\ You\ Must\ Know\ About\ Shingles.jfif);
     background-size:  cover ;
     
@@ -9,6 +9,42 @@
     height: 100vh;
    width: 100% !important;
     position: relative;
+}
+.pharmacy-title {
+    font-size: 3rem; /* حجم الخط */
+    font-weight: bold; /* خط عريض */
+    white-space: nowrap; /* منع الانتقال إلى سطر جديد */
+    overflow: hidden; /* إخفاء النص الزائد */
+    border-right: 3px solid #0d6efd; /* مؤشر الكتابة */
+    width: 0; /* العرض يبدأ من الصفر */
+    animation: typing 4s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0; /* يبدأ العرض من الصفر */
+    }
+    to {
+        width: 100%; /* ينتهي بالعرض الكامل */
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent; /* إخفاء المؤشر */
+    }
+    50% {
+        border-color: transparent; /* إظهار المؤشر */
+    }
+}
+.medicin-btn{
+    background: transparent !important;
+    color: white;
+    border: white 2px solid;
+}
+.medicin-btn:hover{
+    border: rgb(227, 227, 16) 2px solid;
+    color: rgb(227, 227, 16);
 }
 
 .savior-doctor{
