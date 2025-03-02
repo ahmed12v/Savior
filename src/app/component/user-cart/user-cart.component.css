@@ -86,6 +86,9 @@
     color: #0d4f9b;
     border: 1px solid #0d4f9b;
 }
+.quantity{
+    color: #2c3e50;
+}
 
 .remove-btn {
     background-color: #d12512;
