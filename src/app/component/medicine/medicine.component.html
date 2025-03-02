@@ -1,0 +1,55 @@
+<div class="container mt-5 pt-5 text-center ps-3 pe-3  " >
+    
+    <div class="form-floating mb-3   d-flex justify-content-center align-items-center ">
+        <input type="email" class="bg-transparent form-control w-75 shadow-none" id="floatingInput" placeholder="name@example.com"> 
+        <label for="floatingInput"> <i class="fa-solid fa-magnifying-glass"></i> Search by medicine name...</label>
+
+        <i class="fa-solid fa-cart-shopping me-5 fs-1  ms-auto serch-shoping cuesor-pointer" routerLink="/cart"></i>
+      </div> 
+
+      <!-- --------- -->
+
+    <div class="row ">
+
+
+        @for (item of items; track $index) {
+            @if (showAll || $index < 8) {
+            <div class="col-md-3 mt-5 col-sm-6">
+
+                <div class="border-med rounded-3 p-4 shadow-lg ">
+                    <div class="rounded-3  ">
+                        <img [src]= "item.image" alt=""
+                         class="w-100 rounded-3" height="200px">
+                    </div>
+                    <div class="p-3  mt-2">
+                        <h3 class="d-block">
+                            {{item.title}}
+                        </h3>
+                        <h3 class="">
+                            {{item.price}} EGP
+                        </h3>
+                    </div>
+        
+                    <button class="btn btn-primary cart-btn w-100 fw-bold">
+                        Add To Cart <i class="fa-solid fa-cart-shopping  "></i>
+        
+                    </button>
+        
+                </div>
+        
+                
+                    
+                    
+                </div>
+            }
+        }
+        
+
+        <div class="text-center pt-4">
+            <button class="border-0 view-color" (click)="toggleViewMoreAndLess()">
+              <i class="fa-solid fa-arrow-right-long"></i>  {{ showAll ? 'View Less' : 'View More' }}
+            </button>
+          </div>
+        
+    </div>
+</div>

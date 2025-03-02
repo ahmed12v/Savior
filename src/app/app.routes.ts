@@ -1,3 +1,5 @@
+import { UserCartComponent } from './component/user-cart/user-cart.component';
+import { MedicineComponent } from './component/medicine/medicine.component';
 import { NewPasswordComponent } from './core/Athountcation/new-password/new-password.component';
 import { VerifyCodeComponent } from './core/Athountcation/verify-code/verify-code.component';
 import { ForgetPasswordComponent } from './core/Athountcation/forget-password/forget-password.component';
@@ -48,6 +50,21 @@ export const routes: Routes = [
         import('./pages/pharmcy/pharmcy.component').then(
             (C)=>C.PharmcyComponent
         ),
+ },
+
+ {
+     path:'searchMedicine',
+     loadComponent:()=>
+      import('./component/medicine/medicine.component').then(
+        (c)=>c.MedicineComponent
+      )
+ },
+ {
+     path:'cart',
+     loadComponent:()=>
+      import('./component/user-cart/user-cart.component').then(
+        (c)=>c.UserCartComponent
+      )
  },
 
  {

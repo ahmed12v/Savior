@@ -1,0 +1,35 @@
+.form-control{
+
+    border: 2px solid #0d4f9b !important;
+}
+.serch-shoping{
+    color: #0d4f9b !important;
+}
+
+.border-med{
+    border:none;
+}
+.cart-btn
+{
+    background-color: #0d4f9b !important;
+    border: #0d4f9b 2px solid !important;
+    color: white;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 1s;
+}
+.cart-btn:hover{
+    background-color: transparent !important;
+    color: #0d4f9b !important;
+}
+.border-med:hover{
+    border: #0d4f9b 2px solid;
+}
+.border-med:hover .cart-btn {
+    transform: translateY(0%);
+    opacity: 1;
+}
+.view-color{
+    color: #0D4F9B;
+    background-color: transparent;
+}
