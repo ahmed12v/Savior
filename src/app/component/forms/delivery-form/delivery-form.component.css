@@ -1,0 +1,36 @@
+.form-control{
+    border: none;
+    border-bottom: 1px solid #0d4f9b ;
+    border-radius: 0%;
+}
+
+.ShoppingAddress{
+    color: #0d4f9b;
+}
+.label{
+    color: #0d4f9b;
+}
+.form-btn{
+    color: #0d4f9b;
+    border: #0d4f9b 2px solid;
+    transition: all .5s;
+}
+.form-btn:hover{
+    color: white;
+    background-color: #0d4f9b !important;
+}
+@keyframes fadeInUP {
+    0% {
+        opacity: 0;
+        transform: translatey(200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translatey(0);
+    }
+}
+
+.form-items {
+    opacity: 0;
+    animation: fadeInUP 3s ease-out forwards;
+}

@@ -1,3 +1,5 @@
+import { NearstLocationFormComponent } from './component/forms/nearst-location-form/nearst-location-form.component';
+import { DeliveryFormComponent } from './component/forms/delivery-form/delivery-form.component';
 import { UserCartComponent } from './component/user-cart/user-cart.component';
 import { MedicineComponent } from './component/medicine/medicine.component';
 import { NewPasswordComponent } from './core/Athountcation/new-password/new-password.component';
@@ -64,6 +66,20 @@ export const routes: Routes = [
      loadComponent:()=>
       import('./component/user-cart/user-cart.component').then(
         (c)=>c.UserCartComponent
+      )
+ },
+ {
+     path:'deliveryForm',
+     loadComponent:()=>
+      import('./component/forms/delivery-form/delivery-form.component').then(
+        (c)=>c.DeliveryFormComponent
+      )
+ },
+ {
+     path:'nearstForm',
+     loadComponent:()=>
+      import('./component/forms/nearst-location-form/nearst-location-form.component').then(
+        (c)=>c.NearstLocationFormComponent
       )
  },
 
