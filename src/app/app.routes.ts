@@ -1,3 +1,4 @@
+import { AllDoctoorComponent } from './component/doctor/all-doctoor/all-doctoor.component';
 import { NearstLocationFormComponent } from './component/forms/nearst-location-form/nearst-location-form.component';
 import { DeliveryFormComponent } from './component/forms/delivery-form/delivery-form.component';
 import { UserCartComponent } from './component/user-cart/user-cart.component';
@@ -43,7 +44,13 @@ export const routes: Routes = [
         import('./pages/doctor/doctor.component').then(
             (C) =>C.DoctorComponent
         ) ,
-    
+  },
+  {
+    path:'AllDoctor',
+    loadComponent :()=>
+        import('./component/doctor/all-doctoor/all-doctoor.component').then(
+            (C) =>C.AllDoctoorComponent
+        ) ,
   },
 
   {
