@@ -1,3 +1,4 @@
+import { FeedbackComponent } from './component/doctor/feedback/feedback.component';
 import { AllDoctoorComponent } from './component/doctor/all-doctoor/all-doctoor.component';
 import { NearstLocationFormComponent } from './component/forms/nearst-location-form/nearst-location-form.component';
 import { DeliveryFormComponent } from './component/forms/delivery-form/delivery-form.component';
@@ -50,6 +51,13 @@ export const routes: Routes = [
     loadComponent :()=>
         import('./component/doctor/all-doctoor/all-doctoor.component').then(
             (C) =>C.AllDoctoorComponent
+        ) ,
+  },
+  {
+    path:'DoctorFeedback',
+    loadComponent :()=>
+        import('./component/doctor/feedback/feedback.component').then(
+            (C) =>C.FeedbackComponent
         ) ,
   },
 

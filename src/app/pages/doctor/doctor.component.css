@@ -182,7 +182,7 @@ padding-top: 20px;
     overflow: hidden;
     position: relative;
     width: 110px;
-    z-index: 999;
+    z-index: 2;
   }
   .testimonel-item h3 {
     font-size: 26px;
@@ -228,14 +228,14 @@ padding-top: 20px;
     color: #0D4F9B;
   }
   .doc-tittle h2{
-    color: #0D4F9B;
+    
     position: relative;
     padding: 10px;
   }
  
   #testimonial h2::before{
     content: "";
-    width: 180px;
+    width: 200px;
     height: 3px;
     background: #0D4F9B;
     position: absolute;
@@ -260,5 +260,8 @@ padding-top: 20px;
     top: 110%;
     
   }
+  /* --- */
+
+ 
 
 

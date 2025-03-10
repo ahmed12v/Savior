@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-doctor',
   standalone: true,
-  imports: [],
+  imports: [RouterLinkActive , RouterLink],
   templateUrl: './doctor.component.html',
   styleUrl: './doctor.component.css'
 })
 export class DoctorComponent {
-
+  
   showAll: boolean = false; // متغير للتحكم في العرض
+  
 
   // بيانات العناصر
   items: any[] = [
@@ -32,3 +34,5 @@ export class DoctorComponent {
   }
 
 }
+
+
