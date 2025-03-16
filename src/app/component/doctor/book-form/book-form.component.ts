@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-book-form',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './book-form.component.html',
   styleUrl: './book-form.component.css'
 })
