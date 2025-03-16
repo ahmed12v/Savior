@@ -4,7 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-doctor',
   standalone: true,
-  imports: [RouterLinkActive , RouterLink],
+  imports: [ RouterLink],
   templateUrl: './doctor.component.html',
   styleUrl: './doctor.component.css'
 })
