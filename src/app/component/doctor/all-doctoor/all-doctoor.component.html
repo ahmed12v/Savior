@@ -1,1 +1,57 @@
-<p>all-doctoor works!</p>
+
+<section class="testimonel-area " id="testimonial" >
+  
+    <div class="container ">
+  
+        <div class="row">
+            <div class="">
+                <div class="form-floating mb-5   d-flex justify-content-center align-items-center ">
+                    <input type="email" 
+                    class="bg-transparent form-control w-75 shadow-none" id="floatingInput"
+                     placeholder="name@example.com"> 
+                    <label for="floatingInput"> 
+                    <i class="fa-solid fa-magnifying-glass"></i> Search by Doctor name...</label>
+                
+                    <i class="fa-solid fa-book me-5 fs-1  ms-auto serch-shoping cuesor-pointer" 
+                    routerLink=""></i>
+                </div> 
+                   
+                <div class="testimonel-carousel owl-carousel  justify-content-start">
+                    
+                    <!-- testimonel-item start -->
+                     @for (item of doctor; track $index) {
+                        <div class="col-sm-12 col-md-9 mb-4 col-md-offset-2 col-sm-12 shadow-lg rounded-3 cuesor-pointer" 
+                            >
+                        <div class="testimonel-item"  routerLink="/DoctorFeedback">
+                            <div class="testimonel-img">
+                                <img class="w-100 h-100" [src]="item.img" alt="" >
+                            </div>
+                            <div class="testimonel-cont">
+                                <h3>DR. {{item.Name}}</h3>
+                                <h4><a><i class="fa fa-map-marker"></i> {{item.loc}} </a></h4>
+                                <p>{{item.title}}</p>
+                                <p> {{item.Appoint}} </p>
+                                <p> {{item.date}} PM</p>
+                                <div class="review-reating d-flex ">
+                                   <p> {{item.rate}} <i class="fa fa-star"></i> </p> 
+                                </div>
+                            </div>
+                        </div >
+                        <div class="text-center card-btn">
+                          <button class="btn btn-primary fw-bold">
+                            Book Now 
+                          </button>
+                        </div>
+                    </div>
+                     }
+                    
+                    
+                    
+                    <!-- testimonel-item end -->
+                </div>
+            </div>
+        </div><!--/.row-->
+  
+  
+    </div><!--/.container-->
+  </section>

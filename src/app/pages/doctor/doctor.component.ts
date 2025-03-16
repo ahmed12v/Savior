@@ -21,7 +21,7 @@ export class DoctorComponent {
     { image: '../../../assets/imege/بصريات.jfif', title: 'Optometrists', roter:'/Dental' },
     { image: '../../../assets/imege/قلب.jfif', title: 'Cardiologists', roter:'/Dental' },
     { image: '../../../assets/imege/اطفال.jfif', title: 'Pediatricians', roter:'/Dental' },
-    { image: '../../../assets/imege/نساا.jfif', title: 'Gynecologists.', roter:'/Dental' },
+    { image: '../../../assets/imege/نساا.jfif', title: 'Gynecologists', roter:'/Dental' },
     { image: '../../../assets/imege/علاج طبيعي.jfif', title: 'Physical therapy ', roter:'/Dental' },
     { image: '../../../assets/imege/جلديه.jfif', title: 'Dermatologists', roter:'/Dental' },
     { image: '../../../assets/imege/بطنه.jpg', title: 'Gastroenterologists', roter:'/Dental' },
