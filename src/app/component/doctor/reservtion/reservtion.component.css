@@ -1,0 +1,117 @@
+/* General Styles */
+.user-resrv{
+    margin-top: 100px;
+}
+
+.clinic-img {
+    width: 70%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #e3f2fd, #0d4f9b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Card Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-card {
+   
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+    animation: slideUp 0.8s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: #0d4f9b;
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+.info-card h2 {
+    color: #0d4f9b;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: bold;
+  
+}
+
+
+
+/* Button Styling */
+.btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .info-card {
+        padding: 20px;
+    }
+}

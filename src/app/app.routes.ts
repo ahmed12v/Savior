@@ -1,3 +1,5 @@
+import { ReservtionComponent } from './component/doctor/reservtion/reservtion.component';
+import { BookFormComponent } from './component/doctor/book-form/book-form.component';
 import { FeedbackComponent } from './component/doctor/feedback/feedback.component';
 import { AllDoctoorComponent } from './component/doctor/all-doctoor/all-doctoor.component';
 import { NearstLocationFormComponent } from './component/forms/nearst-location-form/nearst-location-form.component';
@@ -60,7 +62,22 @@ export const routes: Routes = [
             (C) =>C.FeedbackComponent
         ) ,
   },
-
+  {
+    path:'BookNow',
+    loadComponent :()=>
+        import('./component/doctor/book-form/book-form.component').then(
+            (C) =>C.BookFormComponent
+        ) ,
+  },
+ 
+  {
+    path:'reserv',
+    loadComponent :()=>
+        import('./component/doctor/reservtion/reservtion.component').then(
+            (C) =>C.ReservtionComponent
+        ) ,
+  },
+ 
   {
     path:'pharmcy',
     loadComponent:()=>
