@@ -128,7 +128,9 @@
 .login-text {
   font-size: 14px;
   margin-top: 10px;
-
+p{
+  color: #a4a0a0;
+}
   a {
     color: #0D4F9B;
     font-weight: bold;
