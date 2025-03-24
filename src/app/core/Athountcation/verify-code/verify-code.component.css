@@ -136,5 +136,5 @@
   
   .signup-card {
     opacity: 0;
-    animation: fadeInRight 3s ease-out forwards;
+    animation: fadeInRight 2s ease-out forwards;
   }
