@@ -119,3 +119,18 @@
   color: #0D4F9B;
    
   }
+  @keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translatey(200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translatey(0);
+    }
+  }
+  
+  .signup-card {
+    opacity: 0;
+    animation: fadeInRight 3s ease-out forwards;
+  }
