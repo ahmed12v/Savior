@@ -88,6 +88,16 @@ body {
     font-weight: bold;
   
 }
+.btn-danger {
+  background-color: transparent;
+  border: rgb(235, 59, 59) 2px solid;
+  color: rgb(235, 59, 59);
+}
+.btn-danger:hover {
+  background-color: rgb(235, 59, 59);
+  border: rgb(235, 59, 59) 2px solid;
+  color: rgb(255, 255, 255);
+}
 
 
 

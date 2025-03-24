@@ -48,9 +48,7 @@
 }
 
 /* ----------------- */
-.gategorey-bg{
-    background-color: rgb(255, 251, 251);
-}
+
 .section-title h1{
     color: #0D4F9B;
 }
@@ -58,9 +56,7 @@
 {
   
 text-align: center;
-background: #000000;  
 background-clip: text;
--webkit-text-fill-color: transparent;
 position: relative;
 padding-bottom: 12px;
 letter-spacing: 1.2px;
