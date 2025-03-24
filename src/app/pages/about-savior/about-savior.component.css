@@ -272,6 +272,7 @@
 .button-savior{
     border: #fdfeff solid 1px;
     transition: all 1s;
+    background-color: #0D4F9B;
     
 }
 .button-savior:hover{

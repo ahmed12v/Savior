@@ -1,0 +1,119 @@
+#home{
+    
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),url(../../../assets/imege/First\ Aidddddd.jpg);
+    background-size:  cover ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+   width: 100% !important;
+    position: relative;
+}
+
+.slide {
+    position: relative;
+    animation: slideAnimation 2s ease-in-out infinite alternate;
+}
+
+@keyframes slideAnimation {
+    from {
+        transform: translateX(-10px);
+    }
+    to {
+        transform: translateX(10px);
+    }
+}
+
+#home h5 {
+    font-size: 80px;
+    font-weight: 600;
+   color: white;
+}
+
+#home h1 {
+    font-size: 40px;
+    font-weight: 300;
+    color: white;
+}
+
+#home h5 {
+    font-size: 80px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(45deg, #0b72e1, #2389ff); 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.979);
+    animation: heartbeat 5s infinite ease-in-out;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    
+}
+#home h1 {
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(45deg, #0b72e1, #2389ff); 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.979);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+
+.videos-container {
+   
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; 
+    padding: 20px;
+}
+
+.video-section-title {
+    width: 100%; 
+    text-align: center; 
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(45deg, #0D4F9B,#09213d); 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.979);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: relative;
+    animation: slideAnimation 2s ease-in-out infinite alternate;
+}
+@keyframes slideAnimation {
+    from {
+        transform: translateX(-10px);
+    }
+    to {
+        transform: translateX(10px);
+    }
+}
+.video-box {
+    width: 30%; 
+    min-width: 280px; 
+    text-align: center;
+}
+
+.video-box iframe {
+    width: 100%;
+    aspect-ratio: 16/9; 
+    border-radius: 10px; 
+}
+
+
+
+@media (max-width: 768px) {
+    .videos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .video-box {
+        width: 90%;
+    }
+}
