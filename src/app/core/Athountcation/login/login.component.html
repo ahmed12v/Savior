@@ -1,59 +1,31 @@
-<section class="p-5  d-flex justify-content-center align-content-center mt-5">
-    
-  <div class=" w-75  p-0 m-0  d-flex rounded-3 justify-content-center align-content-center">
-    
+<div class="signup-container mt-5">
+  <div class="signup-card">
+    <h2 class="title">Login</h2>
+    <p class="subtitle">Welcome Back!</p>
 
-
-
-<div class="container backgroun-c w-50 text-white justify-content-center align-content-center shadow-lg rounded-3 p-4 m-0">
-
-
-<div class="p-3 text-center text-black mb-3 ">
-<h1 class="signUp-Btn rounded-3 r"> Log In </h1>
-</div>
-
-
-<form >
-
-
-<div class="form-floating mb-3">
-<input type="email" class="form-control bg-white border-0 rounded-0 shadow-sm  border-bottom border-1 border-black" id="floatingInput" placeholder="">
-<label for="floatingInput" class="text-black">Email</label>
-</div>
-<div class="form-floating mb-3">
-<input type="password" class="form-control bg-white border-0 rounded-0 shadow-sm  border-bottom border-1 border-black" id="floatingInput" placeholder="">
-<label for="floatingInput" class="text-black">Password
-</label>
-</div>
-
-<p class="cuesor-pointer forget m-3 ms-auto text-end fs-6"
-                    routerLink="/Forget">
-                    Forgot your password?
-                  </p>
-
-
-<button type="submit" class="btn btn-primary w-100 ">
-Log In
-</button>
-<hr>
-<p class="text-center text-black">
-Don't have an account? <span class="span-log"
-routerLink="/SignIn"
->Sign Up</span>
-</p>
-
-
- </form>
-          </div>
-
-
-      </div>
-
-   
-
-    
   
 
+    <form>
+      <div class="input-group">
+      
+        <input type="email" placeholder="Enter your email" />
+      </div>
 
+      <div class="input-group">
+      
+        <input type="password" placeholder="Enter your password" />
+      </div>
 
-</section>
+      <p class="cuesor-pointer forget m-3 ms-auto text-end fs-6"
+      routerLink="/Forget">
+      Forgot your password?
+    </p>
+
+      <button class="signup-btn">Login</button>
+    </form>
+
+    <p class="login-text">
+      Don't have an account ?  <a routerLink="/SignIn">Sign Up</a>
+    </p>
+  </div>
+</div>
