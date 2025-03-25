@@ -1,0 +1,102 @@
+/* Profile Section */
+h1{
+    color: #0d4f9b;
+}
+.profile-section {
+    min-height: 100vh;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card Styles */
+.card-body{
+    transition: all 1s ease-in-out;
+
+}
+.card-body:hover{
+    transform: scale(1.1);
+
+}
+.card {
+    border: none;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: fadeIn 1s ease-in-out forwards;
+    transition: all 1s ease-in-out;
+}
+
+/* تأثير عند تمرير الماوس */
+.card:hover {
+    transform: scale(1.1);
+    
+}
+
+/* Profile Icon Animation */
+.profile-icon {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* عند تمرير الماوس على الكارد، تتحرك الأيقونة */
+.card:hover .profile-icon {
+    transform: rotate(380deg);
+}
+
+/* Detail Styles */
+.profile-details .detail-item h6 {
+    margin-bottom: 0.3rem;
+    font-size: 0.875rem;
+    color: #0d4f9b;
+
+}
+
+.profile-details .detail-item p {
+    margin-bottom: 0;
+    color: #6c757d;
+
+}
+
+/* Update Buttons */
+.update-links .btn {
+    font-size: 0.875rem;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effects for Buttons */
+.update-links .btn-outline-primary:hover {
+    background-color: #0d4f9b;
+    color: #fff;
+    animation: pulse 0.5s infinite alternate;
+}
+
+.update-links .btn-primary:hover {
+    background-color: transparent;
+    border-color: #0d4f9b;
+    color: #0d4f9b;
+    animation: pulse 0.5s infinite alternate;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
