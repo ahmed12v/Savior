@@ -1,3 +1,14 @@
+import { GynecologistsComponent } from './component/doctor/gynecologists/gynecologists.component';
+import { PsychiatristsComponent } from './component/doctor/psychiatrists/psychiatrists.component';
+import { DermatologistsComponent } from './component/doctor/dermatologists/dermatologists.component';
+import { PhysicalComponent } from './component/doctor/physical/physical.component';
+import { GastroenterologistsComponent } from './component/doctor/gastroenterologists/gastroenterologists.component';
+import { PediatriciansComponent } from './component/doctor/pediatricians/pediatricians.component';
+import { CardiologistsComponent } from './component/doctor/cardiologists/cardiologists.component';
+import { OptometristsComponent } from './component/doctor/optometrists/optometrists.component';
+import { ThroatComponent } from './component/doctor/throat/throat.component';
+import { OrthopedicComponent } from './component/doctor/orthopedic/orthopedic.component';
+import { DentistsComponent } from './component/doctor/dentists/dentists.component';
 import { ReservtionComponent } from './component/doctor/reservtion/reservtion.component';
 import { BookFormComponent } from './component/doctor/book-form/book-form.component';
 import { FeedbackComponent } from './component/doctor/feedback/feedback.component';
@@ -53,6 +64,84 @@ export const routes: Routes = [
     loadComponent :()=>
         import('./component/doctor/all-doctoor/all-doctoor.component').then(
             (C) =>C.AllDoctoorComponent
+        ) ,
+  },
+  {
+    path:'dentists',
+    loadComponent :()=>
+        import('./component/doctor/dentists/dentists.component').then(
+            (C) =>C.DentistsComponent
+        ) ,
+  },
+  {
+    path:'orthopedic',
+    loadComponent :()=>
+        import('./component/doctor/orthopedic/orthopedic.component').then(
+            (C) =>C.OrthopedicComponent
+        ) ,
+  },
+  {
+    path:'throat',
+    loadComponent :()=>
+        import('./component/doctor/throat/throat.component').then(
+            (C) =>C.ThroatComponent
+        ) ,
+  },
+  
+  {
+    path:'optometrists',
+    loadComponent :()=>
+        import('./component/doctor/optometrists/optometrists.component').then(
+            (C) =>C.OptometristsComponent
+        ) ,
+  },
+  {
+    path:'cardiologists',
+    loadComponent :()=>
+        import('./component/doctor/cardiologists/cardiologists.component').then(
+            (C) =>C.CardiologistsComponent
+        ) ,
+  },
+  {
+    path:'pediatricians',
+    loadComponent :()=>
+        import('./component/doctor/pediatricians/pediatricians.component').then(
+            (C) =>C.PediatriciansComponent
+        ) ,
+  },
+  {
+    path:'gynecologists',
+    loadComponent :()=>
+        import('./component/doctor/gynecologists/gynecologists.component').then(
+            (C) =>C.GynecologistsComponent
+        ) ,
+  },
+  {
+    path:'Physical',
+    loadComponent :()=>
+        import('./component/doctor/physical/physical.component').then(
+            (C) =>C.PhysicalComponent
+        ) ,
+  },
+  {
+    path:'dermatologists',
+    loadComponent :()=>
+        import('./component/doctor/dermatologists/dermatologists.component').then(
+            (C) =>C.DermatologistsComponent
+        ) ,
+  },
+  {
+    path:'gastroenterologists',
+    loadComponent :()=>
+        import('./component/doctor/gastroenterologists/gastroenterologists.component').then(
+            (C) =>C.GastroenterologistsComponent
+        ) ,
+  },
+  {
+    path:'psychiatrists',
+    loadComponent :()=>
+        import('./component/doctor/psychiatrists/psychiatrists.component').then(
+            (C) =>C.PsychiatristsComponent
         ) ,
   },
   {
