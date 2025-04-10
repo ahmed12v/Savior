@@ -1,7 +1,7 @@
 #home{
     
-    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-                      url(../../../assets/imege/Free\ Photo\ _\ Front\ view\ doctor\ putting\ on\ glove.jfif);
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)),
+                      url(../../../assets/imege/lap.jpg);
     background-size:  cover ;
   
     background-position: center center;
@@ -9,6 +9,7 @@
     height: 100vh;
    width: 100% !important;
     position: relative;
+    background-attachment: fixed;
 }
 
 .savior-doctor{
@@ -32,9 +33,18 @@ right: 10%;
 
 @media (max-width: 768px) {
 #home {
-    /* background-size: contain; يضمن عرض الخلفية بالكامل بدون قص */
-    background-position: center center; /* يحافظ على تموضع الخلفية */
-    background-size: cover;
+
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+  url(../../../assets/imege/Free\ Photo\ _\ Front\ view\ doctor\ putting\ on\ glove.jfif);
+background-size:  cover ;
+
+background-position: center center;
+background-repeat: no-repeat;
+height: 100vh;
+width: 100% !important;
+position: relative;
+
+   
 }
 }
 /* --------------- */
@@ -47,7 +57,7 @@ right: 10%;
     font-family: serif;
     color: #0d4f9b;
 }
-.container-AddDoctor ح{
+.container-AddDoctor {
     font-family: serif;
 }
 .modern-button {
@@ -112,7 +122,6 @@ right: 10%;
   }
   .dev-item{
     border: #00397a solid 2px;
-    height: 240px;
     transition: all .8s;
     opacity: 0;
     animation: fadeInleft 3s ease-out forwards;
@@ -170,7 +179,7 @@ right: 10%;
     }
 }
 
-  @media (max-width: 700px) {
+  @media (max-width: 640px) {
     .container-fluid .row {
       width: 100% !important;
       flex: 0 0 100% !important;
@@ -179,9 +188,8 @@ right: 10%;
     .container-fluid{
       background-attachment: local;
       
-      
-
     }
+  
   }
 
 
