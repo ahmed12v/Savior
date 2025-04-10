@@ -112,6 +112,7 @@ right: 10%;
   }
   .dev-item{
     border: #00397a solid 2px;
+    height: 240px;
     transition: all .8s;
     opacity: 0;
     animation: fadeInleft 3s ease-out forwards;
@@ -182,6 +183,14 @@ right: 10%;
 
     }
   }
+
+
+
+  /* ------------------------ */
+
+
+ 
+
   
   
   

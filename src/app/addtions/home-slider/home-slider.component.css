@@ -1,0 +1,47 @@
+
+
+  .container{
+    position: relative;
+  }
+  .next{
+    font-size: 20px;
+    position: absolute;
+    right: -5%;
+    bottom: 50%;
+  }
+  .prev{
+    font-size: 20px;
+    position: absolute;
+    left: -5%;
+    bottom: 50%;
+  }
+  .container .text-primary{
+    color: #0d4f9b !important;
+  }
+  .slider-icon{
+    background-color: #0d4f9b ;
+    padding: 12px;
+    color: white;
+    border-radius: 100%;
+    padding-top: 14px;
+    padding-right: 14px;
+    font-weight: bold;
+  }
+  .items img{
+    height: 250px !important;
+  }
+  @media (max-width: 700px) {
+    .templet .items{
+        padding: 0% !important;
+        margin: 0% !important;
+    }
+    .next{
+        position: absolute;
+        right: 0% !important;
+    }
+    .prev{
+        position:absolute ;
+        left: 0% !important;
+    }
+  }
+ 

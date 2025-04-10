@@ -1,16 +1,22 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { HomeSliderComponent } from './../../addtions/home-slider/home-slider.component';
+import {  Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
+
 
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, HomeSliderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent  {
+  
+
+
   details:any[]= [
      {tittle:'Pharmacy & Medicine' , detals:'You can search for the nearest pharmacy, search for the treatment you want and then it will be delivered to you through us. ',
       route:'/pharmcy' , icon:' fa-solid fa-capsules fs-2 icon-des '
@@ -32,5 +38,9 @@ export class HomeComponent  {
       },
      
   ]
+
  
 }
+
+
+
