@@ -43,7 +43,7 @@ background-repeat: no-repeat;
 height: 100vh;
 width: 100% !important;
 position: relative;
-background-attachment: local;
+background-attachment: local !important;
 
    
 }
@@ -149,8 +149,8 @@ background-attachment: local;
     transition: all .8s;
   }
   .dev-item:hover{
-    transform: scale(1.03);
-    transform: translateX(10px);
+    transform: scale(1.05) translateX(20px) !important;
+    
     background-color: #00397a !important;
   }
   .dev-item:hover button {
