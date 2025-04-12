@@ -3,7 +3,78 @@
              <h5>First aid</h5>
             <h1 class="slide">Safety in your hands!</h1>
     </div>
+ 
 </section>
+<!-- //////////////////////////////////////////////////// -->
+<div class="container">
+  <h1 class="description">
+    Choose the first aid case you are facing<br>
+    <span class="sub-description ">First Aid – Act quickly and simply</span>
+  </h1>
+
+  <!-- Emergency Categories -->
+  <div class="card-grid mt-5" *ngIf="!selectedCategory && !selectedCase">
+    <div
+      class="card"
+      *ngFor="let category of categories; let i = index"
+      [class.selected]="selectedCategory === category.key"
+      (click)="selectCategory(category.key)"
+      [style.display]="i < (showAll ? categories.length : 3) ? 'block' : 'none'"
+    >
+      <i class="fas" [ngClass]="category.icon"></i>
+      <div class="separator"></div>
+      <h3 class="cat-name mb-4">{{ category.name }}</h3>
+      <span class="cat-desc mb-4 mt-4">{{ category.description }}</span>
+     <br> <br>
+     <button class="learn-more p-2"> Learn More</button>
+    </div>
+    <div *ngIf="categories.length > 3">
+      <button class="show-more-btn mt-4" (click)="toggleViewMoreAndLess()">
+        {{ showAll ? ' ←   Show Less' : 'Show More   →' }}
+      </button>
+    </div>
+  </div>
+ 
+  <!-- Display Cases for Selected Category -->
+  <div class="card-griddd" *ngIf="selectedCategory && !selectedCase">
+    <h2 class="category-title">{{ selectedCategoryName }}</h2>
+
+    <div
+      class="card"
+      *ngFor="let item of emergencyCases[selectedCategory]"
+      [class.selected]="selectedCase?.title === item.title"
+      (click)="selectCase(item)"
+    >
+      <i *ngIf="item.icon" class="fas" [ngClass]="item.icon"></i>
+      <h3>{{ item.title }}</h3>
+    </div>
+
+    <button class="close-btnn" (click)="goBackToCategories()">Back</button>
+  </div>
+
+  <!-- Case Details -->
+  <div class="details" *ngIf="selectedCase" [ngClass]="{'show': selectedCase}">
+    <div class="case-header" dir="rtl">
+      <i *ngIf="selectedCase.icon" class="fas" [ngClass]="selectedCase.icon"></i>
+      <h2>{{ selectedCase.title }}</h2>
+    </div>
+  
+    <ul>
+      <li *ngFor="let step of selectedCase?.steps">{{ step }}</li>
+    </ul>
+    <div class="details-buttons">
+      <button class="close-btn" (click)="goBackToCases()">Back</button>
+      <a class="emergency-btn" href="tel:123" (click)="showAlert()">Call Emergency</a>
+    </div>
+  </div>
+  
+
+  
+</div>
+
+
+ <!-- /////////////////////////////////////////////// -->
+  <!-- short Videos -->
 <div class="videos-container  mt-4 gategorey-bg rounded-4  shadow-lg">
    
     <h2 class="video-section-title">Short First Aid Videos</h2>
