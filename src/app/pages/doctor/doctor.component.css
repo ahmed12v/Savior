@@ -41,10 +41,20 @@
 }
 @media (max-width: 768px) {
     #home {
-        /* background-size: contain; يضمن عرض الخلفية بالكامل بدون قص */
-        background-position: center center; /* يحافظ على تموضع الخلفية */
+        background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+        url(../../../assets/imege/phone\ doc.jpg);
         background-size: cover;
+         background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh; /* يضمن تغطية الصفحة دون مشاكل */
+         width: 100%;
+         position: relative;
     }
+    .contain{
+      position: absolute;
+      bottom: 3%;
+      
+  }
 }
 
 /* ----------------- */

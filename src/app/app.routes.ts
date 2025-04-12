@@ -1,3 +1,4 @@
+import { DoctorRegisterComponent } from './addtions/doctor-register/doctor-register.component';
 import { GynecologistsComponent } from './component/doctor/gynecologists/gynecologists.component';
 import { PsychiatristsComponent } from './component/doctor/psychiatrists/psychiatrists.component';
 import { DermatologistsComponent } from './component/doctor/dermatologists/dermatologists.component';
@@ -156,6 +157,13 @@ export const routes: Routes = [
     loadComponent :()=>
         import('./component/doctor/book-form/book-form.component').then(
             (C) =>C.BookFormComponent
+        ) ,
+  },
+  {
+    path:'DoctorRegister',
+    loadComponent :()=>
+        import('./addtions/doctor-register/doctor-register.component').then(
+            (C) =>C.DoctorRegisterComponent
         ) ,
   },
  

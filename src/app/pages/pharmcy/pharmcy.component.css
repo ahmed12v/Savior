@@ -1,7 +1,7 @@
 #home{
     
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                      url(../../../assets/imege/What\ You\ Must\ Know\ About\ Shingles.jfif);
+                      url(../../../assets/imege/water.jpg);
     background-size:  cover ;
     
     background-position: center center;
@@ -9,6 +9,7 @@
     height: 100vh;
    width: 100% !important;
     position: relative;
+    background-attachment: fixed;
 }
 .pharmacy-title {
     font-size: 3rem; /* حجم الخط */
@@ -17,7 +18,7 @@
     overflow: hidden; /* إخفاء النص الزائد */
     border-right: 3px solid #0d6efd; /* مؤشر الكتابة */
     width: 0; /* العرض يبدأ من الصفر */
-    animation: typing 4s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+    animation: typing 5s steps(2000, end) infinite, blink-caret 1s step-end infinite;
 }
 
 @keyframes typing {
@@ -41,10 +42,12 @@
     background: transparent !important;
     color: white;
     border: white 2px solid;
+    transition: all 1s;
 }
 .medicin-btn:hover{
     border: rgb(227, 227, 16) 2px solid;
     color: rgb(227, 227, 16);
+    transform: scale(1.2);
 }
 
 .savior-doctor{
@@ -53,7 +56,7 @@ color: #0d4f9b;
 }
 .contain{
 position: absolute;
-top: 35%;
+top: 50%;
 
 }
 .btn-savior{
@@ -71,6 +74,15 @@ top: 35%;
     /* background-size: contain; يضمن عرض الخلفية بالكامل بدون قص */
     background-position: center center; /* يحافظ على تموضع الخلفية */
     background-size: cover;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                      url(../../../assets/imege/medicine-phone.jpg);
+    background-size:  cover ;
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+   width: 100% !important;
+    position: relative;
 }
 
 }
