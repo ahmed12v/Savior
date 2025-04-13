@@ -1,10 +1,10 @@
-<section id="home" class="text-center  d-flex align-items-center justify-content-center ">
+<!-- <section id="home" class="text-center  d-flex align-items-center justify-content-center ">
     <div class="contain text-center text-white  rounded-3 p-4">
              <h5>First aid</h5>
             <h1 class="slide">Safety in your hands!</h1>
     </div>
  
-</section>
+</section> -->
 <!-- //////////////////////////////////////////////////// -->
 <div class="container">
   <h1 class="description">
@@ -26,10 +26,10 @@
       <h3 class="cat-name mb-4">{{ category.name }}</h3>
       <span class="cat-desc mb-4 mt-4">{{ category.description }}</span>
      <br> <br>
-     <button class="learn-more p-2"> Learn More</button>
+     <button class="learn-more p-2 rounded-3 w-100"> Learn More</button>
     </div>
     <div *ngIf="categories.length > 3">
-      <button class="show-more-btn mt-4" (click)="toggleViewMoreAndLess()">
+      <button class="show-more-btn mt-4 rounded-3" (click)="toggleViewMoreAndLess()">
         {{ showAll ? ' ←   Show Less' : 'Show More   →' }}
       </button>
     </div>

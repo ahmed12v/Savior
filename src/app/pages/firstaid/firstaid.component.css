@@ -1,4 +1,4 @@
-/* Back Ground */
+/* Back Ground 
 #home{
     
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),url(../../../assets/imege/First\ Aidddddd.jpg);
@@ -60,6 +60,7 @@
     letter-spacing: 5px;
     text-transform: uppercase;
 }
+    */
 /* Cards For Emergency */
 
 .container {
@@ -75,7 +76,7 @@
   font-weight: 700;
   color: #4f7fb7;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
   position: relative;
   line-height: 1.4;
 }
@@ -94,7 +95,7 @@
 
 .sub-description {
   font-size: 20px;
-  color: #777;
+  /* color: #777; */
   font-weight: 500;
   text-align: center;
   display: block;
@@ -126,6 +127,10 @@
 .learn-more{
 border: #ffffff;
 color: black;
+transition: all .8s;
+}
+.learn-more:hover{
+ transform: scale(1.07) translateY(-8px);
 }
 .card-grid {
   display: grid;
@@ -152,7 +157,7 @@ color: black;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   text-align: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+  transition:  transform 0.8s ease-in-out, box-shadow 0.8s ease-in-out , background-color .8s; 
   position: relative;
 }
 
@@ -165,7 +170,7 @@ color: black;
 
 .card.selected {
   background-color: #4f7fb7;
-  color: white;
+  /* color: white; */
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
@@ -347,11 +352,12 @@ ul li {
   border-radius: 5px;
   cursor: pointer;
   margin: 20px auto;
-  transition: background-color 0.3s ease;
+  transition: all .5s ease;
 }
 
 .show-more-btn:hover {
   background-color: #0D4F9B;
+  transform: scale(1.07);
 }
 
 
