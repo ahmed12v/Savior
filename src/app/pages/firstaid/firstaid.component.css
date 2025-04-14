@@ -5,7 +5,7 @@
     background-size:  cover ;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 60vh;
+    height: 70vh;
    width: 100% !important;
     position: relative;
 }
@@ -405,6 +405,122 @@ ul li {
     font-size: 16px;
   }
 }
+
+
+
+/* Two Sections */
+
+.common-mistakes {
+  padding: 50px 0;
+}
+
+.mistake-box {
+  border-radius: 10px;
+  border: 2px solid #0D4F9B;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mistake-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #a1b5cd;
+}
+
+.mistake-icon {
+  font-size: 60px;
+  color: #f39c12;
+  margin-bottom: 20px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.title-section h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #0D4F9B;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+}
+
+.paragraph-section p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+
+}
+
+.list-section ul {
+  padding-left: 25px;
+  font-size: 15px;
+  margin-top: 15px;
+ 
+}
+
+.list-section ul li {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.list-section ul li strong {
+  color: #0D4F9B;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px; 
+}
+
+.col-lg-6 {
+  flex: 1;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (max-width: 768px) {
+  .common-mistake-card {
+    margin-bottom: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 20px; 
+  }
+}
+
+
+
 
 /* <!-- short Videos --> */
 .videos-container {
