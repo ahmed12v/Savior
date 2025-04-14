@@ -1,0 +1,119 @@
+.register-continer{
+    margin-top:77px ;
+    animation: fadeIn 3s ease-out;
+}
+.photo-conainer{
+    background-image: linear-gradient(rgba(40,139,221,0.3), rgba(40, 139, 221, 0.3)),
+                      url(../../../assets/imege/doc-regist.jpg);
+    background-size:  cover ;
+  
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+   width: 100% !important;
+    position: relative;
+    
+}
+.photo-width{
+    animation: fadeleft 3s ease-out;
+}
+.form-width{
+    animation: faderight 3s ease-out;
+}
+.hello-doctor h1{
+    font-size: 75px;
+    font-weight: bold;
+}
+.hello-doctor p{
+    margin-top: 20%;
+   
+}
+.hello-doctor .text-p2{
+    margin-top: 8%;
+   
+}
+.form-width .p-span{
+    color: #0d4f9b;
+}
+.first{
+    border: none !important;
+    border-bottom:solid 1px rgb(101, 101, 101) !important ;
+}
+.thanks{
+    color: #0d4f9b;
+}
+.regist-form-btn button{
+   font-size: 20px;
+   border: #0d4f9b !important;
+   background-color: #0d4f9b !important;
+   color: white !important;
+   padding-left: 30px;
+   padding-right: 30px;
+   font-weight: bold;
+   transition: all .5s;
+}
+.regist-form-btn button:hover{
+   transform: scale(1.05) translateY(-10px) ;
+   background-color: transparent !important;
+   color: #0d4f9b !important;
+   border: 1px solid #0d4f9b !important;
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+@keyframes fadeleft {
+    from {
+      opacity: 0;
+      transform: translatex(-200px);
+    }
+    to {
+      opacity: 1;
+      transform: translatex(0);
+    }
+  }
+@keyframes faderight {
+    from {
+      opacity: 0;
+      transform: translatex(200px);
+    }
+    to {
+      opacity: 1;
+      transform: translatex(0);
+    }
+  }
+  @media (max-width: 768px) {
+     /* .photo-width{
+        display: none;
+     } */
+      
+      .container{
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+      }
+      .photo-conainer{
+        background-image: linear-gradient(rgba(40,139,221,0.4), rgba(40, 139, 221, 0.4)),
+                          url(../../../assets/imege/phoneHand.jpg);
+     }
+     .hello-doctor p{
+        color: white !important;
+     }
+     .register-continer{
+        margin-top: 75px !important;
+     }
+     body{
+        margin: 0% !important;
+     }
+     .photo-width{
+        margin: 0% !important;
+        padding: 0% !important;
+     }
+
+  }

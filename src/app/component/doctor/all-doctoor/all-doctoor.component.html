@@ -16,7 +16,7 @@
                     routerLink="/reserv"></i>
                 </div> 
                    
-                <div class="testimonel-carousel owl-carousel  justify-content-start">
+                <div class="testimonel-carousel   justify-content-start">
                     
                     <!-- testimonel-item start -->
                      @for (item of doctor; track $index) {
@@ -24,7 +24,7 @@
                             >
                         <div class="testimonel-item"  routerLink="/DoctorFeedback">
                             <div class="testimonel-img">
-                                <img class="w-100 h-100" [src]="item.img" alt="" >
+                                <img class="w-100 h-100" [src]="item.img" alt="doctor Photo" >
                             </div>
                             <div class="testimonel-cont">
                                 <h3>DR. {{item.Name}}</h3>
