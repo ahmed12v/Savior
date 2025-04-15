@@ -150,8 +150,7 @@ transition: all .8s;
 }
 
 .card {
-  
-  background-color: transparent;
+   background-color: transparent;
   padding: 20px 15px;
   border-radius: 15px;
   border: 1px solid #e0e0e0;
@@ -360,18 +359,69 @@ ul li {
   background-color: #0D4F9B;
   transform: scale(1.07);
 }
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .description {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .details ul {
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .description {
+    font-size: 28px;
+  }
+
+  .sub-description {
+    font-size: 16px;
+  }
+}
+
+
+
 /* Two Sections */
 
 
 
 .mistake-box {
+  background-color: transparent;
   border-radius: 10px;
   border: 2px solid #0D4F9B;
   padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   height: 650px;
- 
+
+  
 }
 
 .mistake-box:hover {
@@ -446,6 +496,7 @@ ul li {
 
 
 @media (max-width: 768px) {
+  
   .mistake-box{
     margin-bottom: 20px;
   }
