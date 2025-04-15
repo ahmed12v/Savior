@@ -43,7 +43,7 @@
     @for (item of items; track $index) {
       @if (showAll || $index < 4) {
 
-        <div class=" show-cato  col-md-3 p-3  rounded-3 ">
+        <div class=" show-cato col-sm-6 col-sm  col-md-3 p-3  rounded-3 ">
 
 
           <div class="card-cato shadow-lg">
@@ -88,55 +88,8 @@
 <!-- start top ratings -->
 
 
+<app-top-rating-slider></app-top-rating-slider>
 
-<section class="testimonel-area " id="testimonial" >
-  
-  <div class="container ">
-    <div class="mb-5 text-center doc-tittle">
-      <h2>
-        Top Rating
-      </h2>
-    </div>
-    
-
-      <div class="row">
-          <div class="">
-                 
-              <div class="testimonel-carousel owl-carousel d-flex justify-content-center">
-                  
-                  <!-- testimonel-item start -->
-                  <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-12 shadow-lg rounded-3 cuesor-pointer" 
-                  >
-                      <div class="testimonel-item" routerLink="/DoctorFeedback">
-                          <div class="testimonel-img">
-                              <img class="w-100 h-100" src="../../../assets/imege/doctor Photo.jpg" alt="" >
-                          </div>
-                          <div class="testimonel-cont">
-                              <h3>Ahmed Sami</h3>
-                              <h4><a><i class="fa fa-map-marker"></i> 10th of ramadan </a></h4>
-                              <p>One of the best dentists offered by Savior in 10th of Ramadan.</p>
-                              <p> sat , tuse , thurs </p>
-                              <p> 12 : 8 pm </p>
-                              <div class="review-reating d-flex ">
-                                 <p> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>  <i class="fa fa-star"></i> <i class="fa fa-star"></i> </p> 
-                              </div>
-                          </div>
-                      </div >
-                      <div class="text-center card-btn">
-                        <button class="btn btn-primary fw-bold"
-                        routerLink="/BookNow">
-                          Book Now 
-                        </button>
-                      </div>
-                  </div>
-                  <!-- testimonel-item end -->
-              </div>
-          </div>
-      </div><!--/.row-->
-
-
-  </div><!--/.container-->
-</section>
 
 <!-- End top ratings -->
 

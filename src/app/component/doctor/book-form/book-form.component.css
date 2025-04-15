@@ -112,6 +112,12 @@ p {
     color: #0D4F9B;
     border: #0D4F9B 2px solid;
 }
+.booking-card:hover img{
+    transform: rotate(360deg) scale(1.1);
+}
+.booking-card img{
+    transition:all .8s ;
+}
 @keyframes fadeInunder {
     0% {
         opacity: 0;
