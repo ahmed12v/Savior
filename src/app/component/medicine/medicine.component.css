@@ -1,3 +1,9 @@
+.container input{
+    color: #0D4F9B;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 33px;
+}
 .form-control{
 
     border: 2px solid #0d4f9b !important;

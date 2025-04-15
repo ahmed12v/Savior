@@ -2,6 +2,10 @@
     margin-top:77px ;
     animation: fadeIn 3s ease-out;
 }
+.register-continer input{
+   color: #0d4f9b;
+   font-weight: bold;
+}
 .photo-conainer{
     background-image: linear-gradient(rgba(40,139,221,0.3), rgba(40, 139, 221, 0.3)),
                       url(../../../assets/imege/doc-regist.jpg);
