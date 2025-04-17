@@ -1,0 +1,12 @@
+{
+    "/api": {
+      "target": "http://gpsavior.runasp.net",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
+  
