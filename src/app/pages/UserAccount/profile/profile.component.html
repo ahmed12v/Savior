@@ -1,4 +1,11 @@
-<section class="profile-section py-5 bg-transparent ">
+@if (SpinnerData) {
+  <div class="d-flex vh-100 align-items-center justify-content-center">
+    <i class="fa fa-spin fa-spinner  spiner fs-4"></i>
+  </div>
+}
+@else {
+   
+  <section class="profile-section py-5 bg-transparent ">
     <div class="container ">
       <div
         class="card shadow-lg rounded-4 border-0 mx-auto  bg-transparent"
@@ -19,11 +26,11 @@
           <div class="profile-details text-start mt-4">
             <div class="detail-item mb-3">
               <h6 class="">Name</h6>
-              <p class="fs-5 fw-semibold mb-0 ">Ahmed Sami </p>
+              <p class="fs-5 fw-semibold mb-0 ">{{UserData.fname}} {{UserData.lname}} </p>
             </div>
             <div class="detail-item mb-3">
               <h6 class="">Email</h6>
-              <p class="fs-5 fw-semibold  mb-0">.......com</p>
+              <p class="fs-5 fw-semibold  mb-0"> {{UserData.email}} </p>
             </div>
             <div class="detail-item mb-3">
               <h6 class="">Password</h6>
@@ -31,7 +38,7 @@
             </div>
             <div class="detail-item mb-3">
               <h6 class="">Phone</h6>
-              <p class="fs-5 fw-semibold  mb-0">01018097608</p>
+              <p class="fs-5 fw-semibold  mb-0"> {{UserData.phone}} </p>
             </div>
           </div>
   
@@ -50,3 +57,6 @@
       </div>
     </div>
   </section>
+}
+
+
