@@ -5,15 +5,51 @@
 
   
 
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="SubmitLogin()">
       <div class="input-group">
       
-        <input type="email" placeholder="Enter your email" />
-      </div>
+        <input formControlName="email" type="email" placeholder="Enter your email" />
 
+        @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+
+          <div class="  p-0 m-0">
+              @if (loginForm.get('email')?.errors?.['required']) {
+                  <p class="p-1 m-0 validation"> email is required <i class="fa-solid fa-face-angry"></i> </p>
+
+              }
+              @if (loginForm.get('email')?.errors?.['email']) {
+                  <p class="p-1 m-0 validation"> please enter email  <i class="fa-solid fa-face-angry"></i> </p>
+
+              }
+              
+          </div>
+
+      }
+          
+
+      </div>
+      
       <div class="input-group">
       
-        <input type="password" placeholder="Enter your password" />
+        <input formControlName="password" type="password" placeholder="Enter your password" />
+
+        @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+
+          <div class="  p-0 m-0">
+              @if (loginForm.get('password')?.errors?.['required']) {
+                  <p class="p-1 m-0 validation"> password is required <i class="fa-solid fa-face-angry"></i> </p>
+
+              }
+              @if (loginForm.get('password')?.errors?.['pattern']) {
+                  <p class="p-1 m-0 validation"> please chose valid password : (A-Z / 0-9 /a-z & min Caractor = 8 ) 
+                     <i class="fa-solid fa-face-angry"></i> </p>
+
+              }
+              
+          </div>
+
+      }
+
       </div>
 
       <p class="cuesor-pointer forget m-3 ms-auto text-end fs-6"
@@ -21,7 +57,15 @@
       Forgot your password?
     </p>
 
-      <button class="signup-btn">Login</button>
+    <button [disabled]="loginForm.invalid"  class="signup-btn fw-bold fs-5">
+      @if (spinner) {
+        <i class="fa fa-spin fa-spinner"></i>
+       
+    }
+    @else {
+        <span> Login </span>
+    }
+    </button>
     </form>
 
     <p class="login-text text-dark-emphasis ">

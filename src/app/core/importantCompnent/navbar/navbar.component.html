@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top rounded-0 ">
   <div class="container">
     <!-- Logo -->
-    <a class="navbar-brand fs-3 brand-glow">SAVIOR</a>
+    <a class="navbar-brand fs-3 brand-glow cuesor-pointer">SAVIOR</a>
 
     <!-- Toggle Button for Mobile -->
     <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -11,35 +11,67 @@
 
     <!-- Nav Items -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="SignIn">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="login">Log In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="about">About Savior</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="pharmcy">Pharmacy</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="doctor">Doctor</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="firstaid">First Aid</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="medicalTeam">Emergency Team</a>
-        </li>
-      </ul>
+      <ul class="navbar-nav ms-auto ">
+        @if (loging==false) {
+           <div class="d-flex phone-atho">
+            <li class="nav-item">
+              <a class="nav-link  login" (click)="closeNavbar()" routerLink="about"
+              routerLinkActive="AthoActiv">About Savior</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  login" (click)="closeNavbar()" routerLink="login"
+                routerLinkActive="AthoActiv">  <span class="logico"> 
+                <i class="fa-solid fa-right-long"></i> </span> Login / SignUp</a>
+            </li>
+           </div>
+          
+
+        }
+        
+        @if(loging==true){
+
+
+          <li class="nav-item">
+            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="home"
+             routerLinkActive="routerLinkActive"> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="pharmcy"
+            routerLinkActive="routerLinkActive">Pharmacy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="doctor"
+            routerLinkActive="routerLinkActive">Doctor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="profile"
+            routerLinkActive="routerLinkActive">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="firstaid"
+            routerLinkActive="routerLinkActive">First Aid</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="medicalTeam"
+            routerLinkActive="routerLinkActive">Emergency Team</a>
+          </li>
+        }
+
+      
+        </ul>  
+
+       
+        @if (loging==true) {
+
+          <div class="cuesor-pointer p-1 text-end ms-4 ms-auto    me-3">
+            <a  (click)="logOut()" class="nav-link  logout " aria-current="page" 
+                 routerLinkActive=" ">logout <i class="fa-solid fa-right-from-bracket"></i></a>
+          </div>
+        }
+        
     </div>
+    
+
+    
   </div>
 </nav>

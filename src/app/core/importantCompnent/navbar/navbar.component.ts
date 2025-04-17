@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { LogInService } from '../../../shared/services/athountocation/log-in.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,18 +9,41 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  loging:boolean=false;
 
+constructor(private _router:Router , private _LogInService:LogInService){}
+   
    closeNavbar(): void {
      const navbarCollapse = document.getElementById('navbarNav');
     if (navbarCollapse) {
        navbarCollapse.classList.remove('show');  
      }
    }
- 
 
+  
+ ngOnInit(): void {
+   
+this._LogInService.UserDataAfterDecoded.subscribe(
+   
+  ()=>{ 
+       if(this._LogInService.UserDataAfterDecoded.getValue()!=null){
+        this.loging=true
+       }else{
+        this.loging=false
+       }
+  }
+  
+)
 
+ }
 
+   logOut(){
 
+    localStorage.removeItem('token');
+    this._LogInService.UserDataAfterDecoded.next(null);
+    this._router.navigate(['login'])
+
+}
 
 }

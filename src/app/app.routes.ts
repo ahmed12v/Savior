@@ -281,14 +281,15 @@ export const routes: Routes = [
             (C)=>C.ForgetPasswordComponent
         )
   },
-
   {
-    path:'code',
+    path:'VierfyCode',
      loadComponent:()=>
         import('./core/Athountcation/verify-code/verify-code.component').then(
             (C)=>C.VerifyCodeComponent
         )
   },
+
+  
 
 
   {

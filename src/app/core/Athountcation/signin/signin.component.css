@@ -160,3 +160,7 @@ p{
   opacity: 0;
   animation: fadeInRight 2s ease-out forwards;
 }
+/* Validatio */
+.validation{
+  color: rgb(193, 14, 14);
+}

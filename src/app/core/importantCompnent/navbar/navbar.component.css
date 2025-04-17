@@ -43,32 +43,115 @@
   
   
   .nav-glow {
-    color: white;
-    font-weight: 500;
+    color: white !important;
+    font-weight: 500 !important;
     position: relative;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out;
     font-size: 1.1rem;
   }
+  .logout{
+    color: white !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    transition: all 0.4s ease-in-out !important;
+    font-size: 1.1rem !important;
+    transition: all .7s !important;
+  }
+  .logout:hover{
+       
+     color: red !important;
+     font-size: 22px;
+     transform: scale(1.1) translateX(20px);
+
+  }
+  .logout i {
+    transition: all .7s;
+  } 
+  .logout:hover i {
+    transform: rotate(-45deg) !important;
+  } 
+
   
-  .nav-glow::after {
+  
+  
+  .nav-glow:hover{
+    transform: scale(1.2)  ;
+    padding-right:10px ;
+    padding-left:10px ;
+    margin-right:20px ;
+    margin-left:20px ;
+    font-weight: bold;
+    
+  }
+  
+  .routerLinkActive{
+    color: white !important;
+  font-weight: bold !important;
+  transform: scale(1.1);
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 22px;
+  }
+  
+  .routerLinkActive::after{
+    
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #00bcd4, #0d4f9b); 
-    transition: all 0.3s ease-in-out;
-    transform: translateX(-50%);
-  }
-  
-  .nav-glow:hover {
-    color: #00bcd4; 
-    text-shadow: 0 0 15px #00bcd4; 
-  }
-  
-  .nav-glow:hover::after {
+    bottom: -6px;
+    left: 0;
     width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    animation: slideIn 4s ease forwards;
+    
+  }
+  .login i{
+   opacity: 0;
+   transform: translateX(-50px);
+   transition: all 1s;
+  }
+  .login:hover i{
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+  .login{
+    color: white !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    transition: all 0.4s ease-in-out !important;
+    font-size: 1.1rem !important;
+  }
+  .login:hover{
+    color: rgb(165, 30, 30) !important;
+    transform: scale(1.1);
+    font-size: 22px;
+  }
+  .AthoActiv{
+    color: rgb(165, 30, 30) !important;
+    font-size: 30px;
+    transform: scale(1.2) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    transform: translateX(20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold ;
+
+  }
+  .AthoActiv i{
+    opacity: 1;
+   transform: translateX(0px);
+  }
+  @keyframes slideIn {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
   }
   
  
@@ -77,7 +160,7 @@
       background: rgba(13, 79, 155, 0.9);
       border-radius: 12px;
       padding: 15px;
-      text-align: center;
+      text-align: start;
       transition: all 0.4s ease-in-out;
       opacity: 0;
       animation: fadeInUp 1s forwards;
@@ -96,6 +179,17 @@
       transform: scale(0.95);
       transition: transform 0.3s ease-in-out;
     }
+    .nav-glow:hover{
+      transform: scale(1.1) translateX(30px) ;
+      padding-right:20px ;
+      padding-left:20px ;
+      border-bottom:none;
+    border-left: none;
+    }
+    .phone-atho{
+      display: block !important;
+    }
+    
   }
   
   

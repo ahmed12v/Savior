@@ -2,18 +2,34 @@
   <div class="signup-card">
     <h2 class="title">Code Confirm</h2>
   
-    <!-- <form> -->
+    <form [formGroup]="CodeForm" (ngSubmit)="CodeSubmit()">
       <div class="input-group">
       
-        <input type="tel" placeholder="Enter your code" />
+        <input formControlName="code"  type="text" placeholder="Enter your code" />
+        @if (CodeForm.get('code')?.errors && CodeForm.get('code')?.touched) {
+          <div class="p-0 m-0">
+            @if(CodeForm.get('code')?.errors?.['required']){
+              <p class="p-1 m-0 validation"> password is required <i class="fa-solid fa-face-angry"></i> </p>
+
+            }
+          </div>
+        }
       </div>
 
     
 
-      <button class="signup-btn"
-       routerLink="/newPass"
-      >Send Code</button>
-    <!-- </form> -->
+      <button class="signup-btn">
+        @if (spinner) {
+          <i class="fa fa-spin fa-spinner"></i>
+         
+      }
+      @else {
+          <span> Send Code </span>
+      }
+      </button>
+      
+      
+    </form>
 
    
    

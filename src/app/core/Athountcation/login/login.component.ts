@@ -1,13 +1,53 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { LogInService } from '../../../shared/services/athountocation/log-in.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink , ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+  spinner:boolean=false
+
+  loginForm: FormGroup =new FormGroup({
+    email:new FormControl(null , [Validators.required , Validators.email]),
+    password:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8}$/)]),
+  });
+
+
+  constructor(private _loginServiec:LogInService,  private _Router:Router){}
+
+  SubmitLogin()
+  {
+    
+   
+   
+    if(this.loginForm.valid){
+      this.spinner=true;
+      this._loginServiec.Login(this.loginForm.value).subscribe({
+        next:(res)=>{
+          this.spinner=false
+               console.log(res.token);
+               localStorage.setItem('token',res.token)
+               this._Router.navigate(['/home'])
+               this._loginServiec.decodToken()
+              
+        },
+        error:(err)=>{
+
+          console.log(err)
+          this.spinner=false
+        }
+      })
+
+
+
+    }
+  }
 
 }

@@ -58,4 +58,7 @@
   .cuesor-pointer{
     cursor: pointer;
   }
+  .validation{
+    color: rgb(193, 14, 14);
+  }
 
