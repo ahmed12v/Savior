@@ -16,7 +16,7 @@ export class LoginComponent {
 
   loginForm: FormGroup =new FormGroup({
     email:new FormControl(null , [Validators.required , Validators.email]),
-    password:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8}$/)]),
+    password:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8,}$/)]),
   });
 
 

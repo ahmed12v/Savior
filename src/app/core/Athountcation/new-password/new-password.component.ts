@@ -14,7 +14,7 @@ export class NewPasswordComponent {
   spinner:boolean=false
 
     NewForm:FormGroup = new FormGroup({
-    newPassword:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8}$/)]),
+    newPassword:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8,}$/)]),
     confirmNewPassword:new FormControl(null , [Validators.required]),
   },this.checkrePassword )
 
