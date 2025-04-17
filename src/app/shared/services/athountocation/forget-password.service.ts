@@ -12,17 +12,17 @@ export class ForgetPasswordService {
 
   Forget(forgetForm:ForgetPassword):Observable<any>
   {
-    return this._HttpClient.post('http://gpsavior.runasp.net/api/Authentication/forgot-password',forgetForm , { responseType: 'text' })
+    return this._HttpClient.post('/api/Authentication/forgot-password',forgetForm , { responseType: 'text' })
   }
 
   Codevierify(CodeForm:Codevierify):Observable<any>
   {
-    return this._HttpClient.post('http://gpsavior.runasp.net/api/Authentication/Confirm-code',CodeForm , {responseType:'text'} )
+    return this._HttpClient.post('/api/Authentication/Confirm-code',CodeForm , {responseType:'text'} )
   }
 
   NewPass(newForm:NewPassword):Observable<any>
   {
-    return this._HttpClient.post('http://gpsavior.runasp.net/api/Authentication/reset-password',newForm,{responseType:'text'})
+    return this._HttpClient.post('/api/Authentication/reset-password',newForm,{responseType:'text'})
   }
   
 }
