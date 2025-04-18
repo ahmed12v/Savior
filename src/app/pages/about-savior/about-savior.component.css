@@ -22,17 +22,17 @@
 }
 
 .image1 {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)) ,url('/assets/imege/full-shot-doctors-discussing-hallway.jpg');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)) ,url('../../../assets/imege/AboutSlider1.jpg');
     animation-delay: 0s;
 }
 
 .image2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('/assets/imege/inventory-two-druggists-lab-coats-process-inventory-drugstore.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('../../../assets/imege/refer.jpg');
     animation-delay: 4s;
 }
 
 .image3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('/assets/imege/cpr-first-aid-training-concept\ \(1\).jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('../../../assets/imege/All.jpg');
     animation-delay: 8s;
 }
 

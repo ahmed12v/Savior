@@ -35,6 +35,7 @@ import { DoctorComponent } from './pages/doctor/doctor.component';
 import { AboutSaviorComponent } from './pages/about-savior/about-savior.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
 
@@ -45,14 +46,14 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/home/home.component').then(
         (c) => c.HomeComponent
-      ),
+      ),canActivate:[authGuard]
   },
   {
     path: 'CotactUs',
     loadComponent: () =>
       import('./pages/user-contact-us/user-contact-us.component').then(
         (c) => c.UserContactUsComponent
-      ),
+      ),canActivate:[authGuard]
   },
 
   {
@@ -68,35 +69,35 @@ export const routes: Routes = [
     loadComponent :()=>
         import('./pages/doctor/doctor.component').then(
             (C) =>C.DoctorComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'AllDoctor',
     loadComponent :()=>
         import('./component/doctor/all-doctoor/all-doctoor.component').then(
             (C) =>C.AllDoctoorComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'dentists',
     loadComponent :()=>
         import('./component/doctor/dentists/dentists.component').then(
             (C) =>C.DentistsComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'orthopedic',
     loadComponent :()=>
         import('./component/doctor/orthopedic/orthopedic.component').then(
             (C) =>C.OrthopedicComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'throat',
     loadComponent :()=>
         import('./component/doctor/throat/throat.component').then(
             (C) =>C.ThroatComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   
   {
@@ -104,21 +105,21 @@ export const routes: Routes = [
     loadComponent :()=>
         import('./component/doctor/optometrists/optometrists.component').then(
             (C) =>C.OptometristsComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'cardiologists',
     loadComponent :()=>
         import('./component/doctor/cardiologists/cardiologists.component').then(
             (C) =>C.CardiologistsComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'pediatricians',
     loadComponent :()=>
         import('./component/doctor/pediatricians/pediatricians.component').then(
             (C) =>C.PediatriciansComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'gynecologists',
@@ -132,49 +133,49 @@ export const routes: Routes = [
     loadComponent :()=>
         import('./component/doctor/physical/physical.component').then(
             (C) =>C.PhysicalComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'dermatologists',
     loadComponent :()=>
         import('./component/doctor/dermatologists/dermatologists.component').then(
             (C) =>C.DermatologistsComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'gastroenterologists',
     loadComponent :()=>
         import('./component/doctor/gastroenterologists/gastroenterologists.component').then(
             (C) =>C.GastroenterologistsComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'psychiatrists',
     loadComponent :()=>
         import('./component/doctor/psychiatrists/psychiatrists.component').then(
             (C) =>C.PsychiatristsComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'DoctorFeedback',
     loadComponent :()=>
         import('./component/doctor/feedback/feedback.component').then(
             (C) =>C.FeedbackComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'BookNow',
     loadComponent :()=>
         import('./component/doctor/book-form/book-form.component').then(
             (C) =>C.BookFormComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
   {
     path:'DoctorRegister',
     loadComponent :()=>
         import('./addtions/doctor-register/doctor-register.component').then(
             (C) =>C.DoctorRegisterComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
  
   {
@@ -182,7 +183,7 @@ export const routes: Routes = [
     loadComponent :()=>
         import('./component/doctor/reservtion/reservtion.component').then(
             (C) =>C.ReservtionComponent
-        ) ,
+        ) ,canActivate:[authGuard]
   },
  
   {
@@ -190,7 +191,7 @@ export const routes: Routes = [
     loadComponent:()=>
         import('./pages/pharmcy/pharmcy.component').then(
             (C)=>C.PharmcyComponent
-        ),
+        ),canActivate:[authGuard]
  },
 
  {
@@ -198,28 +199,28 @@ export const routes: Routes = [
      loadComponent:()=>
       import('./component/medicine/medicine.component').then(
         (c)=>c.MedicineComponent
-      )
+      ),canActivate:[authGuard]
  },
  {
      path:'cart',
      loadComponent:()=>
       import('./component/user-cart/user-cart.component').then(
         (c)=>c.UserCartComponent
-      )
+      ),canActivate:[authGuard]
  },
  {
      path:'deliveryForm',
      loadComponent:()=>
       import('./component/forms/delivery-form/delivery-form.component').then(
         (c)=>c.DeliveryFormComponent
-      )
+      ),canActivate:[authGuard]
  },
  {
      path:'nearstForm',
      loadComponent:()=>
       import('./component/forms/nearst-location-form/nearst-location-form.component').then(
         (c)=>c.NearstLocationFormComponent
-      )
+      ),canActivate:[authGuard]
  },
 
  {
@@ -227,7 +228,7 @@ export const routes: Routes = [
     loadComponent:()=>
         import('./pages/firstaid/firstaid.component').then(
             (C)=> C.FirstaidComponent
-        ),
+        ),canActivate:[authGuard]
  },
   
  {
@@ -235,7 +236,7 @@ export const routes: Routes = [
     loadComponent:()=>
         import('./pages/medical-team/medical-team.component').then(
             (C)=> C.MedicalTeamComponent
-        ),
+        ),canActivate:[authGuard]
  },
 
  
@@ -245,7 +246,7 @@ export const routes: Routes = [
      loadComponent:()=>
         import('./pages/UserAccount/profile/profile.component').then(
             (C)=>C.ProfileComponent
-        ),
+        ),canActivate:[authGuard]
  },
 
  {
@@ -253,7 +254,7 @@ export const routes: Routes = [
      loadComponent:()=>
         import('./pages/UserAccount/updat-his-data/updat-his-data.component').then(
             (C)=>C.UpdatHisDataComponent
-        ),
+        ),canActivate:[authGuard]
  },
 
 {
@@ -261,7 +262,7 @@ export const routes: Routes = [
      loadComponent:()=>
         import('./pages/UserAccount/updatepass/updatepass.component').then(
             (C)=> C.UpdatepassComponent
-        ),
+        ),canActivate:[authGuard]
 },
 
 
