@@ -13,10 +13,19 @@ import { Profile } from '../../../shared/Interfaces/Pages/profile';
 export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
-    
- this.GetMe();
 
-}
+    if (typeof localStorage != 'undefined') {
+      localStorage.setItem('last Page', '/profile');
+      ////////////////////////////call//////////////////////////
+      this.GetMe();
+    } else {
+      console.warn('localStorage is not available in this environment.');
+    }
+  }
+    
+ 
+
+
 
 constructor(private _ProfileService:ProfileService){}
  
