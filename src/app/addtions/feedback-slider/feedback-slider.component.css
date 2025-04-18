@@ -1,0 +1,37 @@
+
+
+.container{
+    position: relative;
+  }
+ 
+  .items:hover{
+    transform: translateY(-10px);
+  }
+
+  .dv-ico i{
+     padding: 16px;
+     border: #0d4f9b 1px solid;
+     border-radius: 100%;
+     font-size: 25px;
+     color: #0d4f9b;
+     font-weight: bold;
+  }
+  .feedback-desc{
+    height: 100px;
+    
+  }
+  .userName{
+    color: #0d4f9b !important;
+  }
+  
+      
+  
+
+  @media (max-width: 700px) {
+    .templet .items{
+        padding: 0% !important;
+        margin: 0% !important;
+    }
+    
+  }
+ 

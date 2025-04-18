@@ -9,12 +9,17 @@
           
        </p>
 
-      
-       <button class="bg-transparent text-white p-2 ps-3 pe-3 btn-savior rounded-3 me-1 fw-bold mt-1 reserve-btn">
-        reservation <i class="fa-solid fa-book"></i>
-       </button>
-       <button class="bg-transparent text-white  p-2 ps-3 pe-3 btn-savior rounded-3 ms-1  fw-bold mt-1">
-        my Orders <i class="fa-solid fa-cart-shopping"></i>
+      <div>
+        <button class="bg-transparent text-white p-2 ps-3 pe-3 btn-savior rounded-3 me-1 fw-bold mt-1 reserve-btn">
+            reservation <i class="fa-solid fa-book"></i>
+           </button>
+           <button class="bg-transparent text-white  p-2 ps-3 pe-3 btn-savior rounded-3 ms-1  fw-bold mt-1">
+            my Orders <i class="fa-solid fa-cart-shopping"></i>
+           </button>
+      </div>
+       
+       <button (click)="scrollToContact()"  class="bg-transparent text-white  p-2 ps-3 pe-3 btn-savior rounded-3 ms-1  fw-bold mt-3">
+        Contact Us <i class="fa-solid fa-file-signature"></i>
        </button>
 
     </div>
@@ -156,7 +161,7 @@
      
      <!-- ---------------------------------------------------------- -->
     
-      <div class="container-fluid contact-massage mt-5 pt-5">
+      <div class="container-fluid contact-massage mt-5 pt-5" id="contact">
         
         
        <div class="row">
@@ -246,6 +251,9 @@
                             Send Massage
                         }
                     </button>
+
+                    <p class="p-1 mt-2 fs-5 fw-bold SeeFeedbak cuesor-pointer" routerLink="/CotactUs">
+                     <i class="fa-solid fa-right-long "></i> See User Feedback</p>
                   </div>
 
             </form>

@@ -41,6 +41,13 @@ export class HomeComponent  {
       },
      
   ]
+
+  scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   spinner:boolean=false
 
   constructor(private _HomeService:HomeService , private _Router:Router , private _ToastrService:ToastrService){}

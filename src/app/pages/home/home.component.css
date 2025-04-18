@@ -29,6 +29,14 @@ right: 10%;
     border: #0d4f9b solid 2px ;
     color: #0d4f9b !important;
 }
+.btn-savior:hover a{
+    
+    color: #0d4f9b !important;
+}
+.btn-savior a{
+    
+   transition: all .7s;
+}
 
 
 @media (max-width: 768px) {
@@ -285,6 +293,13 @@ background-attachment: local !important;
     padding-left: 0%;
     padding-right: 0%;
   }
+}
+.SeeFeedbak{
+  color: #0d4f9b;
+  transition: all 1s;
+}
+.SeeFeedbak:hover{
+  transform: translateX(40px) scale(1.1) !important;
 }
 
  

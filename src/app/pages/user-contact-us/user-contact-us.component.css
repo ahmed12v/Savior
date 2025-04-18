@@ -1,0 +1,54 @@
+.feedbackUser-Section{
+    margin-top: 80px;
+}
+.feedbackUser-Section h1{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.start-icon{
+    color: rgb(231, 231, 4);
+    font-size: 20px;
+}
+.progress-bar{
+    background-color: #0d4f9b !important;
+}
+.K-revie{
+    color: rgb(173, 176, 179);
+}
+.K-revie-2{
+    color: rgb(173, 176, 179);
+    font-size: 18px !important;
+}
+.reviw-btn{
+    background-color: #0d4f9b !important;
+    border: #0d4f9b 2px !important;
+    color: white;
+    transition: all .7s;
+}
+.reviw-btn:hover{
+    background-color: #0d4f9b !important;
+    border: #0d4f9b 2px !important;
+    color: white;
+    transform: scale(1.05) translateX(10px);
+}
+.first-sec{
+    animation: Come 3s ease-out !important;
+    transition: all 1s;
+}
+@keyframes Come{
+    from {
+        opacity: 0;
+        transform: translateX(-200px)
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0)
+      }
+}
+@media( max-width: 780px){
+    .write-w{
+         padding-left: 3% !important;
+         margin-top:5% !important ;
+    }
+}

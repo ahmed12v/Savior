@@ -13,6 +13,7 @@ import { LogInService } from '../../../shared/services/athountocation/log-in.ser
 export class LoginComponent {
 
   spinner:boolean=false
+  erroor:boolean=false
 
   loginForm: FormGroup =new FormGroup({
     email:new FormControl(null , [Validators.required , Validators.email]),
@@ -42,6 +43,7 @@ export class LoginComponent {
 
           console.log(err)
           this.spinner=false
+          this.erroor=true
         }
       })
 

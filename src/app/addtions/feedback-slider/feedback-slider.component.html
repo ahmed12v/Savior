@@ -1,0 +1,66 @@
+@if (spinner) {
+    <div class="d-flex vh-100 align-items-center justify-content-center">
+        <i class="fa fa-spin fa-spinner  spiner fs-4"></i>
+      </div>
+    
+}
+@else {
+    <div class="container mx-auto  mt-5 ">
+        <div class="row p-0 m-0">
+            <div class="col-md-12 m-0  p-3 ">
+                <div>
+                    <owl-carousel-o [options]="customOptions" class="m-0 " #owlCarousel>
+                         @for (item of FeedbackData; track $index) {
+    
+                            <ng-template carouselSlide class="templet" [id]="item.name">
+    
+                                <div class=" w-100  p-2">
+                                   <div class="rounded-3 items p-3 shadow-sm">
+                                    <div class="text-center dv-ico">
+                                        <i class="fa-solid fa-user-tag"></i> 
+                                    </div>
+                                    <div class="feedback-desc text-center mt-2 mb-2 d-flex justify-content-center align-items-center">
+                                          <p class="fw-bold"> {{item.feedback}} </p>
+                                    </div> 
+                                    <div class="text-center">
+                                        <p  class="fw-bold userName"> {{item.name}} </p>
+                                    </div> 
+                                    
+                                          
+                                         
+                                   </div>
+                                </div>
+        
+                            </ng-template> 
+    
+                         }
+                        
+                       
+                        
+    
+                            <div class=" w-100  p-2">
+                               <div class="rounded-3 items p-3 shadow-sm">
+                                  <img src="../../../assets/imege/sli-team.jpg" alt=""
+                                   class="w-100 rounded-3 h-75"> 
+                                      
+                                     <div class="mt-2 p-3">
+                                      <p class="text-primary fw-bold">you Doctor?</p>
+                                       <h5 class="fw-bold">Join Us Now</h5>
+                                       <i class="fa-solid fa-chevron-right slider-icon fw-bold mt-2"></i>
+                                     </div>
+                               </div>
+                            </div>
+    
+                        
+                      </owl-carousel-o>
+                </div>
+                
+            </div>
+            
+    
+        </div>
+    
+    </div>
+}
+
+

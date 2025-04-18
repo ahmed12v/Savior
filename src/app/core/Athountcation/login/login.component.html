@@ -3,7 +3,9 @@
     <h2 class="title">Login</h2>
     <p class="subtitle">Welcome Back!</p>
 
-  
+     @if (erroor) {
+      <p class="p-1 validation"> Incorrect Passwor or Email  </p>
+     }
 
     <form [formGroup]="loginForm" (ngSubmit)="SubmitLogin()">
       <div class="input-group">

@@ -1,3 +1,4 @@
+import { UserContactUsComponent } from './pages/user-contact-us/user-contact-us.component';
 import { DoctorRegisterComponent } from './addtions/doctor-register/doctor-register.component';
 import { GynecologistsComponent } from './component/doctor/gynecologists/gynecologists.component';
 import { PsychiatristsComponent } from './component/doctor/psychiatrists/psychiatrists.component';
@@ -43,7 +44,15 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () =>
       import('./pages/home/home.component').then(
-        (c) => c.HomeComponent),
+        (c) => c.HomeComponent
+      ),
+  },
+  {
+    path: 'CotactUs',
+    loadComponent: () =>
+      import('./pages/user-contact-us/user-contact-us.component').then(
+        (c) => c.UserContactUsComponent
+      ),
   },
 
   {

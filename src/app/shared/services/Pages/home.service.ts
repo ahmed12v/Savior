@@ -2,7 +2,7 @@ import { observable } from './../../../../../node_modules/@angular-devkit/build-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ContactUs } from '../../Interfaces/Pages/home';
+import { contact, ContactUs} from '../../Interfaces/Pages/home';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +25,10 @@ export class HomeService {
             }
            )
            
+  }
+
+  getFeedback():Observable<contact>
+  {
+    return this._HttpClient.get<contact>('/api/connectus')
   }
 }
