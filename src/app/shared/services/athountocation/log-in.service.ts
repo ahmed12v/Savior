@@ -4,6 +4,7 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Login } from '../../Interfaces/athountocation/login';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,12 @@ export class LogInService {
 
   UserDataAfterDecoded:BehaviorSubject<any>=new BehaviorSubject(null);
 
-  constructor( private _HttpClient:HttpClient , @Inject(PLATFORM_ID) private id:object ) { 
+  constructor( private _HttpClient:HttpClient , @Inject(PLATFORM_ID) private id:object,) { 
     if (isPlatformBrowser(id)){
       if(localStorage.getItem('token')){
         this.decodToken()
       }
-    }
+    };
 
   }
 
@@ -34,6 +35,9 @@ export class LogInService {
     const decoded = jwtDecode(token);
     this.UserDataAfterDecoded.next(decoded); 
 }
+  
+
+
 
 }
 

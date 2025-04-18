@@ -1,20 +1,89 @@
 
-<section class="d-flex justify-content-center align-items-center ">
-    <!-- <form > -->
+<div class="signup-container mt-5 mb-0">
 
-        <div class="form-container ">
-            <h2>Change Password</h2>
-            <div class="input-box">
-                <input type="password" id="currentPass" placeholder="Current Password">
-            </div>
-            <div class="input-box">
-                <input type="password" id="newPass" placeholder="New Password">
-            </div>
-            <div class="input-box">
-                <input type="password" id="confirmNewPass" placeholder="Confirm New Password">
-            </div>
-            <button class="">update</button>
+        <div class="signup-card">
+            <h2 class="title mb-3">Change Password</h2>
+            @if (erroeMsg) {
+              <p class="validation"> {{erroeMsg}} ! </p>
+            }
+
+            <form [formGroup]="UpdatePaswwordForm" (ngSubmit)="UpdatePassword()">
+               
+            <div class="input-group">
+       
+                <input formControlName="oldPassword" type="password" placeholder="Current Password">
+                      
+                @if (UpdatePaswwordForm.get('oldPassword')?.errors && UpdatePaswwordForm.get('oldPassword')?.touched) {
+        
+                  <div class="  p-0 m-0">
+                      @if (UpdatePaswwordForm.get('oldPassword')?.errors?.['required']) {
+                          <p class="p-1 m-0 validation"> Current Password is required <i class="fa-solid fa-face-angry"></i> </p>
+        
+                      }
+                      @if (UpdatePaswwordForm.get('oldPassword')?.errors?.['pattern']) {
+                          <p class="p-1 m-0 validation">  Must be min Char = 8 : EX > Scuer12345 <i class="fa-solid fa-face-angry"></i> </p>
+        
+                      }
+                      
+                  </div>
+        
+              }
+        
+              </div>
+            <div class="input-group">
+       
+                <input formControlName="newPassword" type="password" placeholder="New Password">
+                      
+                @if (UpdatePaswwordForm.get('newPassword')?.errors && UpdatePaswwordForm.get('newPassword')?.touched) {
+        
+                  <div class="  p-0 m-0">
+                      @if (UpdatePaswwordForm.get('newPassword')?.errors?.['required']) {
+                          <p class="p-1 m-0 validation"> New Password is required <i class="fa-solid fa-face-angry"></i></p>
+        
+                      }
+                      @if (UpdatePaswwordForm.get('newPassword')?.errors?.['pattern']) {
+                          <p class="p-1 m-0 validation">  Must be min Char = 8 : EX > Scuer12345 <i class="fa-solid fa-face-angry"></i> </p>
+        
+                      }
+                      
+                  </div>
+        
+              }
+        
+              </div>
+            <div class="input-group">
+       
+                <input formControlName="confirmNewPassword" type="password" placeholder="Confirm New Password">
+                      
+                @if (UpdatePaswwordForm.get('confirmNewPassword')?.errors && UpdatePaswwordForm.get('confirmNewPassword')?.touched) {
+        
+                  <div class="  p-0 m-0">
+                      @if (UpdatePaswwordForm.get('confirmNewPassword')?.errors?.['required']) {
+                          <p class="p-1 m-0 validation"> Current Password is required <i class="fa-solid fa-face-angry"></i> </p>
+        
+                      }
+                      @if (UpdatePaswwordForm.get('confirmNewPassword')?.errors?.['missmatch']) {
+                          <p class="p-1 m-0 validation">  Confirm New Password not match with New password <i class="fa-solid fa-face-angry"></i>  </p>
+        
+                      }
+                      
+                  </div>
+        
+              }
+        
+              </div>
+
+              <button [disabled]="UpdatePaswwordForm.invalid"  class="signup-btn fw-bold ">
+                @if (spinner) {
+                  <i class="fa fa-spin fa-spinner"></i>
+                 
+              }
+              @else {
+                  <span> Update  </span>
+              }
+              </button>
+            </form>
         </div>
 
-    <!-- </form> -->
-</section>
+</div>
+

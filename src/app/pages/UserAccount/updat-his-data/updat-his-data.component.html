@@ -1,20 +1,112 @@
+<div class="signup-container mt-5 mb-0">
 
-<section class="d-flex justify-content-center align-items-center ">
-    <!-- <form > -->
+    <div class="signup-card">
+        <h2 class="title mb-3">Change My Data</h2>
+        @if (errorMsg) {
+          <p class="validation"> {{errorMsg}} ! </p>
+        }
 
-        <div class="form-container ">
-            <h2>Change Data</h2>
-            <div class="input-box">
-                <input type="text"  placeholder="Name">
-            </div>
-            <div class="input-box">
-                <input type="email"  placeholder="email">
-            </div>
-            <div class="input-box">
-                <input type="tel"  placeholder="Phone">
-            </div>
-            <button class="">update</button>
-        </div>
+        <form [formGroup]="UserUpdateDataform" (ngSubmit)="UpdateDate()">
+           
+            <div class="input-group">
+      
+                <input type="text" placeholder="Enter your First Name" formControlName="fname" />
+                @if (UserUpdateDataform.get('fname')?.errors && UserUpdateDataform.get('fname')?.touched) {
+                   
+                  <div class=" p-0 m-0 ">
+                    @if (UserUpdateDataform.get('fname')?.errors?.['required']) {
+                      <p class="validation p-0 m-0 ms-1"> First Name is required <i class="fa-solid fa-face-angry"></i> </p>
+                    }
+                    @if (UserUpdateDataform.get('fname')?.errors?.['maxlength']) {
+                      <p class="validation p-0 m-0 ms-1"> first Name Max Lenght = 12 <i class="fa-solid fa-face-angry"></i> </p>
+                    }
+                    @if (UserUpdateDataform.get('fname')?.errors?.['minlength']) {
+                      <p class="validation p-0 m-0 ms-1"> first Name Min Lenght = 3 <i class="fa-solid fa-face-angry"></i> </p>
+                    }
+                  </div>
+        
+                }
+        
+              </div>
+        
+        
+              <div class="input-group">
+              
+                <input formControlName="lname" type="text" placeholder="Enter your Last Name" />
+                @if (UserUpdateDataform.get('lname')?.errors && UserUpdateDataform.get('lname')?.touched) {
+                   
+                  <div class=" p-0 m-0 ">
+                    @if (UserUpdateDataform.get('lname')?.errors?.['required']) {
+                      <p class="validation p-0 m-0 ms-1"> Last Name is required <i class="fa-solid fa-face-angry"></i> </p>
+                    }
+                    @if (UserUpdateDataform.get('lname')?.errors?.['maxlength']) {
+                      <p class="validation p-0 m-0 ms-1"> Last Name Max Lenght = 12 <i class="fa-solid fa-face-angry"></i> </p>
+                    }
+                    @if (UserUpdateDataform.get('lname')?.errors?.['minlength']) {
+                      <p class="validation p-0 m-0 ms-1"> Last Name Min Lenght = 3 <i class="fa-solid fa-face-angry"></i> </p>
+                    }
+                  </div>
+        
+                }
+              </div>
+        
+        
+              <div class="input-group">
+              
+                <input formControlName="email" type="email" placeholder="Enter your email" />
+        
+                @if (UserUpdateDataform.get('email')?.errors && UserUpdateDataform.get('email')?.touched) {
+        
+                  <div class="  p-0 m-0">
+                      @if (UserUpdateDataform.get('email')?.errors?.['required']) {
+                          <p class="p-1 m-0 validation"> email is required <i class="fa-solid fa-face-angry"></i> </p>
+        
+                      }
+                      @if (UserUpdateDataform.get('email')?.errors?.['email']) {
+                          <p class="p-1 m-0 validation"> please enter email  <i class="fa-solid fa-face-angry"></i> </p>
+        
+                      }
+                      
+                  </div>
+        
+              }
+                  
+        
+              </div>
 
-    <!-- </form> -->
-</section>
+              <div class="input-group">
+        
+                <input formControlName="phone" type="text" placeholder="Enter your Phone">
+        
+                @if (UserUpdateDataform.get('phone')?.errors && UserUpdateDataform.get('phone')?.touched) {
+        
+                  <div class="  p-0 m-0">
+                      @if (UserUpdateDataform.get('phone')?.errors?.['required']) {
+                          <p class="p-1 m-0 validation"> phone is required <i class="fa-solid fa-face-angry"></i> </p>
+        
+                      }
+                      @if (UserUpdateDataform.get('phone')?.errors?.['pattern']) {
+                          <p class="p-1 m-0 validation">  please enter egyption mobile Numbers
+                             <i class="fa-solid fa-face-angry"></i> </p>
+        
+                      }
+                      
+                  </div>
+        
+              }
+        
+              </div>
+
+          <button [disabled]="UserUpdateDataform.invalid"  class="signup-btn fw-bold ">
+            @if (spinner) {
+              <i class="fa fa-spin fa-spinner"></i>
+             
+          }
+          @else {
+              <span> Update  </span>
+          }
+          </button>
+        </form>
+    </div>
+
+</div>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {  RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './core/importantCompnent/navbar/navbar.component';
 import { FooterComponent } from './core/importantCompnent/footer/footer.component';
+import { LogInService } from './shared/services/athountocation/log-in.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,10 @@ import { FooterComponent } from './core/importantCompnent/footer/footer.componen
 })
 export class AppComponent {
   title = 'Savior';
+
+  
+
+  
 
 
   isDarkMode = false;
@@ -24,5 +29,9 @@ export class AppComponent {
     } else {
       document.body.classList.remove('dark-mode');
     }
-  } 
+  } ;
+
+  
+
+  
 }
