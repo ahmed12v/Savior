@@ -64,7 +64,7 @@
         @if (loging==true) {
 
           <div class="cuesor-pointer p-1 text-end ms-4 ms-auto    me-3">
-            <a  (click)="logOut()" class="nav-link  logout " aria-current="page" 
+            <a  (click)="logOut() " (click)="closeNavbar()" class="nav-link  logout " aria-current="page" 
                  routerLinkActive=" ">logout <i class="fa-solid fa-right-from-bracket"></i></a>
           </div>
         }

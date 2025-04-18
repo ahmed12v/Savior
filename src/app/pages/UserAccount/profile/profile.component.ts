@@ -14,13 +14,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (typeof localStorage != 'undefined') {
-      localStorage.setItem('last Page', '/profile');
-      ////////////////////////////call//////////////////////////
+   
       this.GetMe();
-    } else {
-      console.warn('localStorage is not available in this environment.');
-    }
+    
   }
     
  
