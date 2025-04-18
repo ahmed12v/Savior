@@ -1,6 +1,9 @@
 import { HomeSliderComponent } from './../../addtions/home-slider/home-slider.component';
 import {  Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { HomeService } from '../../shared/services/Pages/home.service';
+import { ToastrService } from 'ngx-toastr';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 
 
@@ -9,7 +12,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, HomeSliderComponent],
+  imports: [RouterLink, HomeSliderComponent , ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -38,9 +41,41 @@ export class HomeComponent  {
       },
      
   ]
+  spinner:boolean=false
 
- 
+  constructor(private _HomeService:HomeService , private _Router:Router , private _ToastrService:ToastrService){}
+
+
+FeedbackForm:FormGroup = new FormGroup({
+  name:new FormControl('', [Validators.required , Validators.minLength(3),Validators.maxLength(12)]),
+  email:new FormControl('' , [Validators.required , Validators.email]),
+  feedback:new FormControl('', Validators.required)
+})
+
+SendFeedBack()
+{
+    this.spinner=true
+    if(this.FeedbackForm.valid){
+      this._HomeService.FeedBack(this.FeedbackForm.value).subscribe({
+        next:res=>{
+          console.log(res)
+          this.spinner=false
+          this._ToastrService.success('Thanks For Your Feedback' ,'Savior')
+          this.FeedbackForm.reset()
+        },
+        error:err=>{
+          this.spinner=false
+          this._ToastrService.error('please inter feedback by correct way','')
+          this.FeedbackForm.reset()
+
+        }
+      })
+
+    }
+    
 }
+ 
 
 
+}
 
