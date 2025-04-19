@@ -36,15 +36,16 @@ export class LoginComponent  {
       this._loginServiec.Login(this.loginForm.value).subscribe({
         next:(res)=>{
           this.spinner=false
-               console.log(res.token);
+              //  console.log(res.token);
                localStorage.setItem('token',res.token)
-               this._Router.navigate(['/home'])
                this._loginServiec.decodToken()
+               this._Router.navigate(['/home'])
+               
               
         },
         error:(err)=>{
 
-          console.log(err)
+          // console.log(err)
           this.spinner=false
           this.erroor=true
         }

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Doctor } from '../../../shared/Interfaces/Pages/doctor';
+import { DoctorService } from '../../../shared/services/Pages/doctor.service';
 
 @Component({
   selector: 'app-all-doctoor',
@@ -8,7 +10,13 @@ import { RouterLink } from '@angular/router';
   templateUrl: './all-doctoor.component.html',
   styleUrl: './all-doctoor.component.css'
 })
-export class AllDoctoorComponent {
+export class AllDoctoorComponent implements OnInit {
+
+   ngOnInit(): void {
+      this.getAllDoc()
+   }
+  
+   constructor(private _DocServices:DoctorService){}
 
 doctor:any[] =[
 
@@ -44,5 +52,25 @@ doctor:any[] =[
    },
 
 ]
+spinner:boolean=false
+Doctordata!:Doctor;
+
+
+ 
+
+getAllDoc()
+{
+   this._DocServices.getAllDoctor().subscribe({
+      next:res=>{
+         console.log(res)
+         this.Doctordata=res
+         this.spinner=false
+      },
+      error:err=>{
+         console.log(err)
+         this.spinner=false
+      }
+   })
+}
 
 }

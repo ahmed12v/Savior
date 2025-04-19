@@ -1,9 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Doctor } from '../../Interfaces/Pages/doctor';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
 
-  constructor() { }
+  constructor(private _HttpClient:HttpClient) { }
+
+  getAllDoctor():Observable<Doctor>
+  {
+    return this._HttpClient.get<Doctor>('/api/doctor/doctors')
+  }
 }
