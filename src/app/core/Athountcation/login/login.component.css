@@ -80,6 +80,30 @@
       }
     }
   }
+  .google-signup {
+    background: white;
+    color: #0D4F9B;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 5px;
+  
+    img {
+      width: 20px;
+      margin-right: 10px;
+    }
+  
+    &:hover {
+      background: #f1f1f1;
+    }
+  }
   
   .signup-btn {
     width: 100%;

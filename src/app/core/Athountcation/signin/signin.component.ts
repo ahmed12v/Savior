@@ -3,7 +3,7 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
 import { Router, RouterLink } from '@angular/router';
 import { SignInService } from '../../../shared/services/athountocation/sign-in.service';
 
-declare const google: any;
+
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +12,7 @@ declare const google: any;
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.css'
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent  {
 
  
 
@@ -62,48 +62,5 @@ export class SigninComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      const googleBtn = document.getElementById('google-btn');
-      if (googleBtn) {
-        google.accounts.id.initialize({
-          client_id: '106176847546-q6rjo51vbpq47t8hdbiakje4a3r8p8hj.apps.googleusercontent.com', 
-          callback: this.handleGoogleResponse.bind(this),
-        });
-
-        google.accounts.id.renderButton(googleBtn, {
-          theme: 'outline',
-          size: 'large',
-          text: 'signin_with',
-        });
-
-        google.accounts.id.prompt();
-      }
-    }, 0);
-  }
-
-  //  Google Login 
-  handleGoogleResponse(response: any): void {
-    const token = response.credential;
-    const userPayload = this.decodeJwt(token);
-
-    
-    localStorage.setItem('google_token', token);
-    localStorage.setItem('user', JSON.stringify(userPayload));
-
-    
-    this._Router.navigate(['/home']);
-  }
-
-  decodeJwt(token: string): any {
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(
-      atob(base64)
-        .split('')
-        .map(c => `%${('00' + c.charCodeAt(0).toString(16)).slice(-2)}`)
-        .join('')
-    );
-    return JSON.parse(jsonPayload);
-  }
+ 
 }

@@ -1,78 +1,85 @@
-<div class="signup-container mt-5 mb-0">
-  <div class="signup-card">
-    <h2 class="title">Login</h2>
-    <p class="subtitle">Welcome Back!</p>
-
-     @if (erroor) {
-      <p class="p-1 validation"> Incorrect Passwor or Email  </p>
-     }
-
-    <form [formGroup]="loginForm" (ngSubmit)="SubmitLogin()">
-      <div class="input-group">
-      
-        <input formControlName="email" type="email" placeholder="Enter your email" />
-
-        @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
-
-          <div class="  p-0 m-0">
-              @if (loginForm.get('email')?.errors?.['required']) {
-                  <p class="p-1 m-0 validation"> email is required <i class="fa-solid fa-face-angry"></i> </p>
-
-              }
-              @if (loginForm.get('email')?.errors?.['email']) {
-                  <p class="p-1 m-0 validation"> please enter email  <i class="fa-solid fa-face-angry"></i> </p>
-
-              }
-              
-          </div>
-
+@if (loging==false) {
+  <div class="signup-container mt-5 mb-0">
+    <div class="signup-card">
+      <h2 class="title">Login</h2>
+      <p class="subtitle">Welcome Back!</p>
+  
+      <button class="google-signup" id="google-btn">
+        <img src="../../../../assets/imege/google logo.jpg" alt="Google Logo" />
+        Use Google account
+      </button>
+  
+       @if (erroor) {
+        <p class="p-1 validation"> Incorrect Passwor or Email  </p>
+       }
+  
+      <form [formGroup]="loginForm" (ngSubmit)="SubmitLogin()">
+        <div class="input-group">
+        
+          <input formControlName="email" type="email" placeholder="Enter your email" />
+  
+          @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+  
+            <div class="  p-0 m-0">
+                @if (loginForm.get('email')?.errors?.['required']) {
+                    <p class="p-1 m-0 validation"> email is required <i class="fa-solid fa-face-angry"></i> </p>
+  
+                }
+                @if (loginForm.get('email')?.errors?.['email']) {
+                    <p class="p-1 m-0 validation"> please enter email  <i class="fa-solid fa-face-angry"></i> </p>
+  
+                }
+                
+            </div>
+  
+        }
+            
+  
+        </div>
+        
+        <div class="input-group">
+        
+          <input formControlName="password" type="password" placeholder="Enter your password" />
+  
+          @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+  
+            <div class="  p-0 m-0">
+                @if (loginForm.get('password')?.errors?.['required']) {
+                    <p class="p-1 m-0 validation"> password is required <i class="fa-solid fa-face-angry"></i> </p>
+  
+                }
+                @if (loginForm.get('password')?.errors?.['pattern']) {
+                  <p class="p-1 m-0 validation"> password must be at least 8 characters long and include at least one uppercase letter,
+                    one lowercase letter, one number, and one special character ( !&#64;#$).
+                     <i class="fa-solid fa-face-angry"></i> </p>
+  
+                }
+                
+            </div>
+  
+        }
+  
+        </div>
+  
+        <p class="cuesor-pointer forget m-3 ms-auto text-end fs-6"
+        routerLink="/Forget">
+        Forgot your password?
+      </p>
+  
+      <button [disabled]="loginForm.invalid"  class="signup-btn fw-bold fs-5">
+        @if (spinner) {
+          <i class="fa fa-spin fa-spinner"></i>
+         
       }
-          
-
-      </div>
-      
-      <div class="input-group">
-      
-        <input formControlName="password" type="password" placeholder="Enter your password" />
-
-        @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
-
-          <div class="  p-0 m-0">
-              @if (loginForm.get('password')?.errors?.['required']) {
-                  <p class="p-1 m-0 validation"> password is required <i class="fa-solid fa-face-angry"></i> </p>
-
-              }
-              @if (loginForm.get('password')?.errors?.['pattern']) {
-                <p class="p-1 m-0 validation"> password must be at least 8 characters long and include at least one uppercase letter,
-                  one lowercase letter, one number, and one special character ( !&#64;#$).
-                   <i class="fa-solid fa-face-angry"></i> </p>
-
-              }
-              
-          </div>
-
+      @else {
+          <span> Login </span>
       }
-
-      </div>
-
-      <p class="cuesor-pointer forget m-3 ms-auto text-end fs-6"
-      routerLink="/Forget">
-      Forgot your password?
-    </p>
-
-    <button [disabled]="loginForm.invalid"  class="signup-btn fw-bold fs-5">
-      @if (spinner) {
-        <i class="fa fa-spin fa-spinner"></i>
-       
-    }
-    @else {
-        <span> Login </span>
-    }
-    </button>
-    </form>
-
-    <p class="login-text text-dark-emphasis ">
-      Don't have an account ?  <a routerLink="/SignIn">Sign Up</a>
-    </p>
+      </button>
+      </form>
+  
+      <p class="login-text text-dark-emphasis ">
+        Don't have an account ?  <a routerLink="/SignIn">Sign Up</a>
+      </p>
+    </div>
   </div>
-</div>
+}
