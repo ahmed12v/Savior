@@ -25,7 +25,7 @@ export class LogInService {
 
   Login(loginForm:Login):Observable<any>
   {
-   return this._HttpClient.post('/api/Authentication/login',loginForm)
+   return this._HttpClient.post('http://gpsavior.runasp.net/api/Authentication/login',loginForm)
   }
 
 
