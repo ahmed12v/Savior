@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { LogInService } from '../../../shared/services/athountocation/log-in.service';
-import { GoogleSignService } from '../../../shared/core/google-sign.service';
+
 
 declare const google: any;
 
@@ -13,7 +13,7 @@ declare const google: any;
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
 
   spinner:boolean=false
   erroor:boolean=false
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   });
 
 
-  constructor(private _loginServiec:LogInService,  private _Router:Router , private _GoogleSignService:GoogleSignService){}
+  constructor(private _loginServiec:LogInService,  private _Router:Router ,){}
 
   SubmitLogin()
   {
@@ -56,64 +56,6 @@ export class LoginComponent implements OnInit {
   }
 
   loging:boolean=false;
-  ngOnInit(): void {
-    setTimeout(() => {
-      const googleBtn = document.getElementById('google-btn');
-      if (googleBtn) {
-        google.accounts.id.initialize({
-          client_id: '106176847546-q6rjo51vbpq47t8hdbiakje4a3r8p8hj.apps.googleusercontent.com', 
-                      
-          callback: this.handleGoogleResponse.bind(this),
-        });
-
-        google.accounts.id.renderButton(googleBtn, {
-          theme: 'outline',
-          size: 'large',
-          text: 'signin_with',
-        });
-
-        google.accounts.id.prompt();
-      }
-    }, 0);
-
-    this._loginServiec.UserDataAfterDecoded.subscribe(
-   
-      (log)=>{ 
-           if(this._loginServiec.UserDataAfterDecoded.getValue()!=null){
-            this.loging=true
-           }else{
-            this.loging=false
-           }
-           
-      })
-  }
-
-  handleGoogleResponse(response: any): void {
-    const token = response.credential;
-    const userPayload = this.decodeJwt(token);
-  
-    // ✅ بدلنا 'google_token' بـ 'token'
-    localStorage.setItem('token', token);
-    this.SubmitLogin()
-    this._loginServiec.decodToken()
-    // localStorage.setItem('user', JSON.stringify(userPayload));
-  
-    this._Router.navigate(['/home']);
-    this.loging=true;
-  }
-  
-  decodeJwt(token: string): any {
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(
-      atob(base64)
-        .split('')
-        .map(c => `%${('00' + c.charCodeAt(0).toString(16)).slice(-2)}`)
-        .join('')
-    );
-    return JSON.parse(jsonPayload);
-  } 
-
   
 
  

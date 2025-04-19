@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LogInService } from '../../../shared/services/athountocation/log-in.service';
-import { GoogleSignService } from '../../../shared/core/google-sign.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +12,7 @@ import { GoogleSignService } from '../../../shared/core/google-sign.service';
 export class NavbarComponent implements OnInit {
   loging:boolean=false;
 
-constructor(private _router:Router , private _LogInService:LogInService , private _GoogleSignService:GoogleSignService){}
+constructor(private _router:Router , private _LogInService:LogInService ){}
    
    closeNavbar(): void {
      const navbarCollapse = document.getElementById('navbarNav');
