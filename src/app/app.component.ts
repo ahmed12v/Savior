@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
           this._Router.navigateByUrl(lastVisitedPage);
         } else {
     
-          this._Router.navigate(['/home']);
+          this._Router.navigate(['/about']);
         } 
     
     }
