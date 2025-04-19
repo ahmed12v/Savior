@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     background: linear-gradient(135deg, #667eea, #0D4F9B);
     position: relative;
     overflow: hidden;
@@ -31,13 +30,15 @@
   
   .signup-card {
     background: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 400px;
-    position: relative;
-    z-index: 1;
+  padding: 30px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 600px;
+  position: relative;
+  z-index: 1;
   }
   
   .title {
@@ -136,4 +137,9 @@
   }
   .validation{
     color: rgb(193, 14, 14);
+  }
+  @media(max-width:992px){
+    .signup-card{
+      width: 400px !important;
+    }
   }

@@ -19,7 +19,7 @@ export class SigninComponent {
     firstName:new FormControl(null , [Validators.required , Validators.maxLength(12) , Validators.minLength(3)]),
     lastName:new FormControl(null , [Validators.required , Validators.maxLength(12) , Validators.minLength(3)]),
     email:new FormControl(null , [Validators.required , Validators.email]),
-    password:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8,}$/)]),
+    password:new FormControl(null , [Validators.required , Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)]),
     confirmPassword:new FormControl(null , [Validators.required]),
     phone:new FormControl(null , [Validators.required , Validators.pattern(/^01[0125][0-9]{8}$/)]),
 

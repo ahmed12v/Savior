@@ -20,8 +20,8 @@ export class UpdatepassComponent {
 
   UpdatePaswwordForm:FormGroup=new FormGroup({
 
-    oldPassword:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8,}$/)]),
-    newPassword:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8,}$/)]),
+    oldPassword:new FormControl(null , [Validators.required , Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)]),
+    newPassword:new FormControl(null , [Validators.required , Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)]),
     confirmNewPassword:new FormControl(null , [Validators.required]),
   }, this.checkrePassword)
 

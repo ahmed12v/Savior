@@ -6,7 +6,7 @@ import { ForgetPasswordService } from '../../../shared/services/athountocation/f
 @Component({
   selector: 'app-new-password',
   standalone: true,
-  imports: [RouterLink ,ReactiveFormsModule],
+  imports: [ ReactiveFormsModule],
   templateUrl: './new-password.component.html',
   styleUrl: './new-password.component.css'
 })
@@ -14,7 +14,7 @@ export class NewPasswordComponent {
   spinner:boolean=false
 
     NewForm:FormGroup = new FormGroup({
-    newPassword:new FormControl(null , [Validators.required , Validators.pattern(/^[A-Z][a-z0-9]{8,}$/)]),
+    newPassword:new FormControl(null , [Validators.required , Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)]),
     confirmNewPassword:new FormControl(null , [Validators.required]),
   },this.checkrePassword )
 

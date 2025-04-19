@@ -92,7 +92,8 @@
 
               }
               @if (SignUpForm.get('password')?.errors?.['pattern']) {
-                  <p class="p-1 m-0 validation"> please chose valid password : (A-Z / 0-9 /a-z & min Caractor = 8 ) 
+                  <p class="p-1 m-0 validation"> password must be at least 8 characters long and include at least one uppercase letter,
+                    one lowercase letter, one number, and one special character ( !&#64;#$).
                      <i class="fa-solid fa-face-angry"></i> </p>
 
               }
