@@ -33,7 +33,10 @@ export class PharmacySliderComponent {
         },
         
       },
-      nav: true
+      nav: true,
+      autoplay: true,
+      autoplayTimeout: 1000, 
+      autoplayHoverPause: true 
     };
   
     goNext() {

@@ -33,7 +33,10 @@ export class HomeSliderComponent {
       },
       
     },
-    nav: true
+    nav: true,
+      autoplay: true,
+      autoplayTimeout: 2000, 
+      autoplayHoverPause: true 
   };
 
   goNext() {

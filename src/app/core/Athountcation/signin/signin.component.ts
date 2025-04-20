@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl,  FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { SignInService } from '../../../shared/services/athountocation/sign-in.service';
 
@@ -13,10 +13,6 @@ import { SignInService } from '../../../shared/services/athountocation/sign-in.s
   styleUrl: './signin.component.css'
 })
 export class SigninComponent  {
-
- 
-
-
   
   spinner: boolean = false;
 
@@ -44,6 +40,11 @@ export class SigninComponent  {
       return { missmatch: true };
     }
   }
+
+
+
+
+
 
   SubmitSignUp() {
     if (this.SignUpForm.valid) {

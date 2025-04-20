@@ -38,7 +38,10 @@ export class FeedbackSliderComponent implements OnInit {
         },
         
       },
-      nav: true
+      nav: true,
+      autoplay: true,
+      autoplayTimeout: 2000, 
+      autoplayHoverPause: true 
     };
   
     spinner:boolean=false

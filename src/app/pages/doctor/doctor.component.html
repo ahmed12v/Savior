@@ -25,73 +25,17 @@
 
 </section>
 
-<!-- End background section -->
-
-<!-- Start doctor Categorey  -- = Doctor's departments -->
-
-<div class="container p-4 mt-4 gategorey-bg rounded-3  shadow-lg">
-  <div class="pb-4   text-center section-title">
-    <h1 >
-      Doctor's departments
-    </h1>
-    <p>
-      We provide you with doctors in all departments
-    </p>
-  </div>
-  <div class="row">
-
-    @for (item of items; track $index) {
-      @if (showAll || $index < 4) {
-
-        <div class=" show-cato col-sm-6 col-sm  col-md-3 p-3  rounded-3 ">
 
 
-          <div class="card-cato shadow-lg">
-          <div class="items-me-2 position-relative">
-            <div class="vip">
-                <img [src]="item.image" class="card-img-top rounded-3 " alt="doctor Categorey" height="350px">
-            </div>
-            <div
-                class="layer-2 rounded-3 bg-white carousel  position-absolute  d-flex justify-content-center align-items-center ">
-                <div class="mt-5 pt-5 text-center" >
-                           <h3 class="p-2">
-                            {{item.title}}
-                           </h3>  
-                           <button class=" btn btn-primary ps-3 pe-3" routerLink={{item.roter}}>
-                                 See Doctor
-                           </button>   
-                </div>
-                </div>
-            </div>
-        </div>
-    
-    
-        </div>
-  
+<app-doctor-department-slider class="mb-4"></app-doctor-department-slider>
 
-      }
-     
-    }
 
-    
-    <div class="text-center pt-4">
-      <button class="border-0 view-color" (click)="toggleViewMoreAndLess()">
-        <i class="fa-solid fa-arrow-right-long"></i>  {{ showAll ? 'View Less' : 'View More' }}
-      </button>
-    </div>
-   
-  </div>
-</div>
-
-<!-- End doctor Categorey  -->
-
-<!-- start top ratings -->
-
+  <!-- -----------------------  -->
 
 <app-top-rating-slider></app-top-rating-slider>
 
 
-<!-- End top ratings -->
+
 
 
 

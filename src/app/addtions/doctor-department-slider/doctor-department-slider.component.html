@@ -1,0 +1,49 @@
+<div class="container mx-auto  mt-5 ">
+    <div class="row p-0 m-0">
+        <div class="col-md-12 m-0  p-3 ">
+            <div class="pb-4   text-center section-title">
+                <h1 >
+                  Doctor's departments
+                </h1>
+                <p>
+                  We provide you with doctors in all departments
+                </p>
+              </div>
+            <div>
+                <owl-carousel-o [options]="customOptions" class="m-0 " #owlCarousel>
+                    @for (item of items; track $index) {
+                    <ng-template carouselSlide class="templet" >
+                                        
+              <div class="card-cato p-3">
+        <div class="items-me-2 position-relative w-100 ">
+          <div class="vip">
+        <img [src]="item.image" class="card-img-top rounded-3 " alt="doctor Categorey" width="250" height="250px">
+          </div>
+          <div
+        class="layer-2 rounded-3 bg-white carousel  position-absolute  d-flex justify-content-center align-items-center ">
+        <div class="mt-5 pt-5 text-center" >
+          <h3 class="p-2">
+        {{item.title}}
+          </h3>  
+          <button class=" btn btn-primary ps-3 pe-3" routerLink={{item.roter}}>
+          See Doctor
+          </button>        
+        </div>
+        </div>
+          </div>
+                     </div>
+                              
+                    
+
+                    </ng-template> 
+                }
+                  
+                  </owl-carousel-o>
+            </div>
+            
+        </div>
+        
+
+    </div>
+
+</div>

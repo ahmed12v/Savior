@@ -12,6 +12,6 @@ export class DoctorService {
 
   getAllDoctor():Observable<Doctor>
   {
-    return this._HttpClient.get<Doctor>('/api/doctor/doctors')
+    return this._HttpClient.get<Doctor>('http://gpsavior.runasp.net/api/doctor/doctors')
   }
 }

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TopRatingSliderComponent } from '../../addtions/top-rating-slider/top-rating-slider.component';
+import { DoctorDepartmentSliderComponent } from '../../addtions/doctor-department-slider/doctor-department-slider.component';
 
 @Component({
   selector: 'app-doctor',
   standalone: true,
-  imports: [ RouterLink , TopRatingSliderComponent],
+  imports: [ RouterLink , TopRatingSliderComponent , DoctorDepartmentSliderComponent],
   templateUrl: './doctor.component.html',
   styleUrl: './doctor.component.css'
 })
