@@ -15,8 +15,8 @@ export class DoctorRegisterComponent {
   constructor(private _DoctorService:DoctorService , private _ToastrModule:ToastrService){}
 
   DoctorForm:FormGroup= new FormGroup({
-    fName:new FormControl(null , [Validators.required , Validators.minLength(5),Validators.maxLength(100)]),
-    lName:new FormControl(null , [Validators.required , Validators.minLength(5),Validators.maxLength(100)]),
+    fName:new FormControl(null , [Validators.required , Validators.minLength(3),Validators.maxLength(100)]),
+    lName:new FormControl(null , [Validators.required , Validators.minLength(3),Validators.maxLength(100)]),
     email:new FormControl(null , [Validators.required , Validators.email]),
     city:new FormControl(null , [Validators.required , Validators.minLength(2),Validators.maxLength(50)]),
     specialty:new FormControl(null , [Validators.required , Validators.minLength(2),Validators.maxLength(100)]),
