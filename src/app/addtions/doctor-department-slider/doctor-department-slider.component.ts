@@ -26,7 +26,7 @@ export class DoctorDepartmentSliderComponent {
       navText: ['', ''],
       responsive: {
         0: {
-          items: 2
+          items: 1
         },
         1000: {
           items: 3
