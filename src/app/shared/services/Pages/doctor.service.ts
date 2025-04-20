@@ -12,7 +12,7 @@ export class DoctorService {
 
   DoctorRegester(RegesterForm:DoctorRegester):Observable<any>
   {
-      return this._HttpClient.post('http://gpsavior.runasp.net/api/doctor/register' , RegesterForm , {responseType:'text'})
+      return this._HttpClient.post('/api/doctor/register' , RegesterForm , {responseType:'text'})
   }
 
   getAllDoctor():Observable<Doctor>
