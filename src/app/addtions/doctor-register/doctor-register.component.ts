@@ -22,7 +22,7 @@ export class DoctorRegisterComponent {
     specialty:new FormControl(null , [Validators.required , Validators.minLength(2),Validators.maxLength(100)]),
     clinicName:new FormControl(null , [Validators.required , Validators.minLength(2),Validators.maxLength(100)]),
     phoneNumber:new FormControl(null , [Validators.required , Validators.pattern(/^01[0125][0-9]{8}$/)]),
-    medicalLicenseNumber:new FormControl(null , [Validators.required , Validators.pattern(/^\d{2}\/\d{4}\/\d{4,}$/)]),
+    medicalLicenseNumber:new FormControl(null , [Validators.required , Validators.pattern(/^[0-9]{3,}$/)]),
     ssn:new FormControl(null , [Validators.required , Validators.pattern(/^[0-9]{14}$/)]),
   })
 

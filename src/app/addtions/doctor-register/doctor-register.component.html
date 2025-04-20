@@ -183,7 +183,7 @@
     <div class="w-100">
         <div class="mt-1">
             <div class="form-floating ">
-                <input formControlName="medicalLicenseNumber" type="" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+                <input formControlName="medicalLicenseNumber" type="tel" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput" class="fw-bold">Registration number</label>
                 @if (DoctorForm.get('medicalLicenseNumber')?.errors&& DoctorForm.get('medicalLicenseNumber')?.touched) {
                     <div class="p-1">
@@ -191,7 +191,7 @@
                          <p class="text-danger fw-bold"> Registration number is required ! </p>
                         }
                         @if (DoctorForm.get('medicalLicenseNumber')?.errors?.['pattern']) {
-                         <p class="text-danger fw-bold"> Please enter your registration number with the Medical Syndicate :XX/YYYY/ZZZZ or ZZZZZ ! </p>
+                         <p class="text-danger fw-bold"> Please enter your registration number with the Medical Syndicate: more 3-digit</p>
                         }
                         
                     
