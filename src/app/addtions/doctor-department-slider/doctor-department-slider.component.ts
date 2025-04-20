@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CarouselComponent, CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -11,10 +11,7 @@ import { CarouselComponent, CarouselModule, OwlOptions } from 'ngx-owl-carousel-
 })
 export class DoctorDepartmentSliderComponent {
 
-
-  
-
-    @ViewChild('owlCarousel', { static: false }) owlCarousel!: CarouselComponent;
+  @ViewChild('owlCarousel', { static: false }) owlCarousel!: CarouselComponent;
     
     customOptions: OwlOptions = {
       loop: true,
@@ -38,6 +35,8 @@ export class DoctorDepartmentSliderComponent {
         autoplayTimeout: 2000, 
         autoplayHoverPause: true 
     };
+  
+  
 
     items: any[] = [
       { image: '../../../assets/imege/den-cato.jpg', title: 'Dentists', roter:'/dentists' },
@@ -54,3 +53,4 @@ export class DoctorDepartmentSliderComponent {
     ];
 
 }
+
