@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
+import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
 
 @Component({
   selector: 'app-optometrists',
@@ -8,7 +10,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './optometrists.component.html',
   styleUrl: './optometrists.component.css'
 })
-export class OptometristsComponent {
+export class OptometristsComponent implements OnInit {
 
   doctor:any[] =[
 
@@ -19,5 +21,32 @@ export class OptometristsComponent {
    },
  
  ]
+
+  ngOnInit(): void {
+       this.OptometristsDOctor()
+     }
+     
+     spinner:boolean=false
+     doctorsData!:Gatogoery
+    
+     constructor(private _DocorGatogeoryService:DocorGatogeoryService){}
+    
+     OptometristsDOctor()
+     {
+      this.spinner=true
+      this._DocorGatogeoryService.Optometrists().subscribe({
+        next:res=>{
+             console.log(res)
+             this.spinner=false
+            this.doctorsData=res
+        },
+        error:err=>{
+          console.log(err);
+          this.spinner=false
+          
+        }
+        
+      })
+     }
 
 }

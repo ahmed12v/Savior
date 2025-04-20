@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
+import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
 
 @Component({
   selector: 'app-cardiologists',
@@ -8,7 +10,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './cardiologists.component.html',
   styleUrl: './cardiologists.component.css'
 })
-export class CardiologistsComponent {
+export class CardiologistsComponent implements OnInit{
 
   doctor:any[] =[
 
@@ -21,4 +23,32 @@ export class CardiologistsComponent {
  
  ]
 
+
+ngOnInit(): void {
+   this.CardiologistsDOctor()
+ }
+ 
+ spinner:boolean=false
+ doctorsData!:Gatogoery
+
+ constructor(private _DocorGatogeoryService:DocorGatogeoryService){}
+
+ CardiologistsDOctor()
+ {
+  this.spinner=true
+  this._DocorGatogeoryService.Cardiologist().subscribe({
+    next:res=>{
+         console.log(res)
+         this.spinner=false
+        this.doctorsData=res
+    },
+    error:err=>{
+      console.log(err);
+      this.spinner=false
+      
+    }
+    
+  })
+ }
+ 
 }

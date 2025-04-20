@@ -60,6 +60,7 @@ Doctordata!:Doctor;
 
 getAllDoc()
 {
+   this.spinner=true
    this._DocServices.getAllDoctor().subscribe({
       next:res=>{
          console.log(res)

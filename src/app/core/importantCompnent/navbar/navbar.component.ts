@@ -60,7 +60,7 @@ this._LogInService.UserDataAfterDecoded.subscribe(
    // localStorage.removeItem('role');
     this._LogInService.UserDataAfterDecoded.next(null);
     this._router.navigate(['/login'])
-    this._ToastrService.info('bye bye', ' thank you for Your Export ')
+    this._ToastrService.info('bye bye', ' We hope you had a helpful experience and enjoyed it ')
 
 }
 
