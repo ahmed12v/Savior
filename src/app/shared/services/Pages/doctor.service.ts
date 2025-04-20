@@ -17,13 +17,13 @@ export class DoctorService {
 
   getAllDoctor():Observable<Doctor>
   {
-    return this._HttpClient.get<Doctor>('http://gpsavior.runasp.net/api/doctor/doctors')
+    return this._HttpClient.get<Doctor>('/api/doctor/doctors')
   }
 
   DoctorDetiales(DoctorId:Number):Observable< DoctorDetials >
   {
    
-    return this._HttpClient.get<DoctorDetials>(`http://gpsavior.runasp.net/api/doctor/${DoctorId}`)
+    return this._HttpClient.get<DoctorDetials>(`/api/doctor/${DoctorId}`)
   }
 
   
