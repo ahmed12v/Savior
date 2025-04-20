@@ -23,7 +23,7 @@
     </div>
     <!-- form-divv -->
     <div class="col-md-6 p-4 form-width">
-     <!-- <form > -->
+     <form class="clas-form" [formGroup]="DoctorForm" (ngSubmit)="SendDoctorToAdmin()">
         <h1 class="fw-bold">
             Register
         </h1>
@@ -34,63 +34,190 @@
      <div class="regist-inputs-name mt-4 d-flex ">
          <div class="w-50 pe-2 ">
             <div class="form-floating ">
-                <input type="text" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+                <input formControlName="fName" type="text" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput" class="fw-bold">First Name</label>
+                @if (DoctorForm.get('fName')?.errors&& DoctorForm.get('fName')?.touched) {
+                    <div class="p-1">
+                        @if (DoctorForm.get('fName')?.errors?.['required']) {
+                         <p class="text-danger fw-bold"> First Name is required ! </p>
+                        }
+                        @if (DoctorForm.get('fName')?.errors?.['minlength']) {
+                         <p class="text-danger fw-bold"> Enter more than five characters ! </p>
+                        }
+                        @if (DoctorForm.get('fName')?.errors?.['maxlength']) {
+                         <p class="text-danger fw-bold">  Enter less than 100 characters! </p>
+                        }
+                    
+                    </div>
+                }
               </div>
          </div>
          <div class="w-50 ps-2 ">
             <div class="form-floating ">
-                <input type="text" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+                <input formControlName="lName" type="text" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput" class="fw-bold">Last Name</label>
+                @if (DoctorForm.get('lName')?.errors&& DoctorForm.get('lName')?.touched) {
+                    <div class="p-1">
+                        @if (DoctorForm.get('lName')?.errors?.['required']) {
+                         <p class="text-danger fw-bold"> Last Name is required ! </p>
+                        }
+                        @if (DoctorForm.get('lName')?.errors?.['minlength']) {
+                         <p class="text-danger fw-bold"> Enter more than five characters ! </p>
+                        }
+                        @if (DoctorForm.get('lName')?.errors?.['maxlength']) {
+                         <p class="text-danger fw-bold">  Enter less than 100 characters! </p>
+                        }
+                    
+                    </div>
+                }
               </div>
          </div>
+         
      </div>
 
      <div class="w-100">
-        <div class="mt-3">
+        <div class="mt-1">
             <div class="form-floating ">
-                <input type="" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput" class="fw-bold">Birth  Date</label>
+                <input formControlName="email" type="" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput" class="fw-bold">Email</label>
+                @if (DoctorForm.get('email')?.errors&& DoctorForm.get('email')?.touched) {
+                    <div class="p-1">
+                        @if (DoctorForm.get('email')?.errors?.['required']) {
+                         <p class="text-danger fw-bold"> Email is required ! </p>
+                        }
+                        @if (DoctorForm.get('email')?.errors?.['email']) {
+                         <p class="text-danger fw-bold"> Enter Valid Email ! </p>
+                        }
+                        
+                    
+                    </div>
+                }
               </div>
          </div>
      </div>
-     <div class="w-100">
-        <div class="mt-3">
-            <div class="form-floating ">
-                <input type="" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput" class="fw-bold">Street Address</label>
-              </div>
-         </div>
-     </div>
-
-     <div class="regist-inputs-city mt-4 d-flex ">
-        <div class="w-50 pe-2 ">
-           <div class="form-floating ">
-               <input type="text" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
-               <label for="floatingInput" class="fw-bold">City</label>
+    
+     <div class="w-100 ">
+        <div class="form-floating ">
+            <input formControlName="clinicName" type="text" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput" class="fw-bold">Hospital Name</label>
+            @if (DoctorForm.get('clinicName')?.errors&& DoctorForm.get('clinicName')?.touched) {
+             <div class="p-1">
+                 @if (DoctorForm.get('clinicName')?.errors?.['required']) {
+                  <p class="text-danger fw-bold"> Hospital Name is required ! </p>
+                 }
+                 @if (DoctorForm.get('clinicName')?.errors?.['minlength']) {
+                  <p class="text-danger fw-bold"> Enter more than Tow characters ! </p>
+                 }
+                 @if (DoctorForm.get('clinicName')?.errors?.['maxlength']) {
+                  <p class="text-danger fw-bold">  Enter less than 100 characters! </p>
+                 }
+             
              </div>
-        </div>
+         }
+          </div>
+     </div>
+     
+     
+
+     <div class="regist-inputs-city mt-2 d-flex ">
+        <div class="w-50 pe-2">
+            <div class="form-floating ">
+                <input formControlName="city" type="text" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput" class="fw-bold">City</label>
+                @if (DoctorForm.get('city')?.errors&& DoctorForm.get('city')?.touched) {
+                    <div class="p-1">
+                        @if (DoctorForm.get('city')?.errors?.['required']) {
+                         <p class="text-danger fw-bold"> City is required ! </p>
+                        }
+                        @if (DoctorForm.get('city')?.errors?.['minlength']) {
+                         <p class="text-danger fw-bold"> Enter more than Two characters ! </p>
+                        }
+                        @if (DoctorForm.get('city')?.errors?.['maxlength']) {
+                         <p class="text-danger fw-bold">  Enter less than 50 characters! </p>
+                        }
+                    
+                    </div>
+                }
+              </div>
+         </div>
         <div class="w-50 ps-2 ">
            <div class="form-floating ">
-               <input type="tel" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+               <input formControlName="phoneNumber" type="tel" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
                <label for="floatingInput" class="fw-bold">phone</label>
+               @if (DoctorForm.get('phoneNumber')?.errors&&DoctorForm.get('phoneNumber')?.touched) {
+                <div class="p-1">
+                 @if (DoctorForm.get('phoneNumber')?.errors?.['required']) {
+                    <p class="text-danger fw-bold"> Phone is Requierd !</p>
+                 }
+                 @if (DoctorForm.get('phoneNumber')?.errors?.['pattern']) {
+                    <p class="text-danger fw-bold"> Please Enter Egyption Phone Number!</p>
+                 }
+                </div>
+               }
              </div>
         </div>
     </div>
-
     <div class="w-100">
-        <div class="mt-3">
+        <div class="mt-1">
             <div class="form-floating ">
-                <input type="" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput" class="fw-bold">Registration number</label>
+                <input formControlName="specialty" type="" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput" class="fw-bold">Specialization</label>
+                @if (DoctorForm.get('specialty')?.errors&& DoctorForm.get('specialty')?.touched) {
+                    <div class="p-1">
+                        @if (DoctorForm.get('specialty')?.errors?.['required']) {
+                         <p class="text-danger fw-bold"> Specialization is required ! </p>
+                        }
+                        @if (DoctorForm.get('specialty')?.errors?.['minlength']) {
+                         <p class="text-danger fw-bold"> Enter more than Tow characters ! </p>
+                        }
+                        @if (DoctorForm.get('specialty')?.errors?.['maxlength']) {
+                         <p class="text-danger fw-bold">  Enter less than 100 characters! </p>
+                        }
+                    
+                    </div>
+                }
               </div>
          </div>
      </div>
-     <div class="w-100">
-        <div class="mt-3">
+
+    <div class="w-100">
+        <div class="mt-1">
             <div class="form-floating ">
-                <input type="tel" class="form-control shadow-none first rounded-0 bg-transparent " id="floatingInput" placeholder="name@example.com">
+                <input formControlName="medicalLicenseNumber" type="" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput" class="fw-bold">Registration number</label>
+                @if (DoctorForm.get('medicalLicenseNumber')?.errors&& DoctorForm.get('medicalLicenseNumber')?.touched) {
+                    <div class="p-1">
+                        @if (DoctorForm.get('medicalLicenseNumber')?.errors?.['required']) {
+                         <p class="text-danger fw-bold"> Registration number is required ! </p>
+                        }
+                        @if (DoctorForm.get('medicalLicenseNumber')?.errors?.['pattern']) {
+                         <p class="text-danger fw-bold"> Please enter your registration number with the Medical Syndicate :XX/YYYY/ZZZZ or ZZZZZ ! </p>
+                        }
+                        
+                    
+                    </div>
+                }
+                
+              </div>
+         </div>
+     </div>
+     <div  class="w-100">
+        <div class="mt-1">
+            <div class="form-floating ">
+                <input formControlName="ssn" type="tel" class="form-control shadow-none first rounded-0 bg-transparent " id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput" class="fw-bold">National number (SSN)</label>
+                @if (DoctorForm.get('ssn')?.errors&& DoctorForm.get('ssn')?.touched) {
+                    <div class="p-1">
+                        @if (DoctorForm.get('ssn')?.errors?.['required']) {
+                         <p class="text-danger fw-bold"> National number is required ! </p>
+                        }
+                        @if (DoctorForm.get('ssn')?.errors?.['pattern']) {
+                         <p class="text-danger fw-bold">Please enter a 14-digit Egyptian National ID number  </p>
+                        }
+                        
+                    
+                    </div>
+                }
               </div>
          </div>
      </div>
@@ -101,13 +228,17 @@
 
      <div class="regist-form-btn d-flex justify-content-center mt-5 p-2 ">
         
-        <button class=" pb-2 pt-2  rounded-5">
-                 Register Now
+        <button class=" pb-2 pt-2  rounded-5" [disabled]="DoctorForm.invalid">
+                 @if (spinner) {
+                    <i class="fa fa-spin fa-spinner"></i>
+                 }@else {
+                    Register Now
+                 }
         </button>
 
      </div>
 
-     <!-- </form> -->
+     </form>
     </div>
 
 </div> <!-- row -->

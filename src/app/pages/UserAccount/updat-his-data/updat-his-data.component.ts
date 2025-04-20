@@ -33,14 +33,14 @@ export class UpdatHisDataComponent {
       this._ProfileService.UpdateUserData(this.UserUpdateDataform.value).subscribe({
         next:res=>{
           console.log(res)
-          this._toaster.success('Your Data Updated','')
+          this._toaster.success('savior','Your Data Updated')
           this._router.navigate(['/profile'])
           this.spinner=false
         },
         error:err=>{
           console.log(err)
           this.errorMsg=err.error;
-          this._toaster.error('Erorr','')
+          this._toaster.error('savior','Erorr')
           this.spinner=false
         }
       })

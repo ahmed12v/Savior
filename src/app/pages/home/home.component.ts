@@ -67,12 +67,12 @@ SendFeedBack()
         next:res=>{
           console.log(res)
           this.spinner=false
-          this._ToastrService.success('Thanks For Your Feedback' ,'Savior')
+          this._ToastrService.success( 'Savior','Thanks For Your Feedback' ,)
           this.FeedbackForm.reset()
         },
         error:err=>{
           this.spinner=false
-          this._ToastrService.error('please inter feedback by correct way','')
+          this._ToastrService.error('Savior','please inter feedback by correct way',)
           this.FeedbackForm.reset()
 
         }

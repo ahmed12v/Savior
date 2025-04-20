@@ -16,3 +16,16 @@ export interface DoctorCome {
   dailyTime?: string
 }
 
+export interface DoctorRegester {
+  fName: string
+  lName: string
+  phoneNumber: string
+  specialty: string
+  medicalLicenseNumber: string
+  ssn: string
+  email: string
+  city: string
+  clinicName: string
+}
+
+
