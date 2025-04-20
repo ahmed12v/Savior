@@ -2,23 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
 import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
+import { FormsModule } from '@angular/forms';
+import { GatogeorurSearchPipePipe } from '../../../core/pipes/gatogeorur-search-pipe.pipe';
 
 @Component({
   selector: 'app-throat',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink , FormsModule , GatogeorurSearchPipePipe],
   templateUrl: './throat.component.html',
   styleUrl: './throat.component.css'
 })
 export class ThroatComponent implements OnInit {
-  doctor:any[] =[
-
-    { 
-      img:'../../../../assets/imege/ph08.jpg' , loc : 'nasr city' ,
-      Name :'Ebrahim nour-eldin' , title: 'One of the best Ear,nose,and throat offered by Savior in nasr city.',
-      Appoint:'Sat , Sun , tues', date: '12 : 12' , rate:'4.5' 
-   },
-  ]
+ 
 
    ngOnInit(): void {
              this.EarAndNoseDOctor()
@@ -26,6 +21,7 @@ export class ThroatComponent implements OnInit {
            
            spinner:boolean=false
            doctorsData!:Gatogoery
+           userWord:string=''
           
            constructor(private _DocorGatogeoryService:DocorGatogeoryService){}
           

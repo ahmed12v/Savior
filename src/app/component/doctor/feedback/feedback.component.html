@@ -1,55 +1,62 @@
-<div class=" container doc-dettials shadow-lg rounded-3">
-<div class="row">
-<div class="col-md-6 p-4  d-flex justify-content-center">
-
-<div class=" w-75 ">
-    <div class=" item-img rounded-3">
-        <img src="../../../../assets/imege/AhmedTop.jpg" class="doc-photo w-100 h-100 rounded-3 ms-4 mt-4" 
-        alt=" doctor photo ">
+@if (spinner) {
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+     <i class="fa fa-spin fa-spinner fw-bold text-primary fs-1"></i>
     </div>
-</div>
-
-</div>
-<div class="col-md-6  p-4 ">
-  <div class="item-detls p-3">
-    <h2 class="fw-bold mb-lg-4">
-       <span>Dr.</span> Ahmed Sami
-    </h2>
-    <p class="fs-5">
-        Dr. Ahmed Sami is one of the best dentists on our website. <br>
-         He is an expert in dentistry who has been working since 2015 <br>
-          and is a graduate of Ain Shams Faculty of Dentistry. <br>
-          He has been working with us since 2020 and <br>
-            has been able to obtain the highest ratings from our clients.
-    </p>
-    <hr>
-    <p>
-        <span class="fw-bold">Clinic Location <i class="fa fa-map-marker"></i></span> <br>
-        10th of Ramadan - 19 street <br>
-        <i class="fa-solid fa-calendar-days"></i> Saturday , Tuesday , Thursday <br>
-        <i class="fa-solid fa-clock"></i> 12 : 8 PM <br>
-        <i class="fa-solid fa-money-bill-wave"></i> Fees 
-          : 300 EGP 
-    </p>
-    <p>
-        <span class="fw-bold"> Hospital he works in  </span> <br>
-           10th of ramadan- Al-Ghandour hospital - Wednesday <br>
-           10th of ramadan- Abn-Sina hospital - Sunday
-    </p>
-    <p>
-        
-           
-    </p>
-    <button class="btn btn-primary fw-bold "
-     routerLink="/BookNow">
-        <i class="fa-solid fa-right-long"></i> Book
-    </button>
+}@else {
     
-  </div>
-</div>
-</div>
+    <div class=" container doc-dettials shadow-lg rounded-3">
+   
+        <div class="row">
+            
+            <div class="col-md-6 p-4  d-flex justify-content-center">
+            
+            <div class=" w-75 ">
+                <div class=" item-img rounded-3">
+                    <img [src]="ViewDoctorDetails?.imageUrl" class="doc-photo w-100 h-100 rounded-3 ms-4 mt-4" 
+                    alt=" doctor photo ">
+                </div>
+            </div>
+            
+            </div>
+            <div class="col-md-6  p-4 ">
+              <div class="item-detls p-3">
+                <h2 class="fw-bold mb-lg-4">
+                   <span>Dr.</span> {{ViewDoctorDetails?.fullName}}
+                </h2>
+                <p class="fs-5">
+                    {{ViewDoctorDetails?.description}}
+                </p>
+                <hr>
+                <p>
+                    <span class="fw-bold">Clinic Location <i class="fa fa-map-marker"></i></span> <br>
+                    {{ViewDoctorDetails?.clinicAddress}} <br>
+                    <i class="fa-solid fa-calendar-days"></i> {{ViewDoctorDetails?.dailyDays}} <br>
+                    <i class="fa-solid fa-clock"></i> {{ViewDoctorDetails?.dailyTime}} PM <br>
+                    <i class="fa-solid fa-money-bill-wave"></i> Fees 
+                      : {{ViewDoctorDetails?.bookingPrice}} EGP 
+                </p>
+                <p>
+                    <span class="fw-bold"> Hospital he works in  </span> <br>
+                       {{ViewDoctorDetails?.hospitalName}} <br>
+                       {{ViewDoctorDetails?.hospitalAddress}}
+                </p>
+                <p>
+                    
+                       
+                </p>
+                <button class="btn btn-primary fw-bold "
+                 routerLink="/BookNow">
+                    <i class="fa-solid fa-right-long"></i> Book
+                </button>
+                
+              </div>
+            </div>
+            
+    
 </div>
 
+</div>
+}
 <div class="Feedback-bg">
   <div class="container mt-5">
     
@@ -104,3 +111,5 @@
         
     </div>
 </div>
+
+

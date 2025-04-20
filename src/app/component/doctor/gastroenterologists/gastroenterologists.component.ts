@@ -2,26 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
 import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
+import { GatogeorurSearchPipePipe } from '../../../core/pipes/gatogeorur-search-pipe.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-gastroenterologists',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink , GatogeorurSearchPipePipe ,FormsModule],
   templateUrl: './gastroenterologists.component.html',
   styleUrl: './gastroenterologists.component.css'
 })
 export class GastroenterologistsComponent implements OnInit {
 
-  doctor:any[] =[
-
-    { 
-       img:'../../../../assets/imege/ph03.jpg.jpg' , loc : 'Elshrouk' ,
-       Name :'sami Ahmed' , title: 'One of the best gastroenterologists offered by Savior in Elshrouk.',
-       Appoint:'Sat , tues , thurs', date: '12 : 8' , rate:'5' 
-    },
-    
  
- ]
 
  ngOnInit(): void {
      this.GastroenteritisDOctor()
@@ -29,6 +22,7 @@ export class GastroenterologistsComponent implements OnInit {
    
    spinner:boolean=false
    doctorsData!:Gatogoery
+   userWord:string=''
   
    constructor(private _DocorGatogeoryService:DocorGatogeoryService){}
   

@@ -2,25 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
 import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
+import { GatogeorurSearchPipePipe } from '../../../core/pipes/gatogeorur-search-pipe.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pediatricians',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink , GatogeorurSearchPipePipe , FormsModule],
   templateUrl: './pediatricians.component.html',
   styleUrl: './pediatricians.component.css'
 })
 export class PediatriciansComponent implements OnInit{
 
-  doctor:any[] =[
-
-    { 
-      img:'../../../../assets/imege/ph05.jpg' , loc : 'madienty' ,
-      Name :'Samir Abdelrahman' , title: 'One of the best Pediatricians offered by Savior in madienty.',
-      Appoint:'Sat , Sun , tues', date: '12 : 12' , rate:'4.5' 
-   },
- 
- ]
+  
 
  ngOnInit(): void {
         this.PediatriciansDOctor()
@@ -28,6 +22,7 @@ export class PediatriciansComponent implements OnInit{
       
       spinner:boolean=false
       doctorsData!:Gatogoery
+      userWord:string=''
      
       constructor(private _DocorGatogeoryService:DocorGatogeoryService){}
      

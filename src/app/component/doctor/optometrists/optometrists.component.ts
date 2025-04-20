@@ -2,25 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
 import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
+import { FormsModule } from '@angular/forms';
+import { GatogeorurSearchPipePipe } from '../../../core/pipes/gatogeorur-search-pipe.pipe';
 
 @Component({
   selector: 'app-optometrists',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink , FormsModule , GatogeorurSearchPipePipe],
   templateUrl: './optometrists.component.html',
   styleUrl: './optometrists.component.css'
 })
 export class OptometristsComponent implements OnInit {
 
-  doctor:any[] =[
-
-    { 
-      img:'../../../../assets/imege/doc(man3).jpg' , loc : 'madienty' ,
-      Name :'Ali Elmohamdy' , title: 'One of the best Optometrists offered by Savior in madienty.',
-      Appoint:'Sat , Sun , tues', date: '12 : 12' , rate:'4.5' 
-   },
  
- ]
 
   ngOnInit(): void {
        this.OptometristsDOctor()
@@ -28,6 +22,7 @@ export class OptometristsComponent implements OnInit {
      
      spinner:boolean=false
      doctorsData!:Gatogoery
+     userWord:string=''
     
      constructor(private _DocorGatogeoryService:DocorGatogeoryService){}
     

@@ -2,25 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
 import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
+import { FormsModule } from '@angular/forms';
+import { GatogeorurSearchPipePipe } from '../../../core/pipes/gatogeorur-search-pipe.pipe';
 
 @Component({
   selector: 'app-physical',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink , FormsModule , GatogeorurSearchPipePipe],
   templateUrl: './physical.component.html',
   styleUrl: './physical.component.css'
 })
 export class PhysicalComponent implements OnInit{
-
-  doctor:any[] =[
-
-    { 
-      img:'../../../../assets/imege/ph06.jpg' , loc : 'El-ebour' ,
-      Name :'mohamed eltawil' , title: 'One of the best Physical therapy offered by Savior in El-ebour.',
-      Appoint:'Sat , Sun , tues', date: '12 : 12' , rate:'4.5' 
-   },
- 
- ]
 
 
  ngOnInit(): void {
@@ -29,6 +21,7 @@ export class PhysicalComponent implements OnInit{
        
        spinner:boolean=false
        doctorsData!:Gatogoery
+       userWord:string=''
       
        constructor(private _DocorGatogeoryService:DocorGatogeoryService){}
       

@@ -2,24 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
 import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
+import { FormsModule } from '@angular/forms';
+import { GatogeorurSearchPipePipe } from '../../../core/pipes/gatogeorur-search-pipe.pipe';
 
 @Component({
   selector: 'app-psychiatrists',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink , FormsModule ,GatogeorurSearchPipePipe],
   templateUrl: './psychiatrists.component.html',
   styleUrl: './psychiatrists.component.css'
 })
 export class PsychiatristsComponent implements OnInit{
   
-  doctor:any[] =[
 
-    { 
-      img:'../../../../assets/imege/ph07.jpg' , loc : 'El-ebour' ,
-      Name :'Nourhan Ahmed' , title: 'One of the best psychiatrists  offered by Savior in El-ebour.',
-      Appoint:'Sat , Sun , tues', date: '12 : 12' , rate:'4.5' 
-   },
-  ]
 
   ngOnInit(): void {
            this.PsychiatristsDOctor()
@@ -27,6 +22,7 @@ export class PsychiatristsComponent implements OnInit{
          
          spinner:boolean=false
          doctorsData!:Gatogoery
+         userWord:string=''
         
          constructor(private _DocorGatogeoryService:DocorGatogeoryService){}
         

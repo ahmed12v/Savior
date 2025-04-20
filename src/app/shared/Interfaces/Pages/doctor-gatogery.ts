@@ -15,4 +15,6 @@ export interface Doctors {
   weeklyDays: string[]
   dailyDays: string[]
   dailyTime?: string
+  rating:number
+
 }

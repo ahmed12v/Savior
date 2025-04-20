@@ -12,57 +12,57 @@ export class DocorGatogeoryService {
 
   Dentist():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Dentist')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Dentist')
   }
 
   Orthopaedic():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Orthopaedic')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Orthopaedic')
   }
 
   EarAndNose():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Ear%2C%20Nose%2C%20and%20Throat')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Ear%2C%20Nose%2C%20and%20Throat')
   }
 
   Optometrists():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Optometrists')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Optometrists')
   }
 
   Cardiologist():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Cardiologist')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Cardiologist')
   }
 
   Pediatricians():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Pediatricians')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Pediatricians')
   }
 
   Gynecologist():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Gynecologist')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Gynecologist')
   }
 
   PhysicalTherapy():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Physical%20Therapy')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Physical%20Therapy')
   }
 
   Dermatologists():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Dermatologists')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Dermatologists')
   }
 
   Gastroenteritis():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Gastroenteritis')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Gastroenteritis')
   }
 
   Psychiatrists():Observable<Gatogoery>
   {
-    return this._HttpClient.get<Gatogoery>('/api/doctor/doctors/by-specialty?specialty=Psychiatrists')
+    return this._HttpClient.get<Gatogoery>('http://gpsavior.runasp.net/api/doctor/doctors/by-specialty?specialty=Psychiatrists')
   }
 
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Doctor, DoctorRegester } from '../../Interfaces/Pages/doctor';
+import { Doctor, DoctorDetials, DoctorRegester } from '../../Interfaces/Pages/doctor';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,12 @@ export class DoctorService {
   getAllDoctor():Observable<Doctor>
   {
     return this._HttpClient.get<Doctor>('http://gpsavior.runasp.net/api/doctor/doctors')
+  }
+
+  DoctorDetiales(DoctorId:Number):Observable< DoctorDetials >
+  {
+   
+    return this._HttpClient.get<DoctorDetials>(`http://gpsavior.runasp.net/api/doctor/${DoctorId}`)
   }
 
   

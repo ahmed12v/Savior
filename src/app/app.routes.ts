@@ -157,7 +157,7 @@ export const routes: Routes = [
         ) ,canActivate:[authGuard]
   },
   {
-    path:'DoctorFeedback',
+    path:'DoctorFeedback/:id',
     loadComponent :()=>
         import('./component/doctor/feedback/feedback.component').then(
             (C) =>C.FeedbackComponent
