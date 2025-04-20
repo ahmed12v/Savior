@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProfileService } from '../../../shared/services/Pages/profile.service';
 import { Profile } from '../../../shared/Interfaces/Pages/profile';
+import { LogInService } from '../../../shared/services/athountocation/log-in.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,17 +14,15 @@ import { Profile } from '../../../shared/Interfaces/Pages/profile';
 export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
-
-   
+    this._LogInService.refreshUserDataFromToken()
       this.GetMe();
-    
   }
     
  
 
 
 
-constructor(private _ProfileService:ProfileService){}
+constructor(private _ProfileService:ProfileService , private _LogInService:LogInService){}
  
 UserData!:Profile;
 SpinnerData:boolean=false;

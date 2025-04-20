@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LogInService } from '../../../shared/services/athountocation/log-in.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
   logingUser:boolean=false;
   logingAdmin:boolean=false;
 
-constructor(private _router:Router , private _LogInService:LogInService ){}
+constructor(private _router:Router , private _LogInService:LogInService , private _ToastrService:ToastrService ){}
    
    closeNavbar(): void {
      const navbarCollapse = document.getElementById('navbarNav');
@@ -41,6 +42,7 @@ this._LogInService.UserDataAfterDecoded.subscribe(
         // }
         
         this.logingUser=true
+        // this._ToastrService.info('Savior', 'Welcome In Your Savior')
        }else{
         this.logingUser=false
         // this.logingAdmin=false
@@ -57,7 +59,8 @@ this._LogInService.UserDataAfterDecoded.subscribe(
     localStorage.removeItem('token');
    // localStorage.removeItem('role');
     this._LogInService.UserDataAfterDecoded.next(null);
-    this._router.navigate(['login'])
+    this._router.navigate(['/login'])
+    this._ToastrService.info('bye bye', ' thank you for Your Export ')
 
 }
 

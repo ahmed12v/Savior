@@ -40,7 +40,7 @@ export class UpdatHisDataComponent {
         error:err=>{
           console.log(err)
           this.errorMsg=err.error;
-          this._toaster.error('savior','Erorr')
+          this._toaster.error('savior','please inter correct Data')
           this.spinner=false
         }
       })

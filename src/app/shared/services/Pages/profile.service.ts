@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Profile, UpdateUserDAte, UpdateUserPassword } from '../../Interfaces/Pages/profile';
 import { StorageService } from '../storage.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,9 @@ UpdateUserData(UpdateData:UpdateUserDAte):Observable<any>
     return this._HttpClient.put('/api/profile/UpdateProfile',UpdateData,
       {headers : headers ,responseType:'text'})
 };
+
+
+
+
   
 }

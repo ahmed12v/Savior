@@ -8,7 +8,8 @@ import { provideToastr,ToastrModule } from 'ngx-toastr';
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideToastr(),  provideClientHydration(),provideAnimations(), provideClientHydration(),
-    provideHttpClient(withFetch()),importProvidersFrom(RouterModule,BrowserAnimationsModule, ToastrModule,),
+  providers: [provideRouter(routes), provideToastr(), 
+     provideClientHydration(),provideAnimations(), provideClientHydration(),provideHttpClient(withFetch()),
+    importProvidersFrom(RouterModule,BrowserAnimationsModule,ToastrModule.forRoot({positionClass:'Toaster-position'}),),
   ]
 };

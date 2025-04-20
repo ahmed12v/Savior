@@ -34,11 +34,24 @@ export class LogInService {
     const token = JSON.stringify(localStorage.getItem('token'));
     const decoded = jwtDecode(token);
     this.UserDataAfterDecoded.next(decoded); 
-    
 }
   
 
 
+
+
+refreshUserDataFromToken() {
+  const token = localStorage.getItem('token');
+  if (token) {
+    try {
+      const decoded = jwtDecode(token);
+      this.UserDataAfterDecoded.next(decoded);
+    } catch (err) {
+      console.error('Token decode failed', err);
+      this.UserDataAfterDecoded.next(null);
+    }
+  }
+}
 
 }
 

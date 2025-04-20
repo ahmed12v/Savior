@@ -45,14 +45,14 @@ export class UpdatepassComponent {
           next: res=>{
             console.log(res)
             this._Router.navigate(['/profile'])
-            this._toaster.success('Your Password Updated', '')
+            this._toaster.success('Savior', 'Your Password Updated' , )
             this.spinner=false
           },
           error:err=>{
             console.log(err.error)
             this.spinner=false
             this.erroeMsg=err.error
-            this._toaster.error('incorrect Password', '')
+            this._toaster.error('savior', 'incorrect Old Password')
               
           }
         })

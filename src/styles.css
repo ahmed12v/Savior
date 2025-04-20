@@ -61,4 +61,8 @@
   .validation{
     color: rgb(193, 14, 14);
   }
+  .Toaster-position{
+    top: 20% !important; 
+    right: 1% !important;
+  }
 
