@@ -34,6 +34,7 @@ export class LogInService {
     const token = JSON.stringify(localStorage.getItem('token'));
     const decoded = jwtDecode(token);
     this.UserDataAfterDecoded.next(decoded); 
+    
 }
   
 

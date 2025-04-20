@@ -12,7 +12,7 @@
     <!-- Nav Items -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto ">
-        @if (loging==false) {
+        @if (logingUser==false) {
            <div class="d-flex phone-atho">
             <li class="nav-item">
               <a class="nav-link  login" (click)="closeNavbar()" routerLink="about"
@@ -28,7 +28,7 @@
 
         }
         
-        @if(loging==true){
+        @if(logingUser==true){
 
 
           <li class="nav-item">
@@ -61,7 +61,7 @@
         </ul>  
 
        
-        @if (loging==true) {
+        @if (logingUser==true) {
 
           <div class="cuesor-pointer p-1 text-end ms-4 ms-auto    me-3">
             <a  (click)="logOut() " (click)="closeNavbar()" class="nav-link  logout " aria-current="page" 

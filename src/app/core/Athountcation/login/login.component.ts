@@ -38,8 +38,16 @@ export class LoginComponent  {
           this.spinner=false
               //  console.log(res.token);
                localStorage.setItem('token',res.token)
+             //localStorage.setItem('role',res.role)
                this._loginServiec.decodToken()
-               this._Router.navigate(['/home'])
+              //  const role = localStorage.getItem('role')
+              //  if(role ==='admin'){
+              //   this._Router.navigate(['adminWork'])
+              //  }
+              //  if(role==='user'){
+              //   this._Router.navigate(['/home'])
+              //  }
+              this._Router.navigate(['/home'])
                
               
         },
