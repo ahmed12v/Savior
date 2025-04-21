@@ -57,7 +57,7 @@
     <div class="popup-overlay" (click)="closePopup()">
       <div class="popup-content" (click)="$event.stopPropagation()">
         
-            <app-book-form [doctorID]="selectedDoctorID" ></app-book-form>
+            <app-book-form (bookingCompleted)="closePopup()" [doctorID]="selectedDoctorID" ></app-book-form>
         
         
         <div class="text-center mt-3">

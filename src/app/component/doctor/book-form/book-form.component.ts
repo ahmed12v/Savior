@@ -1,6 +1,6 @@
 import { Days, Doctor } from './../../../shared/Interfaces/Pages/doctor';
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DoctorDetials } from '../../../shared/Interfaces/Pages/doctor';
 import { DoctorService } from '../../../shared/services/Pages/doctor.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -19,6 +19,7 @@ export class BookFormComponent implements OnInit {
   spinner:boolean=false
   GetFormContent!:DoctorDetials
   DoctorDays!:Days
+  @Output() bookingCompleted = new EventEmitter<void>();
 
   //#endregion
 
@@ -56,7 +57,7 @@ export class BookFormComponent implements OnInit {
   }
   //#endregion
  
-  constructor(private _DoctorService:DoctorService , private _toaster:ToastrService){}
+  constructor(private _DoctorService:DoctorService , private _toaster:ToastrService, private _Router:Router){}
 
 BooKNow:FormGroup=new FormGroup({
   day:new FormControl(null , Validators.required),
@@ -73,6 +74,7 @@ SendBook()
         console.log(res)
         this.spinner=false
         this._toaster.success('Booking Successful', 'Check your email spam for all the details 😊')
+        this.bookingCompleted.emit()
         this.BooKNow.reset()
       },
       error:err=>{
