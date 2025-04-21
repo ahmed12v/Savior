@@ -12,7 +12,7 @@
             
             <div class=" w-75 ">
                 <div class=" item-img rounded-3">
-                    <img [src]="ViewDoctorDetails?.imageUrl" class="doc-photo w-100 h-100 rounded-3 ms-4 mt-4" 
+                    <img [src]="ViewDoctorDetails.imageUrl" class="doc-photo w-100 h-100 rounded-3 ms-4 mt-4" 
                     alt=" doctor photo ">
                 </div>
             </div>
@@ -21,24 +21,24 @@
             <div class="col-md-6  p-4 ">
               <div class="item-detls p-3">
                 <h2 class="fw-bold mb-lg-4">
-                   <span>Dr.</span> {{ViewDoctorDetails?.fullName}}
+                   <span>Dr.</span> {{ViewDoctorDetails.fullName}}
                 </h2>
                 <p class="fs-5">
-                    {{ViewDoctorDetails?.description}}
+                    {{ViewDoctorDetails.description}} 
                 </p>
                 <hr>
                 <p>
                     <span class="fw-bold">Clinic Location <i class="fa fa-map-marker"></i></span> <br>
-                    {{ViewDoctorDetails?.clinicAddress}} <br>
-                    <i class="fa-solid fa-calendar-days"></i> {{ViewDoctorDetails?.dailyDays}} <br>
-                    <i class="fa-solid fa-clock"></i> {{ViewDoctorDetails?.dailyTime}} PM <br>
+                    {{ViewDoctorDetails.clinicAddress}} <br>
+                    <i class="fa-solid fa-calendar-days"></i> {{ViewDoctorDetails.dailyDays}} <br>
+                    <i class="fa-solid fa-clock"></i> {{ViewDoctorDetails.dailyTime}} PM <br>
                     <i class="fa-solid fa-money-bill-wave"></i> Fees 
-                      : {{ViewDoctorDetails?.bookingPrice}} EGP 
+                      : {{ViewDoctorDetails.bookingPrice}} EGP 
                 </p>
                 <p>
                     <span class="fw-bold"> Hospital he works in  </span> <br>
-                       {{ViewDoctorDetails?.hospitalName}} <br>
-                       {{ViewDoctorDetails?.hospitalAddress}}
+                       {{ViewDoctorDetails.hospitalName}} <br>
+                       {{ViewDoctorDetails.hospitalAddress}}
                 </p>
                 <p>
                     

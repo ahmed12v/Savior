@@ -50,5 +50,6 @@ export interface DoctorRegester {
   city: string
   clinicName: string
 }
+export type Days = string[]
 
 

@@ -20,8 +20,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
-    max-width: 800px;
-    margin-top:100px ;
+    max-width: 1000px;
     opacity: 0;
     animation: fadeInunder 3s ease-out forwards;
 }
@@ -41,7 +40,7 @@ h2 {
     margin-bottom: 5px;
 }
 
-p {
+.booking-card p {
     color: #555;
     font-size: 16px;
     margin-bottom: 20px;
@@ -135,3 +134,39 @@ p {
         padding: 20px;
     }
 }
+
+
+.appointment-options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .hidden-radio {
+    display: none;
+  }
+  
+  .radio-label {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+  
+  .radio-label:hover {
+    border-color: #007bff;
+    background-color: #e9f3ff;
+  }
+  
+  .hidden-radio:checked + .radio-label,
+  .radio-label:has(input:checked) {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  

@@ -4,11 +4,12 @@ import { Doctor } from '../../../shared/Interfaces/Pages/doctor';
 import { DoctorService } from '../../../shared/services/Pages/doctor.service';
 import { FormsModule, } from '@angular/forms';
 import { AlldoctorSearchPipePipe } from '../../../core/pipes/alldoctor-search-pipe.pipe';
+import { BookFormComponent } from '../book-form/book-form.component';
 
 @Component({
   selector: 'app-all-doctoor',
   standalone: true,
-  imports: [RouterLink , FormsModule , AlldoctorSearchPipePipe],
+  imports: [RouterLink , FormsModule , AlldoctorSearchPipePipe ,BookFormComponent],
   templateUrl: './all-doctoor.component.html',
   styleUrl: './all-doctoor.component.css'
 })
@@ -17,6 +18,16 @@ export class AllDoctoorComponent implements OnInit {
    spinner:boolean=false
    Doctordata!:Doctor;
    userWord:string=''
+   selectedDoctorID: string | null = null;
+
+    openBookingPopup(doctorID: any
+    ) {
+    this.selectedDoctorID = doctorID;
+    }
+
+    closePopup() {
+     this.selectedDoctorID = null;
+    }
 
    ngOnInit(): void {
       this.getAllDoc()

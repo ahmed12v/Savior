@@ -1,29 +1,51 @@
-<section class="w-100  d-flex justify-content-center">
-
+@if (spinner) {
+  <div class="vh-100 d-flex justify-content-center align-items-center">
+    <i class=" fa fa-spin fa-spinner text-primary fw-bold fs-1"></i>
+  </div>
+}@else {
+  <section class="w-100  d-flex justify-content-center">
+    
     <div class="booking-card">
-        <img src="../../../../assets/imege/AhmedTop.jpg" alt="Doctor's Image" class="doctor-img">
-        <h2>Dr. Ahmed Sami</h2>
-        <p>dentists</p>
+        <img [src]="GetFormContent.imageUrl" alt="Doctor's Image" class="doctor-img">
+        <h2>Dr. {{GetFormContent.fullName}}</h2>
+        <p> {{GetFormContent.specialty}} </p>
     
-        <!-- <form> -->
+        <form [formGroup]="BooKNow" >
+           
             <div class="appointment-options">
-                <input type="radio" id="time1" name="appointment" value="Saterday">
-                <label for="time1">Saterday</label>
-    
-                <input type="radio" id="time2" name="appointment" value="Tuseday">
-                <label for="time2">Tuseday</label>
-    
-                <input type="radio" id="time3" name="appointment" value="Thursday">
-                <label for="time3">Thursday</label>
-            </div>
+                @for (item of DoctorDays; track $index) {
+                  <input formControlName="day" type="radio" [id]="'day' + $index" name="day" [value]="item" class="hidden-radio" />
+                  <label class="radio-label" [for]="'day' + $index">
+                    {{ item }}
+                  </label>
+                  @if (BooKNow.get('day')?.errors&&BooKNow.get('day')?.touched) {
+                    <div class="p-1 m-0">
+                       @if (BooKNow.get('day')?.errors?.['required']) {
+                        <p class="text-danger fw-bold"> Day Is required</p>
+                       }
+                    </div>
+                  }
+                }
+              </div>
     
             <div class="input-group">
-                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <input formControlName="phone" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                @if (BooKNow.get('phone')?.errors&&BooKNow.get('phone')?.touched) {
+                    <div class="p-1 m-0">
+                       @if (BooKNow.get('phone')?.errors?.['required']) {
+                        <p class="text-danger fw-bold"> phone Is required</p>
+                       }
+                       @if (BooKNow.get('phone')?.errors?.['pattern']) {
+                        <p class="text-danger fw-bold"> Please Enter Egyption Phone Number </p>
+                       }
+                    </div>
+                  }
             </div>
     
             <button type="submit" class="book-btn"
              routerLink="/reserv">Book </button>
-        <!-- </form> -->
+        </form>
     </div>
 
 </section>
+}
