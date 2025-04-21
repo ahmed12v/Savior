@@ -134,3 +134,27 @@ p {
         padding: 20px;
     }
 }
+
+
+.day-option {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: #f1f1f1;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+  
+  .day-option:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .day-option.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+  }
+  

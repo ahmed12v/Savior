@@ -52,4 +52,20 @@ export interface DoctorRegester {
 }
 export type Days = string[]
 
+export interface BookNowDoctor {
+  doctorId: number
+  day: string
+  phoneNumber: string
+}
+export interface ResponsSendBook {
+  userName: string
+  doctorName: string
+  phoneNumber: string
+  bookingPrice: number
+  paymentMethod: string
+  day: string
+  time: string
+  clinicLocation: string
+}
+
 

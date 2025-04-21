@@ -65,5 +65,9 @@ export class DocorGatogeoryService {
   {
     return this._HttpClient.get<Gatogoery>(`${baseApiUrl.Url}/api/doctor/doctors/by-specialty?specialty=Psychiatrists`)
   }
+  TopRating():Observable<Gatogoery>
+  {
+    return this._HttpClient.get<Gatogoery>(`${baseApiUrl.Url}/api/doctor/doctors/by-specialty?specialty=Top%20Rating`)
+  }
 
 }

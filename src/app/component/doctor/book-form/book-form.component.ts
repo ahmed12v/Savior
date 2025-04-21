@@ -4,26 +4,34 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DoctorDetials } from '../../../shared/Interfaces/Pages/doctor';
 import { DoctorService } from '../../../shared/services/Pages/doctor.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-book-form',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [ ReactiveFormsModule],
   templateUrl: './book-form.component.html',
   styleUrl: './book-form.component.css'
 })
 export class BookFormComponent implements OnInit {
+ 
+  //#region Declaration
+  spinner:boolean=false
+  GetFormContent!:DoctorDetials
+  DoctorDays!:Days
+
+  //#endregion
 
   //#region popup
   ngOnInit(): void {
     this.gitForm()
+    this.BooKNow.get('doctorId')?.setValue(this.doctorID);
   }
   @Input() doctorID!: any;
 
-  spinner:boolean=false
-  GetFormContent!:DoctorDetials
-  DoctorDays!:Days
-  constructor(private _DoctorService:DoctorService ,){}
+  
+  
+  
 
   gitForm()
   {
@@ -47,11 +55,40 @@ export class BookFormComponent implements OnInit {
 
   }
   //#endregion
-
+ 
+  constructor(private _DoctorService:DoctorService , private _toaster:ToastrService){}
 
 BooKNow:FormGroup=new FormGroup({
   day:new FormControl(null , Validators.required),
-  phone:new FormControl(null , [Validators.required , Validators.pattern(/^01[0125][0-9]{8}$/)])
+  phoneNumber:new FormControl(null , [Validators.required , Validators.pattern(/^01[0125][0-9]{8}$/)]),
+  doctorId:new FormControl( 0 )
 })
+
+SendBook()
+{
+  if(this.BooKNow.valid){
+    this.spinner=true
+    this._DoctorService.BookNow(this.BooKNow.value).subscribe({
+      next:res=>{
+        console.log(res)
+        this.spinner=false
+        this._toaster.success('Booking Successful', 'Check your email spam for all the details 😊')
+        this.BooKNow.reset()
+      },
+      error:err=>{
+        console.log(err)
+        this.spinner=false
+        this._toaster.error('Booking faield', 'try again')
+        this.BooKNow.reset()
+
+
+      }
+    })
+  }else{
+    console.log('Form Erorr')
+  }
+}
+
+
 
 }

@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Doctor, DoctorDetials, DoctorRegester } from '../../Interfaces/Pages/doctor';
+import { BookNowDoctor, Doctor, DoctorDetials, DoctorRegester, ResponsSendBook } from '../../Interfaces/Pages/doctor';
 import { baseApiUrl } from '../../../bases/base-url';
+import { Token } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,16 @@ export class DoctorService {
   }
 
   
-
+BookNow(BookForm:BookNowDoctor):Observable<any>
+{
+  let token = localStorage.getItem('token')
+    let headers = new HttpHeaders()
+    if(token){
+     headers = headers.set('Authorization', 'Bearer ' + token)
+    }
+  return this._HttpClient.post<any>(`${baseApiUrl.Url}/api/doctor/book`,BookForm ,
+     {headers:headers })
+}
   
 
 }

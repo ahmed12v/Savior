@@ -8,166 +8,58 @@
             <div>
                 <owl-carousel-o [options]="customOptions" class="m-0 " #owlCarousel>
 
-                    
+                    @for (item of doctorsData ; track $index) {
                     <ng-template carouselSlide class="templet">
 
                         <section class="testimonel-area " id="testimonial" >
   
                             <div class="container ">
-                              <div class="mb-5 text-center doc-tittle">
-                                <h2>
-                                  Top Rating
-                                </h2>
-                              </div>
-                              
                           
                                 <div class="row">
                                     <div class="">
+                                        
                                            
-                                        <div class="testimonel-carousel owl-carousel d-flex justify-content-center">
+                                        <div class="testimonel-carousel d-flex  justify-content-center">
                                             
                                             <!-- testimonel-item start -->
-                                            <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-12 shadow-lg rounded-3 cuesor-pointer" 
-                                            >
-                                                <div class="testimonel-item" routerLink="/DoctorFeedback">
+                                             
+                                                <div class="col-sm-12 col-md-9 mb-4 col-md-offset-2 col-sm-12 shadow-lg rounded-3 cuesor-pointer" 
+                                                    >
+                                                <div class="testimonel-item"  [routerLink]="['/DoctorFeedback' ,item.doctorID]">
                                                     <div class="testimonel-img">
-                                                        <img class="w-100 h-100" src="../../../assets/imege/AhmedTop.jpg" alt="" >
+                                                        <img class="w-100 h-100" [src]="item.imageUrl" alt="doctor Photo" >
                                                     </div>
                                                     <div class="testimonel-cont">
-                                                        <h3>Ahmed Sami</h3>
-                                                        <h4><a><i class="fa fa-map-marker"></i> 10th of ramadan </a></h4>
-                                                        <p>One of the best dentists offered by Savior in 10th of Ramadan.</p>
-                                                        <p> sat , tuse , thurs </p>
-                                                        <p> 12 : 8 pm </p>
+                                                        <h3>DR. {{item.fullName}}</h3>
+                                                        <h4><a><i class="fa fa-map-marker"></i> {{item.city}} </a></h4>
+                                                        <p class="fw-bold">{{item.specialty}}</p>
+                                                        <p>{{item.description.split(' ').slice(0, 12).join(' ')}}</p>
+                                                        <p> {{item.dailyDays}} </p>
+                                                        <p> {{item.dailyTime}} PM</p>
                                                         <div class="review-reating d-flex ">
-                                                           <p> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>  <i class="fa fa-star"></i> <i class="fa fa-star"></i> </p> 
+                                                           <p> {{item.rating}}<i class="fa fa-star"></i> </p> 
                                                         </div>
                                                     </div>
                                                 </div >
-                                                <div class="text-center card-btn">
-                                                  <button class="btn btn-primary fw-bold"
-                                                  routerLink="/BookNow">
-                                                    Book Now 
-                                                  </button>
-                                                </div>
+                                                
                                             </div>
+                                            
+                                            
+                                            
+                                            
                                             <!-- testimonel-item end -->
                                         </div>
                                     </div>
                                 </div><!--/.row-->
-                          
+                                
+                                
                           
                             </div><!--/.container-->
                           </section>
 
                     </ng-template> 
-                    <ng-template carouselSlide class="templet">
-
-                        <section class="testimonel-area " id="testimonial" >
-  
-                            <div class="container ">
-                              <div class="mb-5 text-center doc-tittle">
-                                <h2>
-                                  Top Rating
-                                </h2>
-                              </div>
-                              
-                          
-                                <div class="row">
-                                    <div class="">
-                                           
-                                        <div class="testimonel-carousel owl-carousel d-flex justify-content-center">
-                                            
-                                            <!-- testimonel-item start -->
-                                            <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-12 shadow-lg rounded-3 cuesor-pointer" 
-                                            >
-                                                <div class="testimonel-item" routerLink="/DoctorFeedback">
-                                                    <div class="testimonel-img">
-                                                        <img class="w-100 h-100" src="../../../assets/imege/doctor Photo.jpg" alt="" >
-                                                    </div>
-                                                    <div class="testimonel-cont">
-                                                        <h3>Mohamed Elsayed</h3>
-                                                        <h4><a><i class="fa fa-map-marker"></i> El-Shrouk </a></h4>
-                                                        <p>One of the best Pediatrician offered by Savior in El-Shrouk.</p>
-                                                        <p> sat , tuse , thurs </p>
-                                                        <p> 12 : 8 pm </p>
-                                                        <div class="review-reating d-flex ">
-                                                           <p> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>  <i class="fa fa-star"></i> <i class="fa fa-star"></i> </p> 
-                                                        </div>
-                                                    </div>
-                                                </div >
-                                                <div class="text-center card-btn">
-                                                  <button class="btn btn-primary fw-bold"
-                                                  routerLink="/BookNow">
-                                                    Book Now 
-                                                  </button>
-                                                </div>
-                                            </div>
-                                            <!-- testimonel-item end -->
-                                        </div>
-                                    </div>
-                                </div><!--/.row-->
-                          
-                          
-                            </div><!--/.container-->
-                          </section>
-
-                    </ng-template> 
-                    <ng-template carouselSlide class="templet">
-
-                        <section class="testimonel-area " id="testimonial" >
-  
-                            <div class="container ">
-                              <div class="mb-5 text-center doc-tittle">
-                                <h2>
-                                  Top Rating
-                                </h2>
-                              </div>
-                              
-                          
-                                <div class="row">
-                                    <div class="">
-                                           
-                                        <div class="testimonel-carousel owl-carousel d-flex justify-content-center">
-                                            
-                                            <!-- testimonel-item start -->
-                                            <div class="col-sm-12 col-md-8 col-md-offset-2 col-sm-12 shadow-lg rounded-3 cuesor-pointer" 
-                                            >
-                                                <div class="testimonel-item" routerLink="/DoctorFeedback">
-                                                    <div class="testimonel-img">
-                                                        <img class="w-100 h-100" src="../../../assets/imege/nourTop.jpg" alt="" >
-                                                    </div>
-                                                    <div class="testimonel-cont">
-                                                        <h3>Nourhan Abdelaty</h3>
-                                                        <h4><a><i class="fa fa-map-marker"></i> Bader </a></h4>
-                                                        <p>One of the best Gynecologist offered by Savior in Bader.</p>
-                                                        <p> sat , tuse , thurs </p>
-                                                        <p> 12 : 8 pm </p>
-                                                        <div class="review-reating d-flex ">
-                                                           <p> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>  <i class="fa fa-star"></i> <i class="fa fa-star"></i> </p> 
-                                                        </div>
-                                                    </div>
-                                                </div >
-                                                <div class="text-center card-btn">
-                                                  <button class="btn btn-primary fw-bold"
-                                                  routerLink="/BookNow">
-                                                    Book Now 
-                                                  </button>
-                                                </div>
-                                            </div>
-                                            <!-- testimonel-item end -->
-                                        </div>
-                                    </div>
-                                </div><!--/.row-->
-                          
-                          
-                            </div><!--/.container-->
-                          </section>
-
-                    </ng-template> 
-                    
-                    
-                    
+                }
+ 
                   </owl-carousel-o>
             </div>
             

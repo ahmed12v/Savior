@@ -16,40 +16,59 @@
 
         </div>
     
-        <form [formGroup]="BooKNow" >
-           
-            <div class="appointment-options">
-                @for (item of DoctorDays; track $index) {
-                  <input formControlName="day" type="radio" [id]="'day' + $index" name="day" [value]="item" class="hidden-radio" />
-                  <label class="radio-label" [for]="'day' + $index">
-                    {{ item }}
-                  </label>
-                  @if (BooKNow.get('day')?.errors&&BooKNow.get('day')?.touched) {
-                    <div class="p-1 m-0">
-                       @if (BooKNow.get('day')?.errors?.['required']) {
-                        <p class="text-danger fw-bold"> Day Is required</p>
-                       }
-                    </div>
-                  }
+        <form [formGroup]="BooKNow" (ngSubmit)="SendBook()">
+          
+          <div class="appointment-options d-flex flex-wrap gap-2 mt-3">
+            @for (item of DoctorDays; track $index) {
+              <input
+                formControlName="day"
+                type="radio"
+                [id]="'day' + $index"
+                name="day"
+                [value]="item"
+                class="d-none"
+              />
+          
+              <label
+                class="day-option"
+                [for]="'day' + $index"
+                [class.active]="BooKNow.get('day')?.value === item"
+              >
+                {{ item }}
+              </label>
+            }
+          
+            @if (BooKNow.get('day')?.errors && BooKNow.get('day')?.touched) {
+              <div class="w-100 text-danger mt-2">
+                @if (BooKNow.get('day')?.errors?.['required']) {
+                  <p class="fw-bold">Please select a day.</p>
                 }
               </div>
-    
+            }
+          </div>
+
             <div class="input-group">
-                <input formControlName="phone" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                @if (BooKNow.get('phone')?.errors&&BooKNow.get('phone')?.touched) {
+                <input formControlName="phoneNumber" type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+                @if (BooKNow.get('phoneNumber')?.errors&&BooKNow.get('phoneNumber')?.touched) {
                     <div class="p-1 m-0">
-                       @if (BooKNow.get('phone')?.errors?.['required']) {
+                       @if (BooKNow.get('phoneNumber')?.errors?.['required']) {
                         <p class="text-danger fw-bold"> phone Is required</p>
                        }
-                       @if (BooKNow.get('phone')?.errors?.['pattern']) {
+                       @if (BooKNow.get('phoneNumber')?.errors?.['pattern']) {
                         <p class="text-danger fw-bold"> Please Enter Egyption Phone Number </p>
                        }
                     </div>
                   }
             </div>
+            <div class="input-group">
+                <input type="hidden" formControlName="doctorId"  >
+                
+            </div>
     
-            <button type="submit" class="book-btn"
-             routerLink="/reserv">Book </button>
+            <button  [disabled]="BooKNow.invalid"  class="book-btn"
+             >Book 
+            </button>
+
         </form>
     </div>
 
