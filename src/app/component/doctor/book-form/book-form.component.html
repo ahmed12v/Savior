@@ -7,8 +7,14 @@
     
     <div class="booking-card">
         <img [src]="GetFormContent.imageUrl" alt="Doctor's Image" class="doctor-img">
-        <h2>Dr. {{GetFormContent.fullName}}</h2>
-        <p> {{GetFormContent.specialty}} </p>
+        <h2 class="text-black"> <span> Dr. </span> {{GetFormContent.fullName}}</h2>
+        <div class="d-flex justify-content-around w-100 p-2 ">
+          <p class="fw-bold"> {{GetFormContent.specialty}} </p>
+          <p class="fw-bold"> {{GetFormContent.rating}} <i class="fa-solid fa-star starIco"></i></p>
+          <p> <span class="fw-bold text-primary"> Price :</span> {{GetFormContent.bookingPrice}} Egp</p>
+
+
+        </div>
     
         <form [formGroup]="BooKNow" >
            

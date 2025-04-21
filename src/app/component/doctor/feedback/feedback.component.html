@@ -45,15 +45,27 @@
                        
                 </p>
                 <button class="btn btn-primary fw-bold "
-                 routerLink="/BookNow">
+                 (click)="openBookingPopup(ViewDoctorDetails.doctorID)">
                     <i class="fa-solid fa-right-long"></i> Book
                 </button>
                 
               </div>
             </div>
-            
-    
 </div>
+
+@if (selectedDoctorID) {
+    <div class="popup-overlay" (click)="closePopup()">
+      <div class="popup-content" (click)="$event.stopPropagation()">
+        
+            <app-book-form [doctorID]="selectedDoctorID" ></app-book-form>
+        
+        
+        <div class="text-center mt-3">
+          <button class="btn btn-danger" (click)="closePopup()">Close</button>
+        </div>
+      </div>
+    </div>
+  }
 
 </div>
 }

@@ -18,6 +18,7 @@ export class AllDoctoorComponent implements OnInit {
    spinner:boolean=false
    Doctordata!:Doctor;
    userWord:string=''
+   //#region 
    selectedDoctorID: string | null = null;
 
     openBookingPopup(doctorID: any
@@ -28,6 +29,7 @@ export class AllDoctoorComponent implements OnInit {
     closePopup() {
      this.selectedDoctorID = null;
     }
+    //#endregion
 
    ngOnInit(): void {
       this.getAllDoc()

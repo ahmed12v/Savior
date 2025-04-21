@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DoctorService } from '../../../shared/services/Pages/doctor.service';
 import { Doctor, DoctorDetials } from '../../../shared/Interfaces/Pages/doctor';
+import { BookFormComponent } from '../book-form/book-form.component';
 
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [RouterLink],
+  imports: [ BookFormComponent],
   templateUrl: './feedback.component.html',
   styleUrl: './feedback.component.css'
 })
@@ -18,6 +19,19 @@ ngOnInit(): void {
    this.DoctorDetials()
 }
 constructor(private _DoctorService:DoctorService , private _ActivatedRoute:ActivatedRoute){}
+
+//#region 
+selectedDoctorID: string | null = null;
+
+openBookingPopup(doctorID: any
+) {
+this.selectedDoctorID = doctorID;
+}
+
+closePopup() {
+ this.selectedDoctorID = null;
+}
+//#endregion
   
 DoctorDetials()
 {
@@ -42,3 +56,4 @@ DoctorDetials()
   })
 }
 }
+

@@ -2,25 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Gatogoery } from '../../../shared/Interfaces/Pages/doctor-gatogery';
 import { DocorGatogeoryService } from '../../../shared/services/Pages/docor-gatogeory.service';
+import { BookFormComponent } from '../book-form/book-form.component';
 
 @Component({
   selector: 'app-gynecologists',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink , BookFormComponent],
   templateUrl: './gynecologists.component.html',
   styleUrl: './gynecologists.component.css'
 })
 export class GynecologistsComponent implements OnInit {
 
-  doctor:any[] =[
+ //#region 
+ selectedDoctorID: string | null = null;
 
-    { 
-      img:'../../../../assets/imege/docWomen.jpg' , loc : 'New Cairo' ,
-      Name :'Areen Ahmed' , title: 'One of the best Gynecologists offered by Savior in New Cairo.',
-      Appoint:'Sat , Sun , tues , Wed', date: '10 : 10' , rate:'4.8' 
-   },
- 
- ]
+ openBookingPopup(doctorID: any
+ ) {
+ this.selectedDoctorID = doctorID;
+ }
+
+ closePopup() {
+  this.selectedDoctorID = null;
+ }
+ //#endregion
 
  ngOnInit(): void {
       this.GynecologistDOctor()

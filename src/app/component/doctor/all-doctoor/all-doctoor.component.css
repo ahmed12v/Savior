@@ -186,7 +186,7 @@
   color: #000;
 }
 
-
+/* Animation for smooth entry */
 @keyframes fadeIn {
   from {
     opacity: 0;
