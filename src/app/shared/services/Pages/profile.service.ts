@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Profile, UpdateUserDAte, UpdateUserPassword } from '../../Interfaces/Pages/profile';
 import { StorageService } from '../storage.service';
 import { jwtDecode } from 'jwt-decode';
+import { baseApiUrl } from '../../../bases/base-url';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ getMe():Observable<Profile>
      headers = headers.set('Authorization', 'Bearer ' + token)
     }
 
-    return this._HttpClient.get<Profile>('/api/profile',{headers : headers})
+    return this._HttpClient.get<Profile>(`${baseApiUrl.Url}/api/profile`,{headers : headers})
 };
 ////////////////////////////
 UpdateUserPasswor(PsswordForm:UpdateUserPassword):Observable<any>
@@ -30,7 +31,7 @@ UpdateUserPasswor(PsswordForm:UpdateUserPassword):Observable<any>
      headers = headers.set('Authorization', 'Bearer ' + token)
     }
 
-    return this._HttpClient.put('/api/profile/UpdatePassword',PsswordForm,
+    return this._HttpClient.put(`${baseApiUrl.Url}/api/profile/UpdatePassword`,PsswordForm,
       {headers : headers , responseType:'text'} )
 };
 ////////////////////////////
@@ -43,7 +44,7 @@ UpdateUserData(UpdateData:UpdateUserDAte):Observable<any>
      headers = headers.set('Authorization', 'Bearer ' + token)
     }
 
-    return this._HttpClient.put('/api/profile/UpdateProfile',UpdateData,
+    return this._HttpClient.put(`${baseApiUrl.Url}/api/profile/UpdateProfile`,UpdateData,
       {headers : headers ,responseType:'text'})
 };
 

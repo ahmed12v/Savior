@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { contact, ContactUs} from '../../Interfaces/Pages/home';
+import { baseApiUrl } from '../../../bases/base-url';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class HomeService {
             headers = headers.set('Authorization', 'Bearer ' + token)
            }
 
-           return this._HttpClient.post('/api/connectus',feedback,
+           return this._HttpClient.post(  `${baseApiUrl.Url}/api/connectus`,feedback,
             {
               headers : headers , responseType:'text'
             }
@@ -29,6 +30,6 @@ export class HomeService {
 
   getFeedback():Observable<contact>
   {
-    return this._HttpClient.get<contact>('/api/connectus')
+    return this._HttpClient.get<contact>(`${baseApiUrl.Url}/api/connectus`)
   }
 }
