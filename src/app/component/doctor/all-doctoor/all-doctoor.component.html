@@ -5,55 +5,56 @@
 }@else {
     <section class="testimonel-area " id="testimonial" >
   
-        <div class="container ">
-      
-            <div class="row">
-                <div class="">
-                    <div class="form-floating mb-5   d-flex justify-content-center align-items-center ">
-                        <input [(ngModel)]="userWord"  type="email" 
-                        class="bg-transparent form-control w-75 shadow-none" id="floatingInput"
-                         placeholder="name@example.com"> 
-                        <label for="floatingInput"> 
-                        <i class="fa-solid fa-magnifying-glass"></i> Search by Doctor name...</label>
+        <div class="container  mt-0">
+            <div class="form-floating mb-5   d-flex justify-content-start align-items-center ">
+                <input [(ngModel)]="userWord"  type="text" placeholder="Search by doctor Name ..."
+                 class="w-75 p-3 rounded-5  bg-transparent doctorSerach">
+                <!-- class="bg-transparent form-control w-75 shadow-none" id="floatingInput"
+                 placeholder=" Search by Doctor name...">  -->
+                <!-- <label for="floatingInput"> 
+                <i class="fa-solid fa-magnifying-glass"></i> Search by Doctor name...</label> -->
+            
+            </div> 
+            <div class="row d-flex justify-content-center">
+                <div class="w-100">
                     
-                        <i class="fa-solid fa-book me-5 fs-1  ms-auto serch-shoping cuesor-pointer" 
-                        routerLink="/reserv"></i>
-                    </div> 
                        
-                    <div class="testimonel-carousel   justify-content-start">
+                    <div class="testimonel-carousel  ">
                         
-                        <!-- testimonel-item start -->
-                         @for (doctor of Doctordata | alldoctorSearchPipe : userWord ; track $index) {
-                            <div class="col-sm-12 col-md-9 mb-4 col-md-offset-2 col-sm-12 shadow-lg rounded-3 cuesor-pointer" 
-                                >
-                            <div class="testimonel-item"  [routerLink]="['/DoctorFeedback' ,doctor.doctorID]" >
-                                <div class="testimonel-img">
-                                    <img class="w-100 " [src]="doctor.imageUrl" alt="doctor Photo" height="120px" >
-                                </div>
-                                <div class="testimonel-cont">
-                                    <h3>DR. {{doctor.fullName}}</h3>
-                                    <h4><a><i class="fa fa-map-marker"></i> {{doctor.city}} </a></h4>
-                                    <p>{{doctor.description.split(' ').slice(0, 12).join(' ') }}</p>
-                                    <p> {{doctor.dailyDays}} </p>
-                                    <p> {{doctor.dailyTime}} PM</p>
-                                    <div class="review-reating d-flex ">
-                                       <p> {{doctor.rating}} <i class="fa fa-star"></i> </p> 
-                                    </div>
-                                </div>
-                            </div >
-                            <div class="text-center card-btn">
-                              <button class="btn btn-primary fw-bold"
-                                (click)="openBookingPopup(doctor.doctorID)">
-                                Book Now 
-                              </button>
+                     
+                      <!-- testimonel-item start -->
+                      @for (doctor of Doctordata | alldoctorSearchPipe : userWord ; track $index) {
+                        <div class=" col-sm-12 col-md-9 mb-4 col-md-offset-2 col-sm-12 shadow-lg rounded-3 cuesor-pointer" 
+                            >
+                        <div class="testimonel-item"  [routerLink]="['/DoctorFeedback' ,doctor.doctorID]" >
+                            <div class="testimonel-img">
+                                <img class="w-100 " [src]="doctor.imageUrl" alt="doctor Photo" height="120px" >
                             </div>
+                            <div class="testimonel-cont">
+                                <h3>DR. {{doctor.fullName}}</h3>
+                                <h4><a><i class="fa fa-map-marker"></i> {{doctor.city}} </a></h4>
+                                <p>{{doctor.description.split(' ').slice(0, 12).join(' ') }}</p>
+                                <p> {{doctor.dailyDays}} </p>
+                                <p> {{doctor.dailyTime}} PM</p>
+                                <div class="review-reating d-flex ">
+                                   <p> {{doctor.rating}} <i class="fa fa-star"></i> </p> 
+                                </div>
+                            </div>
+                        </div >
+                        <div class="text-center card-btn">
+                          <button class="btn btn-primary fw-bold"
+                            (click)="openBookingPopup(doctor.doctorID)">
+                            Book Now 
+                          </button>
                         </div>
-                         }
-                         
+                    </div>
+                     }
+                    
+                    <!-- testimonel-item end -->
+
+                    
                         
-                        
-                        
-                        <!-- testimonel-item end -->
+                       
                     </div>
                 </div>
             </div><!--/.row-->

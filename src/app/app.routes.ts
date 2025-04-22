@@ -1,3 +1,4 @@
+import { AllDepartmentComponent } from './component/doctor/all-department/all-department.component';
 import { UserContactUsComponent } from './pages/user-contact-us/user-contact-us.component';
 import { DoctorRegisterComponent } from './addtions/doctor-register/doctor-register.component';
 import { GynecologistsComponent } from './component/doctor/gynecologists/gynecologists.component';
@@ -76,6 +77,13 @@ export const routes: Routes = [
     loadComponent :()=>
         import('./component/doctor/all-doctoor/all-doctoor.component').then(
             (C) =>C.AllDoctoorComponent
+        ) ,canActivate:[authGuard]
+  },
+  {
+    path:'allCatogery',
+    loadComponent :()=>
+        import('./component/doctor/all-department/all-department.component').then(
+            (C) =>C.AllDepartmentComponent
         ) ,canActivate:[authGuard]
   },
   {

@@ -1,7 +1,15 @@
+.doctorSerach{
+ border: #0D4F9B 2px solid;
+ color: #0D4F9B;
+}
+.doctorSerach::placeholder{
+  color: #0D4F9B;
+  text-align: center;
+}
 .testimonel-area {
     overflow: hidden;
     padding: 40px 0;
-    margin-top: 15px;
+    padding-top: 0%;
     
   }
   .testimonel-item {
@@ -206,6 +214,9 @@
     max-width: 95%;
     max-height: 95vh;
   }
+  .doctorSerach{
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -219,4 +230,8 @@
     top: 8px;
     right: 10px;
   }
+  .doctorSerach{
+    width: 100% !important;
+  }
+  
 }

@@ -20,25 +20,19 @@ export class BookFormComponent implements OnInit {
   GetFormContent!:DoctorDetials
   DoctorDays!:Days
   @Output() bookingCompleted = new EventEmitter<void>();
-
+  @Input() doctorID!: any;
   //#endregion
-
+  
   //#region popup
   ngOnInit(): void {
     this.gitForm()
     this.BooKNow.get('doctorId')?.setValue(this.doctorID);
   }
-  @Input() doctorID!: any;
-
   
-  
-  
-
   gitForm()
   {
     const id = this.doctorID;
-
-  if (!id) return;
+    if (!id) return;
    this.spinner=true
 
    this._DoctorService.DoctorDetiales(id).subscribe({

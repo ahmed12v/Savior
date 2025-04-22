@@ -1,15 +1,21 @@
 
 #home{
     
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                          url(../../../assets/imege/dream\ doctor.jfif);
+        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                          url(../../../assets/imege/d763b8d7f401176fd028987685d2e0d6.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        min-height: 100vh; /* يضمن تغطية الصفحة دون مشاكل */
+        min-height: 70vh; /* يضمن تغطية الصفحة دون مشاكل */
         width: 100%;
-        background-attachment: fixed;
+        
         position: relative;
+        margin-top: 70px;
+}
+.contain{
+    position: absolute; 
+    top: 40%;
+    left: 5%;
 }
 
 .savior-doctor{
@@ -22,14 +28,16 @@
 }
 
 .btn-savior{
-    border: #0d4f9b solid 1px;
-    transition: all 1s;
+    border: #ffffff solid 1px;
+    transition: all .7s;
     
 }
 .btn-savior:hover{
     background-color: #ffffff !important;
     border: #ffffff solid 1px;
     color: #0d4f9b !important;
+    transform: scale(1.07) translatey(8px);
+
 
 }
 .book-btn:hover{
@@ -37,26 +45,31 @@
     background-color: #0d4f9b !important;
     border: #0d4f9b solid 1px;
     color: #ffffff !important;
+    transform: scale(1.07) translatey(8px);
 
 
 }
 @media (max-width: 768px) {
     #home {
-        background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-        url(../../../assets/imege/phone\ doc.jpg);
+        background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+        url(../../../assets/imege/6c8fcfd976094a1e0d5b279f4c10efcb.jpg);
         background-size: cover;
          background-position: center;
         background-repeat: no-repeat;
-        min-height: 100vh; /* يضمن تغطية الصفحة دون مشاكل */
+        min-height: 80vh; /* يضمن تغطية الصفحة دون مشاكل */
          width: 100%;
          position: relative;
          background-attachment: local;
     }
     .contain{
-      position: absolute;
-      bottom: 3%;
-      
-  }
+        position: absolute;
+        left: 10%;
+        bottom:0% ;
+        box-shadow: none !important;
+        margin-top: 90px;
+        
+    }
+    
 }
 
 
