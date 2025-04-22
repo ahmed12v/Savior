@@ -45,21 +45,16 @@
             </div>
           </div>
      }
-
-    
-
-    
-
   </div>
 </div>
 
-@if (IfEmpty) {
-<div class="d-flex justify-content-center ">
-    <div class="m-5 p-5 text-center border  w-75 shadow-lg">
-        <p class="fw-bold text-primary fs-3"> Looks like you haven’t made any bookings yet. </p> 
-     </div>
-</div>
-    
 }
 
-}
+@if (IfEmpty) {
+    <div class="d-flex justify-content-center ">
+        <div class="m-5 p-5 text-center border  w-75 shadow-lg rounded-3">
+            <p class="fw-bold text-primary fs-3"> Looks like you haven’t made any bookings yet. </p> 
+         </div>
+    </div>
+        
+    }

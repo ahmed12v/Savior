@@ -34,12 +34,12 @@ constructor(private _DoctorService:DoctorService){}
       console.log(res)
       this.getData=res
       this.Spinner=false
-      if(this.getData.length===0){
+      if(! res || res.length=== 0){
         this.IfEmpty=true
         console.log('No booking come')
       }
       else{
-        this.IfEmpty=true
+        this.IfEmpty=false
       }
     },
     error:err=>{
