@@ -1,61 +1,65 @@
-<div class="user-resrv">
-    <div class="container  d-flex justify-content-center">
-        <div class="info-card p-4">
-            <h2>Appointment Details</h2>
-        
+<!-- حط ده في رأس الصفحة أو في angular.json -->
 
-            <div class="info-item">
-                <span class="info-label">DR. Name:</span>
-                <span class="info-value">Ahmed Sami</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Phone:</span>
-                <span class="info-value">01018097608</span>
-            </div>
-    
-            <div class="info-item">
-                <span class="info-label">Patient Name:</span>
-                <span class="info-value">Mohamed Ahmed</span>
-            </div>
-    
-            <div class="info-item">
-                <span class="info-label">Fees:</span>
-                <span class="info-value">300 EGP</span>
-            </div>
-    
-            <div class="info-item">
-                <span class="info-label">Payment:</span>
-                <span class="info-value">Cash</span>
-            </div>
-    
-            <div class="info-item">
-                <span class="info-label">Day:</span>
-                <span class="info-value">Saturday - 15/3/2025</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Date:</span>
-                <span class="info-value"> 5:30 PM</span>
-            </div>
-    
-            <div class="info-item">
-                <span class="info-label">Location:</span>
-                <span class="info-value">10th of Ramadan - 19 Street</span>
-            </div>
-           
-            <div class="info-item d-flex  align-items-center">
-           
-                <span class="info-label">clinic photo:</span>
-
-                <img src="../../../../assets/imege/Is It Safe to Go to the Dentist for Pregnant Women_.jfif" 
-                alt="Clinic Photo" class="clinic-img">
-                
-              </div> 
-            <div class="mt-1 text-center ">
-                <button class="btn btn-danger p-2 fw-bold"> Book Cancel</button>
-
-            </div>
-
-        </div>
-    
+@if (Spinner) {
+    <div class="d-flex justify-content-center align-items-center">
+       <i class="fa fa-spin fa-spinner fw-bold text-primary fs-1"></i>
     </div>
+}
+@else {
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<div class="container mt-5 pt-5 mb-3">
+  <div class="row justify-content-center gap-3">
+
+    <!-- Card -->
+     @for (book of getData; track $index) {
+        <div class="col-12 col-md-5 booking-card animate__animated animate__fadeInUp mb-3">
+            <div class="imege-here text-center p-1 d-flex align-items-center justify-content-around">
+              <h4 class="fw-bold color">Booking Details #{{$index}}</h4>
+              <img src="../../../../assets/imege/cef913420de445626a8c02c6bbc2fee2.jpg" alt="">
+            </div>
+            <hr class="color" />
+            <div class="Appointment-detalils p-3">
+              <p class="fs-6"><strong class="color "><i class="fa-solid fa-user"></i> Patient Name  :</strong> {{book.userName}} </p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-phone"></i> Patient Phone  :</strong> {{book.phoneNumber}} </p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-user-doctor"></i> Doctor Name  :</strong> Dr. {{book.doctorName}}</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-location-dot"></i> Clinic Location  :</strong> {{book.clinicAddress}}</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-calendar-day"></i> Day  :</strong> {{book.day}}</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-clock"></i> Time  :</strong> {{book.time}}</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-money-bill"></i> Price  :</strong> {{book.bookingPrice}} EGP</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-cash-register"></i> Payment Way  :</strong> {{book.paymentMethod}}</p>
+              
+      
+              <div class="button d-flex justify-content-end">
+                <button class="fs-6 p-2 rounded-5 px-4"  (click)= cancelBook(book.bookingID)>
+                    @if (Spinnerbtn) {
+                        <i class="fa fa-spin fa-spinner "></i>
+
+                    }@else {
+                        Book Cancel
+
+                    }
+                </button>
+              </div>
+            </div>
+          </div>
+     }
+
+    
+
+    
+
+  </div>
 </div>
+
+@if (IfEmpty) {
+<div class="d-flex justify-content-center ">
+    <div class="m-5 p-5 text-center border  w-75 shadow-lg">
+        <p class="fw-bold text-primary fs-3"> Looks like you haven’t made any bookings yet. </p> 
+     </div>
+</div>
+    
+}
+
+}

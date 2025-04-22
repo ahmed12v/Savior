@@ -68,8 +68,23 @@
         box-shadow: none !important;
         margin-top: 90px;
         
+    }.btn-savior{
+        border: #0d4f9b solid 1px;
+        transition: all .7s;
+        color: #0d4f9b;
     }
+    .btn-savior span{
+        color: #0d4f9b;
     
+   }
+   .book-btn:hover span{
+
+    
+    color: #ffffff !important;
+    
+
+
+}
 }
 
 

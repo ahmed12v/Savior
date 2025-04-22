@@ -68,4 +68,18 @@ export interface ResponsSendBook {
   clinicLocation: string
 }
 
+export type getBooking = Booking[]
+
+export interface Booking {
+  bookingID: number
+  userName: string
+  doctorName: string
+  phoneNumber: string
+  bookingPrice: number
+  paymentMethod: string
+  day: string
+  time: string
+  clinicAddress: string
+}
+
 
