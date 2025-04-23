@@ -1,55 +1,90 @@
-<div class="container mt-5 pt-5 text-center ps-3 pe-3  " >
-    
-    <div class="form-floating mb-3   d-flex justify-content-center align-items-center ">
-        <input type="email" class="bg-transparent form-control w-75 shadow-none rounded-5 " id="floatingInput" placeholder="name@example.com"> 
-        <label for="floatingInput " class="ms-3 "> <i class="fa-solid fa-magnifying-glass "></i> Search by medicine name...</label>
+<div class="pharmacy-products-container">
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-bar">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Search by medicine name..." class="search-input">
+            <div class="cart-icon-container" routerLink="/cart">
+                <i class="fas fa-shopping-cart cart-icon"></i>
+                <span class="cart-badge">3</span>
+            </div>
+        </div>
+    </div>
 
-        <i class="fa-solid fa-cart-shopping me-5 fs-1  ms-auto serch-shoping cuesor-pointer" routerLink="/cart"></i>
-      </div> 
-
-      <!-- --------- -->
-
-    <div class="row ">
-
-
-        @for (item of items; track $index) {
-            @if (showAll || $index < 8) {
-            <div class="col-md-3 mt-5 col-sm-6 medecine-card">
-
-                <div class="border-med rounded-3 p-4 shadow-lg ">
-                    <div class="rounded-3  ">
-                        <img [src]= "item.image" alt=""
-                         class="w-100 rounded-3" height="200px">
+    <!-- Products Grid -->
+    <div class="products-grid">
+        @for (item of paginatedItems; track $index) {
+            <div class="product-card" [class.featured]="item.featured">
+                @if (item.discount) {
+                    <div class="product-badge">-{{item.discount}}%</div>
+                }
+                <div class="product-image-container">
+                    <img [src]="item.image" alt="{{item.title}}" class="product-image">
+                    <div class="product-overlay">
+                        <button class="quick-view-btn">
+                            <i class="fas fa-eye"></i> Quick View
+                        </button>
                     </div>
-                    <div class="p-3  mt-2">
-                        <h3 class="d-block">
-                            {{item.title}}
-                        </h3>
-                        <h3 class="">
-                            {{item.price}} EGP
-                        </h3>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">{{item.title}}</h3>
+                    <div class="price-container">
+                        <span class="current-price">{{item.price}} EGP</span>
+                        @if (item.originalPrice) {
+                            <span class="original-price">{{item.originalPrice}} EGP</span>
+                        }
                     </div>
-        
-                    <button class="btn btn-primary cart-btn w-100 fw-bold">
-                        Add To Cart <i class="fa-solid fa-cart-shopping  "></i>
-        
+                    <button class="add-to-cart-btn">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
                     </button>
-        
                 </div>
-        
+            </div>
+        }
+    </div>
+
+    <!-- Advanced Pagination -->
+    <div class="pagination-container">
+        @if (!showAll) {
+            <div class="pagination">
+                <button class="pagination-btn first" (click)="goToFirstPage()" [disabled]="currentPage === 1">
+                    <i class="fas fa-angle-double-left"></i>
+                </button>
+                <button class="pagination-btn prev" (click)="goToPrevPage()" [disabled]="currentPage === 1">
+                    <i class="fas fa-angle-left"></i>
+                </button>
                 
+                <div class="page-numbers">
+                    @if (showStartDots) {
+                        <span class="page-dots">...</span>
+                    }
                     
+                    @for (page of visiblePages; track $index) {
+                        <button class="page-btn" 
+                                [class.active]="page === currentPage" 
+                                (click)="goToPage(page)">
+                            {{page}}
+                        </button>
+                    }
                     
+                    @if (showEndDots) {
+                        <span class="page-dots">...</span>
+                    }
                 </div>
-            }
+                
+                <button class="pagination-btn next" (click)="goToNextPage()" [disabled]="currentPage === totalPages">
+                    <i class="fas fa-angle-right"></i>
+                </button>
+                <button class="pagination-btn last" (click)="goToLastPage()" [disabled]="currentPage === totalPages">
+                    <i class="fas fa-angle-double-right"></i>
+                </button>
+            </div>
         }
         
-
-        <div class="text-center pt-4">
-            <button class="border-0 view-color" (click)="toggleViewMoreAndLess()">
-              <i class="fa-solid fa-arrow-right-long"></i>  {{ showAll ? 'View Less' : 'View More' }}
+        <div class="view-more-container">
+            <button class="view-more-btn" (click)="toggleViewMoreAndLess()">
+                {{ showAll ? 'Show Pagination' : 'Show All Products' }}
+                <i class="fas" [ngClass]="{'fa-chevron-up': showAll, 'fa-chevron-down': !showAll}"></i>
             </button>
-          </div>
-        
+        </div>
     </div>
 </div>

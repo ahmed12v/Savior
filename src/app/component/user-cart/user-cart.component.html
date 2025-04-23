@@ -1,72 +1,92 @@
-
-<div class="cart-container shadow-lg">
-    <div class=" justify-content-center text-center align-items-center p-3">
-        <h1 class="cart-title "> Shopping Cart  <i class="fa-solid fa-cart-shopping"></i>
-        </h1>
-        <button class="btn btn-danger  empty-btn">
-            Empty Cart <i class="fa-solid fa-trash"></i>
-        </button>
+<div class="modern-cart">
+    <div class="cart-header">
+      <div class="cart-title">
+        <i class="fas fa-shopping-basket"></i>
+        <h1> Shopping Cart</h1>
+      </div>
+      <button class="clear-cart">
+        <i class="fas fa-broom"></i>  Empety Cart
+      </button>
     </div>
-    
-    
+  
     <div class="cart-items">
-        <!-- Item 1 -->
-        
-        <div class="cart-item">
-            <img src="../../../assets/imege/Voltaren.jpg" alt="Product Image" class="item-image">
-            <div class="item-details ps-4">
-                <h3 class="item-title">Voltaren</h3>
-                <p class="item-price"> Price:33 EGP</p>
-                <div class="item-quantity">
-                    <button class="quantity-btn">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn">+</button>
-                </div>
-            </div>
-            <button class="remove-btn"><i class="fa-solid fa-trash"></i></button>
+      <!-- المنتج الأول -->
+      <div class="cart-item">
+        <div class="product-image">
+          <img src="../../../assets/imege/Voltaren.jpg" alt="Voltaren">
         </div>
-        <!-- Item 2 -->
-        <div class="cart-item">
-            <img src="../../../assets/imege/Zyrtec.avif" alt="Product Image" class="item-image">
-            <div class="item-details ps-4">
-                <h3 class="item-title">Zyrtec</h3>
-                <p class="item-price"> Price:40 EGP</p>
-                <div class="item-quantity">
-                    <button class="quantity-btn">-</button>
-                    <span class="quantity">2</span>
-                    <button class="quantity-btn">+</button>
-                </div>
+        <div class="product-info">
+          <h3 class="product-name">Voltaren</h3>
+          <div class="price-quantity">
+            <span class="price">33 EGP</span>
+            <div class="quantity-control">
+              <button class="qty-btn minus"><i class="fas fa-minus"></i></button>
+              <span class="quantity text-black">1</span>
+              <button class="qty-btn plus"><i class="fas fa-plus"></i></button>
             </div>
-            <button class="remove-btn"><i class="fa-solid fa-trash"></i></button>
+          </div>
         </div>
-
-        <!-- Item 3 -->
-
-        <div class="cart-item">
-            <img src="../../../assets/imege/Antinal.jpg" alt="Product Image" class="item-image">
-            <div class="item-details ps-4">
-                <h3 class="item-title">Antinal</h3>
-                <p class="item-price"> Price:23 EGP</p>
-                <div class="item-quantity">
-                    <button class="quantity-btn">-</button>
-                    <span class="quantity">1</span>
-                    <button class="quantity-btn">+</button>
-                </div>
+        <button class="remove-item">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+  
+      <!-- المنتج الثاني -->
+      <div class="cart-item">
+        <div class="product-image">
+          <img src="../../../assets/imege/Zyrtec.avif" alt="Zyrtec">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Zyrtec</h3>
+          <div class="price-quantity">
+            <span class="price">40 EGP</span>
+            <div class="quantity-control">
+              <button class="qty-btn minus"><i class="fas fa-minus"></i></button>
+              <span class="quantity text-black">2</span>
+              <button class="qty-btn plus"><i class="fas fa-plus"></i></button>
             </div>
-            <button class="remove-btn"><i class="fa-solid fa-trash"></i></button>
+          </div>
         </div>
-
+        <button class="remove-item">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+  
+      <!-- المنتج الثالث -->
+      <div class="cart-item">
+        <div class="product-image">
+          <img src="../../../assets/imege/Antinal.jpg" alt="Antinal">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Antinal</h3>
+          <div class="price-quantity">
+            <span class="price">23 EGP</span>
+            <div class="quantity-control">
+              <button class="qty-btn minus"><i class="fas fa-minus"></i></button>
+              <span class="quantity text-black">1</span>
+              <button class="qty-btn plus"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+        </div>
+        <button class="remove-item">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
-
+  
     <div class="cart-summary">
-        <h3 class="total">Total: <span id="total-price">136</span> EGP</h3>
-        <div class="d-flex  p-2 justify-content-center gap-3 ">
-         <button class="btn btn-primary ps-3 pe-3 fw-bold dlievery" routerLink="/deliveryForm"> Dlievery Request </button>
-         <button class="btn btn-primary fw-bold nearest" routerLink="/nearstForm"> Nearest Pharmacy </button>
-        </div>
+      <div class="total-section">
+        <span>المجموع:</span>
+        <span class="total-price">136 EGP</span>
+      </div>
+  
+      <div class="action-buttons">
+        <button class="btn delivery-btn">
+          <i class="fas fa-truck"></i> Dlievery Request
+        </button>
+        <button class="btn pharmacy-btn">
+          <i class="fas fa-map-marker-alt"></i> Nearset Pharmacy
+        </button>
+      </div>
     </div>
-</div>
-
-
-
-
+  </div>

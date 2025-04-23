@@ -20,46 +20,55 @@
      <!-- --- end --- -->
     
      
-        <div class="container  rounded-3  shadow-lg">
-            <div class="row text-center">
+     <div class="pharmacy-services-container">
+      <!-- Service Cards Section -->
+      <div class="services-grid">
+          <!-- Medicine Delivery Card -->
+          <div class="service-card delivery-card" routerLink="/searchMedicine">
+              <div class="card-overlay"></div>
+              <div class="card-content">
+                  <div class="service-icon">
+                      <i class="fas fa-pills"></i>
+                      <div class="icon-pulse"></div>
+                  </div>
+                  <h3 class="service-title">Medication delivery  </h3>
+                  <p class="service-description">
+                     Order your medications easily and get them as quickly as possible with exclusive discounts through our website.
+                  </p>
+                  <div class="cta-button">
+                     <i class="fas fa-arrow-right"></i>
 
-                <div class="col-md-6  medicine-delevey text-center rounded-3">
-                   <div class="delivery p-4 text-center ">
-                        <img src="../../../assets/imege/delivery.png" 
-                             alt=""  height="300px" class="w-75 rounded-3">
-                       <div class="p-2 mt-3">
-                          <h4 class="fw-bold">
-                            Search for the medicine you want and order  it<br> to reach you as quickly as possible
-                            <br> Through our website  <br>and benefit from discounts
-                          </h4>
-                       </div>
-                       <hr>
-                         <button class="  fw-bold" routerLink="/searchMedicine">
-                            <i class="fa-solid fa-right-long"></i> <span class="fs-4"> go </span>
-                         </button>
-                   </div>
-                </div>
-                <div class="col-md-6 nearst-pharmcy  text-center rounded-3">
-                   <div class="nearest p-4 text-center ">
-                        <img src="../../../assets/imege/near Pharm.png" 
-                             alt=""  height="300px" class="w-75 rounded-3">
-                       <div class="p-2 mt-3">
-                          <h4 class="fw-bold">
-                            Through us, you can search for the nearest pharmacies to you <br> and go to them.
-                             You can deal with our affiliated pharmacies and get a discount
-                          </h4>
-                       </div>
-                       <hr>
-                         <button class="  fw-bold">
-                            <i class="fa-solid fa-right-long"></i> <span class="fs-4"routerLink="/nearstForm" > go </span>
-                         </button>
-                   </div>
-                </div>
-
-                
-
-            </div>
-        </div>
+                      <span> Start Now </span>
+                  </div>
+              </div>
+              <div class="card-image">
+                  <img src="../../../assets/imege/delivery.png" alt="توصيل الأدوية">
+              </div>
+          </div>
+  
+          <!-- Nearest Pharmacy Card -->
+          <div class="service-card pharmacy-card" routerLink="/nearstForm">
+              <div class="card-overlay"></div>
+              <div class="card-content">
+                  <div class="service-icon">
+                      <i class="fas fa-clinic-medical"></i>
+                      <div class="icon-pulse"></div>
+                  </div>
+                  <h3 class="service-title"> Nearest Pharmacies</h3>
+                  <p class="service-description">
+                     Find your nearest pharmacies and deal with approved pharmacies to get the best deals.
+                  </p>
+                  <div class="cta-button">
+                     <i class="fas fa-arrow-right"></i>
+                      <span>Find Now </span>
+                  </div>
+              </div>
+              <div class="card-image">
+                  <img src="../../../assets/imege/near Pharm.png" alt="الصيدليات القريبة">
+              </div>
+          </div>
+      </div>
+  </div>
 
         <!-- --- end --- -->
 
