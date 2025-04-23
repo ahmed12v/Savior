@@ -2,7 +2,7 @@
 #home{
     
         background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                          url(../../../assets/imege/d763b8d7f401176fd028987685d2e0d6.jpg);
+                          url(../../../assets/imege/0c9d98219ad61fe14b844edf329163c7.jpg   );
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -14,8 +14,8 @@
 }
 .contain{
     position: absolute; 
-    top: 40%;
-    left: 5%;
+    top: 25%;
+    left: 10%;
 }
 
 .savior-doctor{
@@ -51,12 +51,12 @@
 }
 @media (max-width: 768px) {
     #home {
-        background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-        url(../../../assets/imege/6c8fcfd976094a1e0d5b279f4c10efcb.jpg);
+        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url(../../../assets/imege/4c3cb191b137d3d45edf3b0c347eb535.jpg);
         background-size: cover;
          background-position: center;
         background-repeat: no-repeat;
-        min-height: 80vh; /* يضمن تغطية الصفحة دون مشاكل */
+        min-height: 100vh; /* يضمن تغطية الصفحة دون مشاكل */
          width: 100%;
          position: relative;
          background-attachment: local;
@@ -64,9 +64,9 @@
     .contain{
         position: absolute;
         left: 10%;
-        bottom:0% ;
+        top:47% ;
         box-shadow: none !important;
-        margin-top: 90px;
+        padding-bottom: 0% !important;
         
     }.btn-savior{
         border: #0d4f9b solid 1px;

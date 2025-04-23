@@ -18,7 +18,6 @@ export class NavbarComponent implements OnInit  {
 
 constructor(private _router:Router , private _LogInService:LogInService , private _ToastrService:ToastrService ){}
    
-
    toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
 }
@@ -26,7 +25,6 @@ constructor(private _router:Router , private _LogInService:LogInService , privat
 closeSidebar() {
     this.sidebarOpen = false;
 }
-
  ngOnInit(): void {
    
 this._LogInService.UserDataAfterDecoded.subscribe(
