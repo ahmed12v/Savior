@@ -1,77 +1,70 @@
-<nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top rounded-0 ">
-  <div class="container">
-    <!-- Logo -->
-    <a class="navbar-brand fs-3 brand-glow cuesor-pointer">SAVIOR</a>
+<!-- Toggle Button -->
+<button class="sidebar-toggle" (click)="toggleSidebar()">
+  <i class="fas fa-bars"></i>
+</button>
 
-    <!-- Toggle Button for Mobile -->
-    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" [class.open]="sidebarOpen" (click)="toggleSidebar()"></div>
 
-    <!-- Nav Items -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto ">
-        @if (logingUser==false) {
-           <div class="d-flex phone-atho">
-            <li class="nav-item">
-              <a class="nav-link  login" (click)="closeNavbar()" routerLink="about"
-              routerLinkActive="AthoActiv">About Savior</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  login" (click)="closeNavbar()" routerLink="login"
-                routerLinkActive="AthoActiv">  <span class="logico"> 
-                <i class="fa-solid fa-right-long"></i> </span> Login / SignUp</a>
-            </li>
-           </div>
-          
+<!-- Sidebar -->
+<nav class="custom-sidebar" [class.open]="sidebarOpen">
+  <!-- Logo -->
+  <a class="sidebar-brand cuesor-pointer">SAVIOR</a>
 
-        }
-        
-        @if(logingUser==true){
-
-
-          <li class="nav-item">
-            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="home"
-             routerLinkActive="routerLinkActive"> Home</a>
+  <!-- Nav Items -->
+  <ul class="sidebar-nav">
+      @if (logingUser==false) {
+          <li class="sidebar-item">
+              <a class="sidebar-link login" (click)="closeSidebar()" routerLink="about"
+                 routerLinkActive="AthoActiv">About Savior</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="pharmcy"
-            routerLinkActive="routerLinkActive">Pharmacy</a>
+          <li class="sidebar-item">
+              <a class="sidebar-link login" (click)="closeSidebar()" routerLink="login"
+                 routerLinkActive="AthoActiv">
+                  <span class="logico"><i class="fa-solid fa-right-long"></i></span> Login
+              </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="doctor"
-            routerLinkActive="routerLinkActive">Doctor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="profile"
-            routerLinkActive="routerLinkActive">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="firstaid"
-            routerLinkActive="routerLinkActive">First Aid</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-glow" (click)="closeNavbar()" routerLink="medicalTeam"
-            routerLinkActive="routerLinkActive">Emergency Team</a>
-          </li>
-        }
-
+      }
       
-        </ul>  
-
-       
-        @if (logingUser==true) {
-
-          <div class="cuesor-pointer p-1 text-end ms-4 ms-auto    me-3">
-            <a  (click)="logOut() " (click)="closeNavbar()" class="nav-link  logout " aria-current="page" 
-                 routerLinkActive=" ">logout <i class="fa-solid fa-right-from-bracket"></i></a>
-          </div>
-        }
-        
-    </div>
-    
-
-    
-  </div>
+      @if(logingUser==true) {
+          <li class="sidebar-item">
+              <a class="sidebar-link" (click)="closeSidebar()" routerLink="home"
+                 routerLinkActive="routerLinkActive">
+                 <i class="fas fa-home me-2"></i>Home</a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" (click)="closeSidebar()" routerLink="doctor"
+               routerLinkActive="routerLinkActive">
+               <i class="fa-solid fa-user-doctor me-2"></i>Doctor</a>
+        </li>
+          <li class="sidebar-item">
+              <a class="sidebar-link" (click)="closeSidebar()" routerLink="pharmcy"
+                 routerLinkActive="routerLinkActive">
+                 <i class="fas fa-prescription-bottle me-2"></i>Pharmacy</a>
+          </li>
+          
+          <li class="sidebar-item">
+            <a class="sidebar-link" (click)="closeSidebar()" routerLink="medicalTeam"
+               routerLinkActive="routerLinkActive">
+               <i class="fa-solid fa-truck-medical me-2"></i>Emergency Team</a>
+        </li>
+          <li class="sidebar-item">
+              <a class="sidebar-link" (click)="closeSidebar()" routerLink="firstaid"
+                 routerLinkActive="routerLinkActive">
+                 <i class="fa-solid fa-briefcase-medical me-2"></i>First Aid</a>
+          </li>
+          
+          <li class="sidebar-item">
+            <a class="sidebar-link" (click)="closeSidebar()" routerLink="profile"
+               routerLinkActive="routerLinkActive">
+               <i class="fa-solid fa-gear me-2"></i>Profile</a>
+        </li>
+          <li class="sidebar-item">
+              <a class="sidebar-link logout cuesor-pointer" (click)="logOut(); closeSidebar()" 
+                 routerLinkActive="">
+                 <i class="fa-solid fa-right-from-bracket me-2"></i> Logout 
+              </a>
+          </li>
+      }
+  </ul>
 </nav>

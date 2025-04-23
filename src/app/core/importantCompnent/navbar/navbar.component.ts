@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component,  OnInit,  } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LogInService } from '../../../shared/services/athountocation/log-in.service';
 import { ToastrService } from 'ngx-toastr';
@@ -10,20 +10,23 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit  {
+  
   logingUser:boolean=false;
   logingAdmin:boolean=false;
+  sidebarOpen!: boolean;
 
 constructor(private _router:Router , private _LogInService:LogInService , private _ToastrService:ToastrService ){}
    
-   closeNavbar(): void {
-     const navbarCollapse = document.getElementById('navbarNav');
-    if (navbarCollapse) {
-       navbarCollapse.classList.remove('show');  
-     }
-   }
 
-  
+   toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+}
+
+closeSidebar() {
+    this.sidebarOpen = false;
+}
+
  ngOnInit(): void {
    
 this._LogInService.UserDataAfterDecoded.subscribe(
@@ -63,5 +66,9 @@ this._LogInService.UserDataAfterDecoded.subscribe(
     this._ToastrService.info('bye bye', ' We hope you had a helpful experience and enjoyed it ')
 
 }
+
+//new 
+
+
 
 }
