@@ -1,84 +1,94 @@
 import { Component, OnInit } from '@angular/core';
 import { getBooking } from '../../../shared/Interfaces/Pages/doctor';
 import { DoctorService } from '../../../shared/services/Pages/doctor.service';
-import { error } from 'console';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reservtion',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './reservtion.component.html',
-  styleUrl: './reservtion.component.css'
+  styleUrls: ['./reservtion.component.css']
 })
-export class ReservtionComponent implements OnInit{
+export class ReservtionComponent implements OnInit {
+  Spinner: boolean = false;
+  Spinnerbtn: boolean = false;
+  getData!: getBooking;
+  IfEmpty: boolean = false;
+
+  // Popup variables
+  selectedBooking: any = null;
+  showCancelPopup: boolean = false;
+  cancelReason: string = '';
+  otherReason: string = '';
+  processingCancellation: boolean = false;
+
+  constructor(private _DoctorService: DoctorService) {}
 
   ngOnInit(): void {
-    this.bookingcome()
+    this.bookingcome();
   }
 
-  //#region Declaration
-  Spinner : boolean = false 
-  Spinnerbtn : boolean = false 
-  getData!:getBooking
-  IfEmpty:boolean=false ;
-  showPopover = false;
-selectedBookId: any = null;
-  //#endregion
-
-constructor(private _DoctorService:DoctorService){}
-
-//#region getbooking
- bookingcome()
- {
-  this.Spinner=true
-  this._DoctorService.getBooking().subscribe({
-    next:res=>{
-      console.log(res)
-      this.getData=res
-      this.Spinner=false
-      if(! res || res.length=== 0){
-        this.IfEmpty=true
-        console.log('No booking come')
-      }
-      else{
-        this.IfEmpty=false
-      }
-    },
-    error:err=>{
-      console.log(err);
-      this.Spinner=false
-    }
-  })
-
- }
- //#endregion
-  
-
-
-
-togglePopover(bookId?: any) {
-  this.showPopover = !this.showPopover;
-  this.selectedBookId = bookId;
-}
-
-confirmCancel() {
-  if (this.selectedBookId) {
-    this.Spinnerbtn = true;
-    this._DoctorService.CancelBook(this.selectedBookId).subscribe({
-      next: res => {
-        console.log(res);
-        this.bookingcome();
-        this.Spinnerbtn = false;
-        this.showPopover = false;
-        this.selectedBookId = null;
+  bookingcome() {
+    this.Spinner = true;
+    this._DoctorService.getBooking().subscribe({
+      next:res=> {
+        this.getData = res;
+        this.Spinner = false;
+        this.IfEmpty = !res || res.length === 0;
       },
-      error: err => {
+      error: (err) => {
         console.log(err);
-        this.Spinnerbtn = false;
-        this.showPopover = false;
-        this.selectedBookId = null;
+        this.Spinner = false;
       }
     });
   }
-}
+
+  openCancelPopup(booking: any) {
+    this.selectedBooking = booking;
+    this.showCancelPopup = true;
+    this.cancelReason = '';
+    this.otherReason = '';
+  }
+
+  closePopup() {
+    this.showCancelPopup = false;
+    this.processingCancellation = false;
+  }
+
+  confirmCancellation() {
+    this.processingCancellation = true;
+    this.Spinnerbtn = true;
+    
+    const cancellationData = {
+      bookingId: this.selectedBooking.bookingID,
+      reason: this.cancelReason === 'other' ? this.otherReason : this.cancelReason
+    };
+
+    this._DoctorService.CancelBook(this.selectedBooking.bookingID).subscribe({
+      next: (res) => {
+        this.showCancelPopup = false;
+        this.processingCancellation = false;
+        this.Spinnerbtn = false;
+        this.bookingcome();
+        this.showSuccessToast();
+      },
+      error: (err) => {
+        this.processingCancellation = false;
+        this.Spinnerbtn = false;
+        this.showErrorToast();
+        console.error(err);
+      }
+    });
+  }
+
+  showSuccessToast() {
+    // Implement toast notification here
+    console.log('Cancellation successful');
+  }
+
+  showErrorToast() {
+    // Implement error toast here
+    console.log('Cancellation failed');
+  }
 }

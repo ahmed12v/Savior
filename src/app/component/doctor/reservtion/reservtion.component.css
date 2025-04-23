@@ -1,23 +1,15 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
-
+/* Add to your component CSS */
 .booking-card {
   border-radius: 16px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   background: linear-gradient(135deg, #0d4f9b, #447fc0, #a1c4fd);
   color: white;
-  transition: transform 0.8s ease;
+  transition: transform 0.3s ease;
 }
 
 .booking-card:hover {
-  transform: scale(1.05) !important;
-}
-
-.imege-here {
-  width: 100%;
-}
-p strong{
-    font-size: 20px;
+  transform: scale(1.03);
 }
 
 .imege-here img {
@@ -32,18 +24,72 @@ p strong{
   color: #fff;
 }
 
-.button button {
+.btn-danger {
   background-color: #fc6b6b;
   border: none;
   color: white;
-  transition: all 1s ease;
+  transition: all 0.3s ease;
 }
 
-.button button:hover {
+.btn-danger:hover {
   background-color: #ff0303;
-  transform: scale(1.03) translateY(-10px) !important;
+  transform: translateY(-2px);
 }
 
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.confirmation-modal {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  margin: 0;
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.warning-icon svg {
+  width: 60px;
+  height: 60px;
+  color: #ffc107;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .booking-card {
     margin-bottom: 20px;

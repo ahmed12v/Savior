@@ -1,57 +1,40 @@
-<!-- حط ده في رأس الصفحة أو في angular.json -->
-
 @if (Spinner) {
-    <div class="d-flex justify-content-center align-items-center">
-       <i class="fa fa-spin fa-spinner fw-bold text-primary fs-1"></i>
-    </div>
+  <div class="vh-100 d-flex justify-content-center align-items-center">
+     <i class="fa fa-spin fa-spinner fw-bold text-primary fs-1"></i>
+  </div>
 }
 @else {
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-<div class="container  mt-3 mb-3">
+<div class="container mt-3 mb-3">
   <div class="row justify-content-center gap-3">
-
     <!-- Card -->
      @for (book of getData; track $index) {
-        <div class="col-12 col-md-5 booking-card animate__animated animate__fadeInUp mb-3 ">
+        <div class="col-12 col-md-5 booking-card animate__animated animate__fadeInUp mb-3">
             <div class="imege-here text-center p-1 d-flex align-items-center justify-content-around">
               <h4 class="fw-bold color">Booking Details #{{$index+1}}</h4>
               <img src="../../../../assets/imege/cef913420de445626a8c02c6bbc2fee2.jpg" alt="">
             </div>
             <hr class="color" />
             <div class="Appointment-detalils p-3">
-              <p class="fs-6"><strong class="color "><i class="fa-solid fa-user"></i> Patient Name  :</strong> {{book.userName}} </p>
-              <p class="fs-6"><strong class="color"><i class="fa-solid fa-phone"></i> Patient Phone  :</strong> {{book.phoneNumber}} </p>
-              <p class="fs-6"><strong class="color"><i class="fa-solid fa-user-doctor"></i> Doctor Name  :</strong> Dr. {{book.doctorName}}</p>
-              <p class="fs-6"><strong class="color"><i class="fa-solid fa-location-dot"></i> Clinic Location  :</strong> {{book.clinicAddress}}</p>
-              <p class="fs-6"><strong class="color"><i class="fa-solid fa-calendar-day"></i> Day  :</strong> {{book.day}}</p>
-              <p class="fs-6"><strong class="color"><i class="fa-solid fa-clock"></i> Time  :</strong> {{book.time}}</p>
-              <p class="fs-6"><strong class="color"><i class="fa-solid fa-money-bill"></i> Price  :</strong> {{book.bookingPrice}} EGP</p>
-              <p class="fs-6"><strong class="color"><i class="fa-solid fa-cash-register"></i> Payment Way  :</strong> {{book.paymentMethod}}</p>
+              <p class="fs-6"><strong class="color "><i class="fa-solid fa-user"></i> Patient Name:</strong> {{book.userName}} </p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-phone"></i> Patient Phone:</strong> {{book.phoneNumber}} </p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-user-doctor"></i> Doctor Name:</strong> Dr. {{book.doctorName}}</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-location-dot"></i> Clinic Location:</strong> {{book.clinicAddress}}</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-calendar-day"></i> Day:</strong> {{book.day}}</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-clock"></i> Time:</strong> {{book.time}}</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-money-bill"></i> Price:</strong> {{book.bookingPrice}} EGP</p>
+              <p class="fs-6"><strong class="color"><i class="fa-solid fa-cash-register"></i> Payment Way:</strong> {{book.paymentMethod}}</p>
               
-      
-              <div class="position-relative d-flex justify-content-end" #popoverWrapper>
+              <div class="position-relative d-flex justify-content-end">
                 <button type="button" class="fs-6 p-2 rounded-5 px-4 btn btn-danger"
-                        #cancelBtn
-                        (click)="togglePopover(book.bookingID)">
-                  Book Cancel
+                        (click)="openCancelPopup(book)">
+                        @if (Spinnerbtn && selectedBooking?.bookingID === book.bookingID) {
+                          <i class="fa fa-spin fa-spinner"></i>
+                        } @else {
+                          Book Cancel
+                        }
                 </button>
-                @if (showPopover) {
-                  <div class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center z-3"
-                       style="background-color: rgba(0, 0, 0, 0.5);">
-                    <div class="bg-white rounded-4 p-4 shadow-lg text-center" style="width: 400px; max-width: 90%;">
-                      <h5 class="mb-3 text-danger">Do you want to cancel the booking?</h5>
-                      <p class="mb-4 fs-5"></p>
-                      <div class="d-flex justify-content-center gap-3">
-                        <button class="btn btn-danger px-4" (click)="confirmCancel()">Yes</button>
-                        <button class="btn btn-secondary px-4" (click)="showPopover = false">No</button>
-                      </div>
-                    </div>
-                  </div>
-                }
-                
-                
               </div>
             </div>
           </div>
@@ -59,13 +42,75 @@
   </div>
 </div>
 
+<!-- Cancel Confirmation Popup -->
+@if (showCancelPopup) {
+  <div class="modal-overlay animate__animated animate__fadeIn p-4">
+    <div class="confirmation-modal animate__animated animate__zoomIn">
+      <div class="modal-header">
+        <h3 class="modal-title">Confirm Cancellation</h3>
+        <button class="close-btn" (click)="closePopup()">&times;</button>
+      </div>
+      
+      <div class="modal-body p-5">
+        <div class="warning-icon">
+          <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"/>
+          </svg>
+        </div>
+        
+        <p class="warning-message">Are you sure you want to cancel this booking with <strong>Dr. {{selectedBooking?.doctorName}}</strong>?</p>
+        
+        <div class="booking-details">
+          <div class="detail-item p-2">
+            <i class="fas fa-calendar-day me-2"></i>
+            <span>{{selectedBooking?.day}} at {{selectedBooking?.time}}</span>
+          </div>
+          <div class="detail-item p-2">
+            <i class="fas fa-location-dot me-2"></i>
+            <span>{{selectedBooking?.clinicAddress}}</span>
+          </div>
+        </div>
+        
+        <div class="reason-selection">
+          <label class="p-2" for="cancelReason">Reason for cancellation (optional): </label>
+          <select id="cancelReason" class="form-select" [(ngModel)]="cancelReason">
+            <option value="">Select a reason...</option>
+            <option value="schedule_conflict">Schedule conflict</option>
+            <option value="found_another_doctor">Found another doctor</option>
+            <option value="no_longer_needed">No longer needed</option>
+            <option value="other">Other</option>
+          </select>
+          @if (cancelReason === 'other') {
+            <textarea class="form-control mt-2 p-4 rounded-5" 
+                     placeholder="Please specify..." 
+                     [(ngModel)]="otherReason"
+                     rows="2"></textarea>
+          }
+        </div>
+      </div>
+      
+      <div class="modal-footer p-3 d-flex justify-content-around">
+        <button class="btn btn-secondary" (click)="closePopup()">Go Back</button>
+        <button class="btn btn-danger" 
+                (click)="confirmCancellation()"
+                [disabled]="processingCancellation">
+          @if (processingCancellation) {
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Processing...
+          } @else {
+            Confirm Cancellation
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+}
 }
 
 @if (IfEmpty) {
-    <div class="d-flex justify-content-center ">
-        <div class="m-5 p-5 text-center border  w-75 shadow-lg rounded-3">
-            <p class="fw-bold text-primary fs-3"> Looks like you haven’t made any bookings yet. </p> 
-         </div>
+  <div class="d-flex justify-content-center">
+    <div class="m-5 p-5 text-center border w-75 shadow-lg rounded-3">
+      <p class="fw-bold text-primary fs-3">Looks like you haven't made any bookings yet.</p> 
     </div>
-        
-    }
+  </div>
+}
