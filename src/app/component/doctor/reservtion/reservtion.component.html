@@ -14,9 +14,9 @@
 
     <!-- Card -->
      @for (book of getData; track $index) {
-        <div class="col-12 col-md-5 booking-card animate__animated animate__fadeInUp mb-3">
+        <div class="col-12 col-md-5 booking-card animate__animated animate__fadeInUp mb-3 ">
             <div class="imege-here text-center p-1 d-flex align-items-center justify-content-around">
-              <h4 class="fw-bold color">Booking Details #{{$index}}</h4>
+              <h4 class="fw-bold color">Booking Details #{{$index+1}}</h4>
               <img src="../../../../assets/imege/cef913420de445626a8c02c6bbc2fee2.jpg" alt="">
             </div>
             <hr class="color" />
@@ -31,16 +31,27 @@
               <p class="fs-6"><strong class="color"><i class="fa-solid fa-cash-register"></i> Payment Way  :</strong> {{book.paymentMethod}}</p>
               
       
-              <div class="button d-flex justify-content-end">
-                <button class="fs-6 p-2 rounded-5 px-4"  (click)= cancelBook(book.bookingID)>
-                    @if (Spinnerbtn) {
-                        <i class="fa fa-spin fa-spinner "></i>
-
-                    }@else {
-                        Book Cancel
-
-                    }
+              <div class="position-relative d-flex justify-content-end" #popoverWrapper>
+                <button type="button" class="fs-6 p-2 rounded-5 px-4 btn btn-danger"
+                        #cancelBtn
+                        (click)="togglePopover(book.bookingID)">
+                  Book Cancel
                 </button>
+                @if (showPopover) {
+                  <div class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center z-3"
+                       style="background-color: rgba(0, 0, 0, 0.5);">
+                    <div class="bg-white rounded-4 p-4 shadow-lg text-center" style="width: 400px; max-width: 90%;">
+                      <h5 class="mb-3 text-danger">Do you want to cancel the booking?</h5>
+                      <p class="mb-4 fs-5"></p>
+                      <div class="d-flex justify-content-center gap-3">
+                        <button class="btn btn-danger px-4" (click)="confirmCancel()">Yes</button>
+                        <button class="btn btn-secondary px-4" (click)="showPopover = false">No</button>
+                      </div>
+                    </div>
+                  </div>
+                }
+                
+                
               </div>
             </div>
           </div>

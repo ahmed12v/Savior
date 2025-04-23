@@ -21,6 +21,8 @@ export class ReservtionComponent implements OnInit{
   Spinnerbtn : boolean = false 
   getData!:getBooking
   IfEmpty:boolean=false ;
+  showPopover = false;
+selectedBookId: any = null;
   //#endregion
 
 constructor(private _DoctorService:DoctorService){}
@@ -52,20 +54,31 @@ constructor(private _DoctorService:DoctorService){}
  //#endregion
   
 
- cancelBook(bookId:any)
- {
-  this.Spinnerbtn=true
-  this._DoctorService.CancelBook(bookId).subscribe({
-    next:res=>{
-      console.log(res)
-      this.bookingcome()
-      this.Spinnerbtn=false
-    },
-    error:err=>{
-      console.log(err)
-      this.Spinnerbtn=false
 
-    }
-  })
- }
+
+togglePopover(bookId?: any) {
+  this.showPopover = !this.showPopover;
+  this.selectedBookId = bookId;
+}
+
+confirmCancel() {
+  if (this.selectedBookId) {
+    this.Spinnerbtn = true;
+    this._DoctorService.CancelBook(this.selectedBookId).subscribe({
+      next: res => {
+        console.log(res);
+        this.bookingcome();
+        this.Spinnerbtn = false;
+        this.showPopover = false;
+        this.selectedBookId = null;
+      },
+      error: err => {
+        console.log(err);
+        this.Spinnerbtn = false;
+        this.showPopover = false;
+        this.selectedBookId = null;
+      }
+    });
+  }
+}
 }
