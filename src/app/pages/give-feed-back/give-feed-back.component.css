@@ -1,0 +1,95 @@
+.ContactUs h1{
+    color: #0d4f9b;
+  }
+  .ContactUs .p-tittle{
+    color: #707376;
+  }
+  .item-icon{
+    padding: 20px;
+    font-size: 40px;
+    background-color: #eeebeb;
+    color: #0d4f9b;
+    font-weight: bold;
+    border-radius:100% ;
+    transition: all 1s;
+  }
+  .items:hover i {
+    transform: rotate(360deg);
+  }
+  
+  .item-p{
+    color: #0d4f9b;
+  }
+  .pp-1{
+    padding: 1px !important;
+    color: #707376;
+    font-weight: bold;
+  }
+  .pp-2{
+    color: #707376;
+    font-weight: bold;
+  }
+  .ContactUs .contact-icon{
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+  
+  @media (max-width:780px ){
+    .ContactUs .contact-icon{
+      padding-left: 1%;
+      padding-right: 1%;
+    }
+  } 
+  .ContactUs .contact-massage{
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  .contact-massage .p-contact{
+    color: #0d4f9b;
+    opacity: .4;
+  }
+  .contact-massage h3{
+    color: #0d4f9b;
+    
+  }
+  .input-bg{
+    background-color: #eeebeb !important;
+  }
+  .massage-btn button{
+    background-color: #0d4f9b !important;
+    color: white !important;
+    font-size: 20px;
+    padding: 2%;
+    transition: all .5s;
+    font-weight: bold;
+  
+  }
+  .massage-btn button:hover{
+    background-color: transparent !important;
+    color: #0d4f9b !important;
+    border: #0d4f9b 2px solid;
+    transform: translateY(10px) scale(1.02);
+  
+  }
+  .img-massage{
+    border: #0d4f9b 10px solid !important;
+    border-left: none !important;
+    border-bottom: none !important;
+     
+  }
+  @media (max-width : 780px) {
+    .mass-photo{
+      display: none;
+    }
+    .ContactUs .contact-massage{
+      padding-left: 0%;
+      padding-right: 0%;
+    }
+  }
+  .SeeFeedbak{
+    color: #0d4f9b;
+    transition: all 1s;
+  }
+  .SeeFeedbak:hover{
+    transform: translateX(40px) scale(1.1) !important;
+  }

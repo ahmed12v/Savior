@@ -60,6 +60,11 @@
                <i class="fa-solid fa-gear me-2"></i>Profile</a>
         </li>
           <li class="sidebar-item">
+            <a class="sidebar-link" (click)="closeSidebar()" routerLink="contactUser"
+               routerLinkActive="routerLinkActive">
+               <i class="fa-solid fa-phone me-2"></i>Contact Us</a>
+        </li>
+          <li class="sidebar-item">
               <a class="sidebar-link logout cuesor-pointer" (click)="logOut(); closeSidebar()" 
                  routerLinkActive="">
                  <i class="fa-solid fa-right-from-bracket me-2"></i> Logout 

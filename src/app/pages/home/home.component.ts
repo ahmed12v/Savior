@@ -55,7 +55,6 @@ export class HomeComponent  {
 
 FeedbackForm:FormGroup = new FormGroup({
   name:new FormControl('', [Validators.required , Validators.minLength(3),Validators.maxLength(12)]),
-  email:new FormControl('' , [Validators.required , Validators.email]),
   feedback:new FormControl('', Validators.required)
 })
 

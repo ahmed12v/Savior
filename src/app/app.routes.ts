@@ -1,3 +1,4 @@
+import { GiveFeedBackComponent } from './pages/give-feed-back/give-feed-back.component';
 import { AllDepartmentComponent } from './component/doctor/all-department/all-department.component';
 import { UserContactUsComponent } from './pages/user-contact-us/user-contact-us.component';
 import { DoctorRegisterComponent } from './addtions/doctor-register/doctor-register.component';
@@ -47,6 +48,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/home/home.component').then(
         (c) => c.HomeComponent
+      ),canActivate:[authGuard]
+  },
+  {
+    path: 'contactUser',
+    loadComponent: () =>
+      import('./pages/give-feed-back/give-feed-back.component').then(
+        (c) => c.GiveFeedBackComponent
       ),canActivate:[authGuard]
   },
   {
