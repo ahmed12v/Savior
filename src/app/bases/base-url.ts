@@ -1,5 +1,5 @@
 export enum baseApiUrl {
-    Url='http://gpsavior.runasp.net'
+    Url=''
 }
 
 //http://gpsavior.runasp.net
