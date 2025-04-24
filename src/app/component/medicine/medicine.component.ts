@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-medicine',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, FormsModule, CommonModule],
+  imports: [RouterLink, FormsModule, CommonModule],
   templateUrl: './medicine.component.html',
   styleUrl: './medicine.component.css'
 })

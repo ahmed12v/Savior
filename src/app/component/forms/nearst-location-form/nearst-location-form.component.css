@@ -1,36 +1,159 @@
-.form-control{
-    border: none;
-    border-bottom: 1px solid #0d4f9b ;
-    border-radius: 0%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+:root {
+    --primary: #0d4f9b;
+    --secondary: #1a6fc9;
+    --accent: #4facfe;
+    --light: #f8f9fa;
+    --dark: #212529;
 }
 
-.ShoppingAddress{
-    color: #0d4f9b;
-}
-.label{
-    color: #0d4f9b;
-}
-.form-btn{
-    color: #0d4f9b;
-    border: #0d4f9b 2px solid;
-    transition: all .5s;
-}
-.form-btn:hover{
-    color: white;
-    background-color: #0d4f9b !important;
-}
-@keyframes fadeInUP {
-    0% {
-        opacity: 0;
-        transform: translatey(200px);
-    }
-    100% {
-        opacity: 1;
-        transform: translatey(0);
-    }
+.pharmacy-container {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.form-items {
+.pharmacy-form {
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(13, 79, 155, 0.1);
+    animation: fadeInUp 0.8s ease-out forwards;
+    transform: translateY(20px);
     opacity: 0;
-    animation: fadeInUP 3s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.pharmacy-title {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pharmacy-title i {
+    color: var(--accent);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-container {
+    position: relative;
+}
+
+.pharmacy-input {
+    width: 100%;
+    padding: 1rem 0.5rem 0.5rem 0;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #e9ecef;
+    background-color: transparent;
+    color: var(--dark);
+    transition: all 0.3s ease;
+}
+
+.pharmacy-input:focus {
+    outline: none;
+}
+
+.input-label {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    color: #6c757d;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.pharmacy-input:focus + .input-label,
+.pharmacy-input:not(:placeholder-shown) + .input-label {
+    transform: translateY(-1.5rem) scale(0.85);
+    color: var(--primary);
+}
+
+.input-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.pharmacy-input:focus ~ .input-underline {
+    transform: scaleX(1);
+}
+
+.search-button {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #0d4f9b;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    align-self: flex-end;
+    box-shadow: 0 4px 15px rgba(13, 79, 155, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.search-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(13, 79, 155, 0.3);
+}
+
+.search-button i {
+    transition: transform 0.3s ease;
+}
+
+.search-button:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+    .pharmacy-form {
+        padding: 1.5rem;
+    }
+    
+    .pharmacy-title {
+        font-size: 1.5rem;
+    }
+    
+    .search-button {
+        width: 100%;
+    }
 }

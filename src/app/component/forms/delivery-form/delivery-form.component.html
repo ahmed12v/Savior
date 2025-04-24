@@ -1,40 +1,50 @@
- <div class=" container mt-5 p-3 ">
-<div class="mt-5 w-100  p-5 rounded-3  shadow-lg form-items">
-
-    <h2 class="fw-bolder ShoppingAddress ">
-        Shopping Address :
-    </h2>
-
-    <div class="  mt-5 ">
-
-        
-        <!-- <form > -->
-     
-            <div class="form-floating mb-3  ">
-                <input type="text" class="form-control shadow-none bg-transparent " id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput " class="bg-transparent fw-bolder label">
-                  Name <i class="fa-solid fa-user"></i></label>
-              </div>
-
-            <div class="form-floating mb-3  ">
-                <input type="tel" class="form-control shadow-none bg-transparent " id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput " class="bg-transparent fw-bolder label">
-                  Phone <i class="fa-solid fa-phone"></i></label>
-              </div>
-
-            <div class="form-floating mb-3  ">
-                <input type="text" class="form-control shadow-none bg-transparent " id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput " class="bg-transparent fw-bolder label"> 
-                  Address <i class="fa-solid fa-location-dot"></i></label>
-              </div>
-             <div class="mt-3 w-100 p-3 d-flex justify-content-end ">
-                <button class="btn btn-primary ps-4 pe-4 fs-6 bg-transparent fw-bolder form-btn ">
-                  Order
+<section class="w-100  d-flex justify-content-center">
+  <div class="checkout-container ">
+    <div class="address-form bg-transparent">
+        <div class="form-header">
+            <h2 class="form-title">
+                <span class="title-icon"><i class="fas fa-map-marked-alt"></i></span>
+                Delivery Address
+            </h2>
+            <div class="progress-bar">
+                <div class="progress-step active"></div>
+                <div class="progress-step"></div>
+                <div class="progress-step"></div>
+            </div>
+        </div>
+  
+        <div class="form-body">
+            <div class="input-group floating">
+                <input type="text" id="name" class="form-input" placeholder=" " required>
+                <label for="name" class="input-label">
+                    <i class="fas fa-user"></i> Full Name
+                </label>
+                <div class="underline"></div>
+            </div>
+  
+            <div class="input-group floating">
+                <input type="tel" id="phone" class="form-input" placeholder=" " required>
+                <label for="phone" class="input-label">
+                    <i class="fas fa-mobile-alt"></i> Phone Number
+                </label>
+                <div class="underline"></div>
+            </div>
+  
+            <div class="input-group floating">
+                <textarea id="address" class="form-input" rows="2" placeholder=" " required></textarea>
+                <label for="address" class="input-label">
+                    <i class="fas fa-map-marker-alt"></i> Full Address
+                </label>
+                <div class="underline"></div>
+            </div>
+  
+            <div class="form-actions">
+                <button class="submit-btn">
+                    <span class="btn-text">Place Order</span>
+                    <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
                 </button>
-             </div>
-              
-        <!-- </form> -->
+            </div>
+        </div>
     </div>
-
-</div>
- </div>
+  </div>
+</section>
