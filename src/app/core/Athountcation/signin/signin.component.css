@@ -128,6 +128,7 @@
 }
 .signup-btn:disabled{
   cursor: not-allowed;
+  background-color: #ccc !important;
 }
 
 .login-text {
@@ -333,6 +334,57 @@ p{
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+.signup-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #0D4F9B;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(13, 79, 155, 0.3);
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 1.1s forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.signup-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.signup-btn:hover::before {
+  left: 100%;
+}
+
+.signup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(13, 79, 155, 0.4);
+}
+
+.signup-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Keep all your existing styles below this line */
