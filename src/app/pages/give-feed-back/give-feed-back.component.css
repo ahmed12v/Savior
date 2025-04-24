@@ -1,3 +1,6 @@
+.ContactUs{
+    animation: fadeInleft 2s ease-out ;
+}
 .ContactUs h1{
     color: #0d4f9b;
   }
@@ -93,3 +96,15 @@
   .SeeFeedbak:hover{
     transform: translateX(40px) scale(1.1) !important;
   }
+
+  @keyframes fadeInleft {
+    0% {
+        opacity: 0;
+        transform: translatey(200px);
+
+    }
+    100% {
+        opacity: 1;
+        transform: translatey(0);
+    }
+}

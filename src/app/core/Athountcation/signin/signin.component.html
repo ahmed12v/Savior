@@ -1,169 +1,133 @@
-
-<div class="signup-container ">
-  <div class="signup-card">
-    <h2 class="title">Sign up</h2>
-    <p class="subtitle">Join the community today!</p>
-
-   
-
-    <div class="divider">or</div>
-
-       <form  [formGroup]="SignUpForm" (ngSubmit)="SubmitSignUp()">
-      <div class="input-group">
-      
-        <input type="text" placeholder="Enter your First Name" formControlName="firstName" />
-        @if (SignUpForm.get('firstName')?.errors && SignUpForm.get('firstName')?.touched) {
-           
-          <div class=" p-0 m-0 ">
-            @if (SignUpForm.get('firstName')?.errors?.['required']) {
-              <p class="validation p-0 m-0 ms-1"> First Name is required <i class="fa-solid fa-face-angry"></i> </p>
-            }
-            @if (SignUpForm.get('firstName')?.errors?.['maxlength']) {
-              <p class="validation p-0 m-0 ms-1"> first Name Max Lenght = 12 <i class="fa-solid fa-face-angry"></i> </p>
-            }
-            @if (SignUpForm.get('firstName')?.errors?.['minlength']) {
-              <p class="validation p-0 m-0 ms-1"> first Name Min Lenght = 3 <i class="fa-solid fa-face-angry"></i> </p>
-            }
-          </div>
-
-        }
-
+<div class="signup-wrapper">
+  <div class="signup-container">
+    <div class="signup-card animated-card">
+      <div class="signup-header">
+        <h2 class="signup-title text-black">Create Account</h2>
+        <p class="signup-subtitle">Join our community today</p>
       </div>
 
-
-      <div class="input-group">
-      
-        <input formControlName="lastName" type="text" placeholder="Enter your Last Name" />
-        @if (SignUpForm.get('lastName')?.errors && SignUpForm.get('lastName')?.touched) {
-           
-          <div class=" p-0 m-0 ">
-            @if (SignUpForm.get('lastName')?.errors?.['required']) {
-              <p class="validation p-0 m-0 ms-1"> Last Name is required <i class="fa-solid fa-face-angry"></i> </p>
-            }
-            @if (SignUpForm.get('lastName')?.errors?.['maxlength']) {
-              <p class="validation p-0 m-0 ms-1"> Last Name Max Lenght = 12 <i class="fa-solid fa-face-angry"></i> </p>
-            }
-            @if (SignUpForm.get('lastName')?.errors?.['minlength']) {
-              <p class="validation p-0 m-0 ms-1"> Last Name Min Lenght = 3 <i class="fa-solid fa-face-angry"></i> </p>
-            }
-          </div>
-
-        }
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-text">or</span>
+        <span class="divider-line"></span>
       </div>
 
+      <form [formGroup]="SignUpForm" (ngSubmit)="SubmitSignUp()">
+        <div class="input-group floating">
+          <input type="text" formControlName="firstName" id="firstName" placeholder=" " />
+          <label for="firstName">First Name</label>
+          <div class="input-underline"></div>
+          @if (SignUpForm.get('firstName')?.errors && SignUpForm.get('firstName')?.touched) {
+            <div class="validation-group">
+              @if (SignUpForm.get('firstName')?.errors?.['required']) {
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> First Name is required</p>
+              }
+              @if (SignUpForm.get('firstName')?.errors?.['maxlength']) {
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Max 12 characters</p>
+              }
+              @if (SignUpForm.get('firstName')?.errors?.['minlength']) {
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Min 3 characters</p>
+              }
+            </div>
+          }
+        </div>
 
-      <div class="input-group">
-      
-        <input formControlName="email" type="email" placeholder="Enter your email" />
+        <div class="input-group floating">
+          <input type="text" formControlName="lastName" id="lastName" placeholder=" " />
+          <label for="lastName">Last Name</label>
+          <div class="input-underline"></div>
+          @if (SignUpForm.get('lastName')?.errors && SignUpForm.get('lastName')?.touched) {
+            <div class="validation-group">
+              @if (SignUpForm.get('lastName')?.errors?.['required']) {
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Last Name is required</p>
+              }
+              @if (SignUpForm.get('lastName')?.errors?.['maxlength']) {
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Max 12 characters</p>
+              }
+              @if (SignUpForm.get('lastName')?.errors?.['minlength']) {
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Min 3 characters</p>
+              }
+            </div>
+          }
+        </div>
 
-        @if (SignUpForm.get('email')?.errors && SignUpForm.get('email')?.touched) {
-
-          <div class="  p-0 m-0">
+        <div class="input-group floating">
+          <input type="email" formControlName="email" id="email" placeholder=" " />
+          <label for="email">Email Address</label>
+          <div class="input-underline"></div>
+          @if (SignUpForm.get('email')?.errors && SignUpForm.get('email')?.touched) {
+            <div class="validation-group">
               @if (SignUpForm.get('email')?.errors?.['required']) {
-                  <p class="p-1 m-0 validation"> email is required <i class="fa-solid fa-face-angry"></i> </p>
-
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Email is required</p>
               }
               @if (SignUpForm.get('email')?.errors?.['email']) {
-                  <p class="p-1 m-0 validation"> please enter email  <i class="fa-solid fa-face-angry"></i> </p>
-
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Please enter a valid email</p>
               }
-              
-          </div>
+            </div>
+          }
+        </div>
 
-      }
-          
-
-      </div>
-      
-
-
-      <div class="input-group">
-      
-        <input formControlName="password" type="password" placeholder="Enter your password" />
-
-        @if (SignUpForm.get('password')?.errors && SignUpForm.get('password')?.touched) {
-
-          <div class="  p-0 m-0">
+        <div class="input-group floating">
+          <input type="password" formControlName="password" id="password" placeholder=" " />
+          <label for="password">Password</label>
+          <div class="input-underline"></div>
+          @if (SignUpForm.get('password')?.errors && SignUpForm.get('password')?.touched) {
+            <div class="validation-group">
               @if (SignUpForm.get('password')?.errors?.['required']) {
-                  <p class="p-1 m-0 validation"> password is required <i class="fa-solid fa-face-angry"></i> </p>
-
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Password is required</p>
               }
               @if (SignUpForm.get('password')?.errors?.['pattern']) {
-                  <p class="p-1 m-0 validation"> password must be at least 8 characters long and include at least one uppercase letter,
-                    one lowercase letter, one number, and one special character ( !&#64;#$).
-                     <i class="fa-solid fa-face-angry"></i> </p>
-
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Must include uppercase, lowercase, number & special char</p>
               }
-              
-          </div>
+            </div>
+          }
+        </div>
 
-      }
-
-      </div>
-
-      <div class="input-group">
-       
-        <input formControlName="confirmPassword" type="password" placeholder="Confirm Password">
-              
-        @if (SignUpForm.get('confirmPassword')?.errors && SignUpForm.get('confirmPassword')?.touched) {
-
-          <div class="  p-0 m-0">
+        <div class="input-group floating">
+          <input type="password" formControlName="confirmPassword" id="confirmPassword" placeholder=" " />
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-underline"></div>
+          @if (SignUpForm.get('confirmPassword')?.errors && SignUpForm.get('confirmPassword')?.touched) {
+            <div class="validation-group">
               @if (SignUpForm.get('confirmPassword')?.errors?.['required']) {
-                  <p class="p-1 m-0 validation"> confirmPassword is required <i class="fa-solid fa-face-angry"></i> </p>
-
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Confirm Password is required</p>
               }
               @if (SignUpForm.get('confirmPassword')?.errors?.['missmatch']) {
-                  <p class="p-1 m-0 validation">  Confirm Password not match with password 
-                     <i class="fa-solid fa-face-angry"></i> </p>
-
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Passwords don't match</p>
               }
-              
-          </div>
+            </div>
+          }
+        </div>
 
-      }
-
-      </div>
-
-      <div class="input-group">
-        
-        <input formControlName="phone" type="tel" placeholder="Enter your Phone">
-
-        @if (SignUpForm.get('phone')?.errors && SignUpForm.get('phone')?.touched) {
-
-          <div class="  p-0 m-0">
+        <div class="input-group floating">
+          <input type="tel" formControlName="phone" id="phone" placeholder=" " />
+          <label for="phone">Phone Number</label>
+          <div class="input-underline"></div>
+          @if (SignUpForm.get('phone')?.errors && SignUpForm.get('phone')?.touched) {
+            <div class="validation-group">
               @if (SignUpForm.get('phone')?.errors?.['required']) {
-                  <p class="p-1 m-0 validation"> phone is required <i class="fa-solid fa-face-angry"></i> </p>
-
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Phone is required</p>
               }
               @if (SignUpForm.get('phone')?.errors?.['pattern']) {
-                  <p class="p-1 m-0 validation">  please enter egyption mobile Numbers
-                     <i class="fa-solid fa-face-angry"></i> </p>
-
+                <p class="validation"><i class="fas fa-exclamation-circle"></i> Please enter Egyptian mobile number</p>
               }
-              
-          </div>
+            </div>
+          }
+        </div>
 
-      }
+        <button class="signup-btn" [disabled]="SignUpForm.invalid">
+          @if (spinner) {
+            <i class="fas fa-spinner fa-spin"></i>
+          } @else {
+            <span>Sign Up</span>
+            <i class="fas fa-arrow-right"></i>
+          }
+        </button>
+      </form>
 
+      <div class="login-link">
+        Already have an account? <a routerLink="/login">Log in</a>
       </div>
-      <button [disabled]="SignUpForm.invalid"  class="signup-btn fw-bold ">
-        @if (spinner) {
-          <i class="fa fa-spin fa-spinner"></i>
-         
-      }
-      @else {
-          <span> Sign Up </span>
-      }
-      </button>
-    </form>
-
-    <p class="login-text text-dark-emphasis">
-      Already have an account ?  <a routerLink="/login">Log in</a>
-    </p>
+    </div>
   </div>
 </div>
-
-
-
-
-  
