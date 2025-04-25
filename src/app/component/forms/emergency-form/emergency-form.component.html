@@ -1,0 +1,20 @@
+<div class="card mt-4">
+    <div class="card-header bg-primary text-white">
+      طلب طوارئ - {{ emergencyType }}
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="submitForm()">
+        <div class="mb-3">
+          <label class="form-label">الاسم</label>
+          <input type="text" [(ngModel)]="name" name="name" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">الموقع</label>
+          <input type="text" [(ngModel)]="location" name="location" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-success">إرسال</button>
+        <button type="button" class="btn btn-secondary ms-2" (click)="closeForm()">إلغاء</button>
+      </form>
+    </div>
+  </div>
+  

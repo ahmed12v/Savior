@@ -6,7 +6,6 @@ import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-br
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideToastr,ToastrModule } from 'ngx-toastr';
 
-
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideToastr(), 
      provideClientHydration(),provideAnimations(), provideClientHydration(),provideHttpClient(withFetch()),

@@ -4,12 +4,13 @@ import { NavbarComponent } from './core/importantCompnent/navbar/navbar.componen
 import { FooterComponent } from './core/importantCompnent/footer/footer.component';
 import { isPlatformBrowser } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { EmergencyDetailsComponent } from "./component/emergency-details/emergency-details.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet , NavbarComponent , FooterComponent  ],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, EmergencyDetailsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

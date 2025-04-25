@@ -1,0 +1,45 @@
+/* تخصيص ألوان الخلفية */
+.bg-dark {
+    background-color: #343a40;
+  }
+  
+  .bg-light {
+    background-color: #f8f9fa;
+  }
+  
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+  }
+  
+  /* تخصيص النصوص */
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  
+  .card h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  /* تخصيص الأزرار */
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+  }

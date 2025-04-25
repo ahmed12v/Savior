@@ -1,0 +1,11 @@
+
+.card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+:host {
+  display: block;
+  border: 2px dashed red;
+  padding: 20px;
+  margin-top: 20px;
+}
