@@ -38,9 +38,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { EmergencyDetailsComponent } from './component/emergency-details/emergency-details.component';
 import { MedicalDetailsComponent } from './component/medical-details/medical-details.component';
-import { EmergencyFormComponent } from './forms/emergency-form/emergency-form.component';
-
-import { FormsModule } from '@angular/forms';
 import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
@@ -245,7 +242,7 @@ export const routes: Routes = [
  },
   
  {
-   path:'medicalTeam',
+   path:'medicalTeam', 
     loadComponent:()=>
         import('./pages/medical-team/medical-team.component').then(
             (C)=> C.MedicalTeamComponent
@@ -260,22 +257,15 @@ export const routes: Routes = [
     ),
   canActivate: [authGuard],
 },
-{
+ {
   path: 'medical-details',
-    loadComponent: () =>
-      import('./component/medical-details/medical-details.component').then(
-        (c) => c.MedicalDetailsComponent
-      ),
-    canActivate: [authGuard],  
+  loadComponent: () =>
+    import('./component/medical-details/medical-details.component').then(
+      (c) => c.MedicalDetailsComponent
+    ),
+  canActivate: [authGuard],
+},
 
-},
-{
-  path:'emergency-form',
-   loadComponent:()=>
-       import('./forms/emergency-form/emergency-form.component').then(
-           (C)=> C.MedicalTeamComponent
-       ),canActivate:[authGuard]
-},
  {
     path:'profile',
      loadComponent:()=>
