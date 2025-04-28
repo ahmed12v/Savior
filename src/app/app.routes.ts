@@ -39,11 +39,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { EmergencyTeamComponent } from './component/emergency-team/emergency-team.component';
 import { MedicalDetailsComponent } from './component/medical-details/medical-details.component';
-<<<<<<< HEAD
-
-import { FormsModule } from '@angular/forms';
-=======
->>>>>>> 8bce818763aa60255aebb7a98496e5ce695c2823
 import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
@@ -273,11 +268,6 @@ export const routes: Routes = [
   canActivate: [authGuard],
 },
 
-<<<<<<< HEAD
-},
-
-=======
->>>>>>> 8bce818763aa60255aebb7a98496e5ce695c2823
  {
     path:'profile',
      loadComponent:()=>
