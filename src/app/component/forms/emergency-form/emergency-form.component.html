@@ -1,20 +1,57 @@
-<div class="card mt-4">
-    <div class="card-header bg-primary text-white">
-      طلب طوارئ - {{ emergencyType }}
-    </div>
-    <div class="card-body">
-      <form (ngSubmit)="submitForm()">
-        <div class="mb-3">
-          <label class="form-label">الاسم</label>
-          <input type="text" [(ngModel)]="name" name="name" class="form-control" required />
+<div class="form-overlay" (click)="closeForm()" *ngIf="isVisible">
+    <div class="emergency-form" (click)="$event.stopPropagation()">
+      <div class="form-header">
+        <h2>Request Emergency Team</h2>
+        <div class="emergency-alert">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>URGENT RESPONSE</span>
         </div>
-        <div class="mb-3">
-          <label class="form-label">الموقع</label>
-          <input type="text" [(ngModel)]="location" name="location" class="form-control" required />
+      </div>
+      
+      <form (ngSubmit)="submitForm()" class="crisis-form">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Full Name" [(ngModel)]="formData.name" name="name" required />
         </div>
-        <button type="submit" class="btn btn-success">إرسال</button>
-        <button type="button" class="btn btn-secondary ms-2" (click)="closeForm()">إلغاء</button>
+        
+        <div class="input-group">
+          <i class="fas fa-phone-alt"></i>
+          <input type="tel" placeholder="Mobile Number" [(ngModel)]="formData.phone" name="phone" required />
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-map-marker-alt"></i>
+          <input type="text" placeholder="Detailed Address" [(ngModel)]="formData.address" name="address" required />
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-bolt"></i>
+          <input type="text" [value]="emergencyType" disabled class="emergency-type-input" />
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-edit"></i>
+          <textarea placeholder="Additional Notes" [(ngModel)]="formData.notes" name="notes"></textarea>
+        </div>
+  
+        <button type="submit" class="emergency-submit-btn">
+          <i class="fas fa-paper-plane"></i> Submit Request
+          <div class="pulse-ring"></div>
+        </button>
       </form>
+  
+      <div *ngIf="submitted" class="success-message">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="success-content">
+          <h3>Help is Coming!</h3>
+          <p>Your request has been sent! The team is on the way.</p>
+          <div class="eta-display">
+            <i class="fas fa-ambulance"></i>
+            <span>ETA: 8-12 minutes</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  

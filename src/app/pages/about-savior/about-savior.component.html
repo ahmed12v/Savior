@@ -41,111 +41,112 @@
 </div>
   <!-- end about savior -->
  <!------------------------- Start SERVICES ----------------------------->
- <section id="services">
-    <div class=" services-txt text-center">
-      <h3 class="fw-bolder">What We Offer</h3>
-      
-    </div>
-    <div class="container pt-5 pb-5">
-      <div class="row text-center g-4">
-        <div class="col-lg-4 col-md-6 " >
-          <div class="servises-div shadow-lg rounded-4 p-4 text-center">
-            <span class="fa-stack fa-3x pt-3">
-              <i class="fa-solid fa-user-doctor"></i>
-            </span>
-            <h5 class="heartbeat pt-5 pb-3">Book a Doctor Easily</h5>
-        
-            <button  routerLink="/login"
-             class="button-savior bg-transparent text-white p-2  button-savior rounded-3 me-1 fw-bold mt-1 book-btn">
+ <section id="services" class="services-section">
+  <div class="services-txt text-center">
+    <h3 class="section-title">What We Offer</h3>
+  
+  </div>
+  
+  <div class="container pt-5 pb-5">
+    <div class="row text-center g-4">
+      <!-- Doctor Booking -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card doctor-service">
+          <div class="service-icon">
+            <i class="fa-solid fa-user-doctor pulse"></i>
+          </div>
+          <h5 class="service-title">Book a Doctor Easily</h5>
+          <div class="service-btn-container">
+            <button routerLink="/login" class="service-btn">
               Go to Doctor Page
-             </button>
+            </button>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="servises-div shadow-lg rounded-4 p-4 text-center">
-            <span class="fa-stack fa-3x pt-3">
-              <i class="fa-solid fa-capsules"></i>
-            </span>
-            <h5 class="heartbeat pt-5 pb-3">Order Medicine</h5>
-            
-          
-        
-            <button  routerLink="/login"
-             class="button-savior bg-transparent text-white p-2  button-savior rounded-3 me-1 fw-bold mt-1 book-btn">
-              Go to Pharmacy Page
-             </button>
-          </div>
-        </div>
-        
-
-        <div class="col-lg-4 col-md-6">
-          <div class="servises-div shadow-lg rounded-4 p-4 text-center">
-            <span class="fa-stack fa-3x pt-3">
-              <i class="fa-solid fa-comment"></i>
-            </span>
-            <h5 class="heartbeat pt-5 pb-3">Search By Image</h5>
-            
-          
-        
-            <button  routerLink="/login" 
-              class="button-savior bg-transparent text-white p-2  button-savior rounded-3 me-1 fw-bold mt-1 book-btn">
-              Go to Pharmacy Page
-             </button>
-          </div>
-        </div>
-
-
-        <div class="col-lg-4 col-md-6">
-          <div class="servises-div shadow-lg rounded-4 p-4 text-center">
-            <span class="fa-stack fa-3x pt-3">
-              <i class="fa-solid fa-briefcase-medical"></i>
-            </span>
-            <h5 class="heartbeat pt-5 pb-3"> First Aid Assistance</h5>
-            
-          
-        
-            <button  routerLink="/login"
-            class="button-savior bg-transparent text-white p-2 button-savior rounded-3 me-1 fw-bold mt-1 book-btn">
-              Go to First Aid Page
-             </button>
-          </div>
-        </div>
-        
-        
-        <div class="col-lg-4 col-md-6">
-          <div class="servises-div shadow-lg rounded-4 p-4 text-center">
-            <span class="fa-stack fa-3x pt-3">
-              <i class="fa-solid fa-truck-medical"></i>
-            </span>
-            <h5 class="heartbeat pt-5 pb-3">Emergency Response Team</h5>
-            
-          
-            <button   routerLink="/login"
-            class="button-savior bg-transparent text-white p-2 button-savior rounded-3 me-1 fw-bold mt-1 book-btn">
-              Go to Emergency Page
-             </button>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="servises-div shadow-lg rounded-4 p-4 text-center">
-            <span class="fa-stack fa-3x pt-3">
-              <i class="fa-solid fa-user-nurse"></i>
-            </span>
-            <h5 class="heartbeat pt-5 pb-3">Medical Team</h5>
-            
-          
-        
-            <button  routerLink="/login"
-            class="button-savior bg-transparent text-white p-2 button-savior rounded-3 me-1 fw-bold mt-1 book-btn">
-              Go to Emergency Page
-             </button>
-          </div>
+          <div class="service-overlay"></div>
         </div>
       </div>
       
+      <!-- Medicine Order -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card medicine-service">
+          <div class="service-icon">
+            <i class="fa-solid fa-capsules pulse"></i>
+          </div>
+          <h5 class="service-title">Order Medicine</h5>
+          <div class="service-btn-container">
+            <button routerLink="/login" class="service-btn">
+              Go to Pharmacy Page
+            </button>
+          </div>
+          <div class="service-overlay"></div>
+        </div>
+      </div>
+      
+      <!-- Image Search -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card image-service">
+          <div class="service-icon">
+            <i class="fa-solid fa-comment pulse"></i>
+          </div>
+          <h5 class="service-title">Search By Image</h5>
+          <div class="service-btn-container">
+            <button routerLink="/login" class="service-btn">
+              Go to Pharmacy Page
+            </button>
+          </div>
+          <div class="service-overlay"></div>
+        </div>
+      </div>
+      
+      <!-- First Aid -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card aid-service">
+          <div class="service-icon">
+            <i class="fa-solid fa-briefcase-medical pulse"></i>
+          </div>
+          <h5 class="service-title">First Aid Assistance</h5>
+          <div class="service-btn-container">
+            <button routerLink="/login" class="service-btn">
+              Go to First Aid Page
+            </button>
+          </div>
+          <div class="service-overlay"></div>
+        </div>
+      </div>
+      
+      <!-- Emergency -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card emergency-service">
+          <div class="service-icon">
+            <i class="fa-solid fa-truck-medical pulse"></i>
+          </div>
+          <h5 class="service-title">Emergency Response Team</h5>
+          <div class="service-btn-container">
+            <button routerLink="/login" class="service-btn">
+              Go to Emergency Page
+            </button>
+          </div>
+          <div class="service-overlay"></div>
+        </div>
+      </div>
+      
+      <!-- Medical Team -->
+      <div class="col-lg-4 col-md-6">
+        <div class="service-card team-service">
+          <div class="service-icon">
+            <i class="fa-solid fa-user-nurse pulse"></i>
+          </div>
+          <h5 class="service-title">Medical Team</h5>
+          <div class="service-btn-container">
+            <button routerLink="/login" class="service-btn">
+              Go to Emergency Page
+            </button>
+          </div>
+          <div class="service-overlay"></div>
+        </div>
+      </div>
     </div>
-   
-  </section>
+  </div>
+</section>
   <!------------------------- End SERVICES----------------------------->
 
  

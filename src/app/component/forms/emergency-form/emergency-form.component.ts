@@ -1,32 +1,38 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-emergency-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './emergency-form.component.html',
   styleUrls: ['./emergency-form.component.css']
 })
 export class EmergencyFormComponent {
-  @Input() emergencyType: string | null = null;
-  @Output() formClosed = new EventEmitter<void>();
+  @Input() isVisible: boolean = false;
+  @Input() emergencyType: string = '';
+  @Output() formClosed = new EventEmitter<void>(); 
 
-  name = '';
-  location = '';
+  formData = {
+    name: '',
+    phone: '',
+    address: '',
+    notes: ''
+  };
+
+  submitted = false;
 
   submitForm() {
-    if (this.name && this.location) {
-      alert(`تم إرسال طلب ل: ${this.emergencyType}\nالاسم: ${this.name}\nالموقع: ${this.location}`);
-      this.formClosed.emit();
-    } else {
-      alert('يرجى تعبئة جميع الحقول');
-    }
+    console.log(this.formData);
+    this.submitted = true;
+
+    setTimeout(() => {
+      this.closeForm();
+    }, 3000); 
   }
 
   closeForm() {
-    this.formClosed.emit();
+    this.formClosed.emit(); 
   }
 }
-
-

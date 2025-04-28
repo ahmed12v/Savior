@@ -1,0 +1,287 @@
+:root {
+    --primary: #ff3a2d;
+    --primary-dark: #d63026;
+    --secondary: #2d3748;
+    --accent: #4fd1c5;
+    --light: #f8f9fa;
+    --dark: #1a202c;
+  }
+  
+  .emergency-container {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--dark);
+  }
+  
+  .emergency-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('../../../assets/imege/group-paramedics-transporting-patient-ambulance_1145402-6003.jpg') center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+  }
+  
+  .banner-overlay {
+    text-align: center;
+    padding: 2rem;
+    z-index: 2;
+  }
+  
+  .emergency-banner h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 0.8s ease;
+  }
+  
+  .highlight {
+    color: var(--accent);
+    font-weight: 800;
+  }
+  
+  .banner-subtitle {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease 0.3s both;
+  }
+  
+  .emergency-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+  }
+  
+  .option-card {
+   
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid var(--primary);
+  }
+  
+  .option-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .option-card.medical {
+    border-top-color: #4d79ff;
+  }
+  
+  .option-card.accident {
+    border-top-color: #ff9500;
+  }
+  
+  .option-card.fire {
+    border-top-color: #ff3a2d;
+  }
+  
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+  }
+  
+  .option-card.medical .card-icon {
+    color: #4d79ff;
+  }
+  
+  .option-card.accident .card-icon {
+    color: #ff9500;
+  }
+  
+  .option-card.fire .card-icon {
+    color: #ff3a2d;
+  }
+  
+  .option-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--secondary);
+  }
+  
+  .option-card p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+  }
+  
+  .emergency-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(255, 58, 45, 0.3);
+  }
+  
+  .emergency-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 58, 45, 0.4);
+  }
+  
+  .option-card.medical .emergency-btn {
+    background: #4d79ff;
+    box-shadow: 0 4px 15px rgba(77, 121, 255, 0.3);
+  }
+  
+  .option-card.medical .emergency-btn:hover {
+    background: #3a6bff;
+  }
+  
+  .option-card.accident .emergency-btn {
+    background: #ff9500;
+    box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+  }
+  
+  .option-card.accident .emergency-btn:hover {
+    background: #e68600;
+  }
+  
+  .option-card.fire .emergency-btn {
+    background: #ff3a2d;
+    box-shadow: 0 4px 15px rgba(255, 58, 45, 0.3);
+  }
+  
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  
+  .countdown-container {
+    margin: 60px 0;
+  }
+  
+  .countdown-card {
+  
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .countdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .countdown-header i {
+    font-size: 1.8rem;
+    color: var(--primary);
+  }
+  
+  .countdown-header h3 {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin: 0;
+  }
+  
+  .countdown-timer {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .progress-tracker {
+    margin-top: 30px;
+  }
+  
+  .progress-bar {
+    height: 8px;
+   
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 65%;
+    background: var(--primary);
+    border-radius: 4px;
+    animation: progress 10s linear forwards;
+  }
+  
+  .progress-text {
+    color: #666;
+    font-size: 0.95rem;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 58, 45, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(255, 58, 45, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 58, 45, 0); }
+  }
+  
+  @keyframes progress {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .emergency-banner h1 {
+      font-size: 2.5rem;
+    }
+    
+    .banner-subtitle {
+      font-size: 1.4rem;
+    }
+    
+    .emergency-options {
+      grid-template-columns: 1fr;
+    }
+    
+    .countdown-timer {
+      font-size: 2.5rem;
+    }
+  }

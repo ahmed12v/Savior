@@ -1,29 +1,17 @@
-<!-- قسم فريق الطوارئ والفريق الطبي -->
-<section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">فرق الطوارئ والفريق الطبي</h2>
-      <div class="row g-4">
-        <!-- كارت فريق الطوارئ -->
-        <div class="col-md-6">
-          <div class="card bg-light p-4 rounded shadow-sm">
-            <h4 class="card-title">فريق الطوارئ</h4>
-            <p class="card-text">
-              في حالات الطوارئ مثل الحوادث أو الحرائق أو المشاكل الصحية الليلية، يمكنك التواصل مع فريق الطوارئ للحصول على التدخل السريع.
-            </p>
-            <a [routerLink]="['/emergency-details']" class="btn btn-danger">تفاصيل</a>
-          </div>
-        </div>
-  
-        <!-- كارت الفريق الطبي -->
-        <div class="col-md-6">
-          <div class="card bg-light p-4 rounded shadow-sm">
-            <h4 class="card-title">الفريق الطبي</h4>
-            <p class="card-text">
-              فريق من الأطباء والممرضين مستعد لتقديم الرعاية المنزلية، مثل تركيب كانولا، الرعاية بعد العمليات، ومتابعة الحالات الحرجة في المنزل.
-            </p>
-            <a [routerLink]="['/medical-details']" class="btn btn-primary">تفاصيل</a>
-          </div>
-        </div>
-      </div>
+<div class="split-screen">
+  <div class="split left">
+    <div class="split-content">
+      <h1>Emergency Team</h1>
+      <p>Ready to intervene immediately in accidents, fires, and nighttime health emergencies</p>
+      <button routerLink="/emergency-team">Request Immediate Assistance</button>
     </div>
-  </section>
+  </div>
+
+  <div class="split right">
+    <div class="split-content">
+      <h1>Home Medical Team</h1>
+      <p>Specialized medical care delivered right to your doorstep without the need to visit a hospital</p>
+      <button>Book a Medical Visit</button>
+    </div>
+  </div>
+</div>

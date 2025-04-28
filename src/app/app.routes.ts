@@ -1,3 +1,4 @@
+import { ContactUs } from './shared/Interfaces/Pages/home';
 import { AllDepartmentComponent } from './component/doctor/all-department/all-department.component';
 import { UserContactUsComponent } from './pages/user-contact-us/user-contact-us.component';
 import { DoctorRegisterComponent } from './addtions/doctor-register/doctor-register.component';
@@ -36,9 +37,8 @@ import { DoctorComponent } from './pages/doctor/doctor.component';
 import { AboutSaviorComponent } from './pages/about-savior/about-savior.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { EmergencyDetailsComponent } from './component/emergency-details/emergency-details.component';
+import { EmergencyTeamComponent } from './component/emergency-team/emergency-team.component';
 import { MedicalDetailsComponent } from './component/medical-details/medical-details.component';
-import { EmergencyFormComponent } from './forms/emergency-form/emergency-form.component';
 
 import { FormsModule } from '@angular/forms';
 import { authGuard } from './auth.guard';
@@ -55,11 +55,12 @@ export const routes: Routes = [
       ),canActivate:[authGuard]
   },
   {
-    path: 'CotactUs',
+    path: 'ContactUs',
     loadComponent: () =>
       import('./pages/user-contact-us/user-contact-us.component').then(
         (c) => c.UserContactUsComponent
-      ),canActivate:[authGuard]
+      ),
+    canActivate: [authGuard]
   },
 
   {
@@ -253,10 +254,10 @@ export const routes: Routes = [
  },
 
  {
-  path: 'emergency-details',
+  path: 'emergency-team',
   loadComponent: () =>
-    import('./component/emergency-details/emergency-details.component').then(
-      (c) => c.EmergencyDetailsComponent
+    import('./component/emergency-team/emergency-team.component').then(
+      (c) => c.EmergencyTeamComponent
     ),
   canActivate: [authGuard],
 },
@@ -269,13 +270,7 @@ export const routes: Routes = [
     canActivate: [authGuard],  
 
 },
-{
-  path:'emergency-form',
-   loadComponent:()=>
-       import('./forms/emergency-form/emergency-form.component').then(
-           (C)=> C.MedicalTeamComponent
-       ),canActivate:[authGuard]
-},
+
  {
     path:'profile',
      loadComponent:()=>

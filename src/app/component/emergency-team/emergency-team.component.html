@@ -1,0 +1,62 @@
+<div class="emergency-container">
+    <div class="emergency-banner">
+      <div class="banner-overlay">
+        <h1>Ready to Rescue You <span class="highlight">Now!</span></h1>
+        <p class="banner-subtitle">Select the type of emergency you are facing:</p>
+      </div>
+    </div>
+    
+    <div class="emergency-options">
+      <div class="option-card medical">
+        <div class="card-icon">
+          <i class="fas fa-moon"></i>
+        </div>
+        <h2>Nighttime Health Issue</h2>
+        <button class="emergency-btn pulse" (click)="openForm('Nighttime Health Issue')">
+          <i class="fas fa-bell"></i> I Need Help Now
+        </button>
+
+      </div>
+    
+      <div class="option-card accident">
+        <div class="card-icon">
+          <i class="fas fa-car-crash"></i>
+        </div>
+        <h2>Road Accident</h2>
+        <button class="emergency-btn pulse" (click)="openForm('Road Accident')">
+          <i class="fas fa-bell"></i> I Need Quick Assistance
+        </button>
+      </div>
+    
+      <div class="option-card fire">
+        <div class="card-icon">
+          <i class="fas fa-fire"></i>
+        </div>
+        <h2>Home Fire</h2>
+        <button class="emergency-btn pulse" (click)="openForm('Home Fire')">
+          <i class="fas fa-bell"></i> I Need Immediate Rescue
+        </button>
+      </div>
+    </div>
+  
+    <div class="countdown-container">
+      <div class="countdown-card">
+        <div class="countdown-header">
+          <i class="fas fa-ambulance"></i>
+          <h3>Emergency Team Estimated Time of Arrival</h3>
+        </div>
+        <div class="countdown-timer" id="timer">10:00</div>
+        <div class="progress-tracker">
+          <div class="progress-bar"></div>
+          <div class="progress-text">Dispatching nearest team to your location</div>
+        </div>
+      </div>
+    </div>
+  
+    <app-emergency-form
+    [isVisible]="showForm" 
+    [emergencyType]="selectedType"
+    (formClosed)="closeForm()">
+  </app-emergency-form>
+  
+  </div>

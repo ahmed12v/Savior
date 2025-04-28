@@ -1,11 +1,251 @@
-
-.card {
-  max-width: 500px;
-  margin: 0 auto;
-}
-:host {
-  display: block;
-  border: 2px dashed red;
-  padding: 20px;
-  margin-top: 20px;
-}
+/* Emergency Form Styling - Updated Color Scheme */
+:root {
+    --primary: #0D4F9B;
+    --primary-dark: #0a3d7a;
+    --primary-light: #1a6bc7;
+    --accent: #4fd1c5;
+    --danger: #e63946;
+    --success: #00c853;
+    --light: #f8f9fa;
+    --dark: #1a202c;
+    --text-light: rgba(255, 255, 255, 0.9);
+  }
+  
+  .form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .emergency-form {
+    background: linear-gradient(135deg, #0a1a32 0%, #0D4F9B 100%);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+                0 0 0 2px rgba(13, 79, 155, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .emergency-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(13, 79, 155, 0.2) 0%, transparent 70%);
+    animation: pulse 6s infinite alternate;
+  }
+  
+  .form-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .form-header h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .emergency-alert {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(13, 79, 155, 0.3);
+    padding: 6px 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(13, 79, 155, 0.6);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .emergency-alert i {
+    margin-right: 8px;
+    font-size: 16px;
+    color: var(--accent);
+  }
+  
+  .crisis-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .input-group {
+    position: relative;
+  }
+  
+  .input-group i {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: var(--accent);
+    font-size: 18px;
+  }
+  
+  .input-group input,
+  .input-group textarea,
+  .emergency-type-input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .input-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .emergency-type-input {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  
+  .input-group input:focus,
+  .input-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(79, 209, 197, 0.3),
+                inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .emergency-submit-btn {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    padding: 18px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(13, 79, 155, 0.4);
+  }
+  
+  .emergency-submit-btn:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 79, 155, 0.6);
+  }
+  
+  .emergency-submit-btn:active {
+    transform: translateY(0);
+  }
+  
+  .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    animation: pulse 2s infinite;
+    opacity: 0;
+  }
+  
+  .success-message {
+    background: rgba(0, 200, 83, 0.1);
+    border: 1px solid rgba(0, 200, 83, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    animation: fadeIn 0.10s ease-out;
+  }
+  
+  .success-icon {
+    font-size: 40px;
+    color: var(--success);
+  }
+  
+  .success-content h3 {
+    color: var(--success);
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  
+  .success-content p {
+    color: var(--text-light);
+    margin-bottom: 10px;
+  }
+  
+  .eta-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .eta-display i {
+    color: var(--accent);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.7;
+    }
+    70% {
+      transform: scale(1.05);
+      opacity: 0.2;
+    }
+    100% {
+      transform: scale(0.95);
+      opacity: 0.7;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .emergency-form {
+      width: 95%;
+      padding: 20px;
+    }
+    
+    .form-header h2 {
+      font-size: 24px;
+    }
+    
+    .input-group input,
+    .input-group textarea {
+      padding: 12px 12px 12px 40px;
+    }
+  }
