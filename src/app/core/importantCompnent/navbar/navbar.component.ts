@@ -56,7 +56,7 @@ this._LogInService.UserDataAfterDecoded.subscribe(
  }
 
    logOut(){
-
+    this.logingUser=false
     localStorage.removeItem('token');
    // localStorage.removeItem('role');
     this._LogInService.UserDataAfterDecoded.next(null);

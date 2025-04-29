@@ -1,3 +1,4 @@
+import { GiveFeedBackComponent } from './pages/give-feed-back/give-feed-back.component';
 import { ContactUs } from './shared/Interfaces/Pages/home';
 import { AllDepartmentComponent } from './component/doctor/all-department/all-department.component';
 import { UserContactUsComponent } from './pages/user-contact-us/user-contact-us.component';
@@ -57,6 +58,14 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/user-contact-us/user-contact-us.component').then(
         (c) => c.UserContactUsComponent
+      ),
+    canActivate: [authGuard]
+  },
+  {
+    path: 'ContactUser',
+    loadComponent: () =>
+      import('./pages/give-feed-back/give-feed-back.component').then(
+        (c) => c.GiveFeedBackComponent
       ),
     canActivate: [authGuard]
   },
