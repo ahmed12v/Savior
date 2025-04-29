@@ -23,15 +23,6 @@ export class EmergencyFormComponent {
 
   submitted = false;
 
-  submitForm() {
-    console.log(this.formData);
-    this.submitted = true;
-
-    setTimeout(() => {
-      this.closeForm();
-    }, 3000); 
-  }
-
   closeForm() {
     this.formClosed.emit(); 
   }

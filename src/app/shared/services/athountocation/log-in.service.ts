@@ -53,6 +53,5 @@ refreshUserDataFromToken() {
     }
   }
 }
-
 }
 

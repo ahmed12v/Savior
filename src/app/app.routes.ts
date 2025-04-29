@@ -1,3 +1,4 @@
+import { GiveFeedBackComponent } from './pages/give-feed-back/give-feed-back.component';
 import { ContactUs } from './shared/Interfaces/Pages/home';
 import { AllDepartmentComponent } from './component/doctor/all-department/all-department.component';
 import { UserContactUsComponent } from './pages/user-contact-us/user-contact-us.component';
@@ -40,6 +41,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { EmergencyTeamComponent } from './component/emergency-team/emergency-team.component';
 import { MedicalDetailsComponent } from './component/medical-details/medical-details.component';
 
+
 import { FormsModule } from '@angular/forms';
 import { authGuard } from './auth.guard';
 
@@ -59,6 +61,14 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/user-contact-us/user-contact-us.component').then(
         (c) => c.UserContactUsComponent
+      ),
+    canActivate: [authGuard]
+  },
+  {
+    path: 'ContactUser',
+    loadComponent: () =>
+      import('./pages/give-feed-back/give-feed-back.component').then(
+        (c) => c.GiveFeedBackComponent
       ),
     canActivate: [authGuard]
   },
@@ -267,9 +277,9 @@ export const routes: Routes = [
       import('./component/medical-details/medical-details.component').then(
         (c) => c.MedicalDetailsComponent
       ),
-    canActivate: [authGuard],  
+    canActivate: [authGuard], 
+   },
 
-},
 
  {
     path:'profile',
