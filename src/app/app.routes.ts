@@ -40,7 +40,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { EmergencyTeamComponent } from './component/emergency-team/emergency-team.component';
 import { MedicalDetailsComponent } from './component/medical-details/medical-details.component';
-
+import { MedicalFormComponent } from './component/forms/medical-form/medical-form.component';
 
 import { FormsModule } from '@angular/forms';
 import { authGuard } from './auth.guard';
@@ -280,7 +280,15 @@ export const routes: Routes = [
     canActivate: [authGuard], 
    },
 
-
+   {
+    path: 'medical-form',
+      loadComponent: () =>
+        import('./component/forms/medical-form/medical-form.component').then(
+          (c) => c.MedicalFormComponent
+        ),
+      canActivate: [authGuard], 
+     },
+  
  {
     path:'profile',
      loadComponent:()=>

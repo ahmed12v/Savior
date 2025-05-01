@@ -26,7 +26,7 @@
 }
 
 .split.right {
-  background: url('../../../assets/imege/WhatsApp\ Image\ 2025-04-29\ at\ 3.52.50\ AM.jpeg') center/cover no-repeat;
+  background: url('../../../assets/imege/download.jfif') center/cover no-repeat;
   animation-delay: 0.1s;
 }
 
@@ -60,7 +60,7 @@
   font-size: 1.2rem;
   border: none;
   border-radius: 50px;
-  background-color: #ff4b2b;
+  background-color: #0D4F9B;
   color: white;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
@@ -68,7 +68,7 @@
 }
 
 .split button:hover {
-  background-color: #ff1c00;
+  background-color: #336cac;
   transform: scale(1.1);
 }
 
