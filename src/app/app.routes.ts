@@ -1,3 +1,4 @@
+import { AichatComponent } from './Ai/aichat/aichat.component';
 import { DocReequestComponent } from './Admin/doc-reequest/doc-reequest.component';
 import { AdminWorkComponent } from './Admin/admin-work/admin-work.component';
 import { GiveFeedBackComponent } from './pages/give-feed-back/give-feed-back.component';
@@ -374,6 +375,13 @@ export const routes: Routes = [
      loadComponent:()=>
         import('./Admin/doc-reequest/doc-reequest.component').then(
             (C)=>C.DocReequestComponent
+        )
+  },
+  {
+    path:'ai',
+     loadComponent:()=>
+        import('./Ai/aichat/aichat.component').then(
+            (C)=>C.AichatComponent
         )
   },
 
