@@ -159,26 +159,34 @@
     </div>
     <div class="w-100">
         <div class="mt-1">
-            <div class="form-floating ">
-                <input formControlName="specialty" type="" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput" placeholder="name@example.com">
+            <div class="form-floating">
+            <select formControlName="specialty" class="form-control shadow-none first rounded-0 bg-transparent" id="floatingInput">
+                <option selected value="select">Choose a specialization</option>
+                @for (cato of catooCome; track $index) {
+                    <option value="{{cato}}">{{cato}}</option>
+
+                   }
+                    
+                    <!-- أضف التخصصات حسب حاجتك -->
+                </select>
                 <label for="floatingInput" class="fw-bold">Specialization</label>
-                @if (DoctorForm.get('specialty')?.errors&& DoctorForm.get('specialty')?.touched) {
+                @if (DoctorForm.get('specialty')?.errors && DoctorForm.get('specialty')?.touched) {
                     <div class="p-1">
                         @if (DoctorForm.get('specialty')?.errors?.['required']) {
-                         <p class="text-danger fw-bold"> Specialization is required ! </p>
+                            <p class="text-danger fw-bold"> Specialization is required ! </p>
                         }
                         @if (DoctorForm.get('specialty')?.errors?.['minlength']) {
-                         <p class="text-danger fw-bold"> Enter more than Tow characters ! </p>
+                            <p class="text-danger fw-bold"> Enter more than Tow characters ! </p>
                         }
                         @if (DoctorForm.get('specialty')?.errors?.['maxlength']) {
-                         <p class="text-danger fw-bold">  Enter less than 100 characters! </p>
+                            <p class="text-danger fw-bold"> Enter less than 100 characters! </p>
                         }
-                    
                     </div>
                 }
-              </div>
-         </div>
-     </div>
+            </div>
+        </div>
+    </div>
+    
 
     <div class="w-100">
         <div class="mt-1">

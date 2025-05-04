@@ -1,0 +1,175 @@
+
+        .DashCard {
+            background:transparent;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.6s ease;
+            cursor: pointer;
+        }
+        
+        .DashCard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: #0d4f9b;
+            color: white;
+
+        }
+        .DashCard:hover .numbers {
+           
+            color: white;
+
+        }
+        
+        .numbers {
+            font-size: 30px;
+            font-weight: 700;
+            color: #3e5b78;
+            transition: all .6s;
+        }
+        
+        .cardName {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .iconBx {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        /* Different colors for each icon box */
+        .DashCard:nth-child(1) .iconBx {
+            background: #0d4f9b;
+        }
+        
+        .DashCard:nth-child(2) .iconBx {
+            background: #e74c3c;
+        }
+        
+        .DashCard:nth-child(3) .iconBx {
+            background: #2ecc71;
+        }
+        
+        .DashCard:nth-child(4) .iconBx {
+            background: #f39c12;
+        }
+
+        /* =========== */
+
+        .div-table {
+            margin-top: 0% ;
+            background: transparent;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .div-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .div-table th {
+            text-align: left;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: 900;
+            border-bottom: 2px solid #dee2e6;
+            font-size: 18px;
+        }
+        
+        .div-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+            color: #646464;
+        }
+        
+        .div-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .status-delivered {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-return {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-in-progress {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+        
+        .payment-paid {
+            color: #28a745;
+            font-weight: 500;
+        }
+        
+        .payment-due {
+            color: #dc3545;
+            font-weight: 500;
+        }
+        
+        .fa-file-alt {
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+        .tr-hover{
+            transition: all .5s ;
+        }
+        .tr-hover:hover{
+         background-color: #0d4f9b;
+         color: white;
+        }
+        .tr-hover:hover td{
+       color: white !important;
+        }
+        .Titlation{
+            color: #004085;
+            font-weight: bold;
+        }
+        .imgDoc{
+           width: 40px;
+           height: 40px;
+           border-radius: 100%;
+        }
+        .spiz{
+            color: #a0a2a2;
+        }
+        .div-table-2{
+            transition: all .6s;
+        }
+        .div-table-2:hover{
+          background-color: #004085;
+        }
+    
+                   

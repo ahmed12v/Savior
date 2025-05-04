@@ -1,3 +1,5 @@
+import { DocReequestComponent } from './Admin/doc-reequest/doc-reequest.component';
+import { AdminWorkComponent } from './Admin/admin-work/admin-work.component';
 import { GiveFeedBackComponent } from './pages/give-feed-back/give-feed-back.component';
 import { ContactUs } from './shared/Interfaces/Pages/home';
 import { AllDepartmentComponent } from './component/doctor/all-department/all-department.component';
@@ -357,6 +359,24 @@ export const routes: Routes = [
             (C)=>C.NewPasswordComponent
         )
   },
+
+  //==Admin
+  
+  {
+    path:'adminLogin',
+     loadComponent:()=>
+        import('./Admin/admin-work/admin-work.component').then(
+            (C)=>C.AdminWorkComponent
+        )
+  },
+  {
+    path:'docrequest',
+     loadComponent:()=>
+        import('./Admin/doc-reequest/doc-reequest.component').then(
+            (C)=>C.DocReequestComponent
+        )
+  },
+
 
 
   {

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BookNowDoctor, Doctor, DoctorDetials, DoctorRegester, getBooking, ResponsSendBook } from '../../Interfaces/Pages/doctor';
+import { BookNowDoctor, catoo, Doctor, DoctorDetials, DoctorRegester, getBooking, ResponsSendBook } from '../../Interfaces/Pages/doctor';
 import { baseApiUrl } from '../../../bases/base-url';
 import { Token } from '@angular/compiler';
 
@@ -12,9 +12,14 @@ export class DoctorService {
 
   constructor(private _HttpClient:HttpClient) { }
 
+  AllCatoo():Observable<catoo>
+  {
+  return this._HttpClient.get<catoo>(`${baseApiUrl.Url}/api/doctor/specialties`)
+  }
+
   DoctorRegester(RegesterForm:DoctorRegester):Observable<any>
   {
-      return this._HttpClient.post('/api/doctor/register' , RegesterForm , {responseType:'text'})
+      return this._HttpClient.post(`${baseApiUrl.Url}/api/doctor/register`, RegesterForm , {responseType:'text'})
   }
 
   getAllDoctor():Observable<Doctor>

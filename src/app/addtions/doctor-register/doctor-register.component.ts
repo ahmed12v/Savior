@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DoctorService } from '../../shared/services/Pages/doctor.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { catoo } from '../../shared/Interfaces/Pages/doctor';
 
 @Component({
   selector: 'app-doctor-register',
@@ -10,7 +11,11 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
   templateUrl: './doctor-register.component.html',
   styleUrl: './doctor-register.component.css'
 })
-export class DoctorRegisterComponent {
+export class DoctorRegisterComponent implements OnInit{
+  ngOnInit(): void {
+    this.AllCato()
+  }
+  catooCome:catoo=[]
   spinner:boolean=false
   constructor(private _DoctorService:DoctorService , private _ToastrModule:ToastrService){}
 
@@ -50,6 +55,16 @@ export class DoctorRegisterComponent {
 
 
     }
+  }
+
+  AllCato()
+  {
+    this._DoctorService.AllCatoo().subscribe({
+      next:res=>{
+      this.catooCome=res
+      }
+    })
+    
   }
 
 }

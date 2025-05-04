@@ -13,7 +13,15 @@
 
   <!-- Nav Items -->
   <ul class="sidebar-nav">
-      @if (logingUser==false) {
+    @if (logingAdmin) {
+      <li class="sidebar-item">
+        <a class="sidebar-link" (click)="closeSidebar()" routerLink="adminLogin"
+           routerLinkActive="routerLinkActive">
+           <i class="fas fa-solid fa-unlock me-2"></i>Admin</a>
+    </li>
+    <hr class="fs-3 fw-bold text-white">
+    }
+      @if (logingUser==false && logingAdmin==false ) {
           <li class="sidebar-item">
               <a class="sidebar-link login" (click)="closeSidebar()" routerLink="about"
                  routerLinkActive="AthoActiv">About Savior</a>
@@ -26,7 +34,7 @@
           </li>
       }
       
-      @if(logingUser==true) {
+      @if(logingUser==true || logingAdmin==true) {
           <li class="sidebar-item">
               <a class="sidebar-link" (click)="closeSidebar()" routerLink="home"
                  routerLinkActive="routerLinkActive">

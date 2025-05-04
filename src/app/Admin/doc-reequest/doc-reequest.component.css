@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .doctor-card {
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 500px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-header {
+    background-color: #0d4f9b;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .doctor-avatar {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+    background-color: white;
+    color: #0d4f9b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+    transition: transform 0.3s;
+  }
+
+  .doctor-card:hover .doctor-avatar {
+    transform: rotate(10deg);
+  }
+
+  .doctor-name {
+    margin: 10px 0 5px;
+    font-size: 24px;
+  }
+
+  .doctor-specialty {
+    font-size: 16px;
+    opacity: 0.9;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .info-row:hover {
+    background-color: #f0f4fa;
+  }
+
+  .info-icon {
+    width: 30px;
+    color: #0d4f9b;
+    text-align: center;
+    font-size: 18px;
+    margin-right: 15px;
+  }
+
+  .info-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #616161;
+  }
+
+  .info-value {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .info-content {
+    flex-grow: 1;
+  }
+
+  .clinic-badge {
+    background-color: #0d4f9b;
+    color: white;
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-top: 5px;
+    animation: fadeIn 0.5s ease;
+  }
+  .Reject{
+    font-size: 16px; 
+    background-color: rgb(196, 0, 0) !important;
+    color: white !important;
+    font-weight: 700;
+    transition: all .7s;
+  }
+  .Reject:hover{
+    background: transparent !important;
+   border: rgb(196, 0, 0) solid 1px !important;
+   color: rgb(196, 0, 0) !important;
+   transform: translatey(-10px);
+
+  }
+  .Accept{
+    font-size: 16px; 
+    background-color: #0d4f9b !important;
+    color: white !important;
+    font-weight: 700;
+    transition: all .7s;
+  }
+  .Accept:hover{
+    background: transparent !important;
+   border: #0d4f9b solid 1px !important;
+   color: #0d4f9b !important;
+   transform: translatey(-10px);
+   
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .doctor-card {
+      max-width: 100%;
+      margin: 10px;
+    }
+  }

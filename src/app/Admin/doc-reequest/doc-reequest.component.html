@@ -1,0 +1,104 @@
+@if (spin) {
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+        <i class="fa fa-spin fa-spinner fw-bold fs-1 text-primary"></i>
+    </div>
+}@else {
+    <div class="container p-3  ">
+        <div class="row d-flex justify-content-between">
+            @if (DocReqCom) {
+                @for (req of DocReqCom; track $index) {
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <div class="doctor-card">
+                            <div class="card-header">
+                              <div class="doctor-avatar">DR</div>
+                              <h2 class="doctor-name"> {{req.firstName}} {{req.lastName}} </h2>
+                              <p class="doctor-specialty">{{req.specialty}}</p>
+                            </div>
+                            <div class="card-body d-flex gap-5">
+                                <div class="d-block justify-content-start">
+                                    <div class="info-row">
+                                        <div class="info-icon"><i class="fas fa-id-card"></i></div>
+                                        <div class="info-content">
+                                          <div class="info-label">Medical License</div>
+                                          <div class="info-value">{{req.medicalLicenseNumber}}</div>
+                                        </div>
+                                      </div>
+                                      <div class="info-row ">
+                                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                        <div class="info-content">
+                                          <div class="info-label">Hospital Name</div>
+                                          <div class="info-value">{{req.hospitalName}}</div>
+                                        </div>
+                                      </div>
+                                      <div class="info-row">
+                                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                                        <div class="info-content">
+                                          <div class="info-label">Phone</div>
+                                          <div class="info-value">{{req.phoneNumber}}</div>
+                                        </div>
+                                      </div>
+                                </div>
+            
+                               <div class="d-block justify-content-end">
+                              <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-shield-alt"></i></div>
+                                <div class="info-content">
+                                  <div class="info-label">SSN</div>
+                                  <div class="info-value">{{req.ssn}}</div>
+                                </div>
+                              </div>
+                              <div class="info-row ">
+                                <div class="info-icon"><i class="fas fa-clinic-medical"></i></div>
+                                <div class="info-content">
+                                  <div class="info-label">Clinic</div>
+                                  <div class="info-value">{{req.clinicName}}</div>
+                                  <div class="clinic-badge">Private Practice</div>
+                                </div>
+                              </div>
+                              <div class="info-row ">
+                                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="info-content">
+                                  <div class="info-label">Email</div>
+                                  <div class="info-value">{{req.email}}</div>
+                                </div>
+                              </div>
+                               </div>
+            
+                            </div>
+                         
+                            <div class="butns d-flex justify-content-center gap-3 p-3">
+            
+                                <button class="btn btn-primary ps-4 pe-4 rounded-5 Accept" (click)="AcceptNow(req.doctorID)">
+                                    @if (AcepptSpan) {
+                                        <i class="fa fa-spin fa-spinner"></i>
+                                    } @else {
+                                        Accept 
+                                    }
+                                    </button>
+                                <button class="btn btn-danger ps-4 pe-4 rounded-5 Reject"(click)="RejecttNow(req.doctorID)" >
+                                    @if (rejectSpan) {
+                                        <i class="fa fa-spin fa-spinner"></i>
+                                    } @else {
+                                        Reject 
+                                    }
+                                    </button>
+            
+                            </div>
+            
+                          </div>
+                    </div>
+                }
+            }
+           
+        </div>
+        
+    </div>
+    
+}
+@if (empty) {
+    <div class="p-5 text-center">
+        <p class="fs-3 fw-bold">
+            No Doctor Request Come Today
+        </p>
+    </div>
+}

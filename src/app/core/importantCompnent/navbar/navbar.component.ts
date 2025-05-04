@@ -25,40 +25,21 @@ constructor(private _router:Router , private _LogInService:LogInService , privat
 closeSidebar() {
     this.sidebarOpen = false;
 }
- ngOnInit(): void {
-   
-this._LogInService.UserDataAfterDecoded.subscribe(
-   
-  (log)=>{ 
-       if(this._LogInService.UserDataAfterDecoded.getValue()!=null){
-        
-        // const role = localStorage.getItem('role')
-        // if(role === 'admin'){
-        //    this.logingAdmin=true
-        //    this.logingUser=false
-        // }
-        // if(role ==='user'){
-        //   this.logingAdmin=false
-        //   this.logingUser=true
-        // }
-        
-        this.logingUser=true
-        // this._ToastrService.info('Savior', 'Welcome In Your Savior')
-       }else{
-        this.logingUser=false
-        // this.logingAdmin=false
-       }
-       
-  }
-  
-)
-
- }
+ngOnInit(): void {
+  this._LogInService.UserDataAfterDecoded.subscribe((decodedToken) => {
+    if (decodedToken) {
+      const roles = decodedToken.roles || decodedToken.role || []; 
+      this.logingAdmin = roles.includes('Admin');
+      this.logingUser = roles.includes('User');
+    } else {
+      this.logingAdmin = false;
+      this.logingUser = false;
+    }
+  });
+}
 
    logOut(){
-    this.logingUser=false
     localStorage.removeItem('token');
-   // localStorage.removeItem('role');
     this._LogInService.UserDataAfterDecoded.next(null);
     this._router.navigate(['/login'])
     this._ToastrService.info('bye bye', ' We hope you had a helpful experience and enjoyed it ')

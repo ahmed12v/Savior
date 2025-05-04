@@ -38,16 +38,17 @@ export class LoginComponent  {
           this.spinner=false
               //  console.log(res.token);
                localStorage.setItem('token',res.token)
-             //localStorage.setItem('role',res.role)
                this._loginServiec.decodToken()
-              //  const role = localStorage.getItem('role')
-              //  if(role ==='admin'){
-              //   this._Router.navigate(['adminWork'])
-              //  }
-              //  if(role==='user'){
-              //   this._Router.navigate(['/home'])
-              //  }
-              this._Router.navigate(['/home'])
+               const decodedToken = this._loginServiec.UserDataAfterDecoded.getValue();
+            if (decodedToken) {
+              const roles = decodedToken.roles || decodedToken.role || []; 
+              
+              if (roles.includes('Admin')) {
+                this._Router.navigate(['/adminLogin']); 
+              } else if (roles.includes('User')) {
+                this._Router.navigate(['/home']); 
+              } 
+            }
                
               
         },
