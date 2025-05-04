@@ -4,6 +4,8 @@ import { DoctorService } from '../../shared/services/Pages/doctor.service';
 import { RouterLink } from '@angular/router';
 import { Docreq } from '../../shared/Interfaces/Admin/admi';
 import { AdminWorkService } from '../../shared/services/Admin/admin-work.service';
+import { HomeService } from '../../shared/services/Pages/home.service';
+import { contact } from '../../shared/Interfaces/Pages/home';
 
 @Component({
   selector: 'app-admin-work',
@@ -19,14 +21,20 @@ export class AdminWorkComponent implements OnInit{
   empty=false
   spin=false
   DocReqCom:Docreq=[]
+  FeedbackData:contact =[];
   //#endregion
 
 ngOnInit(): void {
       this.getAllDoc()
       this.GetAllRequests()
+      this.getAllFeeds()
    }
   
-   constructor(private _DocServices:DoctorService ,private _AdminWorkService:AdminWorkService){}
+   constructor(
+    private _DocServices:DoctorService ,
+    private _AdminWorkService:AdminWorkService,
+    private _HomeService:HomeService,
+  ){}
  //#region Get
 getAllDoc()
 {
@@ -43,6 +51,7 @@ getAllDoc()
       }
    })
 }
+
 //
 GetAllRequests()
 {
@@ -60,6 +69,19 @@ GetAllRequests()
       this.spin=false
 
     }
+  })
+}
+//
+getAllFeeds()
+{
+  this._HomeService.getFeedback().subscribe({
+     next:res=>{
+       console.log(res)
+       this.FeedbackData=res
+     },
+     error:err=>{
+       console.log(err)
+     }
   })
 }
 //#endregion

@@ -72,7 +72,6 @@ export class ReservtionComponent implements OnInit {
         this.Spinnerbtn = false;
         this.bookingcome();
         this.showSuccessToast();
-        localStorage.removeItem('bookingTime');
       },
       error: (err) => {
         this.processingCancellation = false;

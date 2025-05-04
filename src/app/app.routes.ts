@@ -1,3 +1,4 @@
+import { AdminfeedsComponent } from './Admin/adminfeeds/adminfeeds.component';
 import { AichatComponent } from './Ai/aichat/aichat.component';
 import { DocReequestComponent } from './Admin/doc-reequest/doc-reequest.component';
 import { AdminWorkComponent } from './Admin/admin-work/admin-work.component';
@@ -382,6 +383,14 @@ export const routes: Routes = [
      loadComponent:()=>
         import('./Ai/aichat/aichat.component').then(
             (C)=>C.AichatComponent
+        )
+  },
+
+  {
+    path:'adminFeed',
+     loadComponent:()=>
+        import('./Admin/adminfeeds/adminfeeds.component').then(
+            (C)=>C.AdminfeedsComponent
         )
   },
 
