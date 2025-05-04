@@ -1,8 +1,0 @@
-<div class="chat-container">
-    <textarea [(ngModel)]="userInput" placeholder="اكتب شعورك هنا..."></textarea>
-    <button (click)="send()">إرسال</button>
-
-    <div *ngIf="aiResponse" class="response">
-      <strong>AI:</strong> {{ aiResponse }}
-    </div>
-  </div>
