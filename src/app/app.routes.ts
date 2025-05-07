@@ -1,3 +1,4 @@
+import { MedicineDetialsComponent } from './component/pharmacy/medicine-detials/medicine-detials.component';
 import { AdminfeedsComponent } from './Admin/adminfeeds/adminfeeds.component';
 import { AichatComponent } from './Ai/aichat/aichat.component';
 import { DocReequestComponent } from './Admin/doc-reequest/doc-reequest.component';
@@ -236,6 +237,14 @@ export const routes: Routes = [
         (c)=>c.UserCartComponent
       ),canActivate:[authGuard]
  },
+ {
+     path:'medditals/:id',
+     loadComponent:()=>
+      import('./component/pharmacy/medicine-detials/medicine-detials.component').then(
+        (c)=>c.MedicineDetialsComponent
+      ),canActivate:[authGuard]
+ },
+
  {
      path:'deliveryForm',
      loadComponent:()=>

@@ -11,6 +11,15 @@
     --warning: #fdcb6e;
     --danger: #d63031;
 }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--light);
+    margin: 0;
+}
+
 
 .neon-cart {
     max-width: 800px;
@@ -398,3 +407,123 @@
         padding: 0.2rem 1rem;
     }
 }
+
+.modal-backdrop-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease;
+}
+  
+.modal-box-custom {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 380px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+}
+  
+.modal-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+  
+.modal-header-custom h5 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+  
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    transition: color 0.2s;
+}
+  
+.btn-close:hover {
+    color: #e74c3c;
+}
+  
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #34495e;
+}
+  
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+  
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+  
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+  
+.btn-danger {
+    background-color: #d63031;
+    color: white;
+    border: none;
+}
+  
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+  
+.btn-secondary {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+    border: none;
+}
+  
+.btn-secondary:hover {
+    background-color: #95a5a6;
+}
+  
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+  
+@keyframes slideUp {
+    from { 
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+
