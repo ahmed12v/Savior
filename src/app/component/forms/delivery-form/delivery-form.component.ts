@@ -83,7 +83,7 @@ export class DeliveryFormComponent {
             userLongitude: longitude
           });
 
-          this._ToastrService.success('Location captured successfully');
+         // this._ToastrService.success('Location captured successfully');
           console.log("Lat:", latitude, "Long:", longitude);
           this.locationSet=true
         },
