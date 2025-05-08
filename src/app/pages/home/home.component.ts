@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { HomeService } from '../../shared/services/Pages/home.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AichatComponent } from '../../Ai/aichat/aichat.component';
 
 
 
@@ -12,7 +13,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, HomeSliderComponent , ReactiveFormsModule],
+  imports: [RouterLink, HomeSliderComponent , ReactiveFormsModule, AichatComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

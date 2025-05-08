@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
 import { Doctors } from '../../shared/Interfaces/Pages/doctor-gatogery';
 
 @Pipe({

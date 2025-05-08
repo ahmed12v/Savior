@@ -9,7 +9,7 @@
     <div class="search-container">
       <div class="search-bar">
         <i class="fas fa-search search-icon"></i>
-        <input type="text" placeholder="Search by medicine name..." class="search-input">
+        <input [(ngModel)]="userWord" (ngModelChange)="currentPage = 1" type="text" placeholder="Search by medicine name..." class="search-input">
         <div class="cart-icon-container" routerLink="/cart">
           <i class="fas fa-shopping-cart cart-icon"></i>
           <span class="cart-badge"> {{cart?.items?.length}} </span>
@@ -19,34 +19,37 @@
   
     <!-- Products Grid -->
     <div class="products-grid"  >
-      @for (item of (showAll ? allmedicine : paginatedItems); track $index) {
-        <div class="product-card shadow-sm"  >
-          <div class="product-image-container cuesor-pointer" [routerLink]="['/medditals',item.id]" >
-            <img [src]="item.image" alt="{{item.name}}" class="product-image" />
-            <div class="product-overlay">
-              <button class="quick-view-btn">
-                <i class="fas fa-eye" ></i> Quick View
+      
+        @for (item of paginatedFilteredItems; track $index) {
+          <div class="product-card shadow-sm"  >
+            <div class="product-image-container cuesor-pointer" [routerLink]="['/medditals',item.id]" >
+              <img [src]="item.image" alt="{{item.name}}" class="product-image" />
+              <div class="product-overlay">
+                <button class="quick-view-btn">
+                  <i class="fas fa-eye" ></i> Quick View
+                </button>
+              </div>
+            </div>
+            <div class="product-details">
+              <h3 class="product-title">{{ item.name }}</h3>
+              <div class="price-container d-block">
+               <p class="m-0"><span class="fs-6 fw-bold">Box Price :</span><span class="current-price">{{ item.boxPrice }} EGP</span></p> 
+               @if(item.stripPrice !=null || item.stripPrice !=undefined ) {
+                <p><span class="fs-6 fw-bold">Strip Price : </span><span class="current-price">{{ item.stripPrice }} EGP</span></p> 
+               }
+  
+                
+              </div>
+              <button class="add-to-cart-btn rounded-5" (click)="openAddToCartForm(item.id)">
+                <i class="fas fa-cart-plus"></i> Add to Cart
               </button>
             </div>
           </div>
-          <div class="product-details">
-            <h3 class="product-title">{{ item.name }}</h3>
-            <div class="price-container d-block">
-             <p class="m-0"><span class="fs-6 fw-bold">Box Price :</span><span class="current-price">{{ item.boxPrice }} EGP</span></p> 
-             @if(item.stripPrice !=null || item.stripPrice !=undefined ) {
-              <p><span class="fs-6 fw-bold">Strip Price : </span><span class="current-price">{{ item.stripPrice }} EGP</span></p> 
-             }
-
-              
-            </div>
-            <button class="add-to-cart-btn rounded-5" (click)="openAddToCartForm(item.id)">
-              <i class="fas fa-cart-plus"></i> Add to Cart
-            </button>
-          </div>
-        </div>
-        
-    
-      }
+          
+      
+        }
+      
+      
     </div>
     <!-- Modal Form -->
     @if (showAddForm) {

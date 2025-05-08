@@ -6,11 +6,12 @@ import { Phahrmacy } from '../../shared/Interfaces/Pages/phahrmacy';
 import { PharmcyService } from '../../shared/services/Pages/pharmcy.service';
 import { ToastrService } from 'ngx-toastr';
 import { LogInService } from '../../shared/services/athountocation/log-in.service';
+import { MedicinebyNamedPipe } from '../../core/pipes/medicineby-named.pipe';
 
 @Component({
   selector: 'app-medicine',
   standalone: true,
-  imports: [RouterLink, FormsModule, CommonModule , ReactiveFormsModule],
+  imports: [RouterLink, FormsModule, CommonModule, ReactiveFormsModule,MedicinebyNamedPipe],
   templateUrl: './medicine.component.html',
   styleUrl: './medicine.component.css'
 })
@@ -20,6 +21,7 @@ export class MedicineComponent implements OnInit {
   allmedicine: Phahrmacy = [];
   currentPage = 1;
   itemsPerPage = 8;
+  userWord:string=''
 
   constructor(private _PharmcyService: PharmcyService , private _ToastrService:ToastrService,private _LogInService:LogInService) {}
 
@@ -121,9 +123,9 @@ export class MedicineComponent implements OnInit {
     });
   }
 
-  get totalPages(): number {
-    return Math.ceil(this.allmedicine.length / this.itemsPerPage);
-  }
+  // get totalPages(): number {
+  //   return Math.ceil(this.allmedicine.length / this.itemsPerPage);
+  // }
 
   get paginatedItems(): Phahrmacy {
     if (this.showAll) return this.allmedicine;
@@ -180,5 +182,28 @@ export class MedicineComponent implements OnInit {
     if (this.showAll) {
       this.currentPage = 1;
     }
+  }
+
+  get filteredItems(): Phahrmacy {
+    // فلترة بناءً على الكلمة
+    return this.userWord
+      ? new MedicinebyNamedPipe().transform(this.allmedicine, this.userWord)
+      : this.allmedicine;
+  }
+  
+  get paginatedFilteredItems(): Phahrmacy {
+    const items = this.filteredItems;
+  
+    // لو عرض الكل مفعّل
+    if (this.showAll) return items;
+  
+    // Pagination عادي
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return items.slice(startIndex, endIndex);
+  }
+  
+  get totalPages(): number {
+    return Math.ceil(this.filteredItems.length / this.itemsPerPage);
   }
 }

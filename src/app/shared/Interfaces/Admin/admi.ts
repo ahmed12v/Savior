@@ -29,3 +29,7 @@ export interface FeedAdmin {
   name: string
   feedback: string
 }
+export interface Ai {
+  message: string
+}
+
