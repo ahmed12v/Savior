@@ -227,4 +227,33 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.toMedicine{
+  color: white;
+  background: #0d4f9b;
+  border: #0d4f9b 1px solid;
+  font-weight: bold;
+  transition: all .5s;
+}
+.toMedicine:hover{
+  color: #0d4f9b;
+  background: #ffffff;
+  border: #0d4f9b 1px solid;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+.toDoctorDep{
+  background-color:rgb(199, 144, 72);
+  color: white;
+  font-weight: bold;
+  border:rgb(199, 144, 72) solid 1px ;
+  transition: all .5s;
+}
+.toDoctorDep:hover{
+  background-color:white;
+  color: rgb(199, 144, 72);
+  font-weight: bold;
+  border:rgb(199, 144, 72) solid 1px ;
+  transform: scale(1.05);
+
+}
 

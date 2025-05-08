@@ -30,18 +30,18 @@
     <!-- Chat Form -->
     <form [formGroup]="CaseForm" (ngSubmit)="SendCase()" class="chat-input-box d-flex">
       <input formControlName="message" id="user" placeholder="Type your message..." class="form-control shadow-sm me-2">
-      <button  class="btn btn-primary rounded-5 px-4 send">
+      <button  class="btn btn-primary rounded-5 px-4 send" [disabled]="CaseForm.invalid">
         Send <i class="fas fa-paper-plane ms-1"></i>
       </button>
     </form>
-
+    
     <div class="userSfterChat mt-4 w-100 d-flex gap-3">
-             <button class="w-50 toMedicine rounded-5 p-2" routerLink="/searchMedicine">
-                 Get Medicine <i class="fa-solid fa-capsules"></i>
-                </button>
-             <button class="w-50 toDoctorDep rounded-5 p-2"routerLink="/allCatogery">
-                 Get Doctor <i class="fa-solid fa-user-doctor"></i>
-                </button>
-    </div>
+        <button class="w-50 toMedicine rounded-5 p-2" routerLink="/searchMedicine">
+            Get Medicine <i class="fa-solid fa-capsules"></i>
+           </button>
+        <button class="w-50 toDoctorDep rounded-5 p-2"routerLink="/allCatogery">
+            Get Doctor <i class="fa-solid fa-user-doctor"></i>
+           </button>
+</div>
   </div>
   

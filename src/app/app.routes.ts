@@ -1,3 +1,4 @@
+import { UserDataComponent } from './Admin/user-data/user-data.component';
 import { MedicineDetialsComponent } from './component/pharmacy/medicine-detials/medicine-detials.component';
 import { AdminfeedsComponent } from './Admin/adminfeeds/adminfeeds.component';
 import { AichatComponent } from './Ai/aichat/aichat.component';
@@ -400,6 +401,14 @@ export const routes: Routes = [
      loadComponent:()=>
         import('./Admin/adminfeeds/adminfeeds.component').then(
             (C)=>C.AdminfeedsComponent
+        )
+  },
+
+  {
+    path:'userData',
+     loadComponent:()=>
+        import('./Admin/user-data/user-data.component').then(
+            (C)=>C.UserDataComponent
         )
   },
 

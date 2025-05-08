@@ -21,6 +21,7 @@ private _AichatService:AichatService
 resultComeFromAi=false
 result!:any
 resultSpinner=false
+btn=false
 
 CaseForm:FormGroup=new FormGroup({
   message:new FormControl('',Validators.required)
@@ -46,6 +47,7 @@ SendCase() {
         const cleanedResponse = this.cleanText(result);
         this.result = cleanedResponse;
         this.CaseForm.reset()
+        this.btn=true
       },
       error: err => {
         console.error(err);
