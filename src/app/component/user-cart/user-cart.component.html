@@ -13,7 +13,7 @@
     
     <div class="cart-body">
         @if (empty) {
-            <div class="p-3 d-flex justify-content-center align-items-center">
+            <div class="p-3 d-flex justify-content-center align-items-center fw-bold fs-5 border border-2 rounded-3">
              <p> Your Cart Empty </p>
             </div>
         }
@@ -22,11 +22,11 @@
         <div class="product-card slide-in bg-transparent">
             <div class="product-badge">Savior</div>
             <div class="product-image">
-                <img src="../../../assets/imege/Voltaren.jpg" alt="Voltaren">
+                <img [src]="cart.imageUrl" alt="Voltaren">
             </div>
             
             <div class="product-details">
-                <h3 class="product-name"> name </h3>
+                <h3 class="product-name"> {{cart.medicineName}} </h3>
                 <p class="product-desc"> Quantity : {{cart.quantity}} </p>
                 <p class="product-desc"> {{cart.priceType}} </p>
                 <div class="price"> {{cart.price}} EGP</div>
@@ -48,13 +48,73 @@
   
         <div class="action-btns">
             <button routerLink="/deliveryForm" class="checkout-btn glow fw-bold"><i class="fa-solid fa-truck"></i> Delivery Request</button>
-            <button routerLink="/nearstForm" class="pharmacy-btn">
+            <button (click)="handleFindNearest()" class="pharmacy-btn">
                 <i class="fas fa-map-marker-alt fw-bold"></i> Find Nearest Pharmacy
             </button>
         </div>
     </div>
   </div>
 }
+<!-- popup -->
+@if (showPopup) {
+    <div class="fullscreen-popup" >
+        <div class="popup-overlay" (click)="closePopup()"></div>
+        
+        <div class="popup-container">
+          <div class="popup-header">
+            <h2>
+              <i class="fas fa-map-marker-alt"></i>
+              Nearest Pharmacies
+              <span class="badge">{{Nearcom.length}} found</span> 
+              <span class="badge fs-5">nearest ten pharmacies for you</span> 
+            </h2>
+            <button class="close-btn" (click)="closePopup()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        
+          <div class="popup-body">
+            <div class="pharmacies-row">
+              @for (pharm of Nearcom.slice(0,10); track $index) {
+                <div class="pharmacy-card" >
+                  <div class="pharmacy-icon">
+                    <i class="fas fa-clinic-medical"></i>
+                  </div>
+                  <div class="pharmacy-info">
+                    <h4>{{pharm.name}}</h4>
+                    <p class="address">
+                      <i class="fas fa-map-pin"></i>
+                      {{pharm.fullAddress}}
+                    </p>
+                    <div class="pharmacy-meta">
+                      <span class="delivery-badge" [class.available]="pharm.hasDelivery">
+                        <i class="fas fa-truck"></i>
+                        {{pharm.hasDelivery ? 'Delivery Available' : 'No Delivery'}}
+                      </span>
+                      <span class="distance">
+                        <i class="fas fa-route"></i>
+                        {{pharm.distanceInKm | number:'1.2-2'}} km
+                      </span>
+                    </div>
+                  </div>
+                  <button class="action-btn">
+                    <i class="fas fa-directions"></i>
+                  </button>
+                </div>
+              }
+            </div>
+          </div>
+        
+          <div class="popup-footer">
+            <button class="close-btn large" (click)="closePopup()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+  }
+  
+
 
 @if (showAddForm) {
   <!-- Modal Backdrop -->
@@ -80,8 +140,8 @@
               <div class="mb-3">
                   <label class="form-label">Price Type</label>
                   <select formControlName="priceType" class="form-select">
-                      <option value="box">Box</option>
-                      <option value="strip">Strip</option>
+                      <option value="Box">Box</option>
+                      <option value="Strip">Strip</option>
                   </select>
               </div>
 

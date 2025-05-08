@@ -38,3 +38,14 @@ export interface CheckOut{
   useruserLongitudeID:string
   userPhone:string
 }
+
+export type getNear =NearCome[]
+
+export interface  NearCome
+{
+  id:string
+  name:string
+  fullAddress:string
+  hasDelivery:string
+  distanceInKm:string
+}

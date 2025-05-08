@@ -1,6 +1,9 @@
 export enum baseApiUrl {
-    Url='https://gpsavior.runasp.net',
-    Ur2='https://saviorr.runasp.net' ,
+    Url='https://gpsavior.runasp.net', //zarad
+}
+export enum base2{
+    Ur2='https://saviorr.runasp.net',  // khoulod
+
 }
 
 //http://gpsavior.runasp.net

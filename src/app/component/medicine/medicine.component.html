@@ -33,7 +33,9 @@
             <h3 class="product-title">{{ item.name }}</h3>
             <div class="price-container d-block">
              <p class="m-0"><span class="fs-6 fw-bold">Box Price :</span><span class="current-price">{{ item.boxPrice }} EGP</span></p> 
-             <p><span class="fs-6 fw-bold">Strip Price : </span><span class="current-price">{{ item.stripPrice }} EGP</span></p> 
+             @if(item.stripPrice !=null || item.stripPrice !=undefined ) {
+              <p><span class="fs-6 fw-bold">Strip Price : </span><span class="current-price">{{ item.stripPrice }} EGP</span></p> 
+             }
 
               
             </div>

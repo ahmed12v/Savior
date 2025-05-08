@@ -4,7 +4,6 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Login } from '../../Interfaces/athountocation/login';
-import { Router } from '@angular/router';
 import { baseApiUrl } from '../../../bases/base-url';
 
 @Injectable({
