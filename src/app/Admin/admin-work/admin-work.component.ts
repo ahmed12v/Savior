@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Doctor } from '../../shared/Interfaces/Pages/doctor';
 import { DoctorService } from '../../shared/services/Pages/doctor.service';
 import { RouterLink } from '@angular/router';
-import { Docreq } from '../../shared/Interfaces/Admin/admi';
+import { Docreq, User } from '../../shared/Interfaces/Admin/admi';
 import { AdminWorkService } from '../../shared/services/Admin/admin-work.service';
 import { HomeService } from '../../shared/services/Pages/home.service';
 import { contact } from '../../shared/Interfaces/Pages/home';
@@ -28,8 +28,9 @@ ngOnInit(): void {
       this.getAllDoc()
       this.GetAllRequests()
       this.getAllFeeds()
+      this.AllUser()
    }
-  
+
    constructor(
     private _DocServices:DoctorService ,
     private _AdminWorkService:AdminWorkService,
@@ -86,4 +87,27 @@ getAllFeeds()
 }
 //#endregion
  
+UserSpin=false 
+AllUserCome:User=[]
+
+
+
+AllUser()
+{
+  this.UserSpin=true
+  this._AdminWorkService.GetAllUser().subscribe({
+    next:res=>{
+   this.AllUserCome=res
+   this.UserSpin=false
+   console.log(res);
+   
+    },
+    error:err=>{
+      this.UserSpin=false 
+      console.log(err);
+      
+    }
+  })
+}
+
 }

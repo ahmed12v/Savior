@@ -14,13 +14,15 @@ export class UserDataComponent implements OnInit{
     this.AllUser()
   }
 
+  constructor(
+    private _AdminWorkService:AdminWorkService,
+  
+  ){}
+
 spin=false 
 AllUserCome:User=[]
 
-constructor(
-  private _AdminWorkService:AdminWorkService,
 
-){}
 
 AllUser()
 {
@@ -39,5 +41,6 @@ AllUser()
     }
   })
 }
+
 
 }
