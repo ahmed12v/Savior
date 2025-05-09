@@ -47,7 +47,7 @@
         </div>
   
         <div class="action-btns">
-            <button routerLink="/deliveryForm" class="checkout-btn glow fw-bold"><i class="fa-solid fa-truck"></i> Delivery Request</button>
+            <button [routerLink]="['/deliveryForm',cart?.cartId]" class="checkout-btn glow fw-bold"><i class="fa-solid fa-truck"></i> Delivery Request</button>
             <button (click)="handleFindNearest()" class="pharmacy-btn">
               @if (nearspin) {
                 <i class="fa fa-spin fa-spinner"></i>

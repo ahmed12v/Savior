@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Route, Router, RouterLink } from '@angular/router';
 import { getNear, Phahrmacy } from '../../shared/Interfaces/Pages/phahrmacy';
 import { PharmcyService } from '../../shared/services/Pages/pharmcy.service';
 import { LogInService } from '../../shared/services/athountocation/log-in.service';
@@ -23,7 +23,8 @@ ngOnInit(): void {
 constructor( 
   private _PharmcyService:PharmcyService ,
   private _LogInService:LogInService ,
-  private _ToastrService:ToastrService
+  private _ToastrService:ToastrService,
+  private _Router:Router
                                     ){}
 
 //#region Caart Coe
@@ -46,6 +47,7 @@ getCartByID()
         console.log(err)
         this.spin=false
           this.empty=true
+          this._Router.navigate(['/searchMedicine'])
         
       }
     })

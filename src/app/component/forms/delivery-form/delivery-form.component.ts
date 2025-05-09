@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LogInService } from '../../../shared/services/athountocation/log-in.service';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-delivery-form',
@@ -18,11 +19,12 @@ export class DeliveryFormComponent {
   constructor(
     private _PharmcyService: PharmcyService,
     private _ToastrService: ToastrService,
-    private _LogInService: LogInService
+    private _LogInService: LogInService,
+    private _ActivatedRoute:ActivatedRoute
   ) {}
 
   checkForm: FormGroup = new FormGroup({
-    userID: new FormControl(null, Validators.required),
+    cartID: new FormControl(null, Validators.required),
     userLatitude: new FormControl(),
     userLongitude: new FormControl(),
     userPhone: new FormControl(null, Validators.required)
@@ -41,9 +43,9 @@ export class DeliveryFormComponent {
       }
   
       // اطبع الـ userID للتأكيد
-      console.log('User ID from token:', userId);
+     // console.log('User ID from token:', userId);
   
-      this.checkForm.patchValue({ userID: userId });
+      this.checkForm.patchValue({ cartID: '' });
   
       // تحقق من صلاحية النموذج
       if (this.checkForm.valid) {

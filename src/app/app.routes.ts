@@ -247,7 +247,7 @@ export const routes: Routes = [
  },
 
  {
-     path:'deliveryForm',
+     path:'deliveryForm/:id',
      loadComponent:()=>
       import('./component/forms/delivery-form/delivery-form.component').then(
         (c)=>c.DeliveryFormComponent
