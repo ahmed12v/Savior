@@ -49,3 +49,7 @@ export interface  NearCome
   hasDelivery:string
   distanceInKm:string
 }
+
+export interface ClearAll{
+  userID:string
+}

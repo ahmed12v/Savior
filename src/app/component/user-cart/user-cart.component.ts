@@ -145,4 +145,39 @@ Addspi=false
 
 //#endregion
 
+//#region ClearAll
+ClearForm:FormGroup=new FormGroup({
+  userID:new FormControl()
+})
+
+ClearSpin=false
+
+ClearNow()
+{
+  this.ClearSpin=true
+
+  this._LogInService.UserDataAfterDecoded.subscribe((decodedToken) => {
+      const userId = decodedToken.nameid;
+
+      this.ClearForm.patchValue({ userID : userId})
+  })
+
+  this._PharmcyService.ClearAll(this.ClearForm.value).subscribe({
+    
+    next:res=>{
+     // console.log(res);
+      this.ClearSpin=false
+      this._Router.navigate(['/searchMedicine'])
+      this._ToastrService.success('savior', res.message)
+    },
+    error:err=>{
+      console.log(err);
+      this.ClearSpin=false
+      
+    }
+  })
+}
+
+//#endregion
+
 }

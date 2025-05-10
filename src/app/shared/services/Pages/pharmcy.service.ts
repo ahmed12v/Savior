@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AddToCart, Cart, CheckOut, getNear, Phahrmacy } from '../../Interfaces/Pages/phahrmacy';
+import { AddToCart, Cart, CheckOut, ClearAll, getNear, Phahrmacy } from '../../Interfaces/Pages/phahrmacy';
 import { base2} from '../../../bases/base-url';
 
 @Injectable({
@@ -44,6 +44,11 @@ export class PharmcyService {
   NearPharm(lat:any , long:any):Observable<getNear>
   {
     return this._HttpClient.get<getNear>(`${base2.Ur2}/api/Pharmacies/nearest?latitude=${lat}&longitude=${long}`)
+  }
+
+   ClearAll(ClearForm:ClearAll):Observable<any>
+  {
+    return this._HttpClient.delete(`${base2.Ur2}/api/Cart/clear-all`, {body:ClearForm})
   }
   
 }
