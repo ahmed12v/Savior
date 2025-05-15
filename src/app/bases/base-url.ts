@@ -6,6 +6,6 @@ export enum base2{
 
 }
 
-//http://gpsavior.runasp.net
+//https://gpsavior.runasp.net
 //https://saviorr.runasp.net
 //nameid

@@ -40,8 +40,7 @@ export class EmergencyTeamComponent implements OnInit {
     }, 1000);
   }
 
-  openForm(type: string) {
-    this.selectedType = type;
+  openForm() {
     this.showForm = true;
   }
 

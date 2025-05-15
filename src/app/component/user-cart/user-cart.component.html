@@ -7,14 +7,16 @@
     <div class="cart-header">
         <h1><span class="neon-text">Your</span> Cart <i class="fa-solid fa-cart-shopping"></i></h1>
         <div class="cart-stats d-flex justify-content-end">
-            <button class="clear-btn pulse" (click)="ClearNow()" > @if (ClearSpin) {
+            <button class="clear-btn pulse" (click)="ClearNow()" > 
+              @if (ClearSpin) {
                 <i class="fa fa-spin fa-spinner"></i>
               }@else{
-              Clear All
-              }</button>
+                 Clear All
+              }
+            </button>
         </div>
     </div>
-    
+
     <div class="cart-body">
         @if (empty) {
             <div class="p-3 d-flex justify-content-center align-items-center fw-bold fs-5 border border-2 rounded-3">

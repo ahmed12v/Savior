@@ -8,30 +8,32 @@
         </div>
       </div>
       
-      <form  class="crisis-form">
-        <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="text" placeholder="Full Name" [(ngModel)]="formData.name" name="name" required />
-        </div>
+      <form  class="crisis-form" [formGroup]="RequestForm" (ngSubmit)="request()">
+       
         
         <div class="input-group">
           <i class="fas fa-phone-alt"></i>
-          <input type="tel" placeholder="Mobile Number" [(ngModel)]="formData.phone" name="phone" required />
+          <input formControlName="phone" type="tel" placeholder="Mobile Number"  name="phone" required />
         </div>
         
         <div class="input-group">
           <i class="fas fa-map-marker-alt"></i>
-          <input type="text" placeholder="Detailed Address" [(ngModel)]="formData.address" name="address" required />
+          <input formControlName="location" type="text" placeholder="Detailed Address"  name="address" required />
         </div>
         
         <div class="input-group">
-          <i class="fas fa-bolt"></i>
-          <input type="text" [value]="emergencyType" disabled class="emergency-type-input" />
-        </div>
+              <i class="fas fa-bolt"></i>
+          <select formControlName="type" class="emergency-type-input text-white">
+             <option selected disabled  class="text-black" value=select> Select... </option>
+             <option class="text-black" value=0 > Accodent </option>
+             <option class="text-black" value=1 > Fires </option>
+             <option class="text-black" value=2 > Late Night Emergency </option>
+          </select>
+      </div>
         
         <div class="input-group">
           <i class="fas fa-edit"></i>
-          <textarea placeholder="Additional Notes" [(ngModel)]="formData.notes" name="notes"></textarea>
+          <input formControlName="isConfirmed" placeholder="Confirm" value="true" readonly name="notes">
         </div>
   
         <button type="submit" class="emergency-submit-btn">
