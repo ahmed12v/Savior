@@ -56,59 +56,7 @@ background-attachment: local !important;
    
 }
 }
-/* --------------- */
-.container-AddDoctor{
-    border: #0d4f9b 10px solid;
-    border-right:none ;
-    border-top: none  ;
-}
-.container-AddDoctor h1{
-    font-family: serif;
-    color: #0d4f9b;
-}
-.container-AddDoctor {
-    font-family: serif;
-}
-.modern-button {
-    background: linear-gradient(135deg, #0d4f9b, #0d4f9b);
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  .modern-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transform: scale(1.07);
-  }
-  .modern-button:active {
-    transform: scale(0.98);
-  }
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .container-AddDoctor {
-    animation: fadeInUp 3s ease-out;
-    transition: all 1s;
-    overflow-y: hidden;
-  }
-  .container-AddDoctor:hover{
-    transform: scale(1.03);
-  }
 
-  /* ------------------ */
   .servies-section{
     background-image:linear-gradient(rgba(255, 255, 255, 0.308),rgb(123, 176, 237))
     , url(../../../assets/imege/0be620b4ce2962f994634032b4a84cd4.jpg);

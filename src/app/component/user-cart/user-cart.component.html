@@ -1,51 +1,171 @@
-<div class="neon-cart bg-transparent">
-  <div class="cart-header">
-      <h1><span class="neon-text">Your</span> Cart <i class="fa-solid fa-cart-shopping"></i></h1>
-      <div class="cart-stats d-flex justify-content-end">
-          <button class="clear-btn pulse">Clear All</button>
-      </div>
+@if (spin) {
+  <div class="d-flex vh-100 justify-content-center align-items-center">
+    <i class="fa fa-spin fa-spinner fs-3 fw-bold text-primary"></i>
   </div>
-
-  <div class="cart-body">
-      <!-- Product 1 - Voltaren -->
-
-      <div class="product-card slide-in bg-transparent">
-          <div class="product-badge">Savior</div>
-          <div class="product-image">
-              <img src="../../../assets/imege/Voltaren.jpg" alt="Voltaren">
-          </div>
-          <div class="product-details">
-              <h3 class="product-name">Voltaren</h3>
-              <p class="product-desc">Pain Relief Gel</p>
-              <div class="price">33 EGP</div>
-          </div>
-          <div class="product-controls">
-              <button class="control-btn minus bg-transparent"><i class="fas fa-minus"></i></button>
-              <span class="quantity">1</span>
-              <button class="control-btn plus bg-transparent"><i class="fas fa-plus"></i></button>
-          </div>
-          <button class="remove-btn"><i class="fas fa-trash-alt"></i></button>
-      </div>
-
-      <!-------- End Card -------->
-
-     
+}@else {
+  <div class="neon-cart bg-transparent">
+    <div class="cart-header">
+        <h1><span class="neon-text">Your</span> Cart <i class="fa-solid fa-cart-shopping"></i></h1>
+        <div class="cart-stats d-flex justify-content-end">
+            <button class="clear-btn pulse" (click)="ClearNow()" > @if (ClearSpin) {
+                <i class="fa fa-spin fa-spinner"></i>
+              }@else{
+              Clear All
+              }</button>
+        </div>
+    </div>
+    
+    <div class="cart-body">
+        @if (empty) {
+            <div class="p-3 d-flex justify-content-center align-items-center fw-bold fs-5 border border-2 rounded-3">
+             <p> Your Cart Empty </p>
+            </div>
+        }
+        <!-- Product 1 - Voltaren -->
+        @for (cart of cart?.items; track $index) {
+        <div class="product-card slide-in bg-transparent">
+            <div class="product-badge">Savior</div>
+            <div class="product-image">
+                <img [src]="cart.imageUrl" alt="Voltaren">
+            </div>
+            
+            <div class="product-details">
+                <h3 class="product-name"> {{cart.medicineName}} </h3>
+                <p class="product-desc"> Quantity : {{cart.quantity}} </p>
+                <p class="product-desc"> {{cart.priceType}} </p>
+                <div class="price"> {{cart.price}} EGP</div>
+            </div>
+            
+  
+            <button class="remove-btn" (click)="openAddToCartForm(cart.medicineID)"><i class="fas fa-trash-alt"></i></button>
+        </div>
+        }
+    </div>
+  
+    <div class="cart-footer">
+        <div class="total-section">
+            <div class="total">
+                <span>Total</span>
+                <span class="total-price"> {{cart?.totalPrice}} EGP</span>
+            </div>
+        </div>
+  
+        <div class="action-btns">
+            <button [routerLink]="['/deliveryForm',cart?.cartId]" class="checkout-btn glow fw-bold"><i class="fa-solid fa-truck"></i> Delivery Request</button>
+            <button (click)="handleFindNearest()" class="pharmacy-btn">
+              @if (nearspin) {
+                <i class="fa fa-spin fa-spinner"></i>
+              }@else {
+                <i class="fas fa-map-marker-alt fw-bold"></i> Find Nearest Pharmacy
+              }
+            </button>
+        </div>
+    </div>
   </div>
-
-  <div class="cart-footer">
-      <div class="total-section">
+}
+<!-- popup -->
+@if (showPopup) {
+    <div class="fullscreen-popup" >
+        <div class="popup-overlay" (click)="closePopup()"></div>
         
-          <div class="total">
-              <span>Total</span>
-              <span class="total-price">33 EGP</span>
+        <div class="popup-container">
+          <div class="popup-header">
+            <h2>
+              <i class="fas fa-map-marker-alt"></i>
+              Nearest Pharmacies
+              <span class="badge">{{Nearcom.length}} found</span> 
+              <span class="badge fs-5">nearest ten pharmacies for you</span> 
+            </h2>
+            <button class="close-btn" (click)="closePopup()">
+              <i class="fas fa-times"></i>
+            </button>
           </div>
+        
+          <div class="popup-body">
+            <div class="pharmacies-row">
+              @for (pharm of Nearcom.slice(0,10); track $index) {
+                <div class="pharmacy-card" >
+                  <div class="pharmacy-icon">
+                    <i class="fas fa-clinic-medical"></i>
+                  </div>
+                  <div class="pharmacy-info">
+                    <h4>{{pharm.name}}</h4>
+                    <p class="address">
+                      <i class="fas fa-map-pin"></i>
+                      {{pharm.fullAddress}}
+                    </p>
+                    <div class="pharmacy-meta">
+                      <span class="delivery-badge" [class.available]="pharm.hasDelivery">
+                        <i class="fas fa-truck"></i>
+                        {{pharm.hasDelivery ? 'Delivery Available' : 'No Delivery'}}
+                      </span>
+                      <span class="distance">
+                        <i class="fas fa-route"></i>
+                        {{pharm.distanceInKm | number:'1.2-2'}} km
+                      </span>
+                    </div>
+                  </div>
+                  <button class="action-btn">
+                    <i class="fas fa-directions"></i>
+                  </button>
+                </div>
+              }
+            </div>
+          </div>
+        
+          <div class="popup-footer">
+            <button class="close-btn large" (click)="closePopup()">
+              Close
+            </button>
+          </div>
+        </div>
       </div>
+  }
+  
 
-      <div class="action-btns ">
-          <button routerLink="/deliveryForm"  class="checkout-btn glow fw-bold"><i class="fa-solid fa-truck"></i> Delivery Request</button>
-          <button routerLink="/nearstForm" class="pharmacy-btn">
-              <i class="fas fa-map-marker-alt fw-bold"></i> Find Nearest Pharmacy
-          </button>
+
+@if (showAddForm) {
+  <!-- Modal Backdrop -->
+  <div class="modal-backdrop-custom">
+      <div class="modal-box-custom">
+          <div class="modal-header-custom d-flex justify-content-between align-items-center">
+              <h5 class="fw-bold m-0">🗑️ Delete From Cart</h5>
+              <button class="btn-close" aria-label="Close" (click)="showAddForm = false"></button>
+          </div>
+
+          <form [formGroup]="DeleteForm" (ngSubmit)="Delete()">
+              <div class="mb-3">
+                  <label class="form-label">Quantity</label>
+                  <input
+                      type="number"
+                      formControlName="quantity"
+                      class="form-control"
+                      min="1"
+                      placeholder="Enter quantity"
+                  />
+              </div>
+
+              <div class="mb-3">
+                  <label class="form-label">Price Type</label>
+                  <select formControlName="priceType" class="form-select">
+                      <option value="Box">Box</option>
+                      <option value="Strip">Strip</option>
+                  </select>
+              </div>
+
+              <div class="d-flex justify-content-end gap-2">
+                  <button
+                      type="submit"
+                      class="btn btn-danger px-4"
+                      [disabled]="Addspi"
+                  >
+                      {{ Addspi ? 'Deleting...' : 'Delete' }}
+                  </button>
+                  <button type="button" class="btn btn-secondary" (click)="showAddForm = false">
+                      Cancel
+                  </button>
+              </div>
+          </form>
       </div>
   </div>
-</div>
+  }

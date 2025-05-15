@@ -22,3 +22,24 @@ export interface reqcome {
   dailySchedules: any
   worksAts: any
 }
+
+export type AdminFeed = FeedAdmin[]
+
+export interface FeedAdmin {
+  name: string
+  feedback: string
+}
+export interface Ai {
+  message: string
+}
+
+export type User=AllUser[]
+
+export interface AllUser{
+  id:string
+  fname:string
+  lname:string
+  email:string
+  phone:string
+}
+

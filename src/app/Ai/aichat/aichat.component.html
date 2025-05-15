@@ -1,0 +1,47 @@
+<div class="chat-wrapper container py-4 mt-5 shadow-lg">
+    <h3 class="text-center mb-4 whatfeel text-primary">What do you feel now?</h3>
+  
+    <div class="chat-box mb-3">
+      <!-- User Message -->
+       @if (CaseForm.value.message) {
+        <div  class="chat-message user-message animate-fade-in">
+            {{ CaseForm.value.message }}
+          </div>
+       }
+      
+  
+      <!-- Spinner -->
+       @if (resultSpinner) {
+        <div  class="chat-message ai-message spinner">
+            <i class="fas fa-spinner fa-spin text-muted"></i> Thinking...
+          </div>
+       }
+      
+  
+      <!-- AI Response -->
+       @if (result &&resultComeFromAi) {
+        <div  class="chat-message ai-message animate-slide-in">
+            {{ result }}
+          </div>
+       }
+      
+    </div>
+  
+    <!-- Chat Form -->
+    <form [formGroup]="CaseForm" (ngSubmit)="SendCase()" class="chat-input-box d-flex">
+      <input formControlName="message" id="user" placeholder="Type your message..." class="form-control shadow-sm me-2">
+      <button  class="btn btn-primary rounded-5 px-4 send" [disabled]="CaseForm.invalid">
+        Send <i class="fas fa-paper-plane ms-1"></i>
+      </button>
+    </form>
+    
+    <div class="userSfterChat mt-4 w-100 d-flex gap-3">
+        <button class="w-50 toMedicine rounded-5 p-2" routerLink="/searchMedicine">
+            Get Medicine <i class="fa-solid fa-capsules"></i>
+           </button>
+        <button class="w-50 toDoctorDep rounded-5 p-2"routerLink="/allCatogery">
+            Get Doctor <i class="fa-solid fa-user-doctor"></i>
+           </button>
+</div>
+  </div>
+  

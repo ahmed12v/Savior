@@ -11,6 +11,15 @@
     --warning: #fdcb6e;
     --danger: #d63031;
 }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--light);
+    margin: 0;
+}
+
 
 .neon-cart {
     max-width: 800px;
@@ -398,3 +407,449 @@
         padding: 0.2rem 1rem;
     }
 }
+
+.modal-backdrop-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease;
+}
+  
+.modal-box-custom {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 380px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+}
+  
+.modal-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+  
+.modal-header-custom h5 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+  
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    transition: color 0.2s;
+}
+  
+.btn-close:hover {
+    color: #e74c3c;
+}
+  
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #34495e;
+}
+  
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+  
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+  
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+  
+.btn-danger {
+    background-color: #d63031;
+    color: white;
+    border: none;
+}
+  
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+  
+.btn-secondary {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+    border: none;
+}
+  
+.btn-secondary:hover {
+    background-color: #95a5a6;
+}
+  
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+  
+@keyframes slideUp {
+    from { 
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+
+/* Add to your global styles or component styles */
+
+
+/* Animation Definitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add to your global styles or component styles */
+
+
+/* Animation Definitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Popup Styles */
+.fullscreen-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.popup-container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center bottom;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d4f9b;
+  padding: 20px;
+  color: white;
+}
+
+.popup-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup-header h2 i {
+  font-size: 1.2em;
+}
+
+.badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.popup-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.pharmacies-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.pharmacy-card {
+  width: calc(50% - 10px);
+  min-width: 300px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pharmacy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pharmacy-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4a6fa5, #63b3ed);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.pharmacy-card:hover::after {
+  transform: scaleX(1);
+}
+
+.pharmacy-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #e3f2fd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  color: #4a6fa5;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.pharmacy-info {
+  flex: 1;
+}
+
+.pharmacy-info h4 {
+  margin: 0 0 8px 0;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.address {
+  margin: 0 0 10px 0;
+  color: #4a5568;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.address i {
+  color: #e53e3e;
+  margin-top: 2px;
+}
+
+.pharmacy-meta {
+  display: flex;
+  gap: 15px;
+  margin-top: 12px;
+}
+
+.delivery-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background-color: #fed7d7;
+  color: #e53e3e;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.delivery-badge.available {
+  background-color: #c6f6d5;
+  color: #38a169;
+}
+
+.distance {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: #4a5568;
+}
+
+.distance i {
+  color: #4a6fa5;
+}
+
+.action-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ebf8ff;
+  color: #3182ce;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: #3182ce;
+  color: white;
+  transform: scale(1.1);
+}
+
+.popup-footer {
+  padding: 15px;
+  text-align: center;
+  background-color: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.close-btn.large {
+  background-color: #4a6fa5;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: auto;
+}
+
+.close-btn.large:hover {
+  background-color: #3a5a80;
+  transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .popup-container {
+    width: 95%;
+    max-height: 85vh;
+  }
+  
+  .pharmacy-card {
+    width: 100%;
+  }
+  
+  .popup-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pharmacy-card {
+    flex-direction: column;
+  }
+  
+  .pharmacy-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .pharmacy-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+  

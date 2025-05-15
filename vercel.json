@@ -1,9 +1,0 @@
-{
-    "rewrites": [
-      {
-        "source": "/api/:path*",
-        "destination": "http://gpsavior.runasp.net/api/:path*"
-      }
-    ]
-  }
-  

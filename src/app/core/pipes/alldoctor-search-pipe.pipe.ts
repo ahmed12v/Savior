@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Doctor, DoctorCome } from '../../shared/Interfaces/Pages/doctor';
+import {  DoctorCome } from '../../shared/Interfaces/Pages/doctor';
 
 @Pipe({
   name: 'alldoctorSearchPipe',

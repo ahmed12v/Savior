@@ -1,3 +1,7 @@
+import { UserDataComponent } from './Admin/user-data/user-data.component';
+import { MedicineDetialsComponent } from './component/pharmacy/medicine-detials/medicine-detials.component';
+import { AdminfeedsComponent } from './Admin/adminfeeds/adminfeeds.component';
+import { AichatComponent } from './Ai/aichat/aichat.component';
 import { DocReequestComponent } from './Admin/doc-reequest/doc-reequest.component';
 import { AdminWorkComponent } from './Admin/admin-work/admin-work.component';
 import { GiveFeedBackComponent } from './pages/give-feed-back/give-feed-back.component';
@@ -235,7 +239,15 @@ export const routes: Routes = [
       ),canActivate:[authGuard]
  },
  {
-     path:'deliveryForm',
+     path:'medditals/:id',
+     loadComponent:()=>
+      import('./component/pharmacy/medicine-detials/medicine-detials.component').then(
+        (c)=>c.MedicineDetialsComponent
+      ),canActivate:[authGuard]
+ },
+
+ {
+     path:'deliveryForm/:id',
      loadComponent:()=>
       import('./component/forms/delivery-form/delivery-form.component').then(
         (c)=>c.DeliveryFormComponent
@@ -374,6 +386,29 @@ export const routes: Routes = [
      loadComponent:()=>
         import('./Admin/doc-reequest/doc-reequest.component').then(
             (C)=>C.DocReequestComponent
+        )
+  },
+  {
+    path:'ai',
+     loadComponent:()=>
+        import('./Ai/aichat/aichat.component').then(
+            (C)=>C.AichatComponent
+        )
+  },
+
+  {
+    path:'adminFeed',
+     loadComponent:()=>
+        import('./Admin/adminfeeds/adminfeeds.component').then(
+            (C)=>C.AdminfeedsComponent
+        )
+  },
+
+  {
+    path:'userData',
+     loadComponent:()=>
+        import('./Admin/user-data/user-data.component').then(
+            (C)=>C.UserDataComponent
         )
   },
 

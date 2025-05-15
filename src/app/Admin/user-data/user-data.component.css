@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    min-height: 100vh;
+  }
+  
+  .table-container {
+    width: 100%;
+    max-width: 900px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease;
+    word-break: break-word;
+  }
+  
+  .user-table th {
+    background-color: #1443b0;
+    color: #fff;
+  }
+  
+  .user-table tbody tr:hover {
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* المظهر العادي لحد 768px */
+  @media (max-width: 768px) {
+    .user-table th,
+    .user-table td {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* مظهر مختلف تمامًا تحت 480px */
+  @media (max-width: 480px) {
+    .user-table thead {
+      display: none;
+    }
+  
+    .user-table,
+    .user-table tbody,
+    .user-table tr,
+    .user-table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .user-table tr {
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      transition: transform 0.2s ease;
+    }
+  
+    .user-table tr:hover {
+      transform: scale(1.01);
+    }
+  
+    .user-table td {
+      text-align: left;
+      padding: 0.5rem 0;
+      border: none;
+      position: relative;
+      font-size: 0.9rem;
+    }
+  
+    .user-table td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      color: #555;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.85rem;
+    }
+  }
+  

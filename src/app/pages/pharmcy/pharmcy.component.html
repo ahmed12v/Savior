@@ -21,7 +21,7 @@
     
      
      <div class="pharmacy-services-container">
-      <!-- Service Cards Section -->
+      <!-- Service card Section -->
       <div class="services-grid">
           <!-- Medicine Delivery Card -->
           <div class="service-card delivery-card" routerLink="/searchMedicine">
@@ -47,7 +47,7 @@
           </div>
   
           <!-- Nearest Pharmacy Card -->
-          <div class="service-card pharmacy-card" routerLink="/nearstForm">
+          <div class="service-card pharmacy-card" (click)="handleFindNearest()">
               <div class="card-overlay"></div>
               <div class="card-content">
                   <div class="service-icon">
@@ -69,6 +69,64 @@
           </div>
       </div>
   </div>
+  <!-- popup -->
+@if (showPopup) {
+    <div class="fullscreen-popup" >
+        <div class="popup-overlay" (click)="closePopup()"></div>
+        
+        <div class="popup-container">
+          <div class="popup-header">
+            <h2>
+              <i class="fas fa-map-marker-alt"></i>
+              Nearest Pharmacies
+              <span class="badge">{{Nearcom.length}} found</span> 
+              <span class="badge fs-5">nearest ten pharmacies for you</span> 
+            </h2>
+            <button class="close-btn" (click)="closePopup()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        
+          <div class="popup-body">
+            <div class="pharmacies-row">
+              @for (pharm of Nearcom.slice(0,10); track $index) {
+                <div class="pharmacy-cartt" >
+                  <div class="pharmacy-icon">
+                    <i class="fas fa-clinic-medical"></i>
+                  </div>
+                  <div class="pharmacy-info">
+                    <h4>{{pharm.name}}</h4>
+                    <p class="address">
+                      <i class="fas fa-map-pin"></i>
+                      {{pharm.fullAddress}}
+                    </p>
+                    <div class="pharmacy-meta">
+                      <span class="delivery-badge" [class.available]="pharm.hasDelivery">
+                        <i class="fas fa-truck"></i>
+                        {{pharm.hasDelivery ? 'Delivery Available' : 'No Delivery'}}
+                      </span>
+                      <span class="distance">
+                        <i class="fas fa-route"></i>
+                        {{pharm.distanceInKm}} km
+                      </span>
+                    </div>
+                  </div>
+                  <button class="action-btn">
+                    <i class="fas fa-directions"></i>
+                  </button>
+                </div>
+              }
+            </div>
+          </div>
+        
+          <div class="popup-footer">
+            <button class="close-btn large" (click)="closePopup()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+  }
 
         <!-- --- end --- -->
 

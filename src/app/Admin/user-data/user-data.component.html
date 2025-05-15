@@ -1,0 +1,33 @@
+@if (spin) {
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+     <i class="fa fa-spin fa-spinner fw-bold fs-3 text-primary "></i>
+    </div>
+}@else {
+    <div class="w-100 d-flex justify-content-center align-items-center p-3">
+        <div class="table-container shadow-lg">
+            <h2>User Information</h2>
+            <table class="user-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th> Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of AllUserCome; track $index) {
+                    <tr>
+                        <td> {{item.id}} </td>
+                        <td> {{item.fname}} {{item.lname}} </td>
+                        <td> {{item.email}} </td>
+                        <td> {{item.phone}} </td>
+                      </tr>
+                }
+                
+              </tbody>
+            </table>
+          </div>
+    </div>
+}
+

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Docreq } from '../../Interfaces/Admin/admi';
+import { Docreq, User } from '../../Interfaces/Admin/admi';
 import { baseApiUrl } from '../../../bases/base-url';
 
 @Injectable({
@@ -46,5 +46,14 @@ export class AdminWorkService {
       {headers:headers , responseType:'text'})
   }
 
+  GetAllUser():Observable<User>
+  {
+    let token = localStorage.getItem('token')
+    let headers = new HttpHeaders()
+    if(token){
+     headers = headers.set('Authorization', 'Bearer ' + token)
+    }
+    return this._HttpClient.get<User>(`${baseApiUrl.Url}/api/Admin/all-users`,{headers : headers})
+  }
   
 }

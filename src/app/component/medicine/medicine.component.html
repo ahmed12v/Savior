@@ -1,90 +1,138 @@
-<div class="pharmacy-products-container">
+
+@if (spin) {
+  <div class=" vh-100 d-flex justify-content-center align-items-center">
+       <i class="fa fa-spin fa-spinner fw-bold fs-3 text-primary"></i>
+  </div>
+}@else {
+  <div class="pharmacy-products-container">
     <!-- Search Bar -->
     <div class="search-container">
-        <div class="search-bar">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" placeholder="Search by medicine name..." class="search-input">
-            <div class="cart-icon-container" routerLink="/cart">
-                <i class="fas fa-shopping-cart cart-icon"></i>
-                <span class="cart-badge">3</span>
-            </div>
+      <div class="search-bar">
+        <i class="fas fa-search search-icon"></i>
+        <input [(ngModel)]="userWord" (ngModelChange)="currentPage = 1" type="text" placeholder="Search by medicine name..." class="search-input">
+        <div class="cart-icon-container" routerLink="/cart">
+          <i class="fas fa-shopping-cart cart-icon"></i>
+          <span class="cart-badge"> {{cart?.items?.length}} </span>
         </div>
+      </div>
     </div>
-
+  
     <!-- Products Grid -->
-    <div class="products-grid">
-        @for (item of paginatedItems; track $index) {
-            <div class="product-card" [class.featured]="item.featured">
-                @if (item.discount) {
-                    <div class="product-badge">-{{item.discount}}%</div>
-                }
-                <div class="product-image-container">
-                    <img [src]="item.image" alt="{{item.title}}" class="product-image">
-                    <div class="product-overlay">
-                        <button class="quick-view-btn">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                    </div>
-                </div>
-                <div class="product-details">
-                    <h3 class="product-title">{{item.title}}</h3>
-                    <div class="price-container">
-                        <span class="current-price">{{item.price}} EGP</span>
-                        @if (item.originalPrice) {
-                            <span class="original-price">{{item.originalPrice}} EGP</span>
-                        }
-                    </div>
-                    <button class="add-to-cart-btn">
-                        <i class="fas fa-cart-plus"></i> Add to Cart
-                    </button>
-                </div>
+    <div class="products-grid"  >
+      
+        @for (item of paginatedFilteredItems; track $index) {
+          <div class="product-card shadow-sm"  >
+            <div class="product-image-container cuesor-pointer" [routerLink]="['/medditals',item.id]" >
+              <img [src]="item.image" alt="{{item.name}}" class="product-image" />
+              <div class="product-overlay">
+                <button class="quick-view-btn">
+                  <i class="fas fa-eye" ></i> Quick View
+                </button>
+              </div>
             </div>
+            <div class="product-details">
+              <h3 class="product-title">{{ item.name }}</h3>
+              <div class="price-container d-block">
+               <p class="m-0"><span class="fs-6 fw-bold">Box Price :</span><span class="current-price">{{ item.boxPrice }} EGP</span></p> 
+               @if(item.stripPrice !=null || item.stripPrice !=undefined ) {
+                <p><span class="fs-6 fw-bold">Strip Price : </span><span class="current-price">{{ item.stripPrice }} EGP</span></p> 
+               }
+  
+                
+              </div>
+              <button class="add-to-cart-btn rounded-5" (click)="openAddToCartForm(item.id)">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+          
+      
         }
+      
+      
     </div>
-
+    <!-- Modal Form -->
+    @if (showAddForm) {
+      <div class="modal-backdrop">
+        <div class="modal-box">
+          <div class="modal-header">
+            <h4>Add to Cart</h4>
+            <button class="close-btn" (click)="showAddForm = false">&times;</button>
+          </div>
+          
+          <form [formGroup]="AddForm" (ngSubmit)="AddNow()">
+            <div class="form-group">
+              <label>Quantity</label>
+              <input type="number" formControlName="quantity" class="form-control" min="1" placeholder="Enter quantity">
+            </div>
+      
+            <div class="form-group">
+              <label>Price Type</label>
+              <select formControlName="priceType" class="form-control">
+                <option value="Box">Box</option>
+                <option value="Strip">Strip</option>
+              </select>
+            </div>
+          
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary rounded-5" [disabled]="Addspi">
+                {{ Addspi ? 'Adding...' : 'Add to Cart' }}
+              </button>
+              <button type="button" class="btn btn-outline rounded-5" (click)="showAddForm = false">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+     }
+  
     <!-- Advanced Pagination -->
     <div class="pagination-container">
-        @if (!showAll) {
-            <div class="pagination">
-                <button class="pagination-btn first" (click)="goToFirstPage()" [disabled]="currentPage === 1">
-                    <i class="fas fa-angle-double-left"></i>
-                </button>
-                <button class="pagination-btn prev" (click)="goToPrevPage()" [disabled]="currentPage === 1">
-                    <i class="fas fa-angle-left"></i>
-                </button>
-                
-                <div class="page-numbers">
-                    @if (showStartDots) {
-                        <span class="page-dots">...</span>
-                    }
-                    
-                    @for (page of visiblePages; track $index) {
-                        <button class="page-btn" 
-                                [class.active]="page === currentPage" 
-                                (click)="goToPage(page)">
-                            {{page}}
-                        </button>
-                    }
-                    
-                    @if (showEndDots) {
-                        <span class="page-dots">...</span>
-                    }
-                </div>
-                
-                <button class="pagination-btn next" (click)="goToNextPage()" [disabled]="currentPage === totalPages">
-                    <i class="fas fa-angle-right"></i>
-                </button>
-                <button class="pagination-btn last" (click)="goToLastPage()" [disabled]="currentPage === totalPages">
-                    <i class="fas fa-angle-double-right"></i>
-                </button>
-            </div>
-        }
-        
-        <div class="view-more-container">
-            <button class="view-more-btn" (click)="toggleViewMoreAndLess()">
-                {{ showAll ? 'Show Pagination' : 'Show All Products' }}
-                <i class="fas" [ngClass]="{'fa-chevron-up': showAll, 'fa-chevron-down': !showAll}"></i>
-            </button>
+      @if (!showAll) {
+        <div class="pagination">
+          <button class="pagination-btn first" (click)="goToFirstPage()" [disabled]="currentPage === 1">
+            <i class="fas fa-angle-double-left"></i>
+          </button>
+          <button class="pagination-btn prev" (click)="goToPrevPage()" [disabled]="currentPage === 1">
+            <i class="fas fa-angle-left"></i>
+          </button>
+  
+          <div class="page-numbers">
+            @if (showStartDots) {
+              <span class="page-dots">...</span>
+            }
+  
+            @for (page of visiblePages; track $index) {
+              <button class="page-btn"
+                [class.active]="page === currentPage"
+                (click)="goToPage(page)">
+                {{ page }}
+              </button>
+            }
+  
+            @if (showEndDots) {
+              <span class="page-dots">...</span>
+            }
+          </div>
+  
+          <button class="pagination-btn next" (click)="goToNextPage()" [disabled]="currentPage === totalPages">
+            <i class="fas fa-angle-right"></i>
+          </button>
+          <button class="pagination-btn last" (click)="goToLastPage()" [disabled]="currentPage === totalPages">
+            <i class="fas fa-angle-double-right"></i>
+          </button>
         </div>
+      }
+  
+      <div class="view-more-container">
+        <button class="view-more-btn" (click)="toggleViewMoreAndLess()">
+          {{ showAll ? 'Show Pagination' : 'Show All Products' }}
+          <i class="fas" [ngClass]="{ 'fa-chevron-up': showAll, 'fa-chevron-down': !showAll }"></i>
+        </button>
+      </div>
     </div>
-</div>
+  </div>
+}
+
+  

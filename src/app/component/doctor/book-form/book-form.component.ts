@@ -14,6 +14,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './book-form.component.css'
 })
 export class BookFormComponent implements OnInit {
+
+  //#region ntifcation
+  
+  //#endregion
  
   //#region Declaration
   spinner:boolean=false
@@ -58,6 +62,10 @@ BooKNow:FormGroup=new FormGroup({
   phoneNumber:new FormControl(null , [Validators.required , Validators.pattern(/^01[0125][0-9]{8}$/)]),
   doctorId:new FormControl( 0 )
 })
+playSound() {
+  const audio = new Audio('../../../../assets/Sounds/notification-interface-success-positive-corrects-132471.mp3');
+  audio.play();
+}
 
 SendBook()
 {
@@ -65,12 +73,14 @@ SendBook()
     this.spinner=true
     this._DoctorService.BookNow(this.BooKNow.value).subscribe({
       next:res=>{
+       
         console.log(res)
         this.spinner=false
         this._toaster.success('Booking Successful', 'Check your email spam for all the details 😊')
         this.bookingCompleted.emit()
         this._Router.navigate(['/reserv'])
         this.BooKNow.reset()
+        this.playSound()
       },
       error:err=>{
         console.log(err)

@@ -1,0 +1,68 @@
+@if (spin) {
+
+ <div class="vh-100 d-flex align-items-center justify-content-center">
+       <i class="fa fa-solid fa-spinner fw-bold fs-3 text-primary"></i>
+ </div>
+
+}
+@else {
+  <div class="medicine-container fade-inn " >
+    @if (allmedicine) {
+        
+            <div class="medicine-card">
+                <img [src]="allmedicine.image" [alt]='allmedicine.name'  class=" medicine-img">
+                <div class="medicine-info">
+                  <h2 class="medicine-title"> {{allmedicine.name}} </h2>
+                  <p class="medicine-desc"> {{allmedicine.description}} </p>
+                  <div class="prices">
+                    <p><strong>Box Price:</strong> {{allmedicine.boxPrice}} EGP </p>
+                    <p><strong>Strip Price:</strong> {{allmedicine.stripPrice}} EGP</p>
+                  </div>
+                  <a routerLink="/searchMedicine" class="back-btn">← Back to All Medicine</a>
+                  <button class="btn btn-primary w-100 rounded-5 mt-5" (click)="openAddToCartForm(allmedicine.id)">
+                     Add to cart
+                  </button>
+                </div>
+              </div>
+        }
+    
+    
+    
+  </div>
+}
+@if (showAddForm) {
+  <div class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h4>Add to Cart</h4>
+        <button class="close-btn" (click)="showAddForm = false">&times;</button>
+      </div>
+      
+      <form [formGroup]="AddForm" (ngSubmit)="AddNow()">
+        <div class="form-group">
+          <label>Quantity</label>
+          <input type="number" formControlName="quantity" class="form-control" min="1" placeholder="Enter quantity">
+        </div>
+  
+        <div class="form-group">
+          <label>Price Type</label>
+          <select formControlName="priceType" class="form-control">
+            <option value="Box">Box</option>
+            <option value="Strip">Strip</option>
+          </select>
+        </div>
+      
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary rounded-5" [disabled]="Addspi">
+            {{ Addspi ? 'Adding...' : 'Add to Cart' }}
+          </button>
+          <button type="button" class="btn btn-outline rounded-5" (click)="showAddForm = false">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+ }
+
+  
