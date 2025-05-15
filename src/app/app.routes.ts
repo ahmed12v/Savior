@@ -1,3 +1,4 @@
+import { MyorderComponent } from './component/pharmacy/myorder/myorder.component';
 import { UserDataComponent } from './Admin/user-data/user-data.component';
 import { MedicineDetialsComponent } from './component/pharmacy/medicine-detials/medicine-detials.component';
 import { AdminfeedsComponent } from './Admin/adminfeeds/adminfeeds.component';
@@ -258,6 +259,13 @@ export const routes: Routes = [
      loadComponent:()=>
       import('./component/forms/nearst-location-form/nearst-location-form.component').then(
         (c)=>c.NearstLocationFormComponent
+      ),canActivate:[authGuard]
+ },
+ {
+     path:'myOrder',
+     loadComponent:()=>
+      import('./component/pharmacy/myorder/myorder.component').then(
+        (c)=>c.MyorderComponent
       ),canActivate:[authGuard]
  },
 

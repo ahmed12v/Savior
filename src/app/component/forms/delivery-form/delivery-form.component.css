@@ -260,3 +260,14 @@ textarea.form-input {
         font-size: 1rem;
     }
 }
+.click-btn{
+    border: #0d4f9b solid 2px;
+    background-color: transparent;
+    color: #0d4f9b;
+    transition: all .5s;
+}
+.click-btn:hover{
+    border: #0d4f9b solid 2px;
+    background-color: #0d4f9b;
+    color: white;
+}

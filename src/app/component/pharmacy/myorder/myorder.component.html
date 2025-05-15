@@ -1,0 +1,85 @@
+@if (orderSpin) {
+  <div class="vh-100 d-flex justify-content-center align-items-center">
+            <i class="fa fa-spin fa-spinner fs-4 fw-bold text-primary"></i>
+  </div>
+}
+@else {
+<div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-prescription-bottle-alt logo-icon"></i>
+                <span>Savior Pharmacies</span>
+            </div>
+        </header>
+
+        <h1 class="page-title">Your Orders</h1>
+
+        <div class="orders-grid">
+            <!-- Order 1 -->
+             @for (order of myorder.slice().reverse(); track $index) {
+                <div class="order-card shadow-lg bg-transparent">
+                <div class="order-body">
+                    <span class="order-status status-completed">Completed</span>
+                    <div class="medicine-item">
+                        <div class="medicine-info">
+                            <i class="fas fa-solid fa-clock medicine-icon"></i>
+                            <div>
+                                <div class="medicine-name">Duration Time </div>
+                            </div>
+                        </div>
+                        <span class="medicine-price"> {{order.duration}} m</span>
+                    </div>
+                    <div class="medicine-item">
+                        <div class="medicine-info">
+                            <i class="fas fa-solid fa-truck medicine-icon"></i>
+                            <div>
+                                <div class="medicine-name">Delivery Name </div>
+                                <div class="medicine-details"> {{order.deliveryName}} </div>
+                            </div>
+                        </div>
+                        <span class="medicine-price"> {{order.shippingPrice}} EGP</span>
+                    </div>
+                    <div class="medicine-item">
+                        <div class="medicine-info">
+                            <i class="fas fa-phone medicine-icon"></i>
+                            <div>
+                                <div class="medicine-name">Delivery Phone </div>
+                                <div class="medicine-details"> {{order.deliveryPhone}} </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medicine-item">
+                        <div class="medicine-info">
+                            <i class="fas fa-calendar-day medicine-icon"></i>
+                            <div>
+                                <div class="medicine-name">Date</div>
+                                <div class="medicine-details"> {{ order.orderDate | date: 'dd MMM yyyy, hh:mm a' }} </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <span class="text-black">Total</span>
+                    <span class="order-total"> {{order.totalPrice}} EGP</span>
+                </div>
+            </div>
+             }
+        </div>
+    </div>
+    @if (emperty) {
+             <div class="d-flex justify-content-center w-100  mb-5">
+<div class="orders-container ">
+            <div class="no-orders ">
+                <div class="no-orders-icon">🩺</div>
+                <h3>No Treatment Orders Found</h3>
+                <p>You haven't placed any treatment orders yet.</p>
+            </div>
+        </div>
+             </div>
+            
+             
+
+            }
+}
+    

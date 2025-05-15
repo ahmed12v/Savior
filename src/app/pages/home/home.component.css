@@ -241,6 +241,12 @@ background-attachment: local !important;
     padding-left: 0%;
     padding-right: 0%;
   }
+  .dash{
+    width: 100% !important;
+  }
+  .dash button {
+    font-size: 10px !important;
+  }
 }
 .SeeFeedbak{
   color: #0d4f9b;
@@ -248,6 +254,51 @@ background-attachment: local !important;
 }
 .SeeFeedbak:hover{
   transform: translateX(40px) scale(1.1) !important;
+}
+
+@media (max-width : 480px) {
+  .dash{
+    width: 100% !important;
+  }
+  .dash button {
+    font-size: 10px !important;
+  }
+}
+.booking{
+  background-color: #2b76cb;
+  border: #2b76cb solid 1px;
+  color: white;
+  transition: all .5s;
+}
+.booking:hover{
+   transform: translatey(10px) scale(1.05);
+}
+.orders{
+  background-color: #52ca34;
+  border: #52ca34  solid 1px;
+  color: white;
+  transition: all .5s;
+}
+.orders:hover{
+   transform: translatey(10px) scale(1.05);
+}
+.reuest{
+  background-color: #d22005;
+  border: #d22005  solid 1px;
+  color: white;
+  transition: all .5s;
+}
+.reuest:hover{
+   transform: translatey(10px) scale(1.05);
+}
+.contact{
+  background-color: #2a9797;
+  border: #2a9797  solid 1px;
+  color: rgb(255, 255, 255);
+  transition: all .5s;
+}
+.contact:hover{
+   transform: translatey(10px) scale(1.05);
 }
 
  

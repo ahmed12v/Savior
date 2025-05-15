@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LogInService } from '../../../shared/services/athountocation/log-in.service';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-delivery-form',
@@ -15,16 +15,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DeliveryFormComponent {
   spin = false;
+  TakeOrder=false
+  orderId:any
 
   constructor(
     private _PharmcyService: PharmcyService,
     private _ToastrService: ToastrService,
     private _LogInService: LogInService,
-    private _ActivatedRoute:ActivatedRoute
+    private _ActivatedRoute:ActivatedRoute,
+    private _Router:Router,
   ) {}
 
+  //#region  checkOut
   checkForm: FormGroup = new FormGroup({
-    cartID: new FormControl(null, Validators.required),
+    userID: new FormControl( ),
     userLatitude: new FormControl(),
     userLongitude: new FormControl(),
     userPhone: new FormControl(null, Validators.required)
@@ -45,7 +49,7 @@ export class DeliveryFormComponent {
       // اطبع الـ userID للتأكيد
      // console.log('User ID from token:', userId);
   
-      this.checkForm.patchValue({ cartID: '' });
+      this.checkForm.patchValue({ userID: userId });
   
       // تحقق من صلاحية النموذج
       if (this.checkForm.valid) {
@@ -56,6 +60,9 @@ export class DeliveryFormComponent {
             console.log(res);
             this.spin = false;
             this.checkForm.reset()
+            this.orderId=res //orderId
+            this.TakeOrder=true
+            this._ToastrService.success('',res.message)
           },
           error: err => {
             console.error('API Error:', err);
@@ -67,11 +74,11 @@ export class DeliveryFormComponent {
           }
         });
       } else {
-        this._ToastrService.warning("Please complete the form.");
         this.spin = false;
       }
     });
   }
+
   locationSet = false;  
   getLocation() {
     if (navigator.geolocation) {
@@ -97,5 +104,24 @@ export class DeliveryFormComponent {
     } else {
       this._ToastrService.warning('Geolocation is not supported by this browser.');
     }
+  }
+  //#endregion
+ conspan=false
+  TakenOrder(orderid:any)
+  {
+    this.conspan=true
+       this._PharmcyService.OrderConfirm(orderid).subscribe({
+        next:res=>{
+          console.log(res);
+           this._ToastrService.success('',res.message)
+           this.conspan=false
+           this._Router.navigate(['/myOrder'])
+        },
+        error:err=>{
+          console.log(err);
+          this.conspan=false
+          
+        }
+       })
   }
 }

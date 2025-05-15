@@ -53,3 +53,20 @@ export interface  NearCome
 export interface ClearAll{
   userID:string
 }
+
+export type MyOrder = Orders[]
+
+export interface Orders {
+  orderID: number
+  userLatitude: number
+  userLongitude: number
+  duration: string
+  paymentWay: number
+  deliveryName: string
+  deliveryPhone: string
+  orderDate: string
+  medicinesSubtotal: number
+  shippingPrice: number
+  totalPrice: number
+  orderItems: any[]
+}

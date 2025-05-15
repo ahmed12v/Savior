@@ -26,7 +26,7 @@ export class EmergencyFormComponent {
   userID:new FormControl(),
   location:new FormControl(null , Validators.required),
   phone:new FormControl(null , Validators.required),
-  type:new FormControl(null , Validators.required),
+  type:new FormControl( Validators.required),
   isConfirmed:new FormControl(true , Validators.required),
  })
 

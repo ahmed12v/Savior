@@ -14,7 +14,8 @@
         </div>
   
         <!-- ربط الفورم بـ Angular -->
-        <form [formGroup]="checkForm" (ngSubmit)="checkNow()">
+         @if (TakeOrder ==false) {
+             <form [formGroup]="checkForm" (ngSubmit)="checkNow()">
           <div class="form-body">
             <div class="input-group floating">
               <input type="tel" id="phone" class="form-input" placeholder=" " 
@@ -46,13 +47,28 @@
   
             <div class="form-actions text-center">
               <button type="submit" [disabled]="spin" class="submit-btn">
-                <span class="btn-text" *ngIf="!spin">Place Order</span>
+                <span class="btn-text" *ngIf="!spin">Check Out</span>
                 <span class="btn-text" *ngIf="spin">Processing...</span>
-                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
               </button>
             </div>
           </div>
         </form>
+         }
+       
+       @if (TakeOrder) {
+      
+        <button  [disabled]="spin" class=" rounded-5 click-btn p-3 w-100 shadow-lg" (click)="TakenOrder(orderId.orderId)">
+          @if (conspan) {
+            <i class="fa fa-spin fa-spinner"></i>
+          }@else {
+               Confirm Order <i class="fas fa-paper-plane"></i>
+          }
+              </button>
+
+       }
+        
+          
+        
       </div>
     </div>
   </section>

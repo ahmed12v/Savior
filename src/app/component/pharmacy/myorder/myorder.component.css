@@ -1,0 +1,259 @@
+       :root {
+            --primary: #0d4f9b;
+            --primary-light: #e6f0fa;
+            --secondary: #4CAF50;
+            --warning: #FFC107;
+            --danger: #F44336;
+            --text-dark: #212121;
+            --text-medium: #757575;
+            --text-light: #BDBDBD;
+            --background: #f5f7fa;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+       
+
+        /* Page Title */
+        .page-title {
+            font-size: 28px;
+            color: #0d4f9b;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #0d4f9b, #4FC3F7);
+            border-radius: 2px;
+        }
+
+        /* Orders Grid */
+        .orders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        /* Order Card */
+        .order-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow:  0 1px 3px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .order-header {
+            padding: 15px 20px;
+            background-color: #0d4f9b;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-id {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .order-date {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .order-body {
+            padding: 20px;
+        }
+
+        .order-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .status-completed {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+        }
+
+        .medicine-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .medicine-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .medicine-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .medicine-icon {
+            color: #0d4f9b;
+            font-size: 18px;
+        }
+
+        .medicine-name {
+            font-weight: 600;
+        }
+
+        .medicine-details {
+            font-size: 13px;
+            color: var(--text-medium);
+            margin-top: 3px;
+        }
+
+        .medicine-price {
+            font-weight: 600;
+            color: #0d4f9b;
+        }
+
+        .order-footer {
+            padding: 15px 20px;
+            background-color: #e6f0fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-total {
+            font-weight: 700;
+            color: #0d4f9b;
+            font-size: 16px;
+        }
+
+        .prescription-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: white;
+            color: #0d4f9b;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow:  0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        /* Empty State */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .empty-icon {
+            font-size: 60px;
+            color: #0d4f9b;
+            opacity: 0.3;
+            margin-bottom: 20px;
+        }
+
+        .empty-text h3 {
+            font-size: 22px;
+            color: var(--text-medium);
+            margin-bottom: 10px;
+        }
+
+        .empty-text p {
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .orders-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .page-title {
+                font-size: 24px;
+            }
+        }
+
+        /* Animation Delays */
+        .order-card:nth-child(1) { animation-delay: 0.1s; }
+        .order-card:nth-child(2) { animation-delay: 0.2s; }
+        .order-card:nth-child(3) { animation-delay: 0.3s; }
+        .order-card:nth-child(4) { animation-delay: 0.4s; }
+        .order-card:nth-child(5) { animation-delay: 0.5s; }
