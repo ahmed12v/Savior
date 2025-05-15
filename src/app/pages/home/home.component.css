@@ -247,6 +247,9 @@ background-attachment: local !important;
   .dash button {
     font-size: 10px !important;
   }
+  .Alldash{
+    margin-top: 60px !important;
+  }
 }
 .SeeFeedbak{
   color: #0d4f9b;
@@ -262,6 +265,9 @@ background-attachment: local !important;
   }
   .dash button {
     font-size: 10px !important;
+  }
+  .Alldash{
+    margin-top: 60px !important;
   }
 }
 .booking{
