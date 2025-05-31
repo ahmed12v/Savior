@@ -1,3 +1,4 @@
+import { UserEmegencyrequestComponent } from './component/user-emegencyrequest/user-emegencyrequest.component';
 import { MyorderComponent } from './component/pharmacy/myorder/myorder.component';
 import { UserDataComponent } from './Admin/user-data/user-data.component';
 import { MedicineDetialsComponent } from './component/pharmacy/medicine-detials/medicine-detials.component';
@@ -307,6 +308,15 @@ export const routes: Routes = [
       loadComponent: () =>
         import('./component/forms/medical-form/medical-form.component').then(
           (c) => c.MedicalFormComponent
+        ),
+      canActivate: [authGuard], 
+     },
+
+   {
+    path: 'EmergencyUserRequested',
+      loadComponent: () =>
+        import('./component/user-emegencyrequest/user-emegencyrequest.component').then(
+          (c) => c.UserEmegencyrequestComponent
         ),
       canActivate: [authGuard], 
      },

@@ -6,6 +6,8 @@ import { Docreq, User } from '../../shared/Interfaces/Admin/admi';
 import { AdminWorkService } from '../../shared/services/Admin/admin-work.service';
 import { HomeService } from '../../shared/services/Pages/home.service';
 import { contact } from '../../shared/Interfaces/Pages/home';
+import { EmegencyService } from '../../shared/services/Pages/emegency.service';
+import { PharmcyService } from '../../shared/services/Pages/pharmcy.service';
 
 @Component({
   selector: 'app-admin-work',
@@ -29,12 +31,16 @@ ngOnInit(): void {
       this.GetAllRequests()
       this.getAllFeeds()
       this.AllUser()
+      this.AllEmergency()
+      this.AllOrder()
    }
 
    constructor(
     private _DocServices:DoctorService ,
     private _AdminWorkService:AdminWorkService,
     private _HomeService:HomeService,
+    private _EmegencyService:EmegencyService,
+    private _PharmcyService:PharmcyService,
   ){}
  //#region Get
 getAllDoc()
@@ -85,12 +91,37 @@ getAllFeeds()
      }
   })
 }
-//#endregion
- 
+//
+AllEmerg!:any
+AllEmergency()
+{
+  this._EmegencyService.AllEmergency().subscribe({
+    next:res=>{
+       console.log(res)
+       this.AllEmerg=res
+     },
+     error:err=>{
+       console.log(err)
+     }
+  })
+}
+//
+AllPharmOrder!:any
+AllOrder()
+{
+  this._PharmcyService.AllOrder().subscribe({
+    next:res=>{
+       console.log(res)
+       this.AllPharmOrder=res
+     },
+     error:err=>{
+       console.log(err)
+     }
+  })
+}
+//
 UserSpin=false 
 AllUserCome:User=[]
-
-
 
 AllUser()
 {
@@ -109,5 +140,9 @@ AllUser()
     }
   })
 }
+
+//#endregion
+ 
+
 
 }

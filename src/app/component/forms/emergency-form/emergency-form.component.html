@@ -37,8 +37,13 @@
         </div>
   
         <button type="submit" class="emergency-submit-btn">
-          <i class="fas fa-paper-plane"></i> Submit Request
-          <div class="pulse-ring"></div>
+          @if (SpinBtn) {
+            <i class="fa fa-spin fa-spinner"></i>
+          }@else {
+           <i class="fas fa-paper-plane"></i> Submit Request
+          <div class="pulse-ring"></div> 
+          }
+          
         </button>
       </form>
   

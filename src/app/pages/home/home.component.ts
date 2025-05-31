@@ -25,7 +25,7 @@ export class HomeComponent  {
      {tittle:'Pharmacy & Medicine' , detals:'You can search for the nearest pharmacy, search for the treatment you want and then it will be delivered to you through us all time. ',
       route:'/pharmcy' , icon:' fa-solid fa-capsules fs-2 icon-des '
       },
-      {tittle:'Chat With Ai' , detals:'You can write what you are feeling to the AI chat, and it will give you a response suggesting doctors or prescribing medication.',
+      {tittle:'Ai Chat' , detals:'You can write what you are feeling to the AI chat, and it will give you a response suggesting doctors or prescribing medication.',
         route:'/searchMedicine' , icon:'fa-brands fa-rocketchat fs-2 icon-des '
         },
      {tittle:'Find Doctor & Booked ' , detals:'You can search for a doctor by his name or through his section, and know his appointments and you can also book an appointment with him. ',

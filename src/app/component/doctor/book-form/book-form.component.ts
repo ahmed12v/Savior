@@ -76,7 +76,7 @@ SendBook()
        
         console.log(res)
         this.spinner=false
-        this._toaster.success('Booking Successful', 'Check your email spam for all the details 😊')
+        this._toaster.success('Booking Successful', 'Check your email for all the details 😊')
         this.bookingCompleted.emit()
         this._Router.navigate(['/reserv'])
         this.BooKNow.reset()

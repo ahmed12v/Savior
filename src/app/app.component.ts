@@ -3,7 +3,6 @@ import {  NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './core/importantCompnent/navbar/navbar.component';
 import { FooterComponent } from './core/importantCompnent/footer/footer.component';
 import { isPlatformBrowser } from '@angular/common';
-import { ToastrModule } from 'ngx-toastr';
 
 
 

@@ -1,7 +1,7 @@
 
 <div class="container p-5">
     <div class="row">
-      <div class="col-md-3 col-sm-6">
+        <div class="col-md-3 col-sm-6">
         <div class="d-flex DashCard" routerLink="/userData">
             <div>
                 <div class="numbers">{{AllUserCome.length}}</div>
@@ -11,11 +11,11 @@
                 <i class="fa-solid fa-user"></i>
             </div>
         </div>
-    </div>
+        </div>
         <div class="col-md-3 col-sm-6">
             <div class="d-flex DashCard">
                 <div>
-                    <div class="numbers">80</div>
+                    <div class="numbers">{{AllPharmOrder?.length}}</div>
                     <div class="cardName">Sales</div>
                 </div>
                 <div class="iconBx">
@@ -45,7 +45,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-3 col-sm-6">
           <div class="d-flex DashCard">
               <div>
@@ -56,12 +55,11 @@
                   <i class="fa-solid fa-file-archive"></i>
               </div>
           </div>
-      </div>
-        
+        </div>
         <div class="col-md-3 col-sm-6">
             <div class="d-flex DashCard">
                 <div>
-                    <div class="numbers">158</div>
+                    <div class="numbers">{{AllEmerg?.length}}</div>
                     <div class="cardName">Emergency Request</div>
                 </div>
                 <div class="iconBx">

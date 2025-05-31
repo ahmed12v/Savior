@@ -26,18 +26,22 @@
         </div>
       </div>
   
-      
+      <div class="form-group mb-4">
+        <label class="form-label">Date</label>
+        <div class="input-container">
+          <i class="fas fa-solid fa-calendar input-icon"></i>
+          <input type="date" class="form-control" formControlName="address" placeholder="Enter your detailed address">
+        </div>
+      </div>
   
       <div class="form-group mb-4">
-        <label class="form-label">Case Type</label>
+        <label class="form-label">Medical Member </label>
         <div class="input-container">
           <i class="fas fa-procedures input-icon"></i>
           <select class="form-control" formControlName="caseType">
-            <option value="">Select case type</option>
+            <option value="">Select Medical Member</option>
             <option value="cannula">Cannula at Home</option>
-            <option value="dailyCare">Home Checkups</option>
-            <option value="surgery">Before and After Surgery Help</option>
-            <option value="critical">Home Care for Serious Conditions</option>
+  
           </select>
         </div>
       </div>

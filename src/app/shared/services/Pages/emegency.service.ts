@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { emergency } from '../../Interfaces/Pages/emergency';
+import { emergency, reqUserCome } from '../../Interfaces/Pages/emergency';
 import { Observable } from 'rxjs';
 import { base2, baseApiUrl } from '../../../bases/base-url';
 
@@ -15,4 +15,16 @@ export class EmegencyService {
   {
     return this._HttpClient.post(`${base2.Ur2}/api/Emergency/request`,REquestForm)
   }
+
+  UserRequested(userid:any):Observable<reqUserCome>
+  {
+    return this._HttpClient.get<reqUserCome>(`${base2.Ur2}/api/Emergency/user/${userid}`)
+  }
+  
+  AllEmergency():Observable<reqUserCome>
+  {
+    return this._HttpClient.get<reqUserCome>(`${base2.Ur2}/api/Emergency/all`)
+  }
+
+
 }

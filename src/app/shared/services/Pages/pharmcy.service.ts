@@ -60,5 +60,10 @@ export class PharmcyService {
   {
     return this._HttpClient.get<MyOrder>(`${base2.Ur2}/api/Order/past-orders/${userId}`)
   }
+
+  AllOrder():Observable<MyOrder>
+  {
+    return this._HttpClient.get<MyOrder>(`${base2.Ur2}/api/Order/all-orders`)
+  }
   
 }

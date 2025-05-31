@@ -1,0 +1,79 @@
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../../assets/imege/bgmeder.jpg') ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 0;
+  filter: brightness(0.5) blur(3px); /* عشان تبرز الكروت فوقها */
+}
+.page-title {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.emergency-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cards-container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ffffff30;
+  padding: 25px;
+  border-radius: 16px;
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.7s ease, box-shadow 0.7s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.card p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #e0e0e0;
+}
+p strong{
+    font-size: 18px;
+}
