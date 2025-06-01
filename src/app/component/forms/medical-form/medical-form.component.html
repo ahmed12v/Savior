@@ -1,12 +1,19 @@
 <div class="container py-5 medical-form-container">
     <h2 class="text-center mb-4 form-title">Medical Service Request</h2>
   
-    <form [formGroup]="serviceForm" (ngSubmit)="submitForm()" class="medical-service-form">
+    <form [formGroup]="serviceForm" (ngSubmit)="SendToRequest()" class="medical-service-form">
       <div class="form-group mb-4">
         <label class="form-label">Full Name</label>
         <div class="input-container">
           <i class="fas fa-user input-icon"></i>
-          <input type="text" class="form-control" formControlName="fullName" placeholder="Enter your full name">
+          <input formControlName="fullName" type="text" class="form-control" >
+         @if (serviceForm.get('fullName')?.errors && serviceForm.get('fullName')?.touched) {
+          <div class="p-1 w-100 text-center">
+            @if (serviceForm.get('fullName')?.errors?.['required']) {
+              <p class="notVaild fw-bold"> Full Name Is Required ! </p>
+            }
+          </div>
+         }
         </div>
       </div>
   
@@ -14,7 +21,14 @@
         <label class="form-label">Phone Number</label>
         <div class="input-container">
           <i class="fas fa-phone-alt input-icon"></i>
-          <input type="tel" class="form-control" formControlName="phone" placeholder="Enter your phone number">
+          <input formControlName="phoneNumber" type="tel" class="form-control"  >
+          @if (serviceForm.get('phoneNumber')?.errors && serviceForm.get('phoneNumber')?.touched) {
+          <div class="p-1 w-100 text-center">
+            @if (serviceForm.get('phoneNumber')?.errors?.['required']) {
+              <p class="notVaild fw-bold"> Phone Is Required ! </p>
+            }
+          </div>
+         }
         </div>
       </div>
   
@@ -22,7 +36,14 @@
         <label class="form-label">Address</label>
         <div class="input-container">
           <i class="fas fa-map-marker-alt input-icon"></i>
-          <input type="text" class="form-control" formControlName="address" placeholder="Enter your detailed address">
+          <input formControlName="location" type="text" class="form-control"  >
+          @if (serviceForm.get('location')?.errors && serviceForm.get('location')?.touched) {
+          <div class="p-1 w-100 text-center">
+            @if (serviceForm.get('location')?.errors?.['required']) {
+              <p class="notVaild fw-bold"> Address Is Required ! </p>
+            }
+          </div>
+         }
         </div>
       </div>
   
@@ -30,7 +51,15 @@
         <label class="form-label">Date</label>
         <div class="input-container">
           <i class="fas fa-solid fa-calendar input-icon"></i>
-          <input type="date" class="form-control" formControlName="address" placeholder="Enter your detailed address">
+          <input formControlName="requestDate" type="datetime-local" class="form-control" >
+
+           @if (serviceForm.get('requestDate')?.errors && serviceForm.get('requestDate')?.touched) {
+          <div class="p-1 w-100 text-center">
+            @if (serviceForm.get('requestDate')?.errors?.['required']) {
+              <p class="notVaild fw-bold"> Date Is Required ! </p>
+            }
+          </div>
+         }
         </div>
       </div>
   
@@ -38,11 +67,20 @@
         <label class="form-label">Medical Member </label>
         <div class="input-container">
           <i class="fas fa-procedures input-icon"></i>
-          <select class="form-control" formControlName="caseType">
-            <option value="">Select Medical Member</option>
-            <option value="cannula">Cannula at Home</option>
+          <select formControlName="medicalStaffMemberId" class="form-control" >
+            <option  value="" disabled>Select Medical Member</option>
+            @for (member of AllMembers; track $index) {
+            <option value="{{member.id}}"> <span>{{member.name}} |</span> <span> {{member.price}} EGP </span> </option>
+            }
   
           </select>
+            @if (serviceForm.get('medicalStaffMemberId')?.errors && serviceForm.get('medicalStaffMemberId')?.touched) {
+          <div class="p-1 w-100 text-center">
+            @if (serviceForm.get('medicalStaffMemberId')?.errors?.['required']) {
+              <p class="notVaild fw-bold"> Medical Member Is Required ! </p>
+            }
+          </div>
+         }
         </div>
       </div>
   
@@ -50,13 +88,25 @@
         <label class="form-label">Additional Notes</label>
         <div class="input-container">
           <i class="fas fa-notes-medical textarea-icon"></i>
-          <textarea class="form-control" rows="4" formControlName="notes" placeholder="Enter any important details..."></textarea>
+          <textarea formControlName="notes" class="form-control" rows="3" ></textarea>
+
+            @if (serviceForm.get('notes')?.errors && serviceForm.get('notes')?.touched) {
+          <div class="p-1 w-100 text-center">
+            @if (serviceForm.get('notes')?.errors?.['required']) {
+              <p class="notVaild fw-bold"> Notes Is Required ! </p>
+            }
+          </div>
+         }
         </div>
       </div>
   
       <button type="submit" class="btn btn-submit">
-        <span>Submit Request</span>
-        <i class="fas fa-paper-plane btn-icon"></i>
+        @if (formbtnspin) {
+          <i class="fa fa-spin fa-spinner"></i>
+        }@else {
+          <span>Submit Request</span>
+          <i class="fas fa-paper-plane btn-icon"></i> 
+        }
       </button>
     </form>
 </div>

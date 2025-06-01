@@ -1,4 +1,4 @@
-@if (RequestComeSpin) {
+@if (Spin) {
     <div class="d-flex justify-content-center align-items-center vh-100">
           <i class="fa fa-spin fa-spinner fs-4 fw-bold text-primary"></i>
     </div>
@@ -8,16 +8,15 @@
   <div class="background-animation"></div>
   
   <!-- Page Title -->
-  <h1 class="page-title">🚨 Emergency Requests</h1>
+  <h1 class="page-title">👩‍⚕️ Medical Requests</h1>
 
   <div class="cards-container">
-    @for (item of reqCome.slice().reverse(); track $index) {
+    @for (item of ComeData.slice().reverse(); track $index) {
         <div class="card"  [@fadeIn]>
       <!-- Removed h2 title from here -->
       <p><strong><i class="fa-solid fa-location-dot me-2"></i> Location:</strong> {{ item.location }}</p>
-      <p><strong><i class="fa-solid fa-kit-medical me-2"></i> Type:</strong> {{ item.type }}</p>
-      <p><strong><i class="fa-solid fa-stopwatch me-2"></i> arrive later:</strong> {{ item.duration }}</p>
-      <p><strong><i class="fa-solid fa-calendar me-2"></i> Date:</strong> {{ item.createdAt | date: 'yyyy-MM-dd : HH:mm' }}</p>
+      <p><strong><i class="fa-solid fa-calendar me-2"></i> Date:</strong> {{ item.requestDate| date: 'yyyy-MM-dd : HH:mm' }}</p>
+      <p><strong><i class="fa-solid fa-notes-medical me-2"></i> Notes:</strong> {{ item.notes }}</p>
     </div>
     }
 

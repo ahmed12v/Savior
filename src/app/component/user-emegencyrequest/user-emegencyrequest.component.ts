@@ -29,6 +29,7 @@ export class UserEmegencyrequestComponent implements OnInit {
 
   RequestComeSpin=false
   reqCome:reqUserCome=[]
+  empty=false
 
   constructor(
     private _EmegencyService:EmegencyService,
@@ -47,6 +48,10 @@ export class UserEmegencyrequestComponent implements OnInit {
       console.log(res);
       this.reqCome=res
       this.RequestComeSpin=false
+      if(res.length === 0)
+      {
+        this.empty=true
+      }
     },
 
     error:err=>{

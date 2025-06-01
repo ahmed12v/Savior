@@ -24,6 +24,11 @@ export class AdminWorkComponent implements OnInit{
   spin=false
   DocReqCom:Docreq=[]
   FeedbackData:contact =[];
+  UserSpin=false 
+  AllUserCome:User=[]
+  AllPharmOrder!:any
+  AllEmerg!:any
+  Allmedica!:any
   //#endregion
 
 ngOnInit(): void {
@@ -33,6 +38,7 @@ ngOnInit(): void {
       this.AllUser()
       this.AllEmergency()
       this.AllOrder()
+      this.AllMedical()
    }
 
    constructor(
@@ -78,6 +84,7 @@ GetAllRequests()
     }
   })
 }
+
 //
 getAllFeeds()
 {
@@ -91,8 +98,22 @@ getAllFeeds()
      }
   })
 }
+
 //
-AllEmerg!:any
+
+AllMedical()
+{
+  this._EmegencyService.AllMedical().subscribe({
+    next:res=>{
+       console.log(res)
+       this.Allmedica=res
+     },
+     error:err=>{
+       console.log(err)
+     }
+  })
+}
+
 AllEmergency()
 {
   this._EmegencyService.AllEmergency().subscribe({
@@ -106,7 +127,7 @@ AllEmergency()
   })
 }
 //
-AllPharmOrder!:any
+
 AllOrder()
 {
   this._PharmcyService.AllOrder().subscribe({
@@ -120,8 +141,6 @@ AllOrder()
   })
 }
 //
-UserSpin=false 
-AllUserCome:User=[]
 
 AllUser()
 {
